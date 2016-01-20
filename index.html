@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<!-- Portfolio Grid Section -->
+<section id="projects">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>Projects</h2>
+        <hr class="star-primary">
+      </div>
+    </div>
+    <div class="row">
+      {% for project in site.data.projects %}
+        <div class="col-sm-4">
+          <h3>{{project.name}}</h3>
+          <p>{{project.description}}</p>
+          <p><a href="http://github.com/GrimoireLab/{{project.github-name}}"><i class="fa fa-github"></i></a></p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

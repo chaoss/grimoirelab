@@ -1,0 +1,12 @@
+# Site settings
+title: Grimoire Lab
+email: info@bitergia.com
+description: ""
+baseurl: ""
+url: "http://grimoire.github.io"
+twitter_username: bitergia
+github_username:  GrimoireLab
+
+# Build settings
+markdown: kramdown
+permalink: pretty
