@@ -2,6 +2,9 @@
 - name: Perceval
   github-name: perceval
   description: Send Sir Perceval on a quest to retrieve and gather data from software repositories.
+- name: Arthur
+  github-name: arthur
+  description: King Arthur commands his loyal knight Perceval on the quest to retrieve data from software repositories.
 - name: KiBiter
   github-name: kibiter
-  description: Custom fork of Kibana to work on new ideas for data visualization
+  description: Custom fork of Kibana to work on new ideas for software development metrics &amp; data visualization.
