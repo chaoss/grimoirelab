@@ -13,10 +13,11 @@ layout: default
     </div>
     <div class="row">
       {% for project in site.data.projects %}
-        <div class="col-sm-4">
+        <div class="col-sm-4 text-center">
+          <p><i class="fa fa-{{project.icon}} fa-3x"></i></p>
           <h3>{{project.name}}</h3>
-          <p>{{project.description}}</p>
-          <p><a href="http://github.com/GrimoireLab/{{project.github-name}}"><i class="fa fa-github"></i> Check {{project.name}} repository</a></p>
+          <p class="text-justify">{{project.description}}</p>
+          <p class="text-justify"><a href="http://github.com/GrimoireLab/{{project.github-name}}"><i class="fa fa-github"></i> Check {{project.name}} repository</a></p>
         </div>
       {% endfor %}
     </div>

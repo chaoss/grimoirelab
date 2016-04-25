@@ -1,10 +1,13 @@
 # Projects list
 - name: Perceval
+  icon: download
   github-name: perceval
-  description: Send Sir Perceval on a quest to retrieve and gather data from software repositories.
+  description: Sir Perceval goes on the quest to retrieve and gather data from software repositories.
 - name: Arthur
+  icon: tasks
   github-name: arthur
-  description: King Arthur commands his loyal knight Perceval on the quest to retrieve data from software repositories.
+  description: King Arthur commands his loyal knight Perceval and manange the tasks to retrieve and enrich data for analysis.
 - name: KiBiter
+  icon: bar-chart
   github-name: kibiter
-  description: Custom fork of Kibana to work on new ideas for software development metrics &amp; data visualization.
+  description: Custom fork of <a href="https://www.elastic.co/products/kibana">Kibana</a> to work on new ideas for software development metrics &amp; data visualization.
