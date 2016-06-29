@@ -3,22 +3,33 @@ layout: default
 ---
 
 <!-- Portfolio Grid Section -->
-<section id="projects">
+<section id="components">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2>Projects</h2>
+        <h2>Main components</h2>
         <hr class="star-primary">
       </div>
     </div>
     <div class="row">
       {% for project in site.data.projects %}
-        <div class="col-sm-4 text-center">
-          <p><i class="fa fa-{{project.icon}} fa-3x"></i></p>
-          <h3>{{project.name}}</h3>
-          <p class="text-justify">{{project.description}}</p>
-          <p class="text-justify"><a href="http://github.com/GrimoireLab/{{project.github-name}}"><i class="fa fa-github"></i> Check {{project.name}} repository</a></p>
-        </div>
+        {% capture modulo %}{{ forloop.index0 | modulo:3 }}{% endcapture %}
+
+        {% if modulo == '0' or forloop.first %}
+          <div class="row">
+        {% endif %}
+
+            <div class="col-sm-4 text-center">
+              <p><i class="fa fa-{{project.icon}} fa-2x"></i></p>
+              <h3>{{project.name}}</h3>
+              <p class="text-justify" style="font-size: medium;">{{project.description}}</p>
+              <p class="text-justify" style="font-size: medium;"><a href="http://github.com/GrimoireLab/{{project.github-name}}"><i class="fa fa-github"></i> Check {{project.name}} repository</a></p>
+            </div>
+
+        {% if modulo == '2' or forloop.last %}
+          </div>
+        {% endif %}
+
       {% endfor %}
     </div>
   </div>
