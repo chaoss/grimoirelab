@@ -1,8 +1,7 @@
 # Site settings
-title: Grimoire Lab - Open Source Development Analytics toolkit
+title: Grimoire Lab - OpenSource Development Analytics toolkit
 email: info@bitergia.com
-description: "Grimoire Lab, AKA GrimoireLab, is a Software Development Analytics platform, 100% free, open source software maintained by Bitergia to build dashboards and reports
-about open source and inner source development related activities"
+description: "Grimoire Lab is 100% OpenSource Software Development Analytics platform, maintained by Bitergia to build dashboards and reports about OpenSource and InnerSource Software development activity"
 baseurl: ""
 url: "http://grimoire.github.io"
 twitter_username: bitergia

@@ -7,11 +7,23 @@ layout: default
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2>Main components</h2>
+        <h2>How it works <small>Aim and components</small></h2>
         <hr class="star-primary">
       </div>
     </div>
     <div class="row">
+      <div class="col-lg-12">
+        <p>The aim of this project is to provide an <strong>open source platform</strong> for:</p>
+        <ol>
+          <li>Automatic and incremental <b>data gathering</b> from almost any tool (<em>data source</em>) related with contributing to Open Source development (source code management, issue tracking systems, forums, etc.)</li>
+          <li>Automatic gathered <b>data <em>enrichment</em></b>, merging duplicated identities, adding additional information about contributors affiliation, calculation delays, geographical data, etc.</li>
+          <li><b>Data visualization</b>, allowing filtering by time range, project, repository, contributor, etc.</li>
+        </ol>
+        <p>The platform provides the following pieces:</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
       {% for project in site.data.projects %}
         {% capture modulo %}{{ forloop.index0 | modulo:3 }}{% endcapture %}
 
@@ -31,6 +43,7 @@ layout: default
         {% endif %}
 
       {% endfor %}
+      </div>
     </div>
   </div>
 </section>
