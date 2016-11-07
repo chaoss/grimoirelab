@@ -5,9 +5,9 @@
 - name: Eclipse Foundation dashboard
   image: eclipse.png
   url: http://dashboard.bitergia.com/eclipse
-- name: CoreOS Inc. dashboard
-  image: coreos.png
-  url: http://dashboard.bitergia.com/coreos
+#- name: CoreOS Inc. dashboard
+#  image: coreos.png
+#  url: http://dashboard.bitergia.com/coreos
 - name: OPNFV dashboard
   image: opnfv.png
-  url: http://dashboard.bitergia.com/opnfv
+  url: http://opnfv.biterg.io
