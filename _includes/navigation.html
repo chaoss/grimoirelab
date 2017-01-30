@@ -9,8 +9,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#page-top">
-        <img src="img/profile.png" alt="" height="32px">
+      <a class="navbar-brand" href="/#page-top">
+        <img src="/img/wizard-y.svg" alt="" height="48px">
         <span>Grimoire Lab</span>
       </a>
     </div>
@@ -19,20 +19,15 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li class="hidden">
-          <a href="#page-top"></a>
+          <a href="/#page-top"></a>
         </li>
+
+        {% for section in page.sections %}
         <li class="page-scroll">
-          <a href="#components">How it works</a>
+          <a href="{{section.link}}">{{section.name}}</a>
         </li>
-        <li class="page-scroll">
-          <a href="#builtwith">Built with Grimoire Lab</a>
-        </li>
-        <li>
-          <a href="/con">GrimoireCon</a>
-        </li>
-        <li class="page-scroll">
-          <a href="#about">About</a>
-        </li>
+        {% endfor %}
+
       </ul>
     </div>
     <!-- /.navbar-collapse -->

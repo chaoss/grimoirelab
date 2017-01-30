@@ -22,7 +22,7 @@ a:focus,
 a:active,
 a.active {
     outline: 0;
-    color: #F90;
+    color: #f90;
 }
 
 h1,
@@ -63,7 +63,7 @@ hr.star-light {
 
 hr.star-light:after {
     color: #fff;
-    background-color: #F90;
+    background-color: #f90;;
 }
 
 hr.star-primary {
@@ -82,7 +82,7 @@ hr.star-primary:after {
 header {
     text-align: center;
     color: #fff;
-    background: #F90;
+    background: #f90;
 }
 
 header .container {
@@ -110,15 +110,16 @@ header .intro-text .skills {
 
 .navbar-default .navbar-brand img {
     display: inline;
+    padding-bottom: 5px;
     /*vertical-align:middle;*/
 }
 
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover  {
-    color: #F90;
+    color: #f4bc00;
 }
 
 .navbar .navbar-nav li a:focus, .navbar .navbar-nav li a:hover {
-    color: #F90;
+    color: #f4bc00;
 }
 
 @media(min-width:768px) {
@@ -194,7 +195,7 @@ section h2 {
 
 section.success {
     color: #fff;
-    background: #F90;
+    background: #f90;
 }
 
 section.success a,
@@ -287,7 +288,7 @@ section.success a.active {
 .btn-outline:active,
 .btn-outline.active {
     border: solid 2px #fff;
-    color: #F90;
+    color: #f90;
     background: #fff;
 }
 
@@ -340,7 +341,7 @@ section.success a.active {
 }
 
 .floating-label-form-group-with-focus label {
-    color: #F90;
+    color: #f90;
 }
 
 form .row:first-child .floating-label-form-group {
@@ -367,6 +368,15 @@ footer .footer-col {
 footer .footer-below {
     padding: 25px 0;
     background-color: #233140;
+}
+
+footer a {
+  color: #f4bc00;
+}
+
+footer a:hover {
+  color: #f4bc00;
+  text-decoration: underline;
 }
 
 .btn-social {
