@@ -16,6 +16,7 @@ sections:
 <!-- Portfolio Grid Section -->
 <section id="components">
   <div class="container">
+
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2>How it works <small>Aim and components</small></h2>
@@ -30,11 +31,91 @@ sections:
           <li>Automatic gathered <b>data <em>enrichment</em></b>, merging duplicated identities, adding additional information about contributors affiliation, calculation delays, geographical data, etc.</li>
           <li><b>Data visualization</b>, allowing filtering by time range, project, repository, contributor, etc.</li>
         </ol>
-        <p>The platform provides the following pieces:</p>
+
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h3>Supported data sources</h3>
+      </div>
+      <div class="row">
+        <div class="col-lg-5 col-lg-offset-1">
+          <div class="row">
+            <div class="col-xs-2 text-right"><i class="fa fa-2x fa-code"></i></div>
+            <div class="col-xs-10">
+              <p>Source Code Management</p>
+              <p class="text-justify small">Git, <em>Baazar(*), Mercurial(*) (*exporting to git)</em></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-2 text-right"><i class="fa fa-2x fa-bug"></i></div>
+            <div class="col-xs-10">
+              <p>Issues / Tasks Management</p>
+              <p class="text-justify small">Bugzilla, GitHub Issues, JIRA, Maniphest, Redmine</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-2 text-right"><i class="fa fa-2x fa-code-fork"></i></div>
+            <div class="col-xs-10">
+              <p>Source Code Review</p>
+              <p class="text-justify small">Gerrit, GitHub Pull Requests</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-2 text-right"><i class="fa fa-2x fa-envelope-o"></i></div>
+            <div class="col-xs-10">
+              <p>Mailing lists / Forums</p>
+              <p class="text-justify small">Askbot, Discourse, Gmane, Hyperkitty, mbox files, <abbr title="Network News Transfer Protocol">NNTP</abbr>, Pipermail, Stack Exchange</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-5">
+          <div class="row">
+            <div class="col-xs-2 text-right"><i class="fa fa-2x fa-gears"></i></div>
+            <div class="col-xs-10">
+              <p>Continuous Integration</p>
+              <p class="text-justify small">Jenkins</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-2 text-right"><i class="fa fa-2x fa-comments-o"></i></div>
+            <div class="col-xs-10">
+              <p>Synchronous Conferencing</p>
+              <p class="text-justify small">IRC (Supybot), Slack, Telegram</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-2 text-right"><i class="fa fa-2x fa-file-text-o"></i></div>
+            <div class="col-xs-10">
+              <p>Wikis</p>
+              <p class="text-justify small">Confluence, MediaWiki</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-2 text-right"><i class="fa fa-2x fa-users"></i></div>
+            <div class="col-xs-10">
+              <p>Meetings Management</p>
+              <p class="text-justify small">Meetup</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-2 text-right"><i class="fa fa-2x fa-rss"></i></div>
+            <div class="col-xs-10">
+              <p>Others</p>
+              <p class="text-justify small"><abbr title="Really Simple Syndication">RSS</abbr></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-lg-12">
+        <p>The platform provides the following pieces:</p>
       {% for project in site.data.projects %}
         {% capture modulo %}{{ forloop.index0 | modulo:3 }}{% endcapture %}
 
@@ -56,6 +137,7 @@ sections:
       {% endfor %}
       </div>
     </div>
+
     <div class="row">
       <div class="col-lg-12">
         <h3>Documentation</h3>
@@ -63,6 +145,7 @@ sections:
         <p><i class="fa fa-book fa-2x"></i><a href="https://www.gitbook.com/book/jgbarah/grimoirelab-training/details" target="_blank"> <strong>GrimoireLab Training</strong></a></p>
       </div>
     </div>
+
   </div>
 </section>
 
