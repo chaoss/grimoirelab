@@ -2,12 +2,9 @@
 - name: Cauldron.io dashboards
   image: cauldron.png
   url: http://cauldron.io
-- name: Eclipse Foundation dashboard
+- name: Bitergia Analytics Platform
   image: eclipse.png
-  url: http://dashboard.bitergia.com/eclipse
-#- name: CoreOS Inc. dashboard
-#  image: coreos.png
-#  url: http://dashboard.bitergia.com/coreos
-- name: OPNFV dashboard
-  image: opnfv.png
-  url: http://opnfv.biterg.io
+  url: https://www.bitergia.com/products/
+- name: Samsung Open Souce Group Numbers
+  image: samsung-osg.png
+  url: https://blogs.s-osg.org/metrics/
