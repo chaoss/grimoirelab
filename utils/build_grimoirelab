@@ -1,0 +1,335 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# Copyright (C) 2017 Bitergia
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, 51 Franklin Street, Fifth Floor, Boston, MA 02110-1335, USA.
+#
+# Authors:
+#     Jesus M. Gonzalez-Barahona <jgb@bitergia.com>
+#
+
+import argparse
+import logging
+import os
+import os.path
+import subprocess
+import tempfile
+
+description = """Create packages for pypi.
+
+Example:
+    build_pypi.py
+
+"""
+
+build_dependencies = ['pip', 'setuptools', 'pypandoc', 'twine']
+install_dependencies = ['pip']
+
+#default_modules = ['grimoirelab-toolkit', 'perceval', 'perceval-opnfv',
+#        'perceval-mozilla', 'grimoireelk', 'sortinghat']
+default_commits = {
+        'grimoirelab-toolkit': 'HEAD',
+        'perceval': 'HEAD',
+        'perceval-opnfv': 'HEAD',
+        'perceval-mozilla': 'HEAD',
+        'grimoireelk': 'HEAD',
+        'sortinghat': 'HEAD'
+    }
+
+# Repos dictionary. For each git repository, if None, that
+# repo produces a single package, whose name is that of
+# the repo, and directory is the main repo directory.
+# If not None, list of package descriptions (package name and directory)
+repos = {
+    'grimoirelab-toolkit': None,
+    'perceval': None,
+    'perceval-opnfv': None,
+    'perceval-mozilla': None,
+    'grimoireelk': [{'name': 'grimoire-elk', 'dir': ''},
+                {'name': 'grimoire-kidash', 'dir': 'kidash'}],
+    'sortinghat': None
+}
+
+def parse_args ():
+
+    parser = argparse.ArgumentParser(description = description)
+
+    parser.add_argument("-l", "--logging", type=str, choices=["info", "debug"],
+                        help="Logging level for output")
+    parser.add_argument("--logfile", type=str,
+                            help="Log file")
+
+    args_actions = parser.add_argument_group("Actions", "Actions to perform")
+    args_actions.add_argument("--build", action='store_true',
+                            help="Build packges. Is the default action.")
+    args_actions.add_argument("--install", action='store_true',
+                            help="Install pacakges.")
+
+    parser.add_argument("--relfile", type=str,
+                            help="GrimoireLab coordinated release file. "
+                                + "If not specified, master/HEAD will be used "
+                                + "for each module.")
+
+    parser.add_argument("--modules", type=str, nargs='+',
+                            help="Modules to build. Default: all")
+    parser.add_argument("--reposdir", type=str,
+                            help="Directory for storing git repositores. "
+                                + "If not specified, use temporary directory, "
+                                + "which will be wipped out when done.")
+    parser.add_argument("--distdir", type=str,
+                            help="Directory for storing dist packages. "
+                                + "If not specified, create a random directory.")
+
+    args_venv = parser.add_mutually_exclusive_group(required=False)
+    args_venv.add_argument("--venv", type=str,
+                            help="Python virtual environment for building "
+                                + "packages. "
+                                + "All modules needed for building will be "
+                                + "installed in it in their latest version.")
+    args_venv.add_argument("--tmpvenv", action='store_true',
+                            help="Create and activate a temporary Python venv "
+                                + "for building packages."
+                                + "All modules needed for building will be "
+                                + "installed in it in their latest version. "
+                                + "It will be wipped out when done.")
+
+    args_ivenv = parser.add_mutually_exclusive_group(required=False)
+    args_ivenv.add_argument("--ivenv", type=str,
+                            help="Python virtual environment for installing "
+                                + "packages. "
+                                + "All dependencies needed will be "
+                                + "installed too.")
+    args_ivenv.add_argument("--itmpvenv", action='store_true',
+                            help="Create and activate a temporary Python "
+                                + "virtual environment for installing "
+                                + "packages. "
+                                + "All dependencies needed will be "
+                                + "installed too.")
+
+    args = parser.parse_args()
+    return args
+
+def extract_commits(file, commits):
+
+    logging.debug("Reading coordinated release file")
+    with open(file) as relfile:
+        for line in relfile:
+            line = line.strip().replace(' ','')
+            parts = line.split('=')
+            if len(parts) == 2:
+                module = parts[0].lower().replace('_','-')
+                commit = parts[1].strip("'")
+                logging.debug("From release file: " + module + " " + commit)
+                commits[module] = commit
+    return commits
+
+def expand_pkgs (repos, packages=None):
+    """Expand the repos dictionary, including details for all packages.
+
+    :params    repos: repos dictionary
+    :params packages: list of packages to consider (all if None)
+    :return         : list of tuples (repo, pkg, dir)
+    """
+
+    expanded = []
+    for repo, pkgs in repos.items():
+        logging.debug("Expanded repos, considering " + repo)
+        if not pkgs:
+            logging.debug("Expanded repos, default: " + repo)
+            if (not packages) or (repo in packages):
+                expanded.append({'repo': repo, 'pkg': repo, 'dir': ''})
+        else:
+            logging.debug("Expanded repos, list: " + repo)
+            for pkg in pkgs:
+                if (not packages) or (pkg['name'] in packages):
+                    expanded.append({'repo': repo, 'pkg': pkg['name'],
+                                    'dir': pkg['dir']})
+    logging.debug("Expanded repos: " + str(expanded))
+    return expanded
+
+def run_command(args, cwd='/'):
+
+    result = subprocess.run(args, cwd=cwd,
+                        stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    if result.returncode == 0:
+        success = True
+        output_fn = logging.debug
+        output_fn("Command successful")
+    else:
+        success = False
+        output_fn = print
+        output_fn("Command failed")
+    output_fn('  command: ' + ' '.join(result.args))
+    output_fn('  output: \n' + result.stdout.decode("utf-8", "backslashreplace"))
+    if success == False:
+        exit()
+    return success
+
+def update_venv(dir, pkgs, dist_dir=None):
+
+    if dir:
+        pip_command = os.path.join(dir, 'bin', 'pip3')
+    else:
+        pip_command = 'pip3'
+    common_args = [pip_command, 'install', '--upgrade']
+    if dist_dir:
+        common_args = common_args + ['--pre', '--find-links=' + dist_dir]
+    run_command(common_args + pkgs)
+
+def create_venv(dir):
+
+    run_command(['python3', '-m', 'venv', dir])
+
+def clone_git(repo, dir, commit):
+
+    logging.debug("Cloning: " + dir)
+    if not os.path.exists(dir):
+        run_command(['git', 'clone', repo, dir])
+        logging.debug("Cloned: " + dir)
+    logging.debug("Fetching: " + dir)
+    run_command(['git', '-C', dir, 'fetch'])
+    logging.debug("Fetched: " + dir)
+    run_command(['git', '-C', dir, 'checkout', commit])
+    logging.debug("Checked out: " + dir)
+
+def build_pypi(pkg_dir, building_env, dist_dir):
+
+    if building_env:
+        python = os.path.join(building_env, 'bin', 'python3')
+    else:
+        python = 'python3'
+    setup_file = os.path.join(pkg_dir, 'setup.py')
+    if os.path.isfile(setup_file):
+        run_command([python, 'setup.py', 'sdist',
+                        '--dist-dir=' + dist_dir],
+                    cwd=pkg_dir)
+        run_command([python, 'setup.py', 'bdist_wheel',
+                        '--dist-dir=' + dist_dir],
+                    cwd=pkg_dir)
+        return True
+    else:
+        logging.info("Directory " + pkg_dir + "does not have a setup.py file.")
+        return False
+
+def build(module, repos_dir, commits, venv_dir, dist_dir):
+    """Build module (package).
+
+    :params module: Tuple (repo, pkg, dir) with data for a module.
+    """
+
+    repo_link = 'https://github.com/grimoirelab/' + module['repo']
+    repo_dir = os.path.join(repos_dir, module['repo'])
+    pkg_dir = os.path.join(repos_dir, module['repo'], module['dir'])
+    if module['repo'] in commits:
+        commit = commits[module['repo']]
+    else:
+        commit = 'HEAD'
+    cloned = clone_git(repo=repo_link, dir=repo_dir, commit=commit)
+    built = build_pypi(pkg_dir, building_env=venv_dir,
+                dist_dir=dist_dir)
+    if built:
+        print("Package " + module['pkg'] + ": OK")
+    else:
+        print("Package " + module['pkg'] + ": Error")
+
+def set_logging(args_logging, args_logfile=None):
+
+    log_format = '%(levelname)s:%(message)s'
+    if args_logging == "info":
+        level = logging.INFO
+    elif args_logging == "debug":
+        level = logging.DEBUG
+    if args_logfile:
+        logging.basicConfig(format=log_format, level=level,
+                            filename = args_logfile, filemode = "w")
+    else:
+        logging.basicConfig(format=log_format, level=level)
+
+def main():
+    args = parse_args()
+    if args.logging:
+        set_logging(args.logging, args.logfile)
+
+    # Coordinated release file
+    if args.relfile:
+        commits = extract_commits(file=args.relfile, commits=default_commits)
+        logging.debug("Coordinated release info: " + str(commits))
+    else:
+        commits = default_commits
+
+    # Distribution directory
+    if args.distdir:
+        dist_dir = args.distdir
+        if not os.path.exists(dist_dir):
+            os.makedirs(dist_dir)
+    else:
+        dist_dir = tempfile.mkdtemp()
+    logging.debug("Dist dir: " + dist_dir)
+
+    modules = expand_pkgs (repos=repos, packages=args.modules)
+
+    if args.build:
+        # Repositories directory
+        if args.reposdir:
+            repos_dir = args.reposdir
+            if not os.path.exists(repos_dir):
+                os.makedirs(repos_dir)
+        else:
+            tempdir = tempfile.TemporaryDirectory()
+            repos_dir = tempdir.name
+        logging.debug("Repos dir: " + repos_dir)
+
+        # Building virtual environment
+        if args.tmpvenv:
+            temp_dir = tempfile.TemporaryDirectory()
+            venv_dir = temp_dir.name
+            create_venv (venv_dir)
+            update_venv (venv_dir, pkgs=build_dependencies)
+        else:
+            venv_dir = args.venv
+            update_venv (venv_dir, pkgs=build_dependencies)
+
+        for module in modules:
+            build(module=module, repos_dir=repos_dir, commits=commits,
+                venv_dir=venv_dir, dist_dir=dist_dir)
+
+    if args.install:
+        # Installing virtual environment
+        if args.itmpvenv:
+            temp_dir = tempfile.TemporaryDirectory()
+            ivenv_dir = temp_dir.name
+            create_venv (ivenv_dir)
+            update_venv (ivenv_dir, pkgs=install_dependencies)
+        else:
+            ivenv_dir = args.ivenv
+            if not os.path.exists(ivenv_dir):
+                create_venv (ivenv_dir)
+            update_venv (ivenv_dir, pkgs=install_dependencies)
+
+        pkgs = [module['pkg'] for module in modules]
+
+        update_venv (ivenv_dir, pkgs=install_dependencies)
+        update_venv (ivenv_dir, pkgs=pkgs, dist_dir=dist_dir)
+
+    if args.build:
+        print("Repos for source code in " + repos_dir)
+    print("Distribution packages in " + dist_dir)
+    if args.install:
+        print("Installed packages in " + ivenv_dir)
+        subprocess.run([os.path.join(ivenv_dir, 'bin', 'pip3'), 'freeze'])
+
+if __name__ == "__main__":
+    main()
