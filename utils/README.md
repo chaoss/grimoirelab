@@ -11,6 +11,17 @@ The build can use virtual environments for building everything,
 and can be installed for testing in a virtual environment too.
 A set of modules to install can be selected, if not all want to be built.
 
+Currently, this script can produce all packages for the repos that
+already support Python packages,
+and install them in a virtual environment where they could be tested.
+
+To avoid problems with the Python installation in the host
+where the packages are produced,
+a virtual environment with installed dependencies for building is produced,
+and packages are built in it.
+
+The script accepts options to build or install, to select only a certain set of modules, to define directories for building and installing virtual environments, for the temporary repositories, for where to produce the Python packages, and to select a coordinated release file.
+
 Examples:
 
 * Build all modules in a coordinated release of GrimoireLab
