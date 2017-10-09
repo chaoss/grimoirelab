@@ -74,9 +74,9 @@ def parse_args ():
 
     args_actions = parser.add_argument_group("Actions", "Actions to perform")
     args_actions.add_argument("--build", action='store_true',
-                            help="Build packges. Is the default action.")
+                            help="Build packges. It is the default action.")
     args_actions.add_argument("--install", action='store_true',
-                            help="Install pacakges.")
+                            help="Install packages.")
 
     parser.add_argument("--relfile", type=str,
                             help="GrimoireLab coordinated release file. "
@@ -163,7 +163,7 @@ def expand_pkgs (repos, packages=None):
 def run_command(args, cwd='/'):
 
     result = subprocess.run(args, cwd=cwd,
-                        stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     if result.returncode == 0:
         success = True
         output_fn = logging.debug
@@ -214,14 +214,14 @@ def build_pypi(pkg_dir, building_env, dist_dir):
     setup_file = os.path.join(pkg_dir, 'setup.py')
     if os.path.isfile(setup_file):
         run_command([python, 'setup.py', 'sdist',
-                        '--dist-dir=' + dist_dir],
+                    '--dist-dir=' + dist_dir],
                     cwd=pkg_dir)
         run_command([python, 'setup.py', 'bdist_wheel',
-                        '--dist-dir=' + dist_dir],
+                    '--dist-dir=' + dist_dir],
                     cwd=pkg_dir)
         return True
     else:
-        logging.info("Directory " + pkg_dir + "does not have a setup.py file.")
+        logging.info("Directory " + pkg_dir + " does not have a setup.py file.")
         return False
 
 def build(module, repos_dir, commits, venv_dir, dist_dir):
@@ -239,7 +239,7 @@ def build(module, repos_dir, commits, venv_dir, dist_dir):
         commit = 'HEAD'
     cloned = clone_git(repo=repo_link, dir=repo_dir, commit=commit)
     built = build_pypi(pkg_dir, building_env=venv_dir,
-                dist_dir=dist_dir)
+                        dist_dir=dist_dir)
     if built:
         print("Package " + module['pkg'] + ": OK")
     else:
