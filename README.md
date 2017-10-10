@@ -9,3 +9,7 @@ This is for stuff relevant to GrimoireLab as a whole. For example:
 Coordinated releases are snapshots (specific commits)
 of most of the GrimoireLab components that are expected to work together.
 See more information in the [releases README.md file](releases/README.md).
+
+* Utils (directory [utils](utils)) for doing stuff relevant to GrimoireLab
+as a whole:
+a script to produce Python packages for a coordinated release, etc.
