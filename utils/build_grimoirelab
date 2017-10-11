@@ -119,6 +119,12 @@ def parse_args ():
                                 + "All dependencies needed will be "
                                 + "installed too.")
 
+    args_venv.add_argument("--install_atonce", action='store_true',
+                            default=False,
+                            help="Install all packages at once (True) "
+                                + "or loop installing them once at a time "
+                                + "(False, default).")
+
     args = parser.parse_args()
     return args
 
@@ -178,7 +184,22 @@ def run_command(args, cwd='/'):
         exit()
     return success
 
-def update_venv(dir, pkgs, dist_dir=None):
+def update_venv(dir, pkgs, dist_dir=None, atonce=False):
+    """Update virtual environment with some packages.
+
+    Use the list of packages for pip installing them.
+    If dir is specified, use it for finding the packages
+    in addition to pypi. If not, use pypi only.
+    All packages can be installed at once (atonce=True),
+    with a single pip invocation, or one by one, with
+    separate pip commands, looping through the list.
+
+    :params dir: Directory for the environnment
+    :params pkgs: List of packages to install
+    :params dist: Directory with packages to install
+    :params atonce: Install all packages at once or not (default: False).
+
+    """
 
     if dir:
         pip_command = os.path.join(dir, 'bin', 'pip3')
@@ -187,7 +208,11 @@ def update_venv(dir, pkgs, dist_dir=None):
     common_args = [pip_command, 'install', '--upgrade']
     if dist_dir:
         common_args = common_args + ['--pre', '--find-links=' + dist_dir]
-    run_command(common_args + pkgs)
+    if atonce:
+        run_command(common_args + pkgs)
+    else:
+        for pkg in pkgs:
+            run_command(common_args + [pkg])
 
 def create_venv(dir):
 
@@ -322,7 +347,8 @@ def main():
         pkgs = [module['pkg'] for module in modules]
 
         update_venv (ivenv_dir, pkgs=install_dependencies)
-        update_venv (ivenv_dir, pkgs=pkgs, dist_dir=dist_dir)
+        update_venv (ivenv_dir, pkgs=pkgs, dist_dir=dist_dir,
+                    atonce=args.install_atonce)
 
     if args.build:
         print("Repos for source code in " + repos_dir)
