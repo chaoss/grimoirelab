@@ -40,13 +40,19 @@ build_dependencies = ['pip', 'setuptools', 'pypandoc', 'twine']
 install_dependencies = ['pip']
 
 all_repos = {
-    'grimoirelab-toolkit': [{'name': 'grimoirelab-toolkit', 'dir': ''}],
-    'perceval': [{'name': 'perceval', 'dir': ''}],
-    'perceval-opnfv': [{'name': 'perceval-opnfv', 'dir': ''}],
-    'perceval-mozilla': [{'name': 'perceval-mozilla', 'dir': ''}],
-    'grimoireelk': [{'name': 'grimoire-elk', 'dir': ''},
-                {'name': 'grimoire-kidash', 'dir': 'kidash'}],
-    'sortinghat': [{'name': 'sortinghat', 'dir': ''}]
+    'grimoirelab-toolkit': [{'name': 'grimoirelab-toolkit', 'dir': '',
+            'version_file': os.path.join('grimoirelab', 'toolkit', '_version.py')}],
+    'perceval': [{'name': 'perceval', 'dir': '',
+            'version_file': os.path.join('perceval', '_version.py')}],
+    'perceval-opnfv': [{'name': 'perceval-opnfv', 'dir': '',
+            'version_file': 'setup.py'}],
+    'perceval-mozilla': [{'name': 'perceval-mozilla', 'dir': '',
+            'version_file': 'setup.py'}],
+    'grimoireelk': [{'name': 'grimoire-elk', 'dir': '',
+            'version_file': os.path.join('grimoire_elk', '_version.py')},
+            {'name': 'grimoire-kidash', 'dir': 'kidash'}],
+    'sortinghat': [{'name': 'sortinghat', 'dir': '',
+            'version_file': os.path.join('sortinghat', '_version.py')}]
 }
 """Structure of GrimoireLab, and the specifics of the Python modules
 that will come out of it.
@@ -65,9 +71,12 @@ def parse_args ():
 
     args_actions = parser.add_argument_group("Actions", "Actions to perform")
     args_actions.add_argument("--build", action='store_true',
-                            help="Build packges. It is the default action.")
+                            default=True,
+                            help="Build modules. It is the default action.")
     args_actions.add_argument("--install", action='store_true',
-                            help="Install packages.")
+                            help="Install modules.")
+    args_actions.add_argument("--check", action='store_true',
+                            help="Check modules for some invariants.")
 
     parser.add_argument("--relfile", type=str,
                             help="GrimoireLab coordinated release file. "
@@ -115,7 +124,7 @@ def parse_args ():
                                 + "Ensure you have write permissions. "
                                 + "Use at your own risk.")
 
-    args_venv.add_argument("--install_atonce", action='store_true',
+    parser.add_argument("--install_atonce", action='store_true',
                             default=False,
                             help="Install all packages at once (True) "
                                 + "or loop installing them once at a time "
@@ -200,10 +209,11 @@ class CommandRunner (object):
             output_fn = print
             output_fn("Command failed")
         output_fn('  command: ' + ' '.join(result.args))
-        output_fn('  output: \n' + result.stdout.decode("utf-8", "backslashreplace"))
+        output = result.stdout.decode("utf-8", "backslashreplace")
+        output_fn('  output: \n' + output)
         if success == False:
             exit()
-        return success
+        return (success, output)
 
     def clone_git(cls, repo, dir, commit):
 
@@ -217,6 +227,17 @@ class CommandRunner (object):
         cls.run_command(['git', '-C', dir, 'checkout', commit])
         logging.debug("Checked out: " + dir)
 
+    def check_version(cls, dir, commit, version_file):
+
+        logging.debug("Checking version in commit: " + dir)
+        (success, output) = cls.run_command(['git', '-C', dir, 'diff-tree',
+                '--no-commit-id', '--name-only', '-r', commit])
+        check = False
+        if success:
+            for line in output.splitlines():
+                if line == version_file:
+                    check = True
+        return check
 
 class Venv (CommandRunner):
     """Class for managing virtual environments."""
@@ -293,8 +314,8 @@ class Venv (CommandRunner):
             new_args[0] = args[0]
         else:
             new_args[0] = os.path.join(self.name, 'bin', args[0])
-        success = super().run_command(new_args, cwd=cwd)
-        return success
+        (success, output) = super().run_command(new_args, cwd=cwd)
+        return (success, output)
 
 
 class Modules(object):
@@ -332,16 +353,17 @@ class Modules(object):
                         commit = 'HEAD'
                     else:
                         commit = release.get_commit(repo)
-                    self.modules[repo_module['name']] = {
-                        'repo': repo,
-                        'commit': commit,
-                        'dir': repo_module['dir']}
+                    desc = {'repo': repo, 'commit': commit}
+                    for field in repo_module:
+                        if field != 'name':
+                            desc[field] = repo_module[field]
+                    self.modules[repo_module['name']] = desc
         logging.debug("Modules: " + str(self.modules))
 
     def names(self):
         """List names of modules."""
 
-        return self.modules.keys()
+        return list(self.modules.keys())
 
     def descriptor(self, name):
         """Get the descriptor for a module name."""
@@ -392,7 +414,7 @@ class BuildingEnviron(object):
         pkg_dir = os.path.join(self.repos_dir.name, desc['repo'], desc['dir'])
         self._runner.clone_git(repo=repo_link, dir=repo_dir, commit=desc['commit'])
         built = self._build_dist(pkg_dir)
-        print("Module " + name + ": " + built)
+        print("Built module " + name + ": " + built)
 
     def build_all(self):
         """Build all modules."""
@@ -437,6 +459,32 @@ class ReleaseInfo(object):
 
         return self.info.keys()
 
+class Checker(object):
+
+    _check_runner = CommandRunner()
+
+    def __init__(self, modules, repos_dir):
+
+        self.modules = modules
+        self.repos_dir = repos_dir
+
+    def check_version(self):
+        """Check if commit changed version, for all modules."""
+
+        for module_name in self.modules.names():
+            desc = self.modules.descriptor(module_name)
+            if 'version_file' in desc:
+                logging.debug("Checking version_file " + desc['version_file']
+                    + " in " + module_name)
+                repo_dir = os.path.join(self.repos_dir.name, desc['repo'])
+                result = self._check_runner.check_version(dir=repo_dir,
+                                        commit=desc['commit'],
+                                        version_file=desc['version_file'])
+                if result:
+                    print("Checked version for " + module_name + ": OK")
+                else:
+                    print("Checked version for " + module_name + ": Fail")
+
 
 def main():
     args = parse_args()
@@ -453,6 +501,7 @@ def main():
                         persistent=True)
 
     if args.build:
+        print("Building...")
         repos_dir = Directory(name=args.reposdir, purpose="Repos",
                                 persistent=False)
         venv = Venv(system=args.system, name=args.venv,
@@ -461,23 +510,31 @@ def main():
         building = BuildingEnviron(modules=modules, venv=venv,
                                     repos_dir=repos_dir, dist_dir=dist_dir)
         building.build_all()
+
     if args.install:
+        print("Installing...")
         install_venv = Venv(system=args.system, name=args.install_venv,
                         dependencies=install_dependencies,
                         purpose="InstallVenv", persistent=True)
         install_venv.update(module_names=modules.names(),
                             dist_dir=dist_dir,
                             atonce=args.install_atonce)
+        print("Installed modules: " + ','.join(modules.names()))
+
+    if args.check:
+        print("Checking...")
+        checker = Checker(modules=modules, repos_dir=repos_dir)
+        checker.check_version()
 
     if args.install:
-        print("Installed packages:")
+        print("Installed modules (all):")
         install_venv.print_installed()
     if args.build:
-        print("Building venv in " + venv.name)
+        print("Venv for building in " + venv.name)
         print("Repos for source code in " + repos_dir.name)
     print("Distribution packages in " + dist_dir.name)
     if args.install:
-        print("Installed packages in " + install_venv.name)
+        print("Installed modules in " + install_venv.name)
 
 if __name__ == "__main__":
     main()
