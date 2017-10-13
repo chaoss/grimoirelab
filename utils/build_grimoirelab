@@ -25,6 +25,7 @@ import argparse
 import logging
 import os
 import os.path
+import shutil
 import subprocess
 import tempfile
 
@@ -38,30 +39,20 @@ Example:
 build_dependencies = ['pip', 'setuptools', 'pypandoc', 'twine']
 install_dependencies = ['pip']
 
-#default_modules = ['grimoirelab-toolkit', 'perceval', 'perceval-opnfv',
-#        'perceval-mozilla', 'grimoireelk', 'sortinghat']
-default_commits = {
-        'grimoirelab-toolkit': 'HEAD',
-        'perceval': 'HEAD',
-        'perceval-opnfv': 'HEAD',
-        'perceval-mozilla': 'HEAD',
-        'grimoireelk': 'HEAD',
-        'sortinghat': 'HEAD'
-    }
-
-# Repos dictionary. For each git repository, if None, that
-# repo produces a single package, whose name is that of
-# the repo, and directory is the main repo directory.
-# If not None, list of package descriptions (package name and directory)
-repos = {
-    'grimoirelab-toolkit': None,
-    'perceval': None,
-    'perceval-opnfv': None,
-    'perceval-mozilla': None,
+all_repos = {
+    'grimoirelab-toolkit': [{'name': 'grimoirelab-toolkit', 'dir': ''}],
+    'perceval': [{'name': 'perceval', 'dir': ''}],
+    'perceval-opnfv': [{'name': 'perceval-opnfv', 'dir': ''}],
+    'perceval-mozilla': [{'name': 'perceval-mozilla', 'dir': ''}],
     'grimoireelk': [{'name': 'grimoire-elk', 'dir': ''},
                 {'name': 'grimoire-kidash', 'dir': 'kidash'}],
-    'sortinghat': None
+    'sortinghat': [{'name': 'sortinghat', 'dir': ''}]
 }
+"""Structure of GrimoireLab, and the specifics of the Python modules
+that will come out of it.
+For each git repository list of module descriptions
+(package name and directory).
+"""
 
 def parse_args ():
 
@@ -95,29 +86,34 @@ def parse_args ():
 
     args_venv = parser.add_mutually_exclusive_group(required=False)
     args_venv.add_argument("--venv", type=str,
-                            help="Python virtual environment for building "
+                            help="Python3 virtual environment for building "
                                 + "packages. "
                                 + "All modules needed for building will be "
-                                + "installed in it in their latest version.")
-    args_venv.add_argument("--tmpvenv", action='store_true',
-                            help="Create and activate a temporary Python venv "
-                                + "for building packages."
-                                + "All modules needed for building will be "
-                                + "installed in it in their latest version. "
-                                + "It will be wipped out when done.")
+                                + "installed in it in their latest version."
+                                + "If not specified, create a random directory, "
+                                + "which will be cleaned up when done.")
+    args_venv.add_argument("--system", type=str,
+                            help="Use Python3 system environment, instead of "
+                                + "a virtual environment, for building "
+                                + "packages. It should include all dependencies "
+                                + "needed. Use at your own risk.")
 
     args_ivenv = parser.add_mutually_exclusive_group(required=False)
-    args_ivenv.add_argument("--ivenv", type=str,
+    args_ivenv.add_argument("--install_venv", type=str,
                             help="Python virtual environment for installing "
                                 + "packages. "
                                 + "All dependencies needed will be "
-                                + "installed too.")
-    args_ivenv.add_argument("--itmpvenv", action='store_true',
-                            help="Create and activate a temporary Python "
-                                + "virtual environment for installing "
+                                + "installed too. "
+                                + "If not specified, create a random directory "
+                                + "and build the virtual environment in it")
+    args_ivenv.add_argument("--install_system", action='store_true',
+                            help="Use Python3 system environment, instead of "
+                                + "a virtual environment, for installing "
                                 + "packages. "
                                 + "All dependencies needed will be "
-                                + "installed too.")
+                                + "installed too. "
+                                + "Ensure you have write permissions. "
+                                + "Use at your own risk.")
 
     args_venv.add_argument("--install_atonce", action='store_true',
                             default=False,
@@ -128,43 +124,18 @@ def parse_args ():
     args = parser.parse_args()
     return args
 
-def extract_commits(file, commits):
+def set_logging(args_logging, args_logfile=None):
 
-    logging.debug("Reading coordinated release file")
-    with open(file) as relfile:
-        for line in relfile:
-            line = line.strip().replace(' ','')
-            parts = line.split('=')
-            if len(parts) == 2:
-                module = parts[0].lower().replace('_','-')
-                commit = parts[1].strip("'")
-                logging.debug("From release file: " + module + " " + commit)
-                commits[module] = commit
-    return commits
-
-def expand_pkgs (repos, packages=None):
-    """Expand the repos dictionary, including details for all packages.
-
-    :params    repos: repos dictionary
-    :params packages: list of packages to consider (all if None)
-    :return         : list of tuples (repo, pkg, dir)
-    """
-
-    expanded = []
-    for repo, pkgs in repos.items():
-        logging.debug("Expanded repos, considering " + repo)
-        if not pkgs:
-            logging.debug("Expanded repos, default: " + repo)
-            if (not packages) or (repo in packages):
-                expanded.append({'repo': repo, 'pkg': repo, 'dir': ''})
-        else:
-            logging.debug("Expanded repos, list: " + repo)
-            for pkg in pkgs:
-                if (not packages) or (pkg['name'] in packages):
-                    expanded.append({'repo': repo, 'pkg': pkg['name'],
-                                    'dir': pkg['dir']})
-    logging.debug("Expanded repos: " + str(expanded))
-    return expanded
+    log_format = '%(levelname)s:%(message)s'
+    if args_logging == "info":
+        level = logging.INFO
+    elif args_logging == "debug":
+        level = logging.DEBUG
+    if args_logfile:
+        logging.basicConfig(format=log_format, level=level,
+                            filename = args_logfile, filemode = "w")
+    else:
+        logging.basicConfig(format=log_format, level=level)
 
 def run_command(args, cwd='/'):
 
@@ -184,40 +155,6 @@ def run_command(args, cwd='/'):
         exit()
     return success
 
-def update_venv(dir, pkgs, dist_dir=None, atonce=False):
-    """Update virtual environment with some packages.
-
-    Use the list of packages for pip installing them.
-    If dir is specified, use it for finding the packages
-    in addition to pypi. If not, use pypi only.
-    All packages can be installed at once (atonce=True),
-    with a single pip invocation, or one by one, with
-    separate pip commands, looping through the list.
-
-    :params dir: Directory for the environnment
-    :params pkgs: List of packages to install
-    :params dist: Directory with packages to install
-    :params atonce: Install all packages at once or not (default: False).
-
-    """
-
-    if dir:
-        pip_command = os.path.join(dir, 'bin', 'pip3')
-    else:
-        pip_command = 'pip3'
-    common_args = [pip_command, 'install', '--upgrade']
-    if dist_dir:
-        common_args = common_args + ['--pre', '--find-links=' + dist_dir]
-    if atonce:
-        run_command(common_args + pkgs)
-    else:
-        for pkg in pkgs:
-            run_command(common_args + [pkg])
-
-def create_venv(dir):
-
-    run_command(['python3', '-m', 'venv', dir])
-
 def clone_git(repo, dir, commit):
 
     logging.debug("Cloning: " + dir)
@@ -230,132 +167,292 @@ def clone_git(repo, dir, commit):
     run_command(['git', '-C', dir, 'checkout', commit])
     logging.debug("Checked out: " + dir)
 
-def build_pypi(pkg_dir, building_env, dist_dir):
+class Directory(object):
 
-    if building_env:
-        python = os.path.join(building_env, 'bin', 'python3')
-    else:
-        python = 'python3'
-    setup_file = os.path.join(pkg_dir, 'setup.py')
-    if os.path.isfile(setup_file):
-        run_command([python, 'setup.py', 'sdist',
-                    '--dist-dir=' + dist_dir],
-                    cwd=pkg_dir)
-        run_command([python, 'setup.py', 'bdist_wheel',
-                    '--dist-dir=' + dist_dir],
-                    cwd=pkg_dir)
-        return True
-    else:
-        logging.info("Directory " + pkg_dir + " does not have a setup.py file.")
-        return False
+    def __init__(self, name=None, purpose="Generic", persistent=True):
+        """Set and preparte directory.
 
-def build(module, repos_dir, commits, venv_dir, dist_dir):
-    """Build module (package).
+        If name is None, create a random directory.
+        If not, use name as the path name for the directory, and create it
+        if it didn't exist. If a random directory is created, and
+        persistent is False, remove the directory upon destruction of
+        the object.
 
-    :params module: Tuple (repo, pkg, dir) with data for a module.
+        :param       name: path name
+        :param    purpose: purpose of directory (string)
+        :param persistent: if False, and command line empty,
+                            directory will be removed when object is destroyed
+
+        """
+
+        self.purpose = purpose
+        if name:
+            self.name = name
+            self.persistent = True
+            if not os.path.exists(self.name):
+                os.makedirs(self.name)
+        else:
+            self.name = tempfile.mkdtemp()
+            self.persistent = persistent
+        logging.debug(self.purpose + " directory: " + self.name)
+        logging.debug("  Persistent: " + str(self.persistent))
+
+    def __del__(self):
+
+        logging.debug("Destroying object" + self.name)
+        if not self.persistent:
+            logging.debug("Removing directory " + self.name)
+            shutil.rmtree(self.name)
+
+class Venv (object):
+    """Virtual environments
+
     """
 
-    repo_link = 'https://github.com/grimoirelab/' + module['repo']
-    repo_dir = os.path.join(repos_dir, module['repo'])
-    pkg_dir = os.path.join(repos_dir, module['repo'], module['dir'])
-    if module['repo'] in commits:
-        commit = commits[module['repo']]
-    else:
-        commit = 'HEAD'
-    cloned = clone_git(repo=repo_link, dir=repo_dir, commit=commit)
-    built = build_pypi(pkg_dir, building_env=venv_dir,
-                        dist_dir=dist_dir)
-    if built:
-        print("Package " + module['pkg'] + ": OK")
-    else:
-        print("Package " + module['pkg'] + ": Error")
+    def __init__(self, system=False, name=None, dependencies=[],
+            purpose="Generic", persistent=True):
+        """If name is None, create a random directory.
+        If not, use name as the path name for the directory, and create it
+        if it didn't exist. If a random directory is created, and
+        persistent is False, remove the directory upon destruction of
+        the object.
 
-def set_logging(args_logging, args_logfile=None):
+        :param       name: path name
+        :param    purpose: purpose of directory (string)
+        :param persistent: if False, and command line empty,
+                            directory will be removed when object is destroyed
 
-    log_format = '%(levelname)s:%(message)s'
-    if args_logging == "info":
-        level = logging.INFO
-    elif args_logging == "debug":
-        level = logging.DEBUG
-    if args_logfile:
-        logging.basicConfig(format=log_format, level=level,
-                            filename = args_logfile, filemode = "w")
-    else:
-        logging.basicConfig(format=log_format, level=level)
+        """
+
+        self.system = system
+        if self.system:
+            self.name = "System"
+        else:
+            self.dir = Directory(name=name, purpose=purpose, persistent=persistent)
+            self.name = self.dir.name
+            self._create ()
+            self.update (module_names=dependencies)
+
+    def _create(self):
+
+        run_command(['python3', '-m', 'venv', self.name])
+
+    def update(self, module_names, dist_dir=None, atonce=False):
+        """Update virtual environment with some packages.
+
+        Use the list of packages for pip installing them.
+        If dist_dir is specified, use it for finding the packages
+        in addition to pypi. If not, use pypi only.
+        All packages can be installed at once (atonce=True),
+        with a single pip invocation, or one by one, with
+        separate pip commands, looping through the list.
+
+        :params     pkgs: list of packages to install
+        :params dist_dir: directory with packages to install
+        :params   atonce: install all packages at once or not (default: False).
+
+    """
+
+        common_args = ['pip3', 'install', '--upgrade']
+        if dist_dir:
+            common_args += ['--pre', '--find-links=' + dist_dir.name]
+        if atonce:
+            self.run_command(common_args + module_names)
+        else:
+            for pkg in module_names:
+                self.run_command(common_args + [pkg])
+
+    def run_command (self, args, cwd='/'):
+
+        new_args = args
+        if self.system:
+            new_args[0] = args[0]
+        else:
+            new_args[0] = os.path.join(self.name, 'bin', args[0])
+        run_command(new_args, cwd)
+
+    def print_installed(self):
+        """Print list of installed packages."""
+
+        self.run_command(['pip3', 'freeze'])
+
+class Modules(object):
+    """Configuration of modules to build, install...
+
+    Modules are pieces of Python code that are prepared to be distributed
+    as sdist and wheel packages (that is they include a setup.py file, etc).
+    A git repository can hold several modules in different directories.
+    """
+
+    def __init__(self, module_names=None, release=None):
+        """Produce a dictionary of module descriptions, based on module names.
+
+        Only modules in module_names will be considered (or all modules
+        in the current dictionary of all repositories for GrimoireLab, if None).
+        In any case, uses that dictionary to find out repos, directories,
+        and the release object to find the commit to checkout.
+        The resulting dictionary has as keys the module names, and as values,
+        dictionaries, each with (repo, commit, dir) as keys.
+
+        :param module_names: list of module names to consider
+                            (default: None, meaining all modules considered)
+        :param      release: ReleaseInfo object
+        """
+
+        self.modules = {}
+        """Dictionary of module descriptions, each defined as a dictionary,
+        with (repo, dir) as keys."""
+
+        for repo, repo_modules in all_repos.items():
+            logging.debug("Finding modules, considering " + repo)
+            for repo_module in repo_modules:
+                if (module_names is None) or (repo_module['name'] in module_names):
+                    if release is None:
+                        commit = 'HEAD'
+                    else:
+                        commit = release.get_commit(repo)
+                    self.modules[repo_module['name']] = {
+                        'repo': repo,
+                        'commit': commit,
+                        'dir': repo_module['dir']}
+        logging.debug("Modules: " + str(self.modules))
+
+    def names(self):
+        """List names of modules."""
+
+        return self.modules.keys()
+
+    def descriptor(self, name):
+        """Get the descriptor for a module name."""
+
+        return self.modules[name]
+
+
+class BuildingEnviron(object):
+    """Environment for building modules.
+
+    Is composed of a Modules object (modules to build),
+    an Venv object (virtual environment for building modules),
+    and two Directory objects (directory for cloning git repos,
+    and directory for storing the distributable packages).
+    """
+
+    def __init__(self, modules, venv, repos_dir, dist_dir):
+
+        self.modules = modules
+        self.venv = venv
+        self.repos_dir = repos_dir
+        self.dist_dir = dist_dir
+
+    def _build_dist(self, dir):
+        "Build distributable packages from a Python directory"
+
+        setup_file = os.path.join(dir, 'setup.py')
+        if os.path.isfile(setup_file):
+            self.venv.run_command(['python', 'setup.py', 'sdist',
+                        '--dist-dir=' + self.dist_dir.name],
+                        cwd=dir)
+            self.venv.run_command(['python', 'setup.py', 'bdist_wheel',
+                        '--dist-dir=' + self.dist_dir.name],
+                        cwd=dir)
+            return "OK"
+        else:
+            logging.info("Directory " + pkg_dir + " does not have a setup.py file.")
+            return "Error"
+
+    def build_module(self, name):
+        """Build module, given its name."""
+
+        desc = self.modules.descriptor(name)
+        repo_link = 'https://github.com/grimoirelab/' + desc['repo']
+        repo_dir = os.path.join(self.repos_dir.name, desc['repo'])
+        pkg_dir = os.path.join(self.repos_dir.name, desc['repo'], desc['dir'])
+        clone_git(repo=repo_link, dir=repo_dir, commit=desc['commit'])
+        built = self._build_dist(pkg_dir)
+        print("Module " + name + ": " + built)
+
+    def build_all(self):
+        """Build all modules."""
+
+        for name in self.modules.names():
+            self.build_module(name=name)
+
+class ReleaseInfo(object):
+    """For reading a coordinated release file."""
+
+    def __init__(self, file):
+
+        self.info = self._read(file)
+        """Information about a release: dictionary with repos as keys,
+        commits as values.
+        """
+
+    @staticmethod
+    def _read(file):
+
+        release = {}
+        logging.debug("Reading coordinated release file")
+        with open(file) as relfile:
+            for line in relfile:
+                line = line.strip().replace(' ','')
+                parts = line.split('=')
+                if len(parts) == 2:
+                    repo = parts[0].lower().replace('_','-')
+                    commit = parts[1].strip("'")
+                    logging.debug("From release file: " + repo + " " + commit)
+                    release[repo] = commit
+        logging.debug("Coordinated release info: " + str(release))
+        return release
+
+    def get_commit(self, repo):
+        """Get the commit corresponding to this repo in this release."""
+
+        return self.info[repo]
+
+    def get_repos(self):
+
+        return self.info.keys()
 
 def main():
     args = parse_args()
     if args.logging:
         set_logging(args.logging, args.logfile)
 
-    # Coordinated release file
     if args.relfile:
-        commits = extract_commits(file=args.relfile, commits=default_commits)
-        logging.debug("Coordinated release info: " + str(commits))
+        release = ReleaseInfo(file=args.relfile)
     else:
-        commits = default_commits
+        release = None
 
-    # Distribution directory
-    if args.distdir:
-        dist_dir = args.distdir
-        if not os.path.exists(dist_dir):
-            os.makedirs(dist_dir)
-    else:
-        dist_dir = tempfile.mkdtemp()
-    logging.debug("Dist dir: " + dist_dir)
-
-    modules = expand_pkgs (repos=repos, packages=args.modules)
+    modules = Modules(module_names=args.modules, release=release)
+    dist_dir = Directory(name=args.distdir, purpose="Distribution",
+                        persistent=True)
 
     if args.build:
-        # Repositories directory
-        if args.reposdir:
-            repos_dir = args.reposdir
-            if not os.path.exists(repos_dir):
-                os.makedirs(repos_dir)
-        else:
-            tempdir = tempfile.TemporaryDirectory()
-            repos_dir = tempdir.name
-        logging.debug("Repos dir: " + repos_dir)
-
-        # Building virtual environment
-        if args.tmpvenv:
-            temp_dir = tempfile.TemporaryDirectory()
-            venv_dir = temp_dir.name
-            create_venv (venv_dir)
-            update_venv (venv_dir, pkgs=build_dependencies)
-        else:
-            venv_dir = args.venv
-            update_venv (venv_dir, pkgs=build_dependencies)
-
-        for module in modules:
-            build(module=module, repos_dir=repos_dir, commits=commits,
-                venv_dir=venv_dir, dist_dir=dist_dir)
+        repos_dir = Directory(name=args.reposdir, purpose="Repos",
+                                persistent=False)
+        venv = Venv(system=args.system, name=args.venv,
+                    dependencies=build_dependencies,
+                    purpose="Venv", persistent=False)
+        building = BuildingEnviron(modules=modules, venv=venv,
+                                    repos_dir=repos_dir, dist_dir=dist_dir)
+        building.build_all()
+    if args.install:
+        install_venv = Venv(system=args.system, name=args.install_venv,
+                        dependencies=install_dependencies,
+                        purpose="InstallVenv", persistent=True)
+        install_venv.update(module_names=modules.names(),
+                            dist_dir=dist_dir,
+                            atonce=args.install_atonce)
 
     if args.install:
-        # Installing virtual environment
-        if args.itmpvenv:
-            temp_dir = tempfile.TemporaryDirectory()
-            ivenv_dir = temp_dir.name
-            create_venv (ivenv_dir)
-            update_venv (ivenv_dir, pkgs=install_dependencies)
-        else:
-            ivenv_dir = args.ivenv
-            if not os.path.exists(ivenv_dir):
-                create_venv (ivenv_dir)
-            update_venv (ivenv_dir, pkgs=install_dependencies)
-
-        pkgs = [module['pkg'] for module in modules]
-
-        update_venv (ivenv_dir, pkgs=install_dependencies)
-        update_venv (ivenv_dir, pkgs=pkgs, dist_dir=dist_dir,
-                    atonce=args.install_atonce)
-
+        print("Installed packages:")
+        install_venv.print_installed()
     if args.build:
-        print("Repos for source code in " + repos_dir)
-    print("Distribution packages in " + dist_dir)
+        print("Building venv in " + venv.name)
+        print("Repos for source code in " + repos_dir.name)
+    print("Distribution packages in " + dist_dir.name)
     if args.install:
-        print("Installed packages in " + ivenv_dir)
-        subprocess.run([os.path.join(ivenv_dir, 'bin', 'pip3'), 'freeze'])
+        print("Installed packages in " + install_venv.name)
 
 if __name__ == "__main__":
     main()
