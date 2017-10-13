@@ -124,6 +124,7 @@ def parse_args ():
     args = parser.parse_args()
     return args
 
+
 def set_logging(args_logging, args_logfile=None):
 
     log_format = '%(levelname)s:%(message)s'
@@ -137,35 +138,6 @@ def set_logging(args_logging, args_logfile=None):
     else:
         logging.basicConfig(format=log_format, level=level)
 
-def run_command(args, cwd='/'):
-
-    result = subprocess.run(args, cwd=cwd,
-                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    if result.returncode == 0:
-        success = True
-        output_fn = logging.debug
-        output_fn("Command successful")
-    else:
-        success = False
-        output_fn = print
-        output_fn("Command failed")
-    output_fn('  command: ' + ' '.join(result.args))
-    output_fn('  output: \n' + result.stdout.decode("utf-8", "backslashreplace"))
-    if success == False:
-        exit()
-    return success
-
-def clone_git(repo, dir, commit):
-
-    logging.debug("Cloning: " + dir)
-    if not os.path.exists(dir):
-        run_command(['git', 'clone', repo, dir])
-        logging.debug("Cloned: " + dir)
-    logging.debug("Fetching: " + dir)
-    run_command(['git', '-C', dir, 'fetch'])
-    logging.debug("Fetched: " + dir)
-    run_command(['git', '-C', dir, 'checkout', commit])
-    logging.debug("Checked out: " + dir)
 
 class Directory(object):
 
@@ -204,10 +176,52 @@ class Directory(object):
             logging.debug("Removing directory " + self.name)
             shutil.rmtree(self.name)
 
-class Venv (object):
-    """Virtual environments
 
-    """
+class CommandRunner (object):
+    """Simple class for running commands."""
+
+    @staticmethod
+    def run_command (args, cwd='/'):
+        """Run command in this virtual environment (except if self.system)
+
+        :param args: command line arguments (including 0)
+        :param  cwd: working directory to use
+        :return    : success status (boolean)
+        """
+
+        result = subprocess.run(args, cwd=cwd,
+                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        if result.returncode == 0:
+            success = True
+            output_fn = logging.debug
+            output_fn("Command successful")
+        else:
+            success = False
+            output_fn = print
+            output_fn("Command failed")
+        output_fn('  command: ' + ' '.join(result.args))
+        output_fn('  output: \n' + result.stdout.decode("utf-8", "backslashreplace"))
+        if success == False:
+            exit()
+        return success
+
+    def clone_git(cls, repo, dir, commit):
+
+        logging.debug("Cloning: " + dir)
+        if not os.path.exists(dir):
+            cls.run_command(['git', 'clone', repo, dir])
+            logging.debug("Cloned: " + dir)
+        logging.debug("Fetching: " + dir)
+        cls.run_command(['git', '-C', dir, 'fetch'])
+        logging.debug("Fetched: " + dir)
+        cls.run_command(['git', '-C', dir, 'checkout', commit])
+        logging.debug("Checked out: " + dir)
+
+
+class Venv (CommandRunner):
+    """Class for managing virtual environments."""
+
+    _boot = CommandRunner()
 
     def __init__(self, system=False, name=None, dependencies=[],
             purpose="Generic", persistent=True):
@@ -235,7 +249,7 @@ class Venv (object):
 
     def _create(self):
 
-        run_command(['python3', '-m', 'venv', self.name])
+        self._boot.run_command(['python3', '-m', 'venv', self.name])
 
     def update(self, module_names, dist_dir=None, atonce=False):
         """Update virtual environment with some packages.
@@ -250,7 +264,6 @@ class Venv (object):
         :params     pkgs: list of packages to install
         :params dist_dir: directory with packages to install
         :params   atonce: install all packages at once or not (default: False).
-
     """
 
         common_args = ['pip3', 'install', '--upgrade']
@@ -262,19 +275,27 @@ class Venv (object):
             for pkg in module_names:
                 self.run_command(common_args + [pkg])
 
+    def print_installed(self):
+        """Print list of installed packages."""
+
+        self.run_command(['pip3', 'freeze'])
+
     def run_command (self, args, cwd='/'):
+        """Run command in this virtual environment (except if self.system)
+
+        :param args: command line arguments (including 0)
+        :param  cwd: working directory to use
+        :return    : success status (boolean)
+        """
 
         new_args = args
         if self.system:
             new_args[0] = args[0]
         else:
             new_args[0] = os.path.join(self.name, 'bin', args[0])
-        run_command(new_args, cwd)
+        success = super().run_command(new_args, cwd=cwd)
+        return success
 
-    def print_installed(self):
-        """Print list of installed packages."""
-
-        self.run_command(['pip3', 'freeze'])
 
 class Modules(object):
     """Configuration of modules to build, install...
@@ -337,6 +358,8 @@ class BuildingEnviron(object):
     and directory for storing the distributable packages).
     """
 
+    _runner = CommandRunner()
+
     def __init__(self, modules, venv, repos_dir, dist_dir):
 
         self.modules = modules
@@ -367,7 +390,7 @@ class BuildingEnviron(object):
         repo_link = 'https://github.com/grimoirelab/' + desc['repo']
         repo_dir = os.path.join(self.repos_dir.name, desc['repo'])
         pkg_dir = os.path.join(self.repos_dir.name, desc['repo'], desc['dir'])
-        clone_git(repo=repo_link, dir=repo_dir, commit=desc['commit'])
+        self._runner.clone_git(repo=repo_link, dir=repo_dir, commit=desc['commit'])
         built = self._build_dist(pkg_dir)
         print("Module " + name + ": " + built)
 
@@ -376,6 +399,7 @@ class BuildingEnviron(object):
 
         for name in self.modules.names():
             self.build_module(name=name)
+
 
 class ReleaseInfo(object):
     """For reading a coordinated release file."""
@@ -412,6 +436,7 @@ class ReleaseInfo(object):
     def get_repos(self):
 
         return self.info.keys()
+
 
 def main():
     args = parse_args()
