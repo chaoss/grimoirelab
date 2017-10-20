@@ -1,0 +1,148 @@
+#!/bin/bash
+
+source /home/bitergia/conf/requirements.cfg
+
+# if RELEASE param is set, we download the info from
+# https://github.com/Bitergia/mordred/tree/master/docker/unified_releases/
+if [ $RELEASE ];
+    then
+    unset ARTHUR
+    unset GRIMOIREELK
+    unset GRIMOIRELAB_TOOLKIT
+    unset MORDRED
+    unset PANELS
+    unset PERCEVAL
+    unset PERCEVAL_MOZILLA
+    unset PERCEVAL_OPNFV
+    unset SORTINGHAT
+    unset REPORTS
+    TMPFILE=`mktemp`
+    wget https://raw.githubusercontent.com/Bitergia/mordred/master/docker/unified_releases/$RELEASE -O $TMPFILE
+    source $TMPFILE
+    rm $TMPFILE
+    echo $RELEASE > /home/bitergia/release
+else
+    echo "customized release, see requirements.cfg file" > /home/bitergia/release
+fi
+
+# get Arthur repository
+cd /home/bitergia && \
+# git clone https://github.com/grimoirelab/arthur.git && \
+git clone https://github.com/acs/arthur.git && \
+    cd arthur && \
+    git checkout $ARTHUR && \
+    sudo python3 setup.py install
+
+# get SortingHat repository
+cd /home/bitergia && \
+git clone https://github.com/grimoirelab/sortinghat.git && \
+    cd sortinghat && \
+    git checkout $SORTINGHAT && \
+    sudo python3 setup.py install
+
+# get GrimoireELK repository
+cd /home/bitergia && \
+git clone https://github.com/grimoirelab/GrimoireELK && \
+    cd GrimoireELK && \
+    git checkout $GRIMOIREELK
+
+# get Mordred repository
+cd /home/bitergia && \
+git clone https://github.com/Bitergia/mordred.git mordred && \
+    cd mordred && \
+    git checkout $MORDRED
+
+# panels for the dashboard
+cd /home/bitergia && \
+git clone https://github.com/grimoirelab/panels.git panels && \
+    cd panels && \
+    git checkout $PANELS
+
+# reports repository
+cd /home/bitergia && \
+git clone https://github.com/grimoirelab/reports.git reports && \
+    cd reports && \
+    git checkout $REPORTS
+
+# get GrimoireLab Toolkit repository
+cd /home/bitergia && \
+git clone https://github.com/grimoirelab/grimoirelab-toolkit.git && \
+    cd grimoirelab-toolkit && \
+    git checkout $GRIMOIRELAB_TOOLKIT && \
+    sudo python3 setup.py install
+
+# get Perceval repository
+cd /home/bitergia && \
+    git clone https://github.com/grimoirelab/perceval.git && \
+    cd perceval && \
+    git checkout $PERCEVAL && \
+    sudo python3 setup.py install
+
+# perceval extras
+cd /home/bitergia && \
+    git clone https://github.com/grimoirelab/perceval-mozilla && \
+    cd perceval-mozilla && \
+    git checkout $PERCEVAL_MOZILLA && \
+    sudo python3 setup.py install
+
+cd /home/bitergia && \
+    git clone https://github.com/grimoirelab/perceval-puppet && \
+    cd perceval-puppet && \
+    git checkout $PERCEVAL_PUPPET && \
+    sudo python3 setup.py install
+
+cd /home/bitergia && \
+    git clone https://github.com/grimoirelab/perceval-opnfv && \
+    cd perceval-opnfv && \
+    git checkout $PERCEVAL_OPNFV && \
+    sudo python3 setup.py install
+
+
+# some links we need until GrimoireELK and panels can be installed
+ln -s /home/bitergia/GrimoireELK/grimoire /home/bitergia/mordred/grimoire
+ln -s /home/bitergia/GrimoireELK/grimoire_elk /home/bitergia/mordred/grimoire_elk
+ln -s /home/bitergia/panels /home/bitergia/mordred/panels
+ln -s /home/bitergia/panels/dashboards5 /home/bitergia/panels/dashboards
+
+# This could be an ENV var probably
+REDIS="redis"
+
+# arthur on
+arthurd -g -d redis://$REDIS/8 --es-index $ARTHUR_ELASTICSEARCH_INDEX --log-path /home/bitergia/logs/arthurd --no-cache
+# Give time to arthur to create the raw index
+echo "Waiting for arthur startup completion ..."
+sleep 5
+echo "Starting two workers: collect and update tasks"
+# Two workers
+(arthurw -g -d redis://$REDIS/8 > /home/bitergia/logs/worker-collect.log 2>&1) &
+(arthurw -g -d redis://$REDIS/8 update > /home/bitergia/logs/worker-update.log 2>&1) &
+# some links we need until GrimoireELK and panels and reports can be installed
+ln -s /home/bitergia/GrimoireELK/grimoire /home/bitergia/mordred/grimoire
+ln -s /home/bitergia/GrimoireELK/grimoire_elk /home/bitergia/mordred/grimoire_elk
+ln -s /home/bitergia/panels /home/bitergia/mordred/panels
+ln -s /home/bitergia/reports /home/bitergia/mordred/reports
+
+# Extracting the perceval cache
+echo "Extracting the perceval cache data ..."
+cd /home/bitergia/conf && tar xfz cache-test.tgz
+ln -s /home/bitergia/conf/perceval-cache /home/bitergia/.perceval
+
+# Wait for Elasticsearch
+echo "Waiting for elasticsearch startup completion ..."
+until $(curl --output /dev/null --silent --head --fail http://172.17.0.1:9200); do
+    printf '.'
+    sleep 5
+done
+echo "Elasticsearch OK"
+# Load raw data
+echo "Loading initial raw data ..."
+cd /home/bitergia/conf && ./init-raw.sh
+# We need to wait also for Kibiter so the version can be collected
+echo "Waiting for kibiter startup completion ..."
+until $(curl --output /dev/null --silent --head --fail http://172.17.0.1:5601); do
+    printf '.'
+    sleep 5
+done
+echo "Kibiter OK"
+cd /home/bitergia/mordred && \
+bin/mordred -c /home/bitergia/conf/setup.cfg

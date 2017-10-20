@@ -1,0 +1,45 @@
+# Use it if you want testing data to be published locally
+# Change in setup.cfg the collection and enrichment ES urls
+# to url = http://elasticsearch:9200
+
+elasticsearch:
+  image: bitergia/elasticsearch:5.6.0
+  command: /elasticsearch/bin/elasticsearch -E network.bind_host=0.0.0.0
+  ports:
+    - "9200:9200"
+  environment:
+    - ES_JAVA_OPTS=-Xms2g -Xmx2g
+  # volumes:
+    #- ./elasticsearch.yml:/elasticsearch/config/elasticsearch.yml
+
+kibiter:
+  image: bitergia/kibiter:5.6.0
+  links:
+    - elasticsearch
+  ports:
+    - "5601:5601"
+  environment:
+    # - ELASTICSEARCH_URL=http://172.17.0.1:9200
+    - ELASTICSEARCH_USER=bitergia
+    - ELASTICSEARCH_PASSWORD=bitergia
+    - PROJECT_NAME=Test20
+    - NODE_OPTIONS=--max-old-space-size=1000
+
+mariadb:
+    image: mariadb:10.0
+    environment:
+        - MYSQL_ROOT_PASSWORD=
+        - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    command: --wait_timeout=2592000 --interactive_timeout=2592000 --max_connections=300
+
+mordred:
+  image: bitergia/mordred:latest
+  links:
+    - mariadb
+    - elasticsearch
+    - kibiter
+  volumes:
+    # The stage for this mordred load raw items, waits for ES ...
+    - ./stage:/home/bitergia/stage
+    - .:/home/bitergia/conf
+    - ./logs:/home/bitergia/logs
