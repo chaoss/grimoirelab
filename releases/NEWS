@@ -108,6 +108,42 @@ Released: 2017-10-06
 
 ## elasticgirl.16
 
+Released: 2017-10-05
+
+* SortingHat
+** Install misc scripts like grimoire2sh
+** [cmd:load] Add option to clear ids relationships and enrollments
+** [cmd:load] Update profile information when loading identities
+** [parsing:grimoirelab] Fix style errors in the parser
+
+* Perceval
+** [github] Reduce requests to collect reactions on issues and comments and fix formatting issues
+** [git] Redefine default storing repositories path
+
+* Mordred
+
+* GrimoireELK
+** [docker][kibana] Add docker compose file for kibana 5.6.0 with X-Pack disabled
+** [docker] Don't use a specific elastic config file by default. Use the one included in the docker image (Elasticsearch). Fix permissions sample file.
+** [enrich] Add support for enriching all items from a github raw index with different repositories.
+** [requests] Increase the connection retry time from 10 min to 2.5d in HTTP connections
+** [enrich][discourse] Fix discoursce case in which there is no categories tree
+** [enrich][slack] Support that message['attachments'] could be None
+
+* Panels T3411
+** Add CSV files as the data model schema
+** Migrate Discourse to Kibana 5
+
+* Reports
+
+* VIzGrimoireUtils
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+## elasticgirl.16
+
 Released: 2017-09-25
 
 * SortingHat
