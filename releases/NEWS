@@ -1,3 +1,28 @@
+## elasticgirl.18.1
+
+Released: 2017-10-20
+
+* SortingHat
+
+* Perceval
+** Updated version
+
+* Mordred
+** First pip package: updated version
+
+* GrimoireELK
+** Updated version
+
+* Panels
+
+* Reports
+** First pip package: updated version
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+
 ## elasticgirl.18
 
 Released: 2017-10-20
@@ -24,7 +49,7 @@ Released: 2017-10-20
 ** [enrich][functest] Fixes all issues and delivered to the customer
 ** [enrich] Several fixes in different backends to sync with panels
 
-* Panels T3411
+* Panels
 ** [owlwatch] Added tool for testing enriched indexes and panels definitions.
   Used now in grimoirelab release cycle.
 ** Migrate Redmine panels to Kibana5
