@@ -52,7 +52,11 @@ all_repos = {
             'version_file': os.path.join('grimoire_elk', '_version.py')},
             {'name': 'grimoire-kidash', 'dir': 'kidash'}],
     'sortinghat': [{'name': 'sortinghat', 'dir': '',
-            'version_file': os.path.join('sortinghat', '_version.py')}]
+            'version_file': os.path.join('sortinghat', '_version.py')}],
+    'reports': [{'name': 'grimoire-reports', 'dir': '',
+            'version_file': 'setup.py'}],
+    'mordred': [{'name': 'grimoire-mordred', 'dir': '',
+            'version_file': 'setup.py'}]
 }
 """Structure of GrimoireLab, and the specifics of the Python modules
 that will come out of it.
@@ -80,7 +84,7 @@ def parse_args ():
 
     parser.add_argument("--relfile", type=str,
                             help="GrimoireLab coordinated release file. "
-                                + "If not specified, master/HEAD will be used "
+                                + "If not specified, origin/master will be used "
                                 + "for each module.")
 
     parser.add_argument("--modules", type=str, nargs='+',
@@ -350,7 +354,7 @@ class Modules(object):
             for repo_module in repo_modules:
                 if (module_names is None) or (repo_module['name'] in module_names):
                     if release is None:
-                        commit = 'HEAD'
+                        commit = 'origin/master'
                     else:
                         commit = release.get_commit(repo)
                     desc = {'repo': repo, 'commit': commit}
@@ -402,7 +406,7 @@ class BuildingEnviron(object):
                         cwd=dir)
             return "OK"
         else:
-            logging.info("Directory " + pkg_dir + " does not have a setup.py file.")
+            logging.info("Directory " + dir + " does not have a setup.py file.")
             return "Error"
 
     def build_module(self, name):
