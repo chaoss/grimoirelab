@@ -1,3 +1,48 @@
+## elasticgirl.18
+
+Released: 2017-10-20
+
+* SortingHat
+
+* Perceval
+** [github] Fix abuse rate limit error (#173)
+** [phabricator] Fix restricted access to projects data
+** [mbox] Fix UnicodeDecodeError when parsing email addresses (#176)
+** [launchpad] Add instructions to README.md and bin/perceval
+** [launchpad] Add Launchpad backend
+
+* Mordred
+** Add identification for threads
+** [task_panels] Fix mapping problem with ElasticSearch/Kibana 5.6
+** [task_identities] Set TaskInitSortingHat as a global task not related to a data source
+** [task_panel][aliases] Add functest aliases
+** [tasks] Readd support to execute one time all tasks and exit.
+** [task_panels] Add missing aliases: apache, google-hits, remo-events
+** Adapt to produce a pipy package (remove VIzGrimoireUtils dependency)
+
+* GrimoireELK
+** [enrich][functest] Fixes all issues and delivered to the customer
+** [enrich] Several fixes in different backends to sync with panels
+
+* Panels T3411
+** [owlwatch] Added tool for testing enriched indexes and panels definitions.
+  Used now in grimoirelab release cycle.
+** Migrate Redmine panels to Kibana5
+** Migrate GitHub Backlog to Kibana 5
+** Migrate mediawiki panel to Kibana5
+
+* Reports
+** Add support for building pip packages.
+** Add LaTeX templates to the package.
+
+* VIzGrimoireUtils
+** Not used any more
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+
 ## elasticgirl.17
 
 Released: 2017-10-06
@@ -34,6 +79,7 @@ Released: 2017-10-06
 * GrimoireLab Toolkit
 
 * Arthur
+
 
 ## elasticgirl.16
 
