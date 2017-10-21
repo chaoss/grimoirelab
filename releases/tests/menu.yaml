@@ -1,0 +1,197 @@
+---
+- name: Git
+  source: git
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/git.json
+  - name: Attraction/Retention
+    panel: panels/json/git_demographics.json
+- name: Gerrit
+  source: gerrit
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/gerrit.json
+  - name: Backlog
+    panel: panels/json/gerrit_backlog.json
+  - name: Timing
+    panel: panels/json/gerrit_timing.json
+- name: GitHub PRs
+  source: github
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/github_pullrequests.json
+  - name: Backlog
+    panel: panels/json/github_backlog.json
+  - name: Timing
+    panel: panels/json/github_pullrequests_timing.json
+- name: GitHub Issues
+  source: github
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/github_issues.json
+  - name: Backlog
+    panel: panels/json/github_backlog.json
+  - name: Timing
+    panel: panels/json/github_issues_timing.json
+- name: Phabricator
+  source: phabricator
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/maniphest.json
+  - name: Backlog
+    panel: panels/json/maniphest_backlog.json
+  - name: Timing
+    panel: panels/json/maniphest_timing.json
+- name: Redmine
+  source: redmine
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/redmine-projects.json
+  - name: Backlog
+    panel: panels/json/redmine_backlog-projects.json
+  - name: Timing
+    panel: panels/json/redmine_timing-projects.json
+- name: Jira
+  source: jira
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/jira.json
+  - name: Backlog
+    panel: panels/json/jira_backlog.json
+  - name: Timing
+    panel: panels/json/jira_timing.json
+- name: Bugzilla
+  source: bugzilla
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/bugzilla.json
+  - name: Backlog
+    panel: panels/json/bugzilla_backlog.json
+- name: Bugzilla
+  source: bugzillarest
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/bugzilla.json
+  - name: Backlog
+    panel: panels/json/bugzilla_backlog.json
+- name: Confluence
+  source: confluence
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/confluence.json
+- name: MediaWiki
+  source: mediawiki
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/mediawiki.json
+- name: Mailing Lists
+  source: mbox
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/mailinglists.json
+- name: Mailing Lists
+  source: pipermail
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/mailinglists.json
+- name: Discourse
+  source: discourse
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/discourse.json
+- name: Blogs (RSS)
+  source: rss
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/rss.json
+- name: IRC
+  source: supybot
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/irc.json
+- name: Slack
+  source: slack
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/slack.json
+- name: Telegram
+  source: telegram
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/telegram.json
+- name: Twitter
+  source: twitter
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/twitter.json
+- name: Kitsune
+  source: kitsune
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/kitsune.json
+- name: Askbot Q&A
+  source: askbot
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/askbot.json
+- name: StackOverflow
+  source: stackexchange
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/stackoverflow.json
+- name: Jenkins
+  source: jenkins
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/jenkins.json
+- name: Mozilla Reps
+  source: remo
+  icon: default.png
+  menu:
+  - name: Events
+    panel: panels/json/reps2.json
+  - name: Activities
+    panel: panels/json/reps2_activities.json
+- name: Meetup
+  source: meetup
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/meetup.json
+  - name: Locations
+    panel: panels/json/meetup_locations.json
+- name: Google Hits
+  source: google_hits
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/google-hits.json
+- name: DockerHub
+  source: dockerhub
+  icon: default.png
+  menu:
+  - name: Overview
+    panel: panels/json/dockerhub.json
