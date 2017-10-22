@@ -1,4 +1,4 @@
-[2017-10-20 20:30:04,747 - rq.worker - DEBUG] - Registering birth of worker 67e1269855c4.28
+[2017-10-21 06:53:24,089 - rq.worker - DEBUG] - Registering birth of worker e8e68f7901e9.224
 Traceback (most recent call last):
   File "/usr/local/lib/python3.4/dist-packages/redis-2.10.6-py3.4.egg/redis/connection.py", line 484, in connect
   File "/usr/local/lib/python3.4/dist-packages/redis-2.10.6-py3.4.egg/redis/connection.py", line 511, in _connect
