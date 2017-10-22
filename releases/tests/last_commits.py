@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 #
-# Get the last commits for GrimoireLab repositories
+# Get the last commits for GrmoireLab repositories
 #
 # Copyright (C) 2017 Bitergia
 #
@@ -23,32 +23,38 @@
 #   Alvaro del Castillo San Felix <acs@bitergia.com>
 #
 
+import sys
 
 import requests
 
-GITHUB_REPOS_API = 'https://api.github.com/repos'
+MAX_REPOS = 20  # script does not paginate to get more than 20 items
+ORG = 'grimoirelab'
+GITHUB_REPOS_API = 'https://api.github.com/repos' + '/' + ORG
+GITHUB_ORGS_API = 'https://api.github.com/orgs' + '/'+ ORG
 
-GRIMOIRELAB_API = GITHUB_REPOS_API + '/grimoirelab'
+def get_repositories():
+    repos = []
+    repos_url = GITHUB_ORGS_API + "/repos"
+    res = requests.get(repos_url)
+    res.raise_for_status()
 
-REPOSITORIES = ['arthur', 'GrimoireELK', 'grimoirelab-toolkit', 'mordred',
-                'panels', 'perceval', 'perceval-opnfv', 'perceval-mozilla',
-                'perceval-puppet', 'reports', 'sortinghat']
+    repos_dict = res.json()
 
-def get_params():
-    parser = argparse.ArgumentParser(usage="usage:last_commits [options]",
-                                     description="Get last commits from " + \
-                                                 "GrimoireLab GitHub repositories")
+    if len(repos_dict) >= MAX_REPOS:
+        print("Max repositories reached: %i. Exiting." % MAX_REPOS)
+        sys.exit(1)
 
-    return parser.parse_args()
+    for repo in repos_dict:
+        repos.append(repo['name'])
+
+    return repos
 
 if __name__ == '__main__':
 
-    args = get_params()
-
-    for repo in REPOSITORIES:
+    for repo in get_repositories():
         # Return the last commit from master branch
-        commits_url = GRIMOIRELAB_API + "/" + repo + "/commits/master"
+        commits_url = GITHUB_REPOS_API + "/" + repo + "/commits/master"
         res = requests.get(commits_url)
         res.raise_for_status()
         commit = res.json()['sha']
-        print(repo.upper() + "='" + commit + "'")
+        print(repo.upper().replace("-", "_") + "='" + commit + "'")
