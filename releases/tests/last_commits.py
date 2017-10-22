@@ -23,6 +23,7 @@
 #   Alvaro del Castillo San Felix <acs@bitergia.com>
 #
 
+import argparse
 import sys
 
 import requests
@@ -32,10 +33,24 @@ ORG = 'grimoirelab'
 GITHUB_REPOS_API = 'https://api.github.com/repos' + '/' + ORG
 GITHUB_ORGS_API = 'https://api.github.com/orgs' + '/'+ ORG
 
+def get_params():
+    parser = argparse.ArgumentParser(usage="usage:last_commits.py [options]",
+                                     description="Collect the last commit " + \
+                                                  "from GrimoireLab repositories")
+    parser.add_argument("-t", "--token", required=True, help="GitHub API token")
+
+    return parser.parse_args()
+
+def send_github(url, headers=None):
+    headers = {'Authorization': 'token ' + args.token }
+    res = requests.get(url, headers=headers)
+    res.raise_for_status()
+    return res
+
 def get_repositories():
     repos = []
     repos_url = GITHUB_ORGS_API + "/repos"
-    res = requests.get(repos_url)
+    res = send_github(repos_url)
     res.raise_for_status()
 
     repos_dict = res.json()
@@ -51,10 +66,11 @@ def get_repositories():
 
 if __name__ == '__main__':
 
+    args = get_params()
+
     for repo in get_repositories():
         # Return the last commit from master branch
         commits_url = GITHUB_REPOS_API + "/" + repo + "/commits/master"
-        res = requests.get(commits_url)
-        res.raise_for_status()
+        res = send_github(commits_url)
         commit = res.json()['sha']
         print(repo.upper().replace("-", "_") + "='" + commit + "'")
