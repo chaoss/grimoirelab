@@ -19,7 +19,7 @@
             "bitergia kibiter"
         ],
         "functest": [
-            "http://testresults.opnfv.org/test"
+            "http://testresults.opnfv.org/test/"
         ],
         "gerrit": [
             "review.openstack.org"
