@@ -45,5 +45,5 @@ ln -s ~/devel/panels .
 To check for a specific panel:
 
 ```
-python3 ~/devel/panels/src/owlwatch/owlwatch.py  compare-mapping -e http://bitergia:bitergia@localhost:9200 -p ~/devel/panels/json/slack.json
+python3 ~/devel/panels/src/owlwatch/owlwatch.py  compare-panel -e http://bitergia:bitergia@localhost:9200 -p ~/devel/panels/json/slack.json
 ```
