@@ -73,4 +73,5 @@ if __name__ == '__main__':
         commits_url = GITHUB_REPOS_API + "/" + repo + "/commits/master"
         res = send_github(commits_url)
         commit = res.json()['sha']
-        print(repo.upper().replace("-", "_") + "='" + commit + "'")
+        repo_name = repo.upper().replace("-", "_").replace(".", "_")
+        print(repo_name + "='" + commit + "'")
