@@ -41,6 +41,8 @@ def get_params():
     parser.add_argument('-g', '--debug', dest='debug', action='store_true')
     parser.add_argument('-l', '--limit', dest='limit', default=100, type=int,
                         help='Number of items to collect (default 100)')
+    parser.add_argument("-q", "--query-string",
+                        help="Query String to filter results to export from ES")
     parser.add_argument('-p', '--publish', dest='publish', action='store_true', help='Publish items in file to ES')
     args = parser.parse_args()
 
@@ -49,7 +51,7 @@ def get_params():
 
     return args
 
-def export_items(elastic_url, index, export_file, limit):
+def export_items(elastic_url, index, export_file, limit, query_string=None):
     # Export items from ES to a file
     logging.info("Exporting items from %s/%s to %s", elastic_url, index, export_file)
 
@@ -62,7 +64,12 @@ def export_items(elastic_url, index, export_file, limit):
         sys.exit(1)
     json_mapping = mapping.json()[args.index]
 
-    items = requests.get('%s/%s/_search?size=%i' % (elastic_url, index, limit))
+    if query_string is None:
+        query_url = '%s/%s/_search?size=%i' % (elastic_url, index, limit)
+    else:
+        query_url = '%s/%s/_search?size=%i&q=%s' % (elastic_url, index, limit,
+                                                    query_string)
+    items = requests.get(query_url)
     items.raise_for_status()
     json_items = items.json()
     raw_items = json_items['hits']['hits']
@@ -114,6 +121,7 @@ if __name__ == '__main__':
     logging.getLogger("requests").setLevel(logging.WARNING)
 
     if not args.publish:
-        export_items(args.elastic_url, args.index, args.file, args.limit)
+        export_items(args.elastic_url, args.index, args.file, args.limit,
+                     query_string=args.query_string)
     else:
         publish_items(args.elastic_url, args.index, args.file)
