@@ -54,9 +54,9 @@ all_repos = {
     'sortinghat': [{'name': 'sortinghat', 'dir': '',
             'version_file': os.path.join('sortinghat', '_version.py')}],
     'reports': [{'name': 'grimoire-reports', 'dir': '',
-            'version_file': 'setup.py'}],
+            'version_file': os.path.join('report', '_version.py')}],
     'mordred': [{'name': 'grimoire-mordred', 'dir': '',
-            'version_file': 'setup.py'}]
+            'version_file': os.path.join('mordred', '_version.py')}]
 }
 """Structure of GrimoireLab, and the specifics of the Python modules
 that will come out of it.
