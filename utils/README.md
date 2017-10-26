@@ -81,6 +81,17 @@ Installed modules in /tmp/ivenv
 
 * Build all modules in a coordinated release of GrimoireLab
 (the one corresponding to `../releases/elasticgirl.16`),
+letting the script decide which directories to use, producing
+minimum messages, and no log file. This can be used as a "minimal
+check" for a release.
+
+```bash
+$ build_grimoirelab --build --install --check \
+  --relfile ../releases/elasticgirl.16
+```
+
+* Build all modules in a coordinated release of GrimoireLab
+(the one corresponding to `../releases/elasticgirl.16`),
 producing the corresponding wheels and sdists in `/tmp/dist`,
 installing them in the virtual environment `/tmp/ivenv`
 afterwards, including dependencies,
