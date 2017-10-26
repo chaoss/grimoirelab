@@ -1,3 +1,67 @@
+## elasticgirl.19.1
+
+Released: 2017-10-26
+
+* SortingHat
+
+* Perceval
+
+* Mordred
+
+* GrimoireELK
+
+* Panels
+
+* Reports
+** Updated version
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+
+## elasticgirl.19
+
+Released: 2017-10-26
+
+* SortingHat
+** [matching] Substitute sort for sort_values (pandas in unify)
+** [cmd:unify] Change unicode to str
+
+* Perceval
+** [tests] General reorganization
+** [askbot] Handle TooManyRedirects error when question title is empty
+** [github] Enable fetch reactions without token
+
+* Mordred
+** [task_identities] Include for identities refresh also uuid in which other uuids are merged.
+** [task_manager] Add sync logic between threads so the load of identities and the merge of identities tasks are not done during enrichment tasks execution.
+** [task_identities] Add support for loading identities in GrimoireLab yaml format from files stored in GitLab and locally.
+** [task_identities] Add support for not executing unify and affiliate.
+** [task_manager] Execute the tasks and then wait for the interval.
+
+* GrimoireELK
+** [enrich] Get Kibiter version during enrichment process.
+
+* Panels
+** Migrate Reps Events panel to Kibana 5
+** Migrate reps activities panel to Kibana 5
+** Use shaded circle markers in maps
+** Migrate Reps Events panel to Kibana 5
+** Migrate Functest panels to Kibana 5
+** Migrate Apache panel to Kibana 5
+** Migrate Functest panels to Kibana 5
+** Migrate MozillaClub panel to Kibana5
+** Migrate Google Hits panel to Kibana 5
+** Migrate Jira Effort Panel to Kibana 5
+
+* Reports
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+
 ## elasticgirl.18.1
 
 Released: 2017-10-20
