@@ -1,0 +1,11 @@
+# Use it if you want testing data to be published locally
+# Change in setup.cfg the collection and enrichment ES urls
+# to url = http://elasticsearch:9200
+
+elasticsearch:
+  ports:
+    - "9200:9200"
+
+kibiter:
+  ports:
+    - "5601:5601"

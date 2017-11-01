@@ -5,8 +5,8 @@
 elasticsearch:
   image: bitergia/elasticsearch:5.6.0
   command: /elasticsearch/bin/elasticsearch -E network.bind_host=0.0.0.0
-  ports:
-    - "9200:9200"
+#  ports:
+#    - "9200:9200"
   environment:
     - ES_JAVA_OPTS=-Xms2g -Xmx2g
   # volumes:
@@ -16,8 +16,8 @@ kibiter:
   image: bitergia/kibiter:5.6.0
   links:
     - elasticsearch
-  ports:
-    - "5601:5601"
+#  ports:
+#    - "5601:5601"
   environment:
     # - ELASTICSEARCH_URL=http://172.17.0.1:9200
     - ELASTICSEARCH_USER=bitergia
