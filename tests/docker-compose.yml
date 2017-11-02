@@ -33,13 +33,14 @@ mariadb:
     command: --wait_timeout=2592000 --interactive_timeout=2592000 --max_connections=300
 
 mordred:
-  image: bitergia/mordred:latest
+  image: grimoirelab/basic:latest
   links:
     - mariadb
     - elasticsearch
     - kibiter
   volumes:
     # The stage for this mordred load raw items, waits for ES ...
-    - ./stage:/home/bitergia/stage
-    - .:/home/bitergia/conf
-    - ./logs:/home/bitergia/logs
+    - ./stage:/home/grimoirelab/stage
+    - .:/home/grimoirelab/conf
+    - ..:/home/grimoirelab/grimoirelab
+    - ./logs:/home/grimoirelab/logs

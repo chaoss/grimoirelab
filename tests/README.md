@@ -16,7 +16,8 @@ So you just need to execute:
 
 ```bash
 $ mkdir logs
-$ docker-compose up mordred
+$ docker-compose rm mordred
+$ docker-compose up --force-recreate mordred
 ```
 
 In the logs/all.log file you can track the execution of mordred.
@@ -45,7 +46,7 @@ If you want to enter the container to debug inside it, once the docker container
 is up and running execute:
 
 ```bash
-docker exec -t -i testing_mordred_1 env TERM=xterm /bin/bash
+docker exec -t -i tests_mordred_1 env TERM=xterm /bin/bash
 ```
 
 # Panel testing
@@ -67,4 +68,14 @@ To check for a specific panel:
 
 ```
 python3 ~/devel/panels/src/owlwatch/owlwatch.py  compare-panel -e http://bitergia:bitergia@localhost:9200 -p ~/devel/panels/json/slack.json
+```
+
+# Creating grimoirelab Docker image
+
+`grimoirelab` is a basic Docker image, prepared for installing GrimoireLab
+tools in it. It's definition is in `Dockerfile`.
+For creating the image:
+
+```
+$ docker build -t grimoirelab/basic .
 ```
