@@ -1,3 +1,28 @@
+## elasticgirl.20
+
+Released: 2017-11-02
+
+* SortingHat
+
+* Perceval
+
+* Mordred
+** [task_identities] Don't use the orgs file when converting from yaml identities to JSON identities
+** [mordred] Clean the threads shared queues once the execution is finished
+
+* GrimoireELK
+** [enrich] Refactor (simplify and improve) the logic to get the SH fields from an identity
+
+* Panels
+
+* Reports
+**  [report] Use command line param title if provided instead of mordred short name
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+
 ## elasticgirl.19.1
 
 Released: 2017-10-26
