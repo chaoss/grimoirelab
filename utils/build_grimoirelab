@@ -37,7 +37,7 @@ Example:
 """
 
 build_dependencies = ['pip', 'setuptools', 'pypandoc', 'twine']
-install_dependencies = ['pip']
+install_dependencies = ['pip', 'setuptools']
 
 all_repos = {
     'grimoirelab-toolkit': [{'name': 'grimoirelab-toolkit', 'dir': '',
@@ -105,7 +105,7 @@ def parse_args ():
                                 + "installed in it in their latest version."
                                 + "If not specified, create a random directory, "
                                 + "which will be cleaned up when done.")
-    args_venv.add_argument("--system", type=str,
+    args_venv.add_argument("--system", action='store_true',
                             help="Use Python3 system environment, instead of "
                                 + "a virtual environment, for building "
                                 + "packages. It should include all dependencies "
@@ -270,7 +270,7 @@ class Venv (CommandRunner):
             self.dir = Directory(name=name, purpose=purpose, persistent=persistent)
             self.name = self.dir.name
             self._create ()
-            self.update (module_names=dependencies)
+        self.update (module_names=dependencies)
 
     def _create(self):
 
@@ -517,7 +517,7 @@ def main():
 
     if args.install:
         print("Installing...")
-        install_venv = Venv(system=args.system, name=args.install_venv,
+        install_venv = Venv(system=args.install_system, name=args.install_venv,
                         dependencies=install_dependencies,
                         purpose="InstallVenv", persistent=True)
         install_venv.update(module_names=modules.names(),
