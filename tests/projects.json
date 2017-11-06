@@ -1,5 +1,8 @@
 {
     "grimoire": {
+        "apache": [
+          ""
+        ],
         "askbot": [
           "https://ask.puppet.com"
         ],
