@@ -1,0 +1,17 @@
+<div class="row">
+  <h2 class="text-center">Confirmed keynotes</h2>
+  <p><em>to be announced soon</em></p>
+</div>
+
+{% for speaker in site.data.conf_speakers %}
+<div class="row">
+  <div class="col-sm-2">
+    <a href="{{speaker.link}}" target="_blank"><img src="{{speaker.image}}" alt="{{speaker.name}}" class="img-responsive"></a>
+  </div>
+  <div class="col-sm-10" style="font-size: .8em;">
+    <h3>{{speaker.title}}</h3>
+    <h4>{{speaker.name}} <small>{{speaker.company}}</small></h4>
+    {{speaker.description}}
+  </div>
+</div>
+{% endfor %}

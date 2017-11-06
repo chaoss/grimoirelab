@@ -5,8 +5,8 @@ description: GrimoireCon is the conference for open source and inner source proj
 sections:
   - name: Summary
     link: \con/#summary
-  - name: Keynotes
-    link: \con/#keynotes
+  - name: Agenda
+    link: \con/#agenda
   - name: Registration
     link: \con/#registration
   - name: Code of Conduct
@@ -16,7 +16,7 @@ sections:
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <img src="/img/wizard-y.svg" height="64px" alt="">
+        <img src="/img/wizard-y.svg" height="64px" alt="GrimoireLab">
         <img src="/img/Chaoss_Logo_Pantone2.png" alt="CHAOSS: Community Health Analytics for Open Source Software" height="32px">
         <h1>GrimoireCon Europa 2018</h1>
         <p>Feb. 2<sup>nd</sup>, 2018</p>
@@ -36,46 +36,24 @@ sections:
       <div class="row">
 
         <div class="col-md-7">
-          <p>Meet the 100% open source software development analytics platform used by several open source projects, communitites, engineering teams to track and analyze their development activities, communities health, diversity, etc. Join the <a href="http://chaoss.community">CHAOSS</a> the software community!</p>
-          <p>This conference will show <a href="http://grimoirelab.github.io">GrimoireLab</a> updates, use cases and practical workshop/s for developers, community managers, project managers, etc.</p>
-          <p>The workshop/s will cover the basic training for using open source GrimoireLab toolkit for analyzing software development processes to manage them through metrics and KPIs.</p>
-          <p>Community managers, software development managers, developers and generally anyone involved in Open Source and Inner Source software development will learn through real examples how to set up and use Grimoire for their specific needs.</p>
+          {% include con/summary.html %}
         </div>
 
         <div class="col-md-5">
-          <h3>Agenda <small>work in progress</small></h3>
-
-          <h3>Venue</h3>
-          <address>Hotel ibis Brussels Centre St Catherine (<a href="https://goo.gl/maps/5b6h9BmtFKJ2">map</a>)<br/>
-            rue Joseph Plateau N°2<br/>
-            1000 Brussels</br>
-            Belgium<br/></address>
-            <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2518.9541084073494!2d4.347142415745921!3d50.850534079532565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c387076c4653%3A0x3a13a67b582992ca!2sHotel+ibis+Brussels+Centre+St+Catherine!5e0!3m2!1ses!2ses!4v1508481277415" height="350" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+          {% include con/venue.html%}
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="keynotes" style="background: #eee;">
+<section id="agenda" style="background: #fff;">
   <div class="container">
     <div class="row">
-      <h2 class="text-center">Confirmed keynotes</h2>
-      <p><em>to be announced soon</em></p>
+      <h2 class="text-center">Agenda <small>work in progress</small></h2>
+      {% include con/agenda.html %}
     </div>
-
-    {% for speaker in site.data.conf_speakers %}
-    <div class="row">
-      <div class="col-sm-2">
-        <a href="{{speaker.link}}" target="_blank"><img src="{{speaker.image}}" alt="{{speaker.name}}" class="img-responsive"></a>
-      </div>
-      <div class="col-sm-10" style="font-size: .8em;">
-        <h3>{{speaker.title}}</h3>
-        <h4>{{speaker.name}} <small>{{speaker.company}}</small></h4>
-        {{speaker.description}}
-      </div>
-    </div>
-    {% endfor %}
+    <!--{% include con/speakers.html %}-->
   </div>
 </section>
 
@@ -95,4 +73,4 @@ sections:
   </div>
 </section>
 
-{% include coc.html %}
+{% include con/coc.html %}
