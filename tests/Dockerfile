@@ -16,10 +16,12 @@ RUN useradd ${DEPLOY_USER} --create-home --shell /bin/bash
 RUN apt-get update && \
     apt-get -y install --no-install-recommends \
         bash locales \
+        gcc \
         git git-core \
         python3 \
         python3-pip \
         python3-venv \
+        python3-dev \
         mariadb-client \
         unzip curl wget sudo ssh \
         && \
