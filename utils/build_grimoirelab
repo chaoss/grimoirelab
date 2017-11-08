@@ -48,7 +48,7 @@ all_repos = {
             'version_file': 'setup.py'}],
     'perceval-mozilla': [{'name': 'perceval-mozilla', 'dir': '',
             'version_file': 'setup.py'}],
-    'arthur': [{'name': 'arthur', 'dir': '',
+    'arthur': [{'name': 'kingarthur', 'dir': '',
             'version_file': os.path.join('arthur', '_version.py'),
             'tests': True}],
     'grimoireelk': [{'name': 'grimoire-elk', 'dir': '',
