@@ -5,12 +5,12 @@
 elasticsearch:
   image: bitergia/elasticsearch:5.6.0
   command: /elasticsearch/bin/elasticsearch -E network.bind_host=0.0.0.0
-#  ports:
-#    - "9200:9200"
+  ports:
+    - "9200:9200"
   environment:
     - ES_JAVA_OPTS=-Xms2g -Xmx2g
-  # volumes:
-    #- ./elasticsearch.yml:/elasticsearch/config/elasticsearch.yml
+  volumes:
+    - ./elasticsearch.yml:/elasticsearch/config/elasticsearch.yml
 
 kibiter:
   image: bitergia/kibiter:5.6.0

@@ -36,8 +36,8 @@ Example:
 
 """
 
-build_dependencies = ['pip', 'setuptools', 'pypandoc', 'twine']
-install_dependencies = ['pip', 'setuptools']
+build_dependencies = ['pip', 'setuptools', 'pypandoc', 'twine', 'wheel']
+install_dependencies = ['pip', 'setuptools', 'wheel']
 
 all_repos = {
     'grimoirelab-toolkit': [{'name': 'grimoirelab-toolkit', 'dir': '',

@@ -23,7 +23,7 @@ ln -s /home/grimoirelab/panels /home/grimoirelab/mordred/panels
 # Extracting the perceval cache
 echo "Extracting the perceval cache data ..."
 cd /home/grimoirelab/conf && tar xfz cache-test.tgz
-ln -s /home/grimoirelab/conf/perceval-cache /home/bitergia/.perceval
+ln -s /home/grimoirelab/conf/perceval-cache /home/grimoirelab/.perceval
 
 # Wait for Elasticsearch
 echo "Waiting for elasticsearch startup completion ..."
