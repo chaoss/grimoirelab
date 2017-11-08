@@ -73,9 +73,9 @@ python3 ~/devel/panels/src/owlwatch/owlwatch.py  compare-panel -e http://bitergi
 # Creating grimoirelab Docker image
 
 `grimoirelab` is a basic Docker image, prepared for installing GrimoireLab
-tools in it. It's definition is in `Dockerfile`.
+tools in it. It's definition is in `grimoirelab/docker/Dockerfile`.
 For creating the image:
 
 ```
-$ docker build -t grimoirelab/basic .
+$ docker build -t grimoirelab/grimoirelab ../docker/
 ```

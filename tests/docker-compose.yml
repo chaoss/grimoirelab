@@ -33,7 +33,7 @@ mariadb:
     command: --wait_timeout=2592000 --interactive_timeout=2592000 --max_connections=300
 
 mordred:
-  image: grimoirelab/basic:latest
+  image: grimoirelab/grimoirelab:latest
   links:
     - mariadb
     - elasticsearch
