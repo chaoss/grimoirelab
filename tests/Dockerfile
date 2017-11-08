@@ -22,6 +22,7 @@ RUN apt-get update && \
         python3-pip \
         python3-venv \
         python3-dev \
+        python3-gdbm \
         mariadb-client \
         unzip curl wget sudo ssh \
         && \
