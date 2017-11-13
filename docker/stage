@@ -42,4 +42,4 @@ until $(curl --output /dev/null --silent --head --fail http://172.17.0.1:5601); 
     sleep 5
 done
 echo "Kibiter OK"
-cd /home/grimoirelab && mordred -c conf/setup.cfg
+cd /home/grimoirelab/conf && mordred -c setup.cfg

@@ -40,7 +40,7 @@ mordred:
     - kibiter
   volumes:
     # The stage for this mordred load raw items, waits for ES ...
-    - ./stage:/home/grimoirelab/stage
+#    - ./stage:/home/grimoirelab/stage
     - .:/home/grimoirelab/conf
     - ..:/home/grimoirelab/grimoirelab
     - ./logs:/home/grimoirelab/logs
