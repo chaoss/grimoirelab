@@ -1,3 +1,40 @@
+## elasticgirl.21
+
+Released: 2017-11-13
+
+* SortingHat
+
+* Perceval
+** [meetup] Fix too many requests error
+** [jenkins] Fix connection timed out exception
+** [git] Fix fetch-pack for HTTPs connections
+** [git] Work with bared repositories only
+
+* Mordred
+** [task_identities] Fix downloading of identities file from GitHub
+** [task_enrich] Wait 5 seconds before executing the studies (demography fix)
+** [panels] Fix all panels issues
+** [exceptions] Print RuntimeError in an appropriate way
+** [menu] Add Functest panel to menu.yaml
+
+* GrimoireELK
+** [enrich] Use _version.py to get GELK version
+** Add badges for pypi packages
+** [enrich][jira] Support that reporter does not exists in jira raw data
+** [kidash] Add support for using panels in the panels module
+** [jira] Add story points to enriched index, when they are available
+** [setup] Improve setup.py
+
+* Panels
+** [pkg] Add files for first Python package
+
+* Reports
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+
 ## elasticgirl.20
 
 Released: 2017-11-02
