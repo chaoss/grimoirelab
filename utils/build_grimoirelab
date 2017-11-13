@@ -80,7 +80,6 @@ def parse_args ():
 
     args_actions = parser.add_argument_group("Actions", "Actions to perform")
     args_actions.add_argument("--build", action='store_true',
-                            default=True,
                             help="Build modules. It is the default action.")
     args_actions.add_argument("--install", action='store_true',
                             help="Install modules.")
