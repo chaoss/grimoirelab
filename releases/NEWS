@@ -1,3 +1,34 @@
+## elasticgirl.22
+
+Released: 2017-11-14
+
+* SortingHat
+
+* Perceval
+** [git] Change 'mirror' to 'bare' repositories
+** [git] Limit the number of 'have' commits sent by fetch-pack
+** [git] Fix error fetching latest items from empty repositories
+
+* Mordred
+** [docker] Use the new URL for downloading releases specification
+
+* GrimoireELK
+** [utils] Add index_mapping.py script
+** [enrich] Fix log message about the size in MB of the bulk packet sent to ES
+
+* Panels
+** Fix header row in CSV files
+** [setup] Add panels/__init__.py
+** Several improvements in testing
+
+* Reports
+
+* GrimoireLab Toolkit
+
+* Arthur
+** [setup] Set cheerypy version to cherrypy>=8.1 <=11.0.0
+** [setup] Improve generation of package and running tests
+
 ## elasticgirl.21
 
 Released: 2017-11-13
@@ -9,6 +40,7 @@ Released: 2017-11-13
 ** [jenkins] Fix connection timed out exception
 ** [git] Fix fetch-pack for HTTPs connections
 ** [git] Work with bared repositories only
+** [crates.io] Add crates backend
 
 * Mordred
 ** [task_identities] Fix downloading of identities file from GitHub
