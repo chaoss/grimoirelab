@@ -1,0 +1,35 @@
+{
+    "grimoire": {
+        "git": [
+            "https://github.com/grimoirelab/perceval",
+            "https://github.com/grimoirelab/perceval-opnfv",
+            "https://github.com/grimoirelab/perceval-mozilla",
+            "https://github.com/grimoirelab/perceval-puppet",
+            "https://github.com/grimoirelab/arthur",
+            "https://github.com/grimoirelab/grimoireelk",
+            "https://github.com/grimoirelab/sortinghat",
+            "https://github.com/grimoirelab/panels",
+            "https://github.com/grimoirelab/mordred",
+            "https://github.com/grimoirelab/reports",
+            "https://github.com/grimoirelab/training",
+            "https://github.com/grimoirelab/grimoirelab",
+            "https://github.com/grimoirelab/grimoirelab.github.io"
+        ],
+        "github": [
+            "https://github.com/grimoirelab/perceval",
+            "https://github.com/grimoirelab/perceval-opnfv",
+            "https://github.com/grimoirelab/perceval-mozilla",
+            "https://github.com/grimoirelab/perceval-puppet",
+            "https://github.com/grimoirelab/arthur",
+            "https://github.com/grimoirelab/grimoireelk",
+            "https://github.com/grimoirelab/sortinghat",
+            "https://github.com/grimoirelab/panels",
+            "https://github.com/grimoirelab/kibiter",
+            "https://github.com/grimoirelab/mordred",
+            "https://github.com/grimoirelab/reports",
+            "https://github.com/grimoirelab/training",
+            "https://github.com/grimoirelab/grimoirelab",
+            "https://github.com/grimoirelab/grimoirelab.github.io"
+        ]
+    }
+}
