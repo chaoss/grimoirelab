@@ -1,3 +1,45 @@
+## elasticgirl.23
+
+Released: 2017-11-23
+
+* SortingHat
+** Add no-strict-matching option
+** [setup] Add code for setup.py test to work
+
+* Perceval
+** [git] Fix invalid URL when TCPGitClient is initialized
+
+* Mordred
+** [task_identities] Add reset_on_load param to activate the reset of identities on load
+** [task_identities] Add new option strict-mapping to sortinghat config
+** [threads] Get the two thread locks needed for enrich and identities in the same order
+
+* GrimoireELK
+** [enrich][meetup] Support that `time` field does not exists in meetup raw item
+** [docker] Add docker compose for Elastic 6 version using Bitergia images
+** [elastic] Create new method global_mapping to get the mapping added always
+** [index_mapping] Remove debug code line which makes mappings to be always None
+** [panels] Fix library to work with Elasticsearch6
+** [panels] Add support for listing/importing/exporting panels in ES6
+** [kidash] Add option to clean all items not included in data sources provided
+
+* Panels
+** Add initial version of contribution guidelines
+** [owlwatch] Fix path of test data files
+** [owlwatch] Add init to test dir to fix test runner
+** [owlwatch] Add CSV support
+** [owlwatch] Add documentation for CSV comparisons
+
+* Reports
+** [jira] Add jira data source to reports
+** [stackexchange] Add new data source stackexchange to reports
+
+* GrimoireLab Toolkit
+** [datetime] Fix to handle dates with invalid time offset
+
+* Arthur
+
+
 ## elasticgirl.22
 
 Released: 2017-11-14
