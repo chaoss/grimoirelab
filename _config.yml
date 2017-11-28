@@ -1,7 +1,7 @@
 # Site settings
 title: GrimoireLab - Software Development and Community Analytics platform
 email: info@bitergia.com
-description: "GrimoireLab is 100% free, open source Software Development and Community Analytics platform to get data and to build dashboards and reports about software development and community activity and performance"
+description: "GrimoireLab is a 100% free, open source software platform for software development and community analytics. The project is part of the CHAOSS Software community"
 baseurl: ""
 url: "http://grimoire.github.io"
 twitter_username:
