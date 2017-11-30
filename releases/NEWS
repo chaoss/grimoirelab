@@ -1,3 +1,45 @@
+## elasticgirl.24
+
+* SortingHat
+** [parsing:grimoirelab] Remove `Unknown` enrollments while parsing
+
+* Perceval
+** [client] Add generic HTTP client
+** [jenkins] Fix HTTP error handling
+** [gerrit] Fix no route to host error
+** [github] Init rate limit info (requests left and reset time)
+
+* Mordred
+
+* GrimoireELK
+** [travis] First version for CI with Travis, including pep8 and integration tests
+** Fixed all PEP-8 issues
+** [p2o] Remove code not needed detected during pep8 cleaning
+** [tests][crates] Add testing for crates data source
+** [enrich][functest] Implement get_field_author and return None
+** [enrich][twitter] Check that twitter is in projects map before using it
+** [enrich][bugzillarest] Change fields to use the same names than in bugzilla
+** [enrich][bugzilla] Remove project_name field to avoid confussions with dashboard projects
+** [ocean][phabricator] Fix to float the subpriority field
+** [enrich] Check if an identity exists before trying to get her profile
+** [index_mapping] Support sort-after scrolling. Use sync uploading of bulk data
+** [index_mapping] Add an option so the elasticsearch for read and write could be different
+** [elastic] Log the items already uploaded with the bulk API
+** [elastic] Fix how the number of duplicates/lost items is tracked in bulk operations
+** [elastic] Pack the items in bulk sync before uploading
+** [elastic] Raise exception if there is a problem putting the data in Elasticsearch
+** [ocean][crates] Remove all params to be passed to the perceval backend
+** [enrich][crates] Remove project support from crates (not needed)
+
+* Panels
+
+* Reports
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+
 ## elasticgirl.23.2
 
 Released: 2017-11-28
