@@ -1,4 +1,72 @@
+## elasticgirl.25
+
+Released: 2017-12-18
+
+* SortingHat
+** [db] Fix tables created with invalid collation
+** [model] Coerce boolean type
+**  [travis] Update before_install package versions
+**  [setup] Upgrade dependencies
+**  [cmd:export] Remove trailing whitespaces in JSON files
+
+* Perceval
+** [backend] Fix 'find_backends' to get all backend descendants
+** [launchpad] Handle 404 HTTP error
+** Update generic http-client parameters for phabricator, meetup, jenkins, github
+** [client] Fix init headers and status codes
+** [docker] Add build-essential/gcc for dulwich
+** [meetup] Adapt tests to assess the sleep for rate
+** [github] Adapt tests to assess the sleep for rate
+** [client] Add function to calculate the time to reset for tokens
+** Apply generic HTTP client to all backends
+** [http-client] Add parameter "verify" to fetch method
+** Mozilla: no changes
+** OPNFV: no changes
+** Puppet: no changes
+
+* Mordred
+** Add Arthur support to mordred
+** [mordred] Simplify how mordred is started
+** [doc] Basic description of mordred
+** [tests] Remove load_orgs testing because it fails in Travis
+** [requirements] Reuse the deps in setup.py in requirements.txt
+** [travis] Add travis support and execute all testing for PRs
+** Fix all PEP-8 issues
+
+* GrimoireELK
+** Arr arthur support
+** [ocean] Simplify feed logic when getting the items from perceval cache or arthur redis
+** Add travis support with test execution. Improvements in the tests.
+** Fix PEP-8 issues
+** [gelk] Remove ocean-unique-id unique identifier and use always the uuid from perceval.
+** [enrich][sortinghat] Add identity domain using the profile information
+** [enrich][phabricator] Check in p is defined before using it
+** [enrich][meetup] Don't create comments and rsvps events for empty meetup items
+** [kidash] Export the index patterns in searches
+** [enrich][bugzillarest] Add comments field with the number of comments
+
+* Panels
+** [tests] Remove from test checking the ocean-unique-id field
+** Add Crates CSV schema definition
+** Bugzilla panels updated for bugzillarest compatibility
+
+* Reports
+** [metrics][issue] Remove Closers metric and Fix BMI implementation
+** [github_issues] Removed Closers metric which is not implemented
+** [tests] Fix pep8 issues in the tests
+** [travis] Install deps using the requirements.txt file in Travis
+** [tests] Activate the execution of the tests during CI
+** [tests] Initial version of the tests
+** Modify code to be PEP8 compliant
+** [travis] Add initial travis file
+
+* GrimoireLab Toolkit
+
+* Arthur
+
 ## elasticgirl.24
+
+Released: 2017-11-30
 
 * SortingHat
 ** [parsing:grimoirelab] Remove `Unknown` enrollments while parsing
