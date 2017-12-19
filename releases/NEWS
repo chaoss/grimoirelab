@@ -1,3 +1,10 @@
+## elasticgirl.25.1
+
+Released: 2017-12-19
+
+* Mordred
+** [mordred] Fix symbolic links to grimoire_elk and report changed by error
+
 ## elasticgirl.25
 
 Released: 2017-12-18
