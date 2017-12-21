@@ -5,6 +5,9 @@ Released: 2017-12-21
 * SortingHat
 ** [grimoirelab2sh] Add '--no-email-validation' option
 
+* Mordred
+** [task_identities] Add support for '--no-email-validation' option in grimoirelab2sh
+
 
 ## elasticgirl.26
 
