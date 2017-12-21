@@ -1,3 +1,46 @@
+## elasticgirl.26.1
+
+Released: 2017-12-21
+
+* SortingHat
+** [grimoirelab2sh] Add '--no-email-validation' option
+
+
+## elasticgirl.26
+
+Released: 2017-12-20
+
+* SortingHat
+
+* Perceval
+** Mozilla: no changes
+** OPNFV: no changes
+** Puppet: no changes
+
+* Mordred
+** [docker] Add link to arthur library so it can be used in mordred
+**  [task_identities] Don't load identities if autorefresh is pending
+**  [docker] arthur is not used with Elasticsearch anymore
+**  [task_collection][arthur] Compute the memory usage in intervals
+
+* GrimoireELK
+**  [mappings] If a mapping can not be created just log the issue
+**  [autorefresh] Group the number of identities to be refreshed
+**  [utils] Support enrich all items for all groups in a raw meetup index
+**  [enrich][meetup] Fix to support empty events during ersvp extraction
+
+* Panels
+** [Panels] Add projects to IRC panel
+** [Panels] Remove old unused panel directories
+** [Panels] Add project support to Twitter panel
+
+* Reports
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+
 ## elasticgirl.25.1
 
 Released: 2017-12-19
