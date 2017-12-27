@@ -1,0 +1,22 @@
+<!-- Built with Section -->
+<section class="success" id="builtwith">
+    <div class="container">
+      <div class="row" style="padding-top: 2em;">
+        <div class="col-lg-12 text-center">
+          <h2>Built with GrimoireLab</h2>
+          <hr class="star-light">
+          <p>Some dashboards and services built using GrimoireLab platform</p>
+        </div>
+      </div>
+      <div class="row">
+        {% for sample in site.data.builtwith %}
+        <div class="col-md-4 col-sm-12 text-center">
+          <h3>{{sample.name}}</h3>
+          <a href="{{sample.url}}" target="_blank"><img src="img/dashboards/{{sample.image}}" class="img-responsive" alt="{{sample.name}}"></a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+<!-- End of Section -->
