@@ -1,3 +1,40 @@
+## elasticgirl.27
+
+Released: 2017-12-28
+
+* SortingHat (stalled to pre 0.5.0 due to change in db schema)
+
+* Perceval
+** [meetup] Remove 'draft' status due to a bug in Meetup API
+** [git] Request in fetch-pack the outdated refs only
+** [git] Fix error discovering refs in repos which don't have any
+** [git] Ignore error codes when executing a command
+** Mozilla: no changes
+** OPNFV: no changes
+** Puppet: no changes
+
+* Mordred
+** [task_collection] Configure bulk and scroll size in arthur collection
+** [tasks_project] Load projects in the initial tasks in mordred
+** [task_collection] Create task in arthur only the first time
+** [task_identities] Add support for '--no-email-validation' option in grimoirelab2sh
+
+* GrimoireELK
+** [ocean][git] Map data.message to string so it is not a keyword because it is large field (>32K) in some cases
+** [panels] Change the API so dashboards can be listed, imported and exported with a JSON in memory
+** [enrich][meetup] Fix to support empty events during comments extraction
+** [enrich][jira] Check that labels are defined in issue['fields'] before using it
+
+* Panels
+** [Panels] Fix Twitter username field in tables
+** [Panels] Add projects and orgs support for Meetup
+
+* Reports
+
+* GrimoireLab Toolkit
+
+* Arthur
+
 ## elasticgirl.26.2
 
 Released: 2017-12-22
