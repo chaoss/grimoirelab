@@ -5,23 +5,22 @@ use mordred to test all data sources supported in GrimoireLab.
 The files involved are:
 
 * Configuration for GrimoireLab:
-** setup.cfg: Main config file for mordred with all data sources and credentials
-** projects.json: Repositories used in data sources
-** requirements.cfg: sample file with the versions of GrimoireLab stack to be used
-** orgs_file: organizations file to be loaded in Sorting Hat for affiliations
+    * setup.cfg: Main config file for mordred with all data sources and credentials
+    * projects.json: Repositories used in data sources
+    * requirements.cfg: sample file with the versions of GrimoireLab stack to be used
+    * orgs_file: organizations file to be loaded in Sorting Hat for affiliations
 
 * Configuration for the GrimoireLab docker image:
-** stage: script started after the docker image is run,
-it includes all the testing stuff.
-** Dockerfile: configuration file with all the steps for docker to create
+    * stage: script started after the docker image is run, it includes all the testing stuff.
+    * Dockerfile: configuration file with all the steps for docker to create
 the GrimoireLab container image
 
 * Configuration for running all containers, including the above docker image:
-** docker-compose.yml: minimum docker compose file to launch mordred
-** docker-compose-local.yml: example of additional local docker compose config file
+    * docker-compose.yml: minimum docker compose file to launch mordred
+    * docker-compose-local.yml: example of additional local docker compose config file
 
 * Data for tests:
-** cache-test.tgz: Perceval cache for all data sources, mbox and irc data,
+    * cache-test.tgz: Perceval cache for all data sources, mbox and irc data,
 and raw data for Perceval-supported data sources without cache support
 and data sources not supported by Perceval.
 
@@ -98,6 +97,21 @@ is up and running execute:
 
 ```bash
 docker exec -t -i tests_mordred_1 env TERM=xterm /bin/bash
+```
+
+## Creating a testing dashboard
+
+To create a simple dashboard, assuming you already have installed ElasticSearch
+and Kibana in the host, listening in the default ports, just install
+`grimoire-mordred` in a Python virtual environment, initialize with some raw indexes,
+and run mordred:
+
+```
+$ pip install grimoire-mordred
+$ export ES=http://localhost:9200
+$ ./init-raw.sh
+$ git clone https://github.com/grimoirelab/panels
+$ mordred -c setup.cfg
 ```
 
 ## Panel testing
