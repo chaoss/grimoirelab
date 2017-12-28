@@ -67,7 +67,8 @@ RUN ${DIST_SCRIPT} --install --install_system --distdir ${DIST_DIR}
 ADD mordred-grimoirelab.cfg ${MORDRED_FILE}
 ADD mordred-local.cfg /mordred-local.cfg
 ADD projects-grimoirelab.json /projects.json
-ADD menu.yaml ${DEPLOY_USER_DIR}/menu.yaml
+ADD menu-grimoirelab.yaml /menu.yaml
+RUN /bin/ln -s /menu.yaml  ${DEPLOY_USER_DIR}/menu.yaml
 
 USER ${DEPLOY_USER}
 WORKDIR ${DEPLOY_USER_DIR}

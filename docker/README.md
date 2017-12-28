@@ -204,6 +204,17 @@ $ docker run --net="host" -v $(pwd)/logs:/logs \
     grimoirelab/installed
 ```
 
+You can also override the `menu.yaml` file,
+to have a custom menu for your dashboard:
+
+```bash
+$ docker run --net="host" -v $(pwd)/logs:/logs \
+    -v $(pwd)/mordred-local.cfg:/mordred-local.cfg \
+    -v $(pwd)/myprojects.json:/projects.json \
+    -v $(pwd)/mymenu.yaml:/menu.yaml \
+    grimoirelab/installed
+```
+
 How jgb runs the container to produce a dashboard for GrimoireLab:
 
 ```bash
@@ -287,3 +298,53 @@ $ tail -f $(pwd)/logs/all.log
 ```
 
 You'll see how GrimoireLab produces everything needed.
+
+## Producing GrimoireLab pip packages with these containers
+
+This assumes that `docker/release` is a copy of `releases/latest`
+(or the release file we want to produce).
+
+First, create the factory container (notice the dot at the end).
+
+```
+$ docker build -f Dockerfile-factory -t grimoirelab/factory .
+```
+
+Then, run that container to produce the pip packages in the `dist`
+directory:
+
+```
+$ docker run \
+    -v $(pwd)/dist:/dist \
+    -v $(pwd)/logs:/logs \
+    grimoirelab/factory --build --relfile /release
+```
+
+If instead of the `docker/release` you want to run some other,
+use the following line (builds `elasticgirl.27.1`):
+
+```
+$ docker run \
+    -v $(pwd)/dist:/dist \
+    -v $(pwd)/logs:/logs \
+    -v $(pwd)/../releases/elasticgirl.27.1:/release \
+    grimoirelab/factory --build --install --check --relfile /release
+```
+
+Now, with the packages in `dist`, build an installed image:
+
+```
+$ docker build -f Dockerfile-installed -t grimoirelab/installed .
+```
+
+And produce a dashboard for GrimoireLab, for testing that things
+seem to work... This needs ElasticSearch, Kibana and MariaDB/MySQL
+installed in the host, with data for accessing them in
+`mordred-local-jgb.cfg`. You can see a template for that file
+as `docker/mordred-local.cfg`.
+
+```
+$ docker run --net="host" -v $(pwd)/logs:/logs \
+    -v $(pwd)/mordred-local-jgb.cfg:/mordred-local.cfg \
+    grimoirelab/installed
+```

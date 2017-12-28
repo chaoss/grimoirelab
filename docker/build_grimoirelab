@@ -80,7 +80,8 @@ def parse_args ():
 
     args_actions = parser.add_argument_group("Actions", "Actions to perform")
     args_actions.add_argument("--build", action='store_true',
-                            help="Build modules. It is the default action.")
+                            help="Build modules. "
+                                + "Default action if no other is specified.")
     args_actions.add_argument("--install", action='store_true',
                             help="Install modules.")
     args_actions.add_argument("--check", action='store_true',
@@ -507,6 +508,10 @@ def main():
     modules = Modules(module_names=args.modules, release=release)
     dist_dir = Directory(name=args.distdir, purpose="Distribution",
                         persistent=True)
+
+    # If no action is specified, let it be build
+    if (not args.build) and (not args.install) and (not args.check):
+        args.build = True
 
     if args.build:
         print("Building...")
