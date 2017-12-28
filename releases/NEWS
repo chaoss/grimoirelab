@@ -1,6 +1,10 @@
 ## elasticgirl.27.1
 
 Released: 2017-12-28
+Warning: Change in SortingHat database. You need to either create
+a new database from scratch, or convert your old SortingHat database.
+See details in the main README.md in the SortingHat git repository
+(section "Compatibility between versions)").
 
 * SortingHat
 ** Release 0.5.0
@@ -14,6 +18,7 @@ Released: 2017-12-28
 ## elasticgirl.27
 
 Released: 2017-12-28
+Warning: skip_initial_load no longer supported in Mordred.
 
 * SortingHat (stalled to pre 0.5.0 due to change in db schema)
 
@@ -234,7 +239,7 @@ Released: 2017-11-28
 * Mordred
 
 * GrimoireELK
-** Updated version which fixes: Enrich bugzilla rest 4611 #136 
+** Updated version which fixes: Enrich bugzilla rest 4611 #136
 
 * Panels
 
