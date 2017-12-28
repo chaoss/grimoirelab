@@ -1,3 +1,16 @@
+## elasticgirl.27.1
+
+Released: 2017-12-28
+
+* SortingHat
+** Release 0.5.0
+** [api] Add function to search last modified identities
+** [api] Update 'last_modified' attribute when needed
+** [model] Add 'last_modified' attribute to unique identities and identities
+** [grimoirelab2sh] Add '--no-email-validation' option
+** parsing:grimoirelab] Set option to ignore invalid email addresses
+
+
 ## elasticgirl.27
 
 Released: 2017-12-28
