@@ -1,0 +1,71 @@
+# Copyright (C) 2016-2017 Bitergia
+# GPLv3 License
+#
+# The container produced with this file contains all
+# GrimoireLab libraries and executables, and is configured
+# for running Mordred by default, producing a fully Functional
+# GrimoireLab dashboard.
+#
+# It also contains all services needed to produce a dashboard
+# using Mordred: Elasticsearch, MariaDB, and Kibana.
+#
+# Usually it will be run as:
+#
+# $ docker run -p 9200:9200 -p 5601:5601 -v $(pwd)/logs:/logs \
+#   -v $(pwd)/mordred-local-full-jgb.cfg:/mordred-local.cfg -t grimoirelab/full
+#
+FROM grimoirelab/installed
+MAINTAINER Jesus M. Gonzalez-Barahona <jgb@bitergia.com>
+
+ENV ES=elasticsearch-5.6.3
+ENV KB=kibiter-5.6.0-1
+
+# Install OpenJDK-8
+RUN sudo mkdir /usr/share/man/man1 && \
+    sudo apt-get update && \
+    sudo apt-get -y install --no-install-recommends openjdk-8-jdk-headless
+
+# Install ElasticSearch
+RUN wget https://artifacts.elastic.co/downloads/elasticsearch/${ES}.deb && \
+    wget https://artifacts.elastic.co/downloads/elasticsearch/${ES}.deb.sha512 && \
+    sudo dpkg -i ${ES}.deb && \
+    rm ${ES}.deb ${ES}.deb.sha512
+#    shasum -a 512 -c ${ES}.deb.sha512 && \
+RUN echo "http.host: 0.0.0.0" > /tmp/elasticsearch.yml && \
+    echo "cluster.routing.allocation.disk.watermark.low: 99.9%" >> /tmp/elasticsearch.yml && \
+    echo "cluster.routing.allocation.disk.watermark.high: 99.9%" >> /tmp/elasticsearch.yml && \
+    sudo mv /tmp/elasticsearch.yml  /etc/elasticsearch/elasticsearch.yml
+EXPOSE 9200
+
+# Install MariaDB
+RUN sudo apt-get -y install --no-install-recommends mariadb-server
+#RUN sudo sed -i 's/^\(bind-address\s.*\)/# \1/' /etc/mysql/my.cnf
+RUN sudo echo "mysqld_safe &" > /tmp/config && \
+    sudo echo "mysqladmin --silent --wait=30 ping || exit 1" >> /tmp/config && \
+    sudo echo "mysql -e 'CREATE USER grimoirelab;'" >> /tmp/config && \
+    sudo echo "mysql -e 'GRANT ALL PRIVILEGES ON *.* TO \"grimoirelab\"@\"%\" WITH GRANT OPTION;'" >> /tmp/config && \
+    sudo bash /tmp/config && \
+    sudo rm -f /tmp/config
+
+# Install Kibana
+RUN wget https://github.com/grimoirelab/kibiter/releases/download/kibiter-v5.6.0/${KB}-linux-x86_64.tar.gz && \
+    tar xzf ${KB}-linux-x86_64.tar.gz && \
+    echo "server.host: 0.0.0.0" > ${KB}-linux-x86_64/config/kibana.yml
+# Run Kibana until optimization is done, to avoid optimizing everything
+# time the image is run
+RUN ${KB}-linux-x86_64/bin/kibana 2>&1 | grep -m 1 "Optimization of .* complete in .* seconds"
+EXPOSE 5601
+
+# Install netstat (for monitoring)
+RUN sudo apt-get -y install --no-install-recommends net-tools
+
+ADD mordred-full.cfg /mordred-full.cfg
+
+ADD entrypoint-full.sh /entrypoint-full.sh
+RUN sudo chmod 755 /entrypoint-full.sh
+
+#VOLUME /var/lib/elasticsearch
+
+# Entrypoint
+ENTRYPOINT [ "/entrypoint-full.sh" ]
+CMD [ "-c", "/mordred.cfg", "/mordred-full.cfg", "/mordred-local.cfg"]
