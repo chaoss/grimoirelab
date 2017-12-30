@@ -224,7 +224,123 @@ $ docker run --net="host" -v $(pwd)/logs:/logs \
     grimoirelab/installed
 ```
 
-## Producing the default dashboard
+## grimoirelab/full
+
+`grimoirelab/full` is a container based on `grimoirelab/installed`,
+which therefore includes GrimoireLab, but also all the services
+needed to produce a GrimoireLab dashboard: Elasticsearch, MariaDB,
+and Kibana. As is, it will produce a dashboard for the GrimoireLab
+project.
+
+To try it, you can just run it as follows:
+
+```bash
+$ docker run -p 127:0.0.1:5601:5601 \
+    -v $(pwd)/mordred-local.cfg:/mordred-local.cfg \
+    -t grimoirelab/full
+```
+
+`mordred-local.cfg` should have a GitHub API token, in a `mordred.cfg`
+format:
+
+```
+[github]
+api-token = XXX
+```
+
+This will pull the `grimoirelab/full` Docker container image from DockerHub
+(if it is not already in the local host), and will run it.
+Upon running it, the container will launch Elasticsearch, MariaDB, and Kibana,
+so they will be ready when the container launches Mordred to produce
+a complete GrimoireLab dashboard. With the default configuration,
+a dashboard for the GrimoireLab project will be produced. Once produced,
+you can just point your browser to http://localhost:5601 and voila.
+
+The `docker run` command line above exposed port 5601 in the container to
+be reachable from the host, as `localhost:5601`. If you omit "127:0.0.1:",
+it will be reachable to any other machine reaching your host, so be careful:
+by default there is no access control in the Kibiter used by this container.
+
+That line used the `mordred-local.cfg` file for the configuration for
+Mordred. In fact, this will be the third configuration file in a chain for
+Mordred. The other two can be substituted at runtime for different
+configurations. The first one, `/mordred.cfg`,
+has the general configuration for producing a dashboard for the
+GrimoireLab project. It can be adapted to produce a dashboard for other
+projects. The second one, `/mordred-full.cfg`, has the configuration
+for reaching the services used by the container (ElasticSearch, MariaDB,
+Kibiter), and is likely that you don't need to change it except if you
+want to use some external service instead of those provided by the container.
+
+A slightly different command line is as follows:
+
+```bash
+$ docker run -p 127.0.0.1:9200:9200 -p 127.0.0.1:5601:5601 \
+    -v $(pwd)/logs:/logs \
+    -v $(pwd)/mordred-local-full-jgb.cfg:/mordred-local.cfg \
+    -t grimoirelab/full
+```
+
+This one will expose also port `9200`, which corresponds to Elasticsearch.
+This allows direct queries to the indexes stored in it. In addition,
+it also mounts a local directory (`logs`) so that the container writes
+Mordred logs in it.
+
+By default, Elasticsearch will store indexes within the container image,
+which means they are not persistent if the image shuts down. But you
+can mount a local directory for Elasticsearch to write the indexes in
+it. this way they will be available from one run of the image to the
+next one. For example, to let Elasticsearch use directory `es-data`
+to write the indexes:
+
+```bash
+$ docker run -p 127.0.0.1:9200:9200 -p 127.0.0.1:5601:5601 \
+    -v $(pwd)/logs:/logs \
+    -v $(pwd)/mordred-local-full-jgb.cfg:/mordred-local.cfg \
+    -v $(pwd)/es-data:/var/lib/elasticsearch \
+    -t grimoirelab/full
+```
+
+You can also get a shell in the running container,
+and run arbitrary GrimoireLab commands
+(container_id is the identifier of the running container,
+that you can find out with docker ps, or by looking at the first
+line when running the container):
+
+```
+$ docker exec -it container_id env TERM=xterm /bin/bash
+```
+
+In the shell prompt you get, write any GrimoireLab command.
+If you have mounted external files for the Mordred configuration,
+you can modify them, and run Mordred again, to change its behaviour.
+
+If you want to connect to the dashboard to issue your own commands,
+but don't want it to run Mordred by itsef, run the container
+setting `RUN_MORDRED` to `NO`:
+
+```bash
+$ docker run -p 127.0.0.1:9200:9200 -p 127.0.0.1:5601:5601 \
+    -v $(pwd)/logs:/logs \
+    -v $(pwd)/mordred-local-full-jgb.cfg:/mordred-local.cfg \
+    -v $(pwd)/es-data:/var/lib/elasticsearch \
+    -e RUN_MORDRED=NO \
+    -t grimoirelab/full
+```
+
+This will make the container launch all services, but not running `mordred`:
+you can now use the container the way you may want,
+getting a shell with `docker exec`.
+
+**Warning** When Mordred is done, the container stays forever
+(well, in fact for a long number of days), so that Kibana is
+still available to produce the dashboard for your browser.
+When you want to kill the container, it is not enough to just
+type `<CTRL> C`, sice that will only kill the shell, but the services
+on the background will stay. You will need to use `docker kill`
+to kill the container.
+
+## Producing the default dashboard with grimoirelab/installed
 
 The `grimoirelab/installed` container is configured for producing
 by default a dashboard for the GrimoireLab project. That means
@@ -299,7 +415,7 @@ $ tail -f $(pwd)/logs/all.log
 
 You'll see how GrimoireLab produces everything needed.
 
-## Producing GrimoireLab pip packages with these containers
+## Producing GrimoireLab pip packages with grimoirelab/factory
 
 This assumes that `docker/release` is a copy of `releases/latest`
 (or the release file we want to produce).
