@@ -53,7 +53,7 @@ all_repos = {
             'tests': True}],
     'grimoireelk': [{'name': 'grimoire-elk', 'dir': '',
             'version_file': os.path.join('grimoire_elk', '_version.py')},
-            {'name': 'grimoire-kidash', 'dir': 'kidash'}],
+            {'name': 'kidash', 'dir': 'kidash'}],
     'sortinghat': [{'name': 'sortinghat', 'dir': '',
             'version_file': os.path.join('sortinghat', '_version.py')}],
     'panels': [{'name': 'grimoirelab-panels', 'dir': '',
