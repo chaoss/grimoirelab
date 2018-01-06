@@ -52,11 +52,11 @@ ENV LANG=en_US.UTF-8 \
 
 # Add script to create distributable packages
 # Add script to create distributable packages
-ADD build_grimoirelab ${DIST_SCRIPT}
+ADD utils/build_grimoirelab ${DIST_SCRIPT}
 RUN chmod 755 ${DIST_SCRIPT}
 
 # Add packages (should be in dist, when building)
-ADD dist/* ${DIST_DIR}/
+ADD docker/dist/* ${DIST_DIR}/
 
 # Unbuffered output for Python, so that we see messages as they are produced
 ENV PYTHONUNBUFFERED 0
@@ -64,10 +64,10 @@ ENV PYTHONUNBUFFERED 0
 RUN ${DIST_SCRIPT} --install --install_system --distdir ${DIST_DIR}
 
 # Add default mordred configuration files
-ADD mordred-grimoirelab.cfg ${MORDRED_FILE}
-ADD mordred-local.cfg /mordred-local.cfg
-ADD projects-grimoirelab.json /projects.json
-ADD menu-grimoirelab.yaml /menu.yaml
+ADD docker/mordred-grimoirelab.cfg ${MORDRED_FILE}
+ADD docker/mordred-local.cfg /mordred-local.cfg
+ADD docker/projects-grimoirelab.json /projects.json
+ADD docker/menu-grimoirelab.yaml /menu.yaml
 RUN /bin/ln -s /menu.yaml  ${DEPLOY_USER_DIR}/menu.yaml
 
 USER ${DEPLOY_USER}

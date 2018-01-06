@@ -11,19 +11,23 @@ git repositories.
 contains all libraries and programs for a certain release, and
 executes mordred by default.
 
-The second one can be easily used for producing a complete dashboard
-from scratch, and in fact is configured by default for producing one
+* `grimoirelab/full`: a "fully preinstalled" container for GrimoireLab,
+contains everything in `grimoirelab/installed` plus the services
+needed to produce a dashboard: Elasticsearch, MariaDB, and Kibiter.
+
+The `installed` and `full` can be easily used to produce a complete dashboard
+from scratch, and in fact both configured by default for producing one
 for GrimoireLab repositories (see below).
 
 ## grimoirelab/factory
 
 `grimoirelab/factory` is a Docker image intended for producing GrimoireLab
 package distributions. It's definition is in `Dockerfile-factory`.
-For creating the image type, while in this `docker` directory
+For creating the image type, while in the root of this repository
 (notice the `.` at the end of the line):
 
 ```bash
-$ docker build -f Dockerfile-factory -t grimoirelab/factory .
+$ docker build -f docker/Dockerfile-factory -t grimoirelab/factory .
 ```
 
 If the image is run as such, it will try to compile GrimoireLab packages
@@ -92,11 +96,15 @@ outside the container was to map the internal `/dist` directory
 in the container to `$(pwd)/dist` outside the container
 (that is, the `dist` directory in the current directory, which
   should be this `docker` directory).
+  You also need to be careful with permissions:
+  ensure that the user that runs the `docker` command
+  has permissions to write in the `dist` directory.
 
 * Build the release specified by the `/release` file in the docker container,
 and write them to the `dist` directory (visible outside the container):
 
 ```bash
+$ mkdir dist
 $ docker run -v $(pwd)/dist:/dist \
     grimoirelab/factory --build --relfile /release
 ```
@@ -109,9 +117,11 @@ for files and directories in that context.
 
 * If you are interesting in checking the logs produced during building,
 installing and/or checking the files, map the `/logs` directory
-in the container to some directory outside it:
+in the container to some directory outside it (but be sure you
+create it with the same user that will run the docker command):
 
 ```bash
+$ mkdir dist logs
 $ docker run \
     -v $(pwd)/dist:/dist \
     -v $(pwd)/logs:/logs \
@@ -125,6 +135,7 @@ with the log of the process followed by the container.
 internal `/release` directory to release file outside the container:
 
 ```bash
+$ mkdir dist logs
 $ docker run \
     -v $(pwd)/dist:/dist \
     -v $(pwd)/logs:/logs \
@@ -164,7 +175,7 @@ given a mordred configuration file.
 To produce the container, type (remember the dot at end of the line):
 
 ```bash
-$ docker build -f Dockerfile-installed -t grimoirelab/installed .
+$ docker build -f docker/Dockerfile-installed -t grimoirelab/installed .
 ```
 
 If the image is run as such, it will try to produce a dashboard,
@@ -417,50 +428,85 @@ You'll see how GrimoireLab produces everything needed.
 
 ## Producing GrimoireLab pip packages with grimoirelab/factory
 
-This assumes that `docker/release` is a copy of `releases/latest`
-(or the release file we want to produce).
+This assumes that `releases/latest` points to the latest release file,
+and that all commands are run from the root of the repository.
 
 First, create the factory container (notice the dot at the end).
 
 ```
-$ docker build -f Dockerfile-factory -t grimoirelab/factory .
+$ docker build -f docker/Dockerfile-factory -t grimoirelab/factory .
 ```
 
-Then, run that container to produce the pip packages in the `dist`
+Then, run that container to produce the pip packages in the `docker/dist`
 directory:
 
 ```
 $ docker run \
-    -v $(pwd)/dist:/dist \
-    -v $(pwd)/logs:/logs \
-    grimoirelab/factory --build --relfile /release
+    -v $(pwd)/docker/dist:/dist -v $(pwd)/docker/logs:/logs \
+    grimoirelab/factory --build --install --check
 ```
 
-If instead of the `docker/release` you want to run some other,
-use the following line (builds `elasticgirl.27.1`):
+If instead of the default release (`releases/latest`)
+you want to run some other,
+use the following line (in this case, to build `elasticgirl.27.1`):
 
 ```
 $ docker run \
-    -v $(pwd)/dist:/dist \
-    -v $(pwd)/logs:/logs \
-    -v $(pwd)/../releases/elasticgirl.27.1:/release \
+    -v $(pwd)/docker/dist:/dist \
+    -v $(pwd)/docker/logs:/logs \
+    -v $(pwd)/releases/elasticgirl.27.1:/release \
     grimoirelab/factory --build --install --check --relfile /release
 ```
 
-Now, with the packages in `dist`, build an installed image:
+# Producing grimoirelab/installed and grimoirelab/full
+
+Now, with the packages in `docker/dist`, build
+the `grimoirelab/installed` image, which contains those packages
+already installed
+(command run from the root of the repository, notice the dot at the end):
 
 ```
-$ docker build -f Dockerfile-installed -t grimoirelab/installed .
+$ docker build -f docker/Dockerfile-installed -t grimoirelab/installed .
 ```
 
-And produce a dashboard for GrimoireLab, for testing that things
-seem to work... This needs ElasticSearch, Kibana and MariaDB/MySQL
+After it, you can also produce `grimoirelab/full`, which contains the
+same, plus the servers needed to build a complete dashboard
+(Elasticsearch, MariaDB, Kibiter):
+
+```
+$ docker build -f docker/Dockerfile-full -t grimoirelab/full .
+```
+
+Now, you can produce a dashboard for GrimoireLab, for testing that things
+seem to work...
+
+If you use `grimoirelab/full`, you will only need a GitHub token
+in a configuration file, with the following format:
+
+```
+[github]
+api-token = XXX
+```
+
+Save the file as `mordred-local.cfg` and run the container image as:
+
+```
+$ docker run -p 127:0.0.1:5601:5601 \
+    -v $(pwd)/mordred-local.cfg:/mordred-local.cfg \
+    -t grimoirelab/full
+```
+
+Now, point your web broser at `http://127:0.0.1:5601`,
+and you should see the dashboard.
+
+If you prefer to use `grimoirelab/installed`,
+you need ElasticSearch, Kibiter/Kibana and MariaDB/MySQL
 installed in the host, with data for accessing them in
-`mordred-local-jgb.cfg`. You can see a template for that file
-as `docker/mordred-local.cfg`.
+`mordred-local.cfg`, and with your GitHub token
+(you can see a template for that file as `docker/mordred-local.cfg`).
 
 ```
-$ docker run --net="host" -v $(pwd)/logs:/logs \
-    -v $(pwd)/mordred-local-jgb.cfg:/mordred-local.cfg \
+$ docker run --net="host" \
+    -v $(pwd)/mordred-local.cfg:/mordred-local.cfg \
     grimoirelab/installed
 ```

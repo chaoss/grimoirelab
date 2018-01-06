@@ -59,9 +59,9 @@ EXPOSE 5601
 # Install netstat (for monitoring)
 RUN sudo apt-get -y install --no-install-recommends net-tools
 
-ADD mordred-full.cfg /mordred-full.cfg
+ADD docker/mordred-full.cfg /mordred-full.cfg
 
-ADD entrypoint-full.sh /entrypoint-full.sh
+ADD docker/entrypoint-full.sh /entrypoint-full.sh
 RUN sudo chmod 755 /entrypoint-full.sh
 
 #VOLUME /var/lib/elasticsearch
