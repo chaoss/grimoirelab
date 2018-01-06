@@ -50,17 +50,17 @@ ENV LANG=en_US.UTF-8 \
     LANG=C.UTF-8
 
 # Add script to create distributable packages
-ADD build_grimoirelab ${DIST_SCRIPT}
+ADD utils/build_grimoirelab ${DIST_SCRIPT}
 RUN chmod 755 ${DIST_SCRIPT}
 
 USER ${DEPLOY_USER}
 WORKDIR ${DEPLOY_USER_DIR}
 
-ADD release ${REL_FILE}
+ADD releases/latest ${REL_FILE}
 
 # Unbuffered output for Python, so that we see messages as they are produced
 ENV PYTHONUNBUFFERED 0
 # Entrypoint (build GrimoireLab packages), and default arguments for it
 ENTRYPOINT [ "/usr/local/bin/build_grimoirelab", "--distdir", "/dist", \
     "-l", "debug", "--logfile", "/logs/build.log" ]
-CMD [ "--build", "--install", "--check" ]
+CMD [ "--build", "--install", "--check", "--relfile", "/release" ]

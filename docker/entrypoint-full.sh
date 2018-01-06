@@ -37,11 +37,20 @@ echo "Starting Kibiter"
 ${KB}-linux-x86_64/bin/kibana > kibana.log 2>&1 &
 
 echo "Waiting for Kibiter to start..."
-sleep .2
-sudo netstat -cvulntp |grep -m 1 ".*:5601.*LISTEN.*"
+#sleep .2
+#sudo netstat -cvulntp |grep -m 1 ".*:5601.*LISTEN.*"
+until $(curl --output /dev/null --silent --head --fail http://127.0.0.1:5601); do
+    printf '.'
+    sleep 2
+done
+echo "Waiting for Kibiter index to be created..."
+until $(curl --output /dev/null --silent --fail http://127.0.0.1:9200/.kibana/config/_search ); do
+    printf '.'
+    sleep 2
+done
 echo "Kibiter started"
 
-if [ $RUN_MORDRED = "NO" ]; then
+if [[ $RUN_MORDRED ]] && $RUN_MORDRED = "NO" ; then
   echo
   echo "All services up, not running Mordred because $RUN_MORDRED = NO"
   echo "Get a shell running docker exec, for example:"
