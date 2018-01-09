@@ -1,3 +1,11 @@
+## elasticgirl.28.1
+
+Released: 2018-01-09
+
+* Mordred
+** [docker] Add symlink to kidash so mordred finds it
+
+
 ## elasticgirl.28
 
 Released: 2018-01-09
