@@ -1,3 +1,44 @@
+## elasticgirl.28
+
+Released: 2018-01-09
+
+* SortingHat
+
+* Perceval
+** [git] Send in fetch-pack local heads refs only
+** [meetup] Handle processing deleted groups
+** [git] Fix cloned directory of local repository
+** Mozilla
+*** Apply generic HTTP client to all backends
+** OPNFV: no changes
+** Puppet: no changes
+
+* Mordred
+** [panels] Use the new kidash module, instead of grimoire-kidash
+** [task_collection][arthur] Limit the total number of items collected from redis
+** [task_collection][arthur] Set to 200MB the max memory for the arthur python dict
+** [task_collection][arthur] Limit the max size of the python memory with raw items from redis
+** [tasks_panels] Add support for data sources when uploading panels
+** [docker] Use the new grimoirelab github repository location to download the releases
+
+* GrimoireELK
+** [kidash] Unbundle kidash completely
+** [Jira] Extract timing for a sprint
+** [Jira] Move enrichement of fields property to a classmethod
+** [setup] Add kingarthur as a dependency
+
+* Panels
+
+* Reports
+
+* GrimoireLab Toolkit
+
+* Arthur
+** Add support for configuration file
+** [writers] Update writer to support ElasticSearch >= 5.x
+** Update requirements
+
+
 ## elasticgirl.27.1
 
 Released: 2017-12-28
