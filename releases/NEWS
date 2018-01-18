@@ -1,3 +1,15 @@
+## elasticgirl.28.2
+
+Released: 2018-01-18
+
+* Mordred
+** [task] Fix composition perceval params
+** [docker] Update docker mordred image to use a install based on pip packages
+** [task_identities] Don't load identities if autorefresh is pending
+** [task_identities] Use the new API SH call search_last_modified_identities to refresh identities
+** [task_projects] Add a new param projects_url to download the projects data from a URL
+
+
 ## elasticgirl.28.1
 
 Released: 2018-01-09
