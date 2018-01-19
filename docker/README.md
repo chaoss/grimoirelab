@@ -287,15 +287,20 @@ A slightly different command line is as follows:
 
 ```bash
 $ docker run -p 127.0.0.1:9200:9200 -p 127.0.0.1:5601:5601 \
+    -p 127.0.0.1:3306:3306 \
     -v $(pwd)/logs:/logs \
     -v $(pwd)/mordred-local-full-jgb.cfg:/mordred-local.cfg \
     -t grimoirelab/full
 ```
 
-This one will expose also port `9200`, which corresponds to Elasticsearch.
-This allows direct queries to the indexes stored in it. In addition,
+This one will expose also port `9200`, which corresponds to Elasticsearch,
+and 3306, which corresponds to MariaDB.
+This allows direct queries to the indexes and the tables stored
+in both databases.
+In addition,
 it also mounts a local directory (`logs`) so that the container writes
-Mordred logs in it.
+Mordred logs in it. In case you want to access MariaDB, you can use
+user `grimoirelab`.
 
 By default, Elasticsearch will store indexes within the container image,
 which means they are not persistent if the image shuts down. But you
@@ -332,6 +337,7 @@ setting `RUN_MORDRED` to `NO`:
 
 ```bash
 $ docker run -p 127.0.0.1:9200:9200 -p 127.0.0.1:5601:5601 \
+    -p 127.0.0.1:3306:3306 \
     -v $(pwd)/logs:/logs \
     -v $(pwd)/mordred-local-full-jgb.cfg:/mordred-local.cfg \
     -v $(pwd)/es-data:/var/lib/elasticsearch \
