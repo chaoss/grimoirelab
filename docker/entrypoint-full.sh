@@ -47,12 +47,16 @@ echo "Waiting for Kibiter index to be created..."
 until $(curl --output /dev/null --silent --fail http://127.0.0.1:9200/.kibana/config/_search ); do
     printf '.'
     sleep 2
+    curl -XPOST "http://127.0.0.1:5601/api/kibana/settings/indexPattern:placeholder" \
+      -H 'Content-Type: application/json' -H 'kbn-version: 6.1.0-1' \
+      -H 'Accept: application/json' -d '{"value": "*"}' \
+      --silent --output /dev/null
 done
 echo "Kibiter started"
 
-if [[ $RUN_MORDRED ]] && $RUN_MORDRED = "NO" ; then
+if [[ $RUN_MORDRED ]] && [[ $RUN_MORDRED = "NO" ]]; then
   echo
-  echo "All services up, not running Mordred because $RUN_MORDRED = NO"
+  echo "All services up, not running Mordred because RUN_MORDRED = NO"
   echo "Get a shell running docker exec, for example:"
   echo "docker exec -it" $(hostname) "env TERM=xterm /bin/bash"
 else
