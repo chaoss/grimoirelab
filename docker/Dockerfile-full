@@ -48,7 +48,9 @@ RUN sudo echo "mysqld_safe &" > /tmp/config && \
     sudo echo "mysql -e 'CREATE USER grimoirelab;'" >> /tmp/config && \
     sudo echo "mysql -e 'GRANT ALL PRIVILEGES ON *.* TO \"grimoirelab\"@\"%\" WITH GRANT OPTION;'" >> /tmp/config && \
     sudo bash /tmp/config && \
-    sudo rm -f /tmp/config
+    sudo rm -f /tmp/config && \
+    sudo sed -e "/bind-address/s/^/#/g" -i /etc/mysql/mariadb.conf.d/50-server.cnf
+EXPOSE 3306
 
 # Install Kibana
 RUN wget https://github.com/grimoirelab/kibiter/releases/download/kibiter-v6.1.0/${KB}-linux-x86_64.tar.gz && \
