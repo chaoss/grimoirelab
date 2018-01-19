@@ -17,13 +17,14 @@
 FROM grimoirelab/installed
 MAINTAINER Jesus M. Gonzalez-Barahona <jgb@bitergia.com>
 
-ENV ES=elasticsearch-5.6.3
-ENV KB=kibiter-5.6.0-1
+ENV ES=elasticsearch-6.1.0
+ENV KB=kibiter-6.1.0-1
 
-# Install OpenJDK-8
+# Install OpenJDK-8 & netstat (for monitoring)
 RUN sudo mkdir /usr/share/man/man1 && \
     sudo apt-get update && \
-    sudo apt-get -y install --no-install-recommends openjdk-8-jdk-headless
+    sudo apt-get -y install --no-install-recommends openjdk-8-jdk-headless \
+      net-tools
 
 # Install ElasticSearch
 RUN wget https://artifacts.elastic.co/downloads/elasticsearch/${ES}.deb && \
@@ -32,9 +33,11 @@ RUN wget https://artifacts.elastic.co/downloads/elasticsearch/${ES}.deb && \
     rm ${ES}.deb ${ES}.deb.sha512
 #    shasum -a 512 -c ${ES}.deb.sha512 && \
 RUN echo "http.host: 0.0.0.0" > /tmp/elasticsearch.yml && \
+    echo "cluster.routing.allocation.disk.watermark.flood_stage: 99.9%" >> /tmp/elasticsearch.yml && \
     echo "cluster.routing.allocation.disk.watermark.low: 99.9%" >> /tmp/elasticsearch.yml && \
     echo "cluster.routing.allocation.disk.watermark.high: 99.9%" >> /tmp/elasticsearch.yml && \
-    sudo mv /tmp/elasticsearch.yml  /etc/elasticsearch/elasticsearch.yml
+    sudo mv /tmp/elasticsearch.yml /etc/elasticsearch/elasticsearch.yml && \
+    sudo chown -R elasticsearch.elasticsearch /usr/share/elasticsearch
 EXPOSE 9200
 
 # Install MariaDB
@@ -48,16 +51,13 @@ RUN sudo echo "mysqld_safe &" > /tmp/config && \
     sudo rm -f /tmp/config
 
 # Install Kibana
-RUN wget https://github.com/grimoirelab/kibiter/releases/download/kibiter-v5.6.0/${KB}-linux-x86_64.tar.gz && \
+RUN wget https://github.com/grimoirelab/kibiter/releases/download/kibiter-v6.1.0/${KB}-linux-x86_64.tar.gz && \
     tar xzf ${KB}-linux-x86_64.tar.gz && \
     echo "server.host: 0.0.0.0" > ${KB}-linux-x86_64/config/kibana.yml
 # Run Kibana until optimization is done, to avoid optimizing everything
 # time the image is run
 RUN ${KB}-linux-x86_64/bin/kibana 2>&1 | grep -m 1 "Optimization of .* complete in .* seconds"
 EXPOSE 5601
-
-# Install netstat (for monitoring)
-RUN sudo apt-get -y install --no-install-recommends net-tools
 
 ADD docker/mordred-full.cfg /mordred-full.cfg
 

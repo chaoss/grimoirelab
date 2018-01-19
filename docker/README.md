@@ -246,7 +246,7 @@ project.
 To try it, you can just run it as follows:
 
 ```bash
-$ docker run -p 127:0.0.1:5601:5601 \
+$ docker run -p 127.0.0.1:5601:5601 \
     -v $(pwd)/mordred-local.cfg:/mordred-local.cfg \
     -t grimoirelab/full
 ```
@@ -268,7 +268,7 @@ a dashboard for the GrimoireLab project will be produced. Once produced,
 you can just point your browser to http://localhost:5601 and voila.
 
 The `docker run` command line above exposed port 5601 in the container to
-be reachable from the host, as `localhost:5601`. If you omit "127:0.0.1:",
+be reachable from the host, as `localhost:5601`. If you omit "127.0.0.1:",
 it will be reachable to any other machine reaching your host, so be careful:
 by default there is no access control in the Kibiter used by this container.
 
@@ -443,18 +443,18 @@ directory:
 ```
 $ docker run \
     -v $(pwd)/docker/dist:/dist -v $(pwd)/docker/logs:/logs \
-    grimoirelab/factory --build --install --check
+    grimoirelab/factory
 ```
 
 If instead of the default release (`releases/latest`)
 you want to run some other,
-use the following line (in this case, to build `elasticgirl.27.1`):
+use the following line (in this case, to build `elasticgirl.29`):
 
 ```
 $ docker run \
     -v $(pwd)/docker/dist:/dist \
     -v $(pwd)/docker/logs:/logs \
-    -v $(pwd)/releases/elasticgirl.27.1:/release \
+    -v $(pwd)/releases/elasticgirl.29:/release \
     grimoirelab/factory --build --install --check --relfile /release
 ```
 
@@ -491,12 +491,12 @@ api-token = XXX
 Save the file as `mordred-local.cfg` and run the container image as:
 
 ```
-$ docker run -p 127:0.0.1:5601:5601 \
+$ docker run -p 127.0.0.1:5601:5601 \
     -v $(pwd)/mordred-local.cfg:/mordred-local.cfg \
     -t grimoirelab/full
 ```
 
-Now, point your web broser at `http://127:0.0.1:5601`,
+Now, point your web broser at `http://127.0.0.1:5601`,
 and you should see the dashboard.
 
 If you prefer to use `grimoirelab/installed`,
