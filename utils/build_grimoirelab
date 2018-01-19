@@ -41,26 +41,38 @@ install_dependencies = ['pip', 'setuptools', 'wheel']
 
 all_repos = {
     'grimoirelab-toolkit': [{'name': 'grimoirelab-toolkit', 'dir': '',
+            'repo_url': 'http://github.com/grimoirelab/grimoirelab-toolkit',
             'version_file': os.path.join('grimoirelab', 'toolkit', '_version.py')}],
     'perceval': [{'name': 'perceval', 'dir': '',
+            'repo_url': 'http://github.com/grimoirelab/perceval',
             'version_file': os.path.join('perceval', '_version.py')}],
     'perceval-opnfv': [{'name': 'perceval-opnfv', 'dir': '',
+            'repo_url': 'http://github.com/grimoirelab/perceval-opnfv',
             'version_file': 'setup.py'}],
     'perceval-mozilla': [{'name': 'perceval-mozilla', 'dir': '',
+            'repo_url': 'http://github.com/grimoirelab/perceval-mozilla',
             'version_file': 'setup.py'}],
     'arthur': [{'name': 'kingarthur', 'dir': '',
+            'repo_url': 'http://github.com/grimoirelab/arthur',
             'version_file': os.path.join('arthur', '_version.py'),
             'tests': True}],
     'grimoireelk': [{'name': 'grimoire-elk', 'dir': '',
-            'version_file': os.path.join('grimoire_elk', '_version.py')},
-            {'name': 'kidash', 'dir': 'kidash'}],
+            'repo_url': 'http://github.com/grimoirelab/grimoireelk',
+            'version_file': os.path.join('grimoire_elk', '_version.py')}],
     'sortinghat': [{'name': 'sortinghat', 'dir': '',
+            'repo_url': 'http://github.com/grimoirelab/sortinghat',
             'version_file': os.path.join('sortinghat', '_version.py')}],
-    'panels': [{'name': 'grimoirelab-panels', 'dir': '',
+    'kidash': [{'name': 'kidash', 'dir': '',
+            'repo_url': 'http://github.com/chaoss/grimoirelab-kidash',
             'version_file': os.path.join('panels', '_version.py')}],
-    'reports': [{'name': 'grimoire-reports', 'dir': '',
+    'panels': [{'name': 'grimoirelab-panels', 'dir': '',
+            'repo_url': 'http://github.com/grimoirelab/panels',
+            'version_file': os.path.join('panels', '_version.py')}],
+    'manuscripts': [{'name': 'manuscripts', 'dir': '',
+            'repo_url': 'http://github.com/chaoss/grimoirelab-manuscripts',
             'version_file': os.path.join('report', '_version.py')}],
     'mordred': [{'name': 'grimoire-mordred', 'dir': '',
+            'repo_url': 'http://github.com/grimoirelab/mordred',
             'version_file': os.path.join('mordred', '_version.py')}]
 }
 """Structure of GrimoireLab, and the specifics of the Python modules
@@ -418,10 +430,10 @@ class BuildingEnviron(object):
         """Build module, given its name."""
 
         desc = self.modules.descriptor(name)
-        repo_link = 'https://github.com/grimoirelab/' + desc['repo']
+        repo_url = desc['repo_url']
         repo_dir = os.path.join(self.repos_dir.name, desc['repo'])
         pkg_dir = os.path.join(self.repos_dir.name, desc['repo'], desc['dir'])
-        self._runner.clone_git(repo=repo_link, dir=repo_dir, commit=desc['commit'])
+        self._runner.clone_git(repo=repo_url, dir=repo_dir, commit=desc['commit'])
         built = self._build_dist(pkg_dir)
         print("Built module " + name + ": " + built)
 
@@ -521,7 +533,7 @@ def main():
                     dependencies=build_dependencies,
                     purpose="Venv", persistent=False)
         building = BuildingEnviron(modules=modules, venv=venv,
-                                    repos_dir=repos_dir, dist_dir=dist_dir)
+                                   repos_dir=repos_dir, dist_dir=dist_dir)
         building.build_all()
 
     if args.install:
