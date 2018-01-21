@@ -1,3 +1,12 @@
+## elasticgirl.28.3
+
+Released: 2018-01-21
+
+* GrimoireELK
+** [kidash] Remove kidash (moved to a new repo as chaoss/grimoirelab-kidash)
+** [elasticsearch] Support Elasticsearch 6
+
+
 ## elasticgirl.28.2
 
 Released: 2018-01-18
