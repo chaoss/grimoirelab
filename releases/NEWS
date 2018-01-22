@@ -1,3 +1,50 @@
+## elasticgirl.29.0
+
+Released: 2018-01-23
+
+* SortingHat
+** [model][tests] Define an order for domains and adapt tests to MariaDB
+** [tests] Change configuration to a config file
+
+* Perceval: frozen in 0.9.10 until Archive transition from cache is complete
+** Mozilla: frozen in 0.1.5 to be compatible with perceval 0.9.10
+** OPNFV
+*** [functest] Apply generic HTTP client to FuncTest
+** Puppet
+*** [puppetforge] Apply generic HTTP client to PuppetForge
+
+* Mordred
+** [task_panlels] Support for Kibiter/Kibana 6.x
+** [task_projects] Add a new param projects_url to download the projects data from a URL
+** [task_identities] Use the last datetime for autorefresh to find the changes in SortingHat
+** [task_identities] Don't load identities if autorefresh is pending
+** [docker] Update docker mordred image to use a install based on pip packages
+** [unified_releases] Remove 'unified_releases' directory which is now in GrimoireLab
+** [task] Fix composition perceval params
+
+* GrimoireELK
+** [ocean][confluence] Avoid creating the mapping of data.extensions.position which mutates
+** [git] Add Elasticsearch 6.x support for study in git
+** [kidash] Remove kidash (moved to a new repo as chaoss/grimoirelab-kidash)
+** [elasticsearch] Support Elasticsearch 6
+
+* Panels
+
+* Manuscripts (old reports)
+** [setup] Modifications due to change in name (manuscripts)
+
+* Kidash
+** [kidash] Unbundle kidash completely from GrimoireELK
+** [kidash] Fix error getting the title of an index pattern
+** [setup] Change to the new chaoss organization in GitHub
+
+* GrimoireLab Toolkit
+** [datetime] Add timezone data to datetime_utcnow()
+
+* Arthur
+** [tests] Add tests for add, remove, tasks paths of arthur server
+
+
 ## elasticgirl.28.3
 
 Released: 2018-01-21
