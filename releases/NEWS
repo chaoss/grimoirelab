@@ -1,3 +1,15 @@
+## elasticgirl.29.1
+
+Released: 2018-01-23
+
+* Mordred
+** [task_panels] Force the creation of .kibana index in Kibiter6
+
+* GrimoireELK
+** [ocean][pipermail] Define the url and dirpath params needed by arthur when using pipermail
+** [enrich] Add missing headers in PUT queries to support ES6
+
+
 ## elasticgirl.29.0
 
 Released: 2018-01-23
