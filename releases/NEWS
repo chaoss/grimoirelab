@@ -1,6 +1,17 @@
+## elasticgirl.29.2
+
+Released: 2018-01-25
+
+* Mordred
+** [autorefresh] Refactor autorefresh code thanks to the last_update field in Sortinghat
+
+* GrimoireELK
+** [elastic_items] Remove log error when there are no items or the items index does not exists yet
+
+
 ## elasticgirl.29.1
 
-Released: 2018-01-23
+Released: 2018-01-24
 
 * Mordred
 ** [task_panels] Force the creation of .kibana index in Kibiter6
