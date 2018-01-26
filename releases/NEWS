@@ -1,3 +1,18 @@
+## elasticgirl.29.3
+
+Released: 2018-01-29
+
+* Mordred
+** [task_panels] Add mbox as data source to be shown if pipermail exists
+** [task_identities] Execute unify just after the load of identities in the same task
+** [mordred] Retry connection with Elasticsearch and Kibiter to wait for their starting time
+
+* Kidash
+** [layout] Increase 1 height the panels of height 1 for kibana6
+** [dashboard] Fix the bool filters for the dashboard
+** [visualization] Include the style needed in Kibiana6 to show metrics vis correctly
+
+
 ## elasticgirl.29.2
 
 Released: 2018-01-25
