@@ -1,3 +1,14 @@
+## elasticgirl.29.4
+
+Released: 2018-01-29
+
+* GrimoireELK
+** [utils] Retry by default total times = connect error times
+
+* Mordred
+** [arthur] Catch exception when the arthur items dict changes during its measure
+
+
 ## elasticgirl.29.3
 
 Released: 2018-01-29
