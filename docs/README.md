@@ -5,10 +5,9 @@ This repository host the code for Grimoire Lab website.
 
 Grimoire Lab site is an static site built using [Jekyll](https://jekyllrb.com/),
 and it relies on GitHub capability to host *jekyll based* sites, so the output is
-available in [grimoirelab.github.io](grimoirelab.github.io).
+available in [chaoss.github.io/grimoirelab](https://chaoss.github.io/grimoirelab).
 
-If you want to contribute to it, just fork the site, make your changes and submit
-a pull request.
+If you want to contribute to it, just fork [GrimoireLab project](https://github.com/chaoss/grimoirelab), make changes in the `docs` section and submit a pull request.
 
 You can build the site in your local environment and test your changes with:
 
@@ -27,6 +26,3 @@ a name, link and one screenshot
 * `projects.yml` describes main Grimoire Lab components, given a name,
 [fontawesome](http://fontawesome.io/) based icon, GitHub project name, and a
 short description
-* `conf_speakers.yml` is a template for GrimoireCon speakers. For each conference
-we build a custom file based on this one containing name speakers' role, company,
-link, photo, talk title and abstract.
