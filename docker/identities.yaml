@@ -1,0 +1,169 @@
+- profile:
+    name: Alberto Martín
+  enrollments:
+    - organization: Bitergia
+  email:
+    - alberto.martin@bitergia.com
+  github:
+    - albertinisg
+
+- profile:
+    name: Alberto Pérez García-Plaza
+  enrollments:
+    - organization: Bitergia
+  email:
+    - alpgarcia@bitergia.com
+
+- profile:
+    name: Alvaro del Castillo
+  enrollments:
+    - organization: Bitergia
+  email:
+    - acs@bitergia.com
+  github:
+    - acs
+
+- profile:
+    name: Assad Montasser
+  enrollments:
+    - organization: OW2
+  email:
+    - assad.montasser@ow2.org
+
+- profile:
+    name: GitHub No Replay
+    is_bot: true
+  email:
+    - noreply@github.com
+
+- profile:
+    name: Daniel Izquierdo Cortazar
+  enrollments:
+    - organization: Universidad Rey Juan Carlos
+      end: 2012-05-31
+    - organization: Bitergia
+      start: 2012-06-01
+  email:
+    - dizquierdo@bitergia.com
+  github:
+    - dicortazar
+
+- profile:
+    name: David Pose
+  enrollments:
+    - organization: Bitergia
+  email:
+    - dpose@sega.bitergia.net
+    - dpose@bitergia.com
+
+- profile:
+    name: Gustavo Santarém Silva
+  enrollments:
+    - organization: Sonae
+      start: 2016-12-01
+  email:
+    - gustavosantaremsilva@gmail.com
+
+- profile:
+    name: Israel Herraiz
+  enrollments:
+    - organization: BBVA Data & Analytics
+      start: 2017-08-01
+    - organization: Amadeus IT Group
+      start: 2014-02-01
+      end: 2017-07-31
+    - organization: Universidad Politécnica de Madrid
+      start: 2011-02-01
+      end: 2014-01-31
+  email:
+    - isra@herraiz.org
+    - israel.herraiz@bbvadata.com
+
+- profile:
+    name: J. Manrique Lopez de la Fuente
+  enrollments:
+    - organization: Bitergia
+  email:
+    - jsmanrique@bitergia.com
+
+- profile:
+    name: Jeremy Garcia
+  enrollments:
+    - organization: Linuxquestions
+  email:
+    - jeremy@linuxquestions.org
+
+- profile:
+    name: Jesus M. Gonzalez-Barahona
+  enrollments:
+    - organization: Universidad Rey Juan Carlos
+      end: 2012-05-31
+    - organization: Bitergia
+      start: 2012-06-01
+  email:
+    - jgb@gsyc.es
+    - jgb@bitergia.com
+  github:
+    - jgbarah
+
+- profile:
+    name: Jose Miguel Cañibano Iglesias
+  enrollments:
+    - organization: Entelgy
+  email:
+    - canibano_iglesias@hotmail.com
+
+- profile:
+    name: Luis Cañas-Díaz
+  enrollments:
+    - organization: Universidad Rey Juan Carlos
+      end: 2012-05-31
+    - organization: Bitergia
+      start: 2012-06-01
+  email:
+    - lcanas@bitergia.com
+  github:
+    - sanacl
+
+- profile:
+    name: Miguel Ángel Fernández
+  enrollments:
+    - organization: Bitergia
+  email:
+    - mafesan@bitergia.com
+    - mafesan.nsn@gmail.com
+
+- profile:
+    name: Nicolas Lamirault
+  enrollments:
+    - organization: Orange
+  email:
+    - nicolas.lamirault@gmail.com
+  github:
+    - nlamirault
+
+- profile:
+    name: Quan Zhou
+  enrollments:
+    - organization: Bitergia
+  email:
+    - quan@bitergia.com
+    - zhquan7@gmail.com
+
+- profile:
+    name: Santiago  Dueñas
+  enrollments:
+    - organization: Bitergia
+  email:
+    - sduenas@bitergia.com
+
+- profile:
+    name: Valerio Cosentino
+  enrollments:
+    - organization: Bitergia
+      start: 2017-08-01
+  email:
+    - valerio.cosentino@gmail.com
+    - valcos@bitergia.com
+  github:
+    - valeriocos
