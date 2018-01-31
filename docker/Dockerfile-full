@@ -18,7 +18,9 @@ FROM grimoirelab/installed
 MAINTAINER Jesus M. Gonzalez-Barahona <jgb@bitergia.com>
 
 ENV ES=elasticsearch-6.1.0
-ENV KB=kibiter-6.1.0-1
+ENV KB_VERSION=6.1.0-2
+ENV KB_TAG=kibiter-v${KB_VERSION}
+ENV KB=kibiter-${KB_VERSION}
 
 # Install OpenJDK-8 & netstat (for monitoring)
 RUN sudo mkdir /usr/share/man/man1 && \
@@ -53,9 +55,9 @@ RUN sudo echo "mysqld_safe &" > /tmp/config && \
 EXPOSE 3306
 
 # Install Kibana
-RUN wget https://github.com/grimoirelab/kibiter/releases/download/kibiter-v6.1.0/${KB}-linux-x86_64.tar.gz && \
+RUN wget https://github.com/grimoirelab/kibiter/releases/download/${KB_TAG}/${KB}-linux-x86_64.tar.gz && \
     tar xzf ${KB}-linux-x86_64.tar.gz && \
-    echo "server.host: 0.0.0.0" > ${KB}-linux-x86_64/config/kibana.yml
+    sed -e "s|^#server.host: .*$|server.host: 0.0.0.0|" -i ${KB}-linux-x86_64/config/kibana.yml
 # Run Kibana until optimization is done, to avoid optimizing everything
 # time the image is run
 RUN ${KB}-linux-x86_64/bin/kibana 2>&1 | grep -m 1 "Optimization of .* complete in .* seconds"

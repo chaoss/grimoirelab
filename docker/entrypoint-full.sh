@@ -48,7 +48,7 @@ until $(curl --output /dev/null --silent --fail http://127.0.0.1:9200/.kibana/co
     printf '.'
     sleep 2
     curl -XPOST "http://127.0.0.1:5601/api/kibana/settings/indexPattern:placeholder" \
-      -H 'Content-Type: application/json' -H 'kbn-version: 6.1.0-1' \
+      -H 'Content-Type: application/json' -H 'kbn-version: '${KB_VERSION} \
       -H 'Accept: application/json' -d '{"value": "*"}' \
       --silent --output /dev/null
 done
