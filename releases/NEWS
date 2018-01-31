@@ -1,3 +1,54 @@
+## elasticgirl.30
+
+Released: 2018-01-31
+
+* SortingHat
+** [load] Avoid some messages when not in verbose mode
+** [init] Add option for reusing database
+
+* Perceval: frozen in 0.9.10 until Archive cache refactoring is complete
+** Mozilla: frozen in 0.1.5 to be compatible with perceval 0.9.10
+** OPNFV
+** Puppet
+
+* Mordred
+** [panels] Kibiter now supports that the title for the dashboard is in a JSON inside .kibiter index. New method for uploading it.
+** setup and configure RotatingFileHandler for file logging
+** [mordred] Check if Bestiary projects can be read before executing mordred
+** [task_panels] Add params with kibana url and version to create the .kibana
+** [mordred] Retry connection with Elasticsearch and Kibiter to wait for their starting time
+** [task_identities] Execute unify just after the load of identities in the same task
+** [task_panels] Add mbox as data source to be shown if pipermail exists
+** [autorefresh] Refactor autorefresh code thanks to the last_update field in Sortinghat
+** [task_panels] Force the creation of .kibana index in Kibiter6
+** [docker] Don't download the menu.yaml file if it has not changed from our local copy
+
+* GrimoireELK
+** [enrich][phabricator] Fix enricher when an item has an array with None as first item of projects
+** [enrich] Add missing headers in PUT queries to support ES6
+** [ocean][pipermail] Define the url and dirpath params needed by arthur when using pipermail
+** [elastic_items] Remove log error when there are no items or the items index does not exists yet
+** [utils] Retry by default total times = connect error times
+** [ocean/confluence] Filter out body.storage.value from index
+** [enriched] Ensure that we have a method for refreshing whole indexes
+
+* Panels
+** [overview] Include for studies vis a "_studies_" in the id and title
+
+* Manuscripts (old reports)
+
+* Kidash
+** [kidash] Remove by default from dashboards the study related visualizations
+** [visualization] Include the style needed in Kibiana6 to show metrics vis correctly
+** [dashboard] Fix the bool filters for the dashboard
+** [layout] Increase 1 height the panels of height 1 for kibana6
+
+* GrimoireLab Toolkit
+** [introspect] Ignore * and ** parameters in method signatures
+
+* Arthur
+
+
 ## elasticgirl.29.4
 
 Released: 2018-01-29
