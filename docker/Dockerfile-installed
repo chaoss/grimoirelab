@@ -67,6 +67,7 @@ RUN ${DIST_SCRIPT} --install --install_system --distdir ${DIST_DIR}
 ADD docker/mordred-grimoirelab.cfg ${MORDRED_FILE}
 ADD docker/mordred-local.cfg /mordred-local.cfg
 ADD docker/projects-grimoirelab.json /projects.json
+ADD docker/identities.yaml /identities.yaml
 ADD docker/menu-grimoirelab.yaml /menu.yaml
 RUN /bin/ln -s /menu.yaml  ${DEPLOY_USER_DIR}/menu.yaml
 

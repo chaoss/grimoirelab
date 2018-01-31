@@ -1,33 +1,37 @@
 {
     "grimoire": {
         "git": [
-            "https://github.com/grimoirelab/perceval",
-            "https://github.com/grimoirelab/perceval-opnfv",
-            "https://github.com/grimoirelab/perceval-mozilla",
-            "https://github.com/grimoirelab/perceval-puppet",
             "https://github.com/grimoirelab/arthur",
             "https://github.com/grimoirelab/grimoireelk",
-            "https://github.com/grimoirelab/sortinghat",
-            "https://github.com/grimoirelab/panels",
             "https://github.com/grimoirelab/mordred",
-            "https://github.com/grimoirelab/reports",
-            "https://github.com/chaoss/grimoirelab-tutorial",
-            "https://github.com/chaoss/grimoirelab"
+            "https://github.com/grimoirelab/panels",
+            "https://github.com/grimoirelab/perceval",
+            "https://github.com/grimoirelab/perceval-mozilla",
+            "https://github.com/grimoirelab/perceval-opnfv",
+            "https://github.com/grimoirelab/perceval-puppet",
+            "https://github.com/grimoirelab/sortinghat",
+            "https://github.com/chaoss/grimoirelab",
+            "https://github.com/chaoss/grimoirelab-kidash",
+            "https://github.com/chaoss/grimoirelab-manuscripts",
+            "https://github.com/chaoss/grimoirelab-tutorial"
         ],
         "github": [
-            "https://github.com/grimoirelab/perceval",
-            "https://github.com/grimoirelab/perceval-opnfv",
-            "https://github.com/grimoirelab/perceval-mozilla",
-            "https://github.com/grimoirelab/perceval-puppet",
             "https://github.com/grimoirelab/arthur",
             "https://github.com/grimoirelab/grimoireelk",
-            "https://github.com/grimoirelab/sortinghat",
-            "https://github.com/grimoirelab/panels",
-            "https://github.com/grimoirelab/kibiter",
             "https://github.com/grimoirelab/mordred",
-            "https://github.com/grimoirelab/reports",
-            "https://github.com/chaoss/grimoirelab-tutorial",
-            "https://github.com/chaoss/grimoirelab"
+            "https://github.com/grimoirelab/panels",
+            "https://github.com/grimoirelab/perceval",
+            "https://github.com/grimoirelab/perceval-mozilla",
+            "https://github.com/grimoirelab/perceval-opnfv",
+            "https://github.com/grimoirelab/perceval-puppet",
+            "https://github.com/grimoirelab/sortinghat",
+            "https://github.com/chaoss/grimoirelab",
+            "https://github.com/chaoss/grimoirelab-kidash",
+            "https://github.com/chaoss/grimoirelab-manuscripts",
+            "https://github.com/chaoss/grimoirelab-tutorial"
+        ],
+        "pipermail": [
+            "https://lists.linuxfoundation.org/pipermail/grimoirelab-discussions/"
         ]
     }
 }
