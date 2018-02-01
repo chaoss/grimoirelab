@@ -1,3 +1,16 @@
+## elasticgirl.30.1
+
+Released: 2018-02-01
+
+* GrimoireELK
+** [enrich][git][demography] Fix the demography study logic so it works in incremental mode always
+** [enrich][slack] Don't convert boolean fields to int in SortingHat fields
+** [elastic] Track exceptions when uploading data to ES
+** [enrich][git] Add a new field git_author_domain with the email domain for the Author of the commit
+
+* Kidash
+** [import] Don't modify the height of visualizatons in dashboards from Kibana >= 6
+
 ## elasticgirl.30
 
 Released: 2018-01-31
