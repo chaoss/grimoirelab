@@ -1,3 +1,13 @@
+## elasticgirl.30.3
+
+Released: 2018-02-11
+
+* GrimoireELK
+** [enrich][git] Add a new param pair_programming to activate this enrich feature
+* Mordred
+** [task_enrich] Use new param pair_programming to activate this enrich feature
+
+
 ## elasticgirl.30.2
 
 Released: 2018-02-08
