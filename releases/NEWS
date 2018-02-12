@@ -1,3 +1,11 @@
+## elasticgirl.30.4
+
+Released: 2018-02-12
+
+* GrimoireELK
+** [enrich][crates] Return always a correct SH identity
+
+
 ## elasticgirl.30.3
 
 Released: 2018-02-11
