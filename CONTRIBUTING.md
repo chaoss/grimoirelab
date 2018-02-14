@@ -73,10 +73,9 @@ committers, except for the one being proposed to be removed.
 
 The current list of committers is (GitHub handles):
 
-* General: sduenas, acs, dicortazar, sanacl, jgbarah
-* panels: alpgarcia
-* reports: alpgarcia
-* web: jsmanrique
+* General: sduenas, acs, dicortazar, sanacl, jgbarah, jsmanrique
+* Manuscripts: alpgarcia
+* Sigils: alpgarcia
 
 ## Voting on action items (action votes)
 
