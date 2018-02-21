@@ -39,7 +39,8 @@ ${KB}-linux-x86_64/bin/kibana > kibana.log 2>&1 &
 echo "Waiting for Kibiter to start..."
 #sleep .2
 #sudo netstat -cvulntp |grep -m 1 ".*:5601.*LISTEN.*"
-until $(curl --output /dev/null --silent --head --fail http://127.0.0.1:5601); do
+#until $(curl -k --output /dev/null --silent --head --fail "http://127.0.0.1:5601/login#?_g=()" ); do
+until $(curl -k --output /dev/null --silent --head --fail "https://admin:admin@127.0.0.1:5601/" ); do
     printf '.'
     sleep 2
 done
@@ -62,7 +63,7 @@ else
     exit $status
   fi
   echo
-  echo "Mordred done, dasboard produced, check http://localhost:5601"
+  echo "Mordred done, dasboard produced, check https://localhost:5601"
   echo
   echo "To make this shell finish, type <CTRL> C"
   echo "but the container will still run services in the background,"

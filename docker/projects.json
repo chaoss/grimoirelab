@@ -1,0 +1,96 @@
+{
+    "GrimoireLab": {
+        "git": [
+            "https://github.com/chaoss/grimoirelab",
+            "https://github.com/chaoss/grimoirelab-elk",
+            "https://github.com/chaoss/grimoirelab-kidash",
+            "https://github.com/chaoss/grimoirelab-kingarthur",
+            "https://github.com/chaoss/grimoirelab-manuscripts",
+            "https://github.com/chaoss/grimoirelab-mordred",
+            "https://github.com/chaoss/grimoirelab-perceval",
+            "https://github.com/chaoss/grimoirelab-perceval-mozilla",
+            "https://github.com/chaoss/grimoirelab-perceval-opnfv",
+            "https://github.com/chaoss/grimoirelab-perceval-puppet",
+            "https://github.com/chaoss/grimoirelab-sortinghat",
+            "https://github.com/chaoss/grimoirelab-sigils",
+            "https://github.com/chaoss/grimoirelab-tutorial"
+        ],
+        "github": [
+            "https://github.com/chaoss/grimoirelab",
+            "https://github.com/chaoss/grimoirelab-elk",
+            "https://github.com/chaoss/grimoirelab-kidash",
+            "https://github.com/chaoss/grimoirelab-kingarthur",
+            "https://github.com/chaoss/grimoirelab-manuscripts",
+            "https://github.com/chaoss/grimoirelab-mordred",
+            "https://github.com/chaoss/grimoirelab-perceval",
+            "https://github.com/chaoss/grimoirelab-perceval-mozilla",
+            "https://github.com/chaoss/grimoirelab-perceval-opnfv",
+            "https://github.com/chaoss/grimoirelab-perceval-puppet",
+            "https://github.com/chaoss/grimoirelab-sortinghat",
+            "https://github.com/chaoss/grimoirelab-sigils",
+            "https://github.com/chaoss/grimoirelab-tutorial"
+        ],
+        "pipermail": [
+            "https://lists.linuxfoundation.org/pipermail/grimoirelab-discussions"
+        ]
+    },
+    "GHData": {
+        "git": [
+            "https://github.com/OSSHealth/ghdata"
+        ],
+        "github": [
+            "https://github.com/OSSHealth/ghdata"
+        ]
+    },
+    "cregit": {
+        "git": [
+            "https://github.com/cregit/cregit"
+        ],
+        "github": [
+            "https://github.com/cregit/cregit"
+        ]
+    },
+    "Prospector": {
+        "git": [
+            "https://github.com/chaoss/prospector"
+        ],
+        "github": [
+            "https://github.com/chaoss/prospector"
+        ]
+    },
+    "Metrics TC": {
+        "git": [
+            "https://github.com/chaoss/metrics"
+        ],
+        "github": [
+            "https://github.com/chaoss/metrics"
+        ],
+        "pipermail": [
+            "https://lists.linuxfoundation.org/pipermail/oss-health-metrics"
+        ]
+    },
+    "D&I WG": {
+        "git": [
+            "https://github.com/chaoss/wg_diversity_inclusion"
+        ],
+        "github": [
+            "https://github.com/chaoss/wg_diversity_inclusion"
+        ]
+    },
+    "Coordination": {
+        "git": [
+            "https://github.com/chaoss/website",
+            "https://github.com/chaoss/whitepaper",
+            "https://github.com/chaoss/governance"
+        ],
+        "github": [
+            "https://github.com/chaoss/website",
+            "https://github.com/chaoss/whitepaper",
+            "https://github.com/chaoss/governance"
+        ],
+        "pipermail": [
+            "https://lists.linuxfoundation.org/pipermail/chaoss-members",
+            "https://lists.linuxfoundation.org/pipermail/chaoss-software"
+        ]
+    }
+}

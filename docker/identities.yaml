@@ -13,6 +13,15 @@
     - organization: Bitergia
   email:
     - alpgarcia@bitergia.com
+  github:
+    - alpgarcia
+
+- profile:
+    name: Ali Ghassabian
+  enrollments:
+    - organization: Inocybe
+  email:
+    - aghassabian@inocybe.com
 
 - profile:
     name: Alvaro del Castillo
@@ -22,6 +31,15 @@
     - acs@bitergia.com
   github:
     - acs
+
+- profile:
+    name: Andy Grunwald
+  enrollments:
+    - organization: Trivago
+  email:
+    - andygrunwald@gmail.com
+  github:
+    - andygrunwald
 
 - profile:
     name: Assad Montasser
@@ -45,6 +63,7 @@
       start: 2012-06-01
   email:
     - dizquierdo@bitergia.com
+    - dicortazar@gmail.com
   github:
     - dicortazar
 
@@ -85,6 +104,8 @@
     - organization: Bitergia
   email:
     - jsmanrique@bitergia.com
+  github:
+    - jsmanrique
 
 - profile:
     name: Jeremy Garcia
@@ -103,6 +124,7 @@
   email:
     - jgb@gsyc.es
     - jgb@bitergia.com
+    - jgbarah@gmail.com
   github:
     - jgbarah
 
@@ -149,6 +171,22 @@
   email:
     - quan@bitergia.com
     - zhquan7@gmail.com
+  github:
+    - zhquan
+
+- profile:
+    name: Peter Monks
+  enrollments:
+    - organization: Open Symphony
+  github:
+    - pmonks
+
+- profile:
+    name: Robin Muilwijk
+  enrollments:
+    - organization: eZ Systems
+  email:
+    - robin.muilwijk@gmail.com
 
 - profile:
     name: Santiago  Dueñas
@@ -167,3 +205,170 @@
     - valcos@bitergia.com
   github:
     - valeriocos
+- profile:
+    name: Alexander Serebrenik
+  enrollments:
+    - organization: TU Delft
+  email:
+    - a.serebrenik@tue.nl
+
+- profile:
+    name: Ben Lloyd Pearson
+  enrollments:
+    - organization: Samsung
+  email:
+    - benp@osg.samsung.com
+  github:
+    - BenLloydPearson
+
+- profile:
+    name: Christian Cmehil-Warn
+  enrollments:
+    - organization: University of Missouri
+  email:
+    - cec5k7@mail.mizzou.edu
+  github:
+    - ChristianCme
+
+- profile:
+    name: Daniel German
+  enrollments:
+    - organization: University of Victoria
+  email:
+    - dmg@uvic.ca
+  github:
+    - dmgerman
+
+- profile:
+    name: Derek Howard
+  enrollments:
+    - organization: University of Missouri
+  email:
+    - derek@howderek.com
+  github:
+    - howderek
+
+- profile:
+    name: Evan Wilde
+  enrollments:
+    - organization: University of Victoria
+  email:
+    - etcwilde@uvic.ca
+  github:
+    - etcwilde
+
+- profile:
+    name: Fil Maj
+  enrollments:
+    - organization: Adobe
+  email:
+    - fil@adobe.com
+  github:
+    - filmaj
+
+- profile:
+    name: Georg Link
+  enrollments:
+    - organization: University of Nebraska Omaha
+  email:
+    - glink@unomaha.edu
+    - linkgeorg@gmail.com
+  github:
+    - GeorgLink
+
+- profile:
+    name: Jason Clark
+  enrollments:
+    - organization: IBM
+  email:
+    - jtclark@linux.vnet.ibm.com
+
+- profile:
+    name: Javier Luis Cánovas Izquierdo
+  enrollments:
+    - organization: UOC
+  email:
+    - jcanovasi@uoc.edu
+
+- profile:
+    name: Lukasz Gryglicki
+  enrollments:
+    - organization: O2
+  email:
+    - lukaszgryglicki@o2.pl
+  github:
+    - lukaszgryglicki
+
+- profile:
+    name: Mike Blumenkrantz
+  enrollments:
+    - organization: Samsung
+  email:
+    - zmike@osg.samsung.com
+  github:
+    - zmike
+
+- profile:
+    name: Matt Germonprez
+  enrollments:
+    - organization: University of Nebraska Omaha
+  email:
+    - germonprez@gmail.com
+  github:
+    - germonprez
+
+- profile:
+    name: Ray Paik
+  enrollments:
+    - organization: Linux Foundation
+  email:
+    - rpaik@linuxfoundation.org
+
+- profile:
+    name: Samuel Ytterbrink
+  enrollments:
+    - organization: Independent
+  email:
+    - neppord@gmail.com
+  github:
+    - neppord
+
+- profile:
+    name: Sean Patrick Goggins
+  enrollments:
+    - organization: University of Missouri
+  email:
+    - s@goggins.com
+    - gogginss@missouri.edu
+  github:
+    - sgoggins
+
+- profile:
+    name: Thanh Ha
+  enrollments:
+    - organization: Linux Foundation
+  email:
+    - thanh.ha@linuxfoundation.org
+
+- profile:
+    name: Stefano Zacchiroli
+  enrollments:
+    - organization: Université Paris Diderot
+  email:
+    - zack@upsilon.cc
+  github:
+    - zacchiro
+
+- profile:
+    name: Rashmi Chitrakar
+  enrollments:
+    - organization: Qualcomm
+  email:
+    - rashmic@qti.qualcomm.com
+
+- profile:
+    name: Vicky Janicki
+  enrollments:
+    - organization: Linaro
+  email:
+    - vicky.janicki@linaro.org

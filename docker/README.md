@@ -178,12 +178,26 @@ To produce the container, type (remember the dot at end of the line):
 $ docker build -f docker/Dockerfile-installed -t grimoirelab/installed .
 ```
 
-If the image is run as such, it will try to produce a dashboard,
+If the image is run as such, it will produce a dashboard,
 assuming Elasticsearch is available in port 9200, and MariaDB or MySQL
 in their standard port (if they are not present, the process will fail).
+Since the default configuration for Mordred in the container
+includes repositories in GitHub, you need to specify your GitHub
+token overriding the `/override.cfg` file with `mytoken.cfg`,
+with the following content (XXX should be substituted by a real token):
+
+```
+[github]
+api-token = XXX
+```
+
+And it will be run as:
+
 
 ```bash
-$ docker run --net="host" grimoirelab/installed
+$ docker run --net="host" \
+    -v $(pwd)/mytoken.cfg:/override.cfg \
+    grimoirelab/installed
 ```
 
 It is convenient to see the logs written by mordred while
@@ -192,16 +206,21 @@ in the `/logs` directory. To make them available in the host,
 just map that directory to a host directory:
 
 ```bash
-$ docker run --net="host" -v $(pwd)/logs:/logs grimoirelab/installed
+$ docker run --net="host" \
+    -v $(pwd)/mytoken.cfg:/override.cfg \
+    -v $(pwd)/logs:/logs \
+    grimoirelab/installed
 ```
 
 If the default configuration is not appropriate, for example because
 the database ports or credentials are not the ones used,
-the local configuration file can be overridden:
+the infrastructure configuration file can be overridden:
 
 ```bash
-$ docker run --net="host" -v $(pwd)/logs:/logs \
-    -v $(pwd)/mordred-local.cfg:/mordred-local.cfg \
+$ docker run --net="host" \
+    -v $(pwd)/mytoken.cfg:/override.cfg \
+    -v $(pwd)/logs:/logs \
+    -v $(pwd)/infra-local.cfg:/infra.cfg \
     grimoirelab/installed
 ```
 
@@ -209,8 +228,10 @@ If you also want to override the list of repositories to analyze,
 you need to map the `/projects.json` file in the container:
 
 ```bash
-$ docker run --net="host" -v $(pwd)/logs:/logs \
-    -v $(pwd)/mordred-local.cfg:/mordred-local.cfg \
+$ docker run --net="host" \
+    -v $(pwd)/mytoken.cfg:/override.cfg \
+    -v $(pwd)/logs:/logs \
+    -v $(pwd)/infra-local.cfg:/infra.cfg \
     -v $(pwd)/myprojects.json:/projects.json \
     grimoirelab/installed
 ```
@@ -219,19 +240,12 @@ You can also override the `menu.yaml` file,
 to have a custom menu for your dashboard:
 
 ```bash
-$ docker run --net="host" -v $(pwd)/logs:/logs \
-    -v $(pwd)/mordred-local.cfg:/mordred-local.cfg \
+$ docker run --net="host" \
+    -v $(pwd)/mytoken.cfg:/override.cfg \
+    -v $(pwd)/logs:/logs \
+    -v $(pwd)/infra-local.cfg:/infra.cfg \
     -v $(pwd)/myprojects.json:/projects.json \
     -v $(pwd)/mymenu.yaml:/menu.yaml \
-    grimoirelab/installed
-```
-
-How jgb runs the container to produce a dashboard for GrimoireLab:
-
-```bash
-$ docker run --net="host" -v $(pwd)/logs:/logs \
-    -v $(pwd)/mordred-local-jgb.cfg:/mordred-local.cfg \
-    -v $(pwd)/projects-grimoirelab.json:/projects.json \
     grimoirelab/installed
 ```
 
@@ -247,12 +261,12 @@ To try it, you can just run it as follows:
 
 ```bash
 $ docker run -p 127.0.0.1:5601:5601 \
-    -v $(pwd)/mordred-local.cfg:/mordred-local.cfg \
+    -v $(pwd)/mytoken.cfg:/override.cfg \
     -t grimoirelab/full
 ```
 
-`mordred-local.cfg` should have a GitHub API token, in a `mordred.cfg`
-format:
+`myytoken.cfg` should have a GitHub API token, in a `mordred.cfg`
+format, as explained above. Let's repeat it here:
 
 ```
 [github]
@@ -288,8 +302,8 @@ A slightly different command line is as follows:
 ```bash
 $ docker run -p 127.0.0.1:9200:9200 -p 127.0.0.1:5601:5601 \
     -p 127.0.0.1:3306:3306 \
+    -v $(pwd)/mytoken.cfg:/override.cfg \
     -v $(pwd)/logs:/logs \
-    -v $(pwd)/mordred-local-full-jgb.cfg:/mordred-local.cfg \
     -t grimoirelab/full
 ```
 
@@ -311,8 +325,8 @@ to write the indexes:
 
 ```bash
 $ docker run -p 127.0.0.1:9200:9200 -p 127.0.0.1:5601:5601 \
+    -v $(pwd)/mytoken.cfg:/override.cfg \
     -v $(pwd)/logs:/logs \
-    -v $(pwd)/mordred-local-full-jgb.cfg:/mordred-local.cfg \
     -v $(pwd)/es-data:/var/lib/elasticsearch \
     -t grimoirelab/full
 ```
@@ -338,8 +352,8 @@ setting `RUN_MORDRED` to `NO`:
 ```bash
 $ docker run -p 127.0.0.1:9200:9200 -p 127.0.0.1:5601:5601 \
     -p 127.0.0.1:3306:3306 \
+    -v $(pwd)/mytoken.cfg:/override.cfg \
     -v $(pwd)/logs:/logs \
-    -v $(pwd)/mordred-local-full-jgb.cfg:/mordred-local.cfg \
     -v $(pwd)/es-data:/var/lib/elasticsearch \
     -e RUN_MORDRED=NO \
     -t grimoirelab/full
@@ -397,10 +411,11 @@ database = grimoirelab_sh
 api-token = XXXXXX
 ```
 
-Save this file under the name `/mordred-local-my.cfg`, and run:
+Save this file under the name `mytoken.cfg`, and run:
 
 ```bash
-$ docker run --net="host" -v $(pwd)/mordred-local-my.cfg:/mordred-local.cfg  \
+$ docker run --net="host" \
+    -v $(pwd)/mytoken.cfg:/override.cfg \
     grimoirelab/installed    
 .... [messages from Docker downloading the container]
 Loading projects
@@ -418,7 +433,8 @@ components while the container is working, create a `logs` directory
 and run the container as follows:
 
 ```bash
-$ docker run --net="host" -v $(pwd)/mordred-local-my.cfg:/mordred-local.cfg  \
+$ docker run --net="host" \
+    -v $(pwd)/mytoken.cfg:/override.cfg \
     -v $(pwd)/logs:/logs \
     grimoirelab/installed
 ```
@@ -494,11 +510,11 @@ in a configuration file, with the following format:
 api-token = XXX
 ```
 
-Save the file as `mordred-local.cfg` and run the container image as:
+Save the file as `mytoken.cfg` and run the container image as:
 
 ```
 $ docker run -p 127.0.0.1:5601:5601 \
-    -v $(pwd)/mordred-local.cfg:/mordred-local.cfg \
+    -v $(pwd)/mytoken.cfg:/override.cfg \
     -t grimoirelab/full
 ```
 
@@ -513,6 +529,6 @@ installed in the host, with data for accessing them in
 
 ```
 $ docker run --net="host" \
-    -v $(pwd)/mordred-local.cfg:/mordred-local.cfg \
+    -v $(pwd)/mytoken.cfg:/override.cfg \
     grimoirelab/installed
 ```
