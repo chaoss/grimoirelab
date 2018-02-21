@@ -13,8 +13,7 @@ ENV DEPLOY_USER=grimoirelab
 ENV DEPLOY_USER_DIR=/home/${DEPLOY_USER}
 ENV DIST_SCRIPT=/usr/local/bin/build_grimoirelab \
     LOGS_DIR=/logs \
-    DIST_DIR=/dist \
-    MORDRED_FILE=/mordred.cfg
+    DIST_DIR=/dist
 
 # install dependencies
 RUN apt-get update && \
@@ -64,11 +63,15 @@ ENV PYTHONUNBUFFERED 0
 RUN ${DIST_SCRIPT} --install --install_system --distdir ${DIST_DIR}
 
 # Add default mordred configuration files
-ADD docker/mordred-grimoirelab.cfg ${MORDRED_FILE}
-ADD docker/mordred-local.cfg /mordred-local.cfg
-ADD docker/projects-grimoirelab.json /projects.json
+ADD docker/mordred-infra.cfg /infra.cfg
+ADD docker/mordred-dashboard.cfg /dashboard.cfg
+ADD docker/mordred-project.cfg /project.cfg
+ADD docker/mordred-override.cfg /override.cfg
+ADD docker/orgs.json /orgs.json
+ADD docker/projects.json /projects.json
 ADD docker/identities.yaml /identities.yaml
-ADD docker/menu-grimoirelab.yaml /menu.yaml
+ADD docker/menu.yaml /menu.yaml
+ADD docker/panels ${DEPLOY_USER_DIR}/panels
 RUN /bin/ln -s /menu.yaml  ${DEPLOY_USER_DIR}/menu.yaml
 
 USER ${DEPLOY_USER}
@@ -76,4 +79,4 @@ WORKDIR ${DEPLOY_USER_DIR}
 
 # Entrypoint (mordred)
 ENTRYPOINT [ "/usr/local/bin/mordred" ]
-CMD [ "-c", "/mordred.cfg", "/mordred-local.cfg"]
+CMD [ "-c", "/infra.cfg", "/dashboard.cfg", "/project.cfg", "/override.cfg"]
