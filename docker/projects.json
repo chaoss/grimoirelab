@@ -2,7 +2,9 @@
     "GrimoireLab": {
         "git": [
             "https://github.com/chaoss/grimoirelab",
+            "https://github.com/chaoss/grimoirelab-bestiary",
             "https://github.com/chaoss/grimoirelab-elk",
+            "https://github.com/chaoss/grimoirelab-hatstall",
             "https://github.com/chaoss/grimoirelab-kidash",
             "https://github.com/chaoss/grimoirelab-kingarthur",
             "https://github.com/chaoss/grimoirelab-manuscripts",
@@ -17,7 +19,10 @@
         ],
         "github": [
             "https://github.com/chaoss/grimoirelab",
+            "https://github.com/chaoss/grimoirelab-bestiary",
             "https://github.com/chaoss/grimoirelab-elk",
+            "https://github.com/chaoss/grimoirelab-hatstall",
+            "https://github.com/chaoss/grimoirelab-kibiter",
             "https://github.com/chaoss/grimoirelab-kidash",
             "https://github.com/chaoss/grimoirelab-kingarthur",
             "https://github.com/chaoss/grimoirelab-manuscripts",

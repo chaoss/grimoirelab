@@ -17,6 +17,13 @@
     - alpgarcia
 
 - profile:
+    name: Alexander Serebrenik
+  enrollments:
+    - organization: TU Delft
+  email:
+    - a.serebrenik@tue.nl
+
+- profile:
     name: Ali Ghassabian
   enrollments:
     - organization: Inocybe
@@ -49,10 +56,32 @@
     - assad.montasser@ow2.org
 
 - profile:
-    name: GitHub No Replay
-    is_bot: true
+    name: Ben Lloyd Pearson
+  enrollments:
+    - organization: Samsung
   email:
-    - noreply@github.com
+    - benp@osg.samsung.com
+  github:
+    - BenLloydPearson
+
+- profile:
+    name: Christian Cmehil-Warn
+  enrollments:
+    - organization: University of Missouri
+  email:
+    - cec5k7@mail.mizzou.edu
+    - cmehil.warn@gmail.com
+  github:
+    - ChristianCme
+
+- profile:
+    name: Daniel German
+  enrollments:
+    - organization: University of Victoria
+  email:
+    - dmg@uvic.ca
+  github:
+    - dmgerman
 
 - profile:
     name: Daniel Izquierdo Cortazar
@@ -68,176 +97,22 @@
     - dicortazar
 
 - profile:
+    name: David Moreno
+  enrollments:
+    - organization: Bitergia
+      start: 2017-06-01
+  email:
+    - dmorenolumb@gmail.com
+  github:
+    - dlumbrer
+
+- profile:
     name: David Pose
   enrollments:
     - organization: Bitergia
   email:
     - dpose@sega.bitergia.net
     - dpose@bitergia.com
-
-- profile:
-    name: Gustavo Santarém Silva
-  enrollments:
-    - organization: Sonae
-      start: 2016-12-01
-  email:
-    - gustavosantaremsilva@gmail.com
-
-- profile:
-    name: Israel Herraiz
-  enrollments:
-    - organization: BBVA Data & Analytics
-      start: 2017-08-01
-    - organization: Amadeus IT Group
-      start: 2014-02-01
-      end: 2017-07-31
-    - organization: Universidad Politécnica de Madrid
-      start: 2011-02-01
-      end: 2014-01-31
-  email:
-    - isra@herraiz.org
-    - israel.herraiz@bbvadata.com
-
-- profile:
-    name: J. Manrique Lopez de la Fuente
-  enrollments:
-    - organization: Bitergia
-  email:
-    - jsmanrique@bitergia.com
-  github:
-    - jsmanrique
-
-- profile:
-    name: Jeremy Garcia
-  enrollments:
-    - organization: Linuxquestions
-  email:
-    - jeremy@linuxquestions.org
-
-- profile:
-    name: Jesus M. Gonzalez-Barahona
-  enrollments:
-    - organization: Universidad Rey Juan Carlos
-      end: 2012-05-31
-    - organization: Bitergia
-      start: 2012-06-01
-  email:
-    - jgb@gsyc.es
-    - jgb@bitergia.com
-    - jgbarah@gmail.com
-  github:
-    - jgbarah
-
-- profile:
-    name: Jose Miguel Cañibano Iglesias
-  enrollments:
-    - organization: Entelgy
-  email:
-    - canibano_iglesias@hotmail.com
-
-- profile:
-    name: Luis Cañas-Díaz
-  enrollments:
-    - organization: Universidad Rey Juan Carlos
-      end: 2012-05-31
-    - organization: Bitergia
-      start: 2012-06-01
-  email:
-    - lcanas@bitergia.com
-  github:
-    - sanacl
-
-- profile:
-    name: Miguel Ángel Fernández
-  enrollments:
-    - organization: Bitergia
-  email:
-    - mafesan@bitergia.com
-    - mafesan.nsn@gmail.com
-
-- profile:
-    name: Nicolas Lamirault
-  enrollments:
-    - organization: Orange
-  email:
-    - nicolas.lamirault@gmail.com
-  github:
-    - nlamirault
-
-- profile:
-    name: Quan Zhou
-  enrollments:
-    - organization: Bitergia
-  email:
-    - quan@bitergia.com
-    - zhquan7@gmail.com
-  github:
-    - zhquan
-
-- profile:
-    name: Peter Monks
-  enrollments:
-    - organization: Open Symphony
-  github:
-    - pmonks
-
-- profile:
-    name: Robin Muilwijk
-  enrollments:
-    - organization: eZ Systems
-  email:
-    - robin.muilwijk@gmail.com
-
-- profile:
-    name: Santiago  Dueñas
-  enrollments:
-    - organization: Bitergia
-  email:
-    - sduenas@bitergia.com
-
-- profile:
-    name: Valerio Cosentino
-  enrollments:
-    - organization: Bitergia
-      start: 2017-08-01
-  email:
-    - valerio.cosentino@gmail.com
-    - valcos@bitergia.com
-  github:
-    - valeriocos
-- profile:
-    name: Alexander Serebrenik
-  enrollments:
-    - organization: TU Delft
-  email:
-    - a.serebrenik@tue.nl
-
-- profile:
-    name: Ben Lloyd Pearson
-  enrollments:
-    - organization: Samsung
-  email:
-    - benp@osg.samsung.com
-  github:
-    - BenLloydPearson
-
-- profile:
-    name: Christian Cmehil-Warn
-  enrollments:
-    - organization: University of Missouri
-  email:
-    - cec5k7@mail.mizzou.edu
-  github:
-    - ChristianCme
-
-- profile:
-    name: Daniel German
-  enrollments:
-    - organization: University of Victoria
-  email:
-    - dmg@uvic.ca
-  github:
-    - dmgerman
 
 - profile:
     name: Derek Howard
@@ -277,6 +152,45 @@
     - GeorgLink
 
 - profile:
+    name: GitHub No Replay
+    is_bot: true
+  email:
+    - noreply@github.com
+
+- profile:
+    name: Gustavo Santarém Silva
+  enrollments:
+    - organization: Sonae
+      start: 2016-12-01
+  email:
+    - gustavosantaremsilva@gmail.com
+
+- profile:
+    name: Israel Herraiz
+  enrollments:
+    - organization: BBVA Data & Analytics
+      start: 2017-08-01
+    - organization: Amadeus IT Group
+      start: 2014-02-01
+      end: 2017-07-31
+    - organization: Universidad Politécnica de Madrid
+      start: 2011-02-01
+      end: 2014-01-31
+  email:
+    - isra@herraiz.org
+    - israel.herraiz@bbvadata.com
+
+- profile:
+    name: J. Manrique Lopez de la Fuente
+  enrollments:
+    - organization: Bitergia
+  email:
+    - jsmanrique@bitergia.com
+    - jsmanrique@gmail.com
+  github:
+    - jsmanrique
+
+- profile:
     name: Jason Clark
   enrollments:
     - organization: IBM
@@ -291,6 +205,55 @@
     - jcanovasi@uoc.edu
 
 - profile:
+    name: Jeremy Garcia
+  enrollments:
+    - organization: Linuxquestions
+  email:
+    - jeremy@linuxquestions.org
+
+- profile:
+    name: Jesus M. Gonzalez-Barahona
+  enrollments:
+    - organization: Universidad Rey Juan Carlos
+      end: 2012-05-31
+    - organization: Bitergia
+      start: 2012-06-01
+  email:
+    - jgb@gsyc.es
+    - jgb@bitergia.com
+    - jgbarah@gmail.com
+  github:
+    - jgbarah
+
+- profile:
+    name: Jose Miguel Cañibano Iglesias
+  enrollments:
+    - organization: Entelgy
+  email:
+    - canibano_iglesias@hotmail.com
+
+- profile:
+    name: klumb
+  enrollments:
+    - organization: University of Omaha
+  email:
+    - klumbard@unomaha.edu
+  github:
+    - klumb
+
+- profile:
+    name: Luis Cañas-Díaz
+  enrollments:
+    - organization: Universidad Rey Juan Carlos
+      end: 2012-05-31
+    - organization: Bitergia
+      start: 2012-06-01
+  email:
+    - lcanas@bitergia.com
+  github:
+    - sanacl
+
+- profile:
     name: Lukasz Gryglicki
   enrollments:
     - organization: O2
@@ -298,15 +261,6 @@
     - lukaszgryglicki@o2.pl
   github:
     - lukaszgryglicki
-
-- profile:
-    name: Mike Blumenkrantz
-  enrollments:
-    - organization: Samsung
-  email:
-    - zmike@osg.samsung.com
-  github:
-    - zmike
 
 - profile:
     name: Matt Germonprez
@@ -318,11 +272,68 @@
     - germonprez
 
 - profile:
+    name: Miguel Ángel Fernández
+  enrollments:
+    - organization: Bitergia
+  email:
+    - mafesan@bitergia.com
+    - mafesan.nsn@gmail.com
+
+- profile:
+    name: Mike Blumenkrantz
+  enrollments:
+    - organization: Samsung
+  email:
+    - zmike@osg.samsung.com
+  github:
+    - zmike
+
+- profile:
+    name: Nicolas Lamirault
+  enrollments:
+    - organization: Orange
+  email:
+    - nicolas.lamirault@gmail.com
+  github:
+    - nlamirault
+
+- profile:
+    name: Quan Zhou
+  enrollments:
+    - organization: Bitergia
+  email:
+    - quan@bitergia.com
+    - zhquan7@gmail.com
+  github:
+    - zhquan
+
+- profile:
+    name: Peter Monks
+  enrollments:
+    - organization: Open Symphony
+  github:
+    - pmonks
+
+- profile:
+    name: Rashmi Chitrakar
+  enrollments:
+    - organization: Qualcomm
+  email:
+    - rashmic@qti.qualcomm.com
+
+- profile:
     name: Ray Paik
   enrollments:
     - organization: Linux Foundation
   email:
     - rpaik@linuxfoundation.org
+
+- profile:
+    name: Robin Muilwijk
+  enrollments:
+    - organization: eZ Systems
+  email:
+    - robin.muilwijk@gmail.com
 
 - profile:
     name: Samuel Ytterbrink
@@ -332,6 +343,13 @@
     - neppord@gmail.com
   github:
     - neppord
+
+- profile:
+    name: Santiago  Dueñas
+  enrollments:
+    - organization: Bitergia
+  email:
+    - sduenas@bitergia.com
 
 - profile:
     name: Sean Patrick Goggins
@@ -344,13 +362,6 @@
     - sgoggins
 
 - profile:
-    name: Thanh Ha
-  enrollments:
-    - organization: Linux Foundation
-  email:
-    - thanh.ha@linuxfoundation.org
-
-- profile:
     name: Stefano Zacchiroli
   enrollments:
     - organization: Université Paris Diderot
@@ -360,11 +371,38 @@
     - zacchiro
 
 - profile:
-    name: Rashmi Chitrakar
+    name: Sylvestre Ledru
   enrollments:
-    - organization: Qualcomm
+    - organization: Mozilla
   email:
-    - rashmic@qti.qualcomm.com
+    - sledru@mozilla.com
+
+- profile:
+    name: Thanh Ha
+  enrollments:
+    - organization: Linux Foundation
+  email:
+    - thanh.ha@linuxfoundation.org
+
+- profile:
+    name: Tobie Langel
+  enrollments:
+    - organization: Independent
+  email:
+    - tobie@codespeaks.com
+  github:
+    - tobie
+
+- profile:
+    name: Valerio Cosentino
+  enrollments:
+    - organization: Bitergia
+      start: 2017-08-01
+  email:
+    - valerio.cosentino@gmail.com
+    - valcos@bitergia.com
+  github:
+    - valeriocos
 
 - profile:
     name: Vicky Janicki
