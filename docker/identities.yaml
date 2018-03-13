@@ -298,6 +298,22 @@
     - nlamirault
 
 - profile:
+    name: Olblak
+  enrollments:
+    - organization: CloudBees
+  email:
+    - me@olblak.com
+  github:
+    - olblak
+
+- profile:
+    name: Peter Monks
+  enrollments:
+    - organization: Open Symphony
+  github:
+    - pmonks
+
+- profile:
     name: Quan Zhou
   enrollments:
     - organization: Bitergia
@@ -306,13 +322,6 @@
     - zhquan7@gmail.com
   github:
     - zhquan
-
-- profile:
-    name: Peter Monks
-  enrollments:
-    - organization: Open Symphony
-  github:
-    - pmonks
 
 - profile:
     name: Rashmi Chitrakar
