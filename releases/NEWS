@@ -1,3 +1,177 @@
+## 18.03-01
+
+Released: 2018-03-13
+
+* SortingHat
+** [model] Fix wrong __repr__ in Profile
+** [api] Add search_unique_identities_slice() function
+** [cmd:autogender] Fix typo in help output
+** Release 0.6.0
+** Rename GrimoireLab references to CHAOSS
+** [sortinghat] Add autogender command
+** [api] Add function for searching profiles
+** [tests] Fix non-deterministic tests
+** Add --version command line option
+** [tests] Fix so that tests pass when db not in localhost
+** [init] Remove annoying error
+** [setup] Update pandas
+** [gitdm2sh] Set option to ignore invalid email addresses
+
+* Perceval
+** [all backends] Set category when calling fetch and fetch_from_archive
+** [meetup][gitlab] Ignore sleep for rate when reading from archive
+** [tests] Modify backends tests when fetching from archive
+** [tests] Add mock http answers to tests launchpad
+** [gerrit] Add tests for gerrit backend
+** [mediawiki] Sort request payload parameters for versions >= 1.27
+** [mediawiki][phabricator] Force sort request payload parameters
+** [tests][askbot] Format html content file
+** [all backends] Add default parameters when init the Client
+** [slack] Move parameter latest to the archived args
+** [all backends] Add valid categories
+** [all backends] Align fetch signature to the backend generic one
+** [all backends] Add archive support
+** Update CI config to run tests using Python 3.5 and 3.6
+** Update coverage call to remove 'omit' parameter
+** [askbot] Add data about accepted answers 
+** [mbox] Define 'tmp_path' variable before copying mboxes
+** [backend] Ignore errors produced while fetching from archives
+** [backend] Fix 'Namespace' object has no attribute 'fetch_archive'
+** Rename GrimoireLab references to CHAOSS
+** [backend] Remove metadata() decorator
+** [cache] Remove cache mode
+** [backends] Replace cache by archive mode
+** Add tests requirements pip-file
+** Fix tests to support their execution in two different modes
+** Add support to run tests using setup.py file
+** [gmane] Remove Gmane backend
+** [jenkins] Update perceval sample in README
+** [backend] Use the archive manager within BackendCommand
+** [backend] Add shortcut functions to fetch items
+** [backend] Add 'archived-since' to the argument parser
+** [backend] Add 'category' to the general arguments parser
+** [backend] Define archive arguments for the argument parser
+** [archive] Add class to manage a set of archives
+** [archive] Replace 'item_category' by 'category'
+** [errors] Add class for raising archive manager exceptions
+** [pipermail, bugzilla] Avoid warning by BeautifulSoup
+** [perceval] Add GitLab backend
+** [all backends] Apply archive to backend
+** [client] Replace type() with isinstance()
+** [backend] Change method signature of _test_fetch_from_archive
+** [backend] Fix backend name in fetch method
+** [backend] Add fetch, fetch_from_archive and fetch_items
+** [nntp] Fix KeyError 'Date' in metadata_updated_on field
+** [backend] Integrate archive with generic backend
+** [client] Integrate archive with generic HTTP client
+** [archive] Add Archive class
+** [tests] Add tests for NotImplemented method errors in backend
+** [http-client] Fix rate limit reset log message
+** [git] Parse additional pattern for moved files
+** [all backends] Modify variable name default_sleep_time
+** [client] Modify variable name default_sleep_time
+
+** Perceval Mozilla
+*** [tests] Modify tests when fetching from archive
+*** Set category when calling fetch and fetch_from_archive
+*** Add valid categories
+*** Align fetch signature to the backend generic one
+*** Update Perceval dependency version
+*** Rename GrimoireLab references to CHAOSS
+*** Apply archive to all backends
+*** [crates] Fix None sleep_time when using CratesCmd
+*** Import perceval modules using relative paths
+*** [setup] Update minimum version of perceval required
+*** [crates] Change HttpClient method call
+
+** Perceval OPNFV
+*** [functest] Set category when calling fetch and fetch_from_archive
+*** [tests] Modify functest tests when fetching from archive
+*** [functest] Add valid categories
+*** [functest] Align fetch signature to the backend generic one
+*** Update Perceval dependency version
+*** Rename GrimoireLab references to CHAOSS
+*** [FuncTest] Apply archive to FuncTest backend
+
+** Perceval Puppet
+*** [puppetforge] Set category when calling fetch and fetch_from_archive
+*** [tests] Modify puppetforge tests when fetching from archive
+*** [puppetforge] Add valid categories
+*** [puppetforge] Align fetch signature to the backend generic one
+*** Update Perceval dependency version
+*** Rename GrimoireLab references to CHAOSS
+*** [puppetforge] Apply archive to PuppetForge backend
+
+* Mordred
+** [tests] Add tests for the studies configuration per backend
+** [task_enrich] Configure and execute studies per backend after enrichment
+** [config] Remove 'studies' param from enrich section
+** [tests] Add archive for all backends
+** [tests] Add tests to fetch data from archives
+** [mordred] Updates to use the new location for elastic module in grimoire_elk
+** [task_panels] Fix support for Kibana 6 when uploading menus
+** [tasks] Make use of grimoire-elk connections
+** [task_enrich] Use new param pair_programming to activate this enrich feature
+
+* GrimoireELK
+** [studies] Add support for git_author_domain field
+** [setup] Fixed conflict with urllib3 version
+** [elk] Fix access to mappings directory
+** [utils] Use the 1st interpreter on $PATH
+** [tests] Break done tests for all backends
+** [elk] Fix enrich_items method
+** Update elastic import to the new module path in grimoire_elk.elastic
+** [elastic] Refactor elastic class
+** [travis] Update travis to add new dependencies
+** [elk] Add areas of code study
+** [elk] Add basic structure for cereslib studies
+** [elk] Refactor sortinghat module name
+** [enrich][git] Fix incremental demography update for already existing authors
+** [archive] Allow handling perceval archive
+** [ocean] Fix mappings to index data in several data sources
+** [tests] Refactor tests for backends/connectors
+** [remo] Rename filenames of ocean and elk remo connectors
+** [ocean] Remove ES 2.x mappings to index git data
+** [ocean] Modify Pipermail input data for test
+** [ocean] Add Launchpad backend
+** [ocean] Add PuppetForge backend
+** [ocean] Add GitLab backend
+** [tests] Update tests data
+** [elk] Update enrich_items method of several data sources  for new tests
+** [elk] Handle NNTP uppercase Date field
+** [ocean] Add warning when json items are not inserted to ES
+** [enrich] Track storage exceptions when uploading enriched data to ES
+** [travis] Add delay to make ES start
+
+* Sigils (old Panels)
+** Update documentation on process related panels
+
+* Manuscripts (old reports)
+** added Content-Type information in function: get_metrics_data
+
+* Kidash
+** [kidash] Update elastic import from grimoire_elk
+** [import] Don't modify the height of visualizatons in dashboards from Kibana >= 6
+
+* GrimoireLab Toolkit
+** Add support to run tests using setup.py file
+** Update coverage call to remove 'omit' parameter
+** Rename GrimoireLab references to CHAOSS
+** Update CI config to run tests using Python 3.5 and 3.6
+
+* King Arthur (old Arthur):
+** Add support to run tests using setup.py file
+** Fix tests to support their execution in two different modes
+** Modify tests requirements pip-file and Travis config. file
+** Update documentation with a section for the arthurd config. file
+** [worker] Add documentation to perform_job method
+** [arthurd] Replace cache support with archive support
+** [server] Enable server to handle archives
+** [jobs] Enable jobs to handle archives
+** [tasks] Enable tasks to deal with archive
+** [scheduler] Enable scheduler to deal with archive tasks
+** [arthur] Enable Arthur to fetch data from archives
+
 ## elasticgirl.30.4
 
 Released: 2018-02-12
