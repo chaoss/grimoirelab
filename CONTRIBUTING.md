@@ -45,8 +45,8 @@ project is welcome to join the channel and hang around.
 
 ### Pull request / issues
 
-Repositories: [GrimoireLab repositories in GitHub](http://github.com/gr
-imoirelab)
+Repositories: [GrimoireLab repositories in GitHub](http://github.com/chaoss/gr
+imoirelab), which are all in the [CHAOSS organization](http://github.com/chaoss).
 
 Most of the work is discussed here, including upgrades and
 proposals for upgrades, bug fixing, and feature requests. For any of
@@ -73,7 +73,7 @@ committers, except for the one being proposed to be removed.
 
 The current list of committers is (GitHub handles):
 
-* General: sduenas, acs, dicortazar, sanacl, jgbarah, jsmanrique
+* General: sduenas, acs, dicortazar, sanacl, jgbarah, jsmanrique, valcos
 * Manuscripts: alpgarcia
 * Sigils: alpgarcia
 
