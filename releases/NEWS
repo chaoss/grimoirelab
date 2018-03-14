@@ -1,3 +1,11 @@
+## 18.03-01-a
+
+Released: 2018-03-14
+
+* GrimoireELK
+** [ocean] Add ES 2.x mappings for all ocean backends
+** [git] Add a new time_to_commit field to enriched index
+
 ## 18.03-01
 
 Released: 2018-03-13
