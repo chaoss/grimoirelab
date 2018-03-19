@@ -41,44 +41,53 @@ install_dependencies = ['pip', 'setuptools', 'wheel']
 
 all_repos = {
     'grimoirelab-toolkit': [{'name': 'grimoirelab-toolkit', 'dir': '',
-            'repo_url': 'http://github.com/grimoirelab/grimoirelab-toolkit',
+            'repo_url': 'http://github.com/chaoss/grimoirelab-toolkit',
             'version_file': os.path.join('grimoirelab', 'toolkit', '_version.py')}],
     'perceval': [{'name': 'perceval', 'dir': '',
-            'repo_url': 'http://github.com/grimoirelab/perceval',
+            'repo_url': 'http://github.com/chaoss/grimoirelab-perceval',
             'version_file': os.path.join('perceval', '_version.py')}],
     'perceval-opnfv': [{'name': 'perceval-opnfv', 'dir': '',
-            'repo_url': 'http://github.com/grimoirelab/perceval-opnfv',
+            'repo_url': 'http://github.com/chaoss/grimoirelab-perceval-opnfv',
             'version_file': 'setup.py'}],
     'perceval-mozilla': [{'name': 'perceval-mozilla', 'dir': '',
-            'repo_url': 'http://github.com/grimoirelab/perceval-mozilla',
+            'repo_url': 'http://github.com/chaoss/grimoirelab-perceval-mozilla',
             'version_file': 'setup.py'}],
-    'arthur': [{'name': 'kingarthur', 'dir': '',
-            'repo_url': 'http://github.com/grimoirelab/arthur',
+    'kingarthur': [{'name': 'kingarthur', 'dir': '',
+            'repo_url': 'http://github.com/chaoss/grimoirelab-kingarthur',
             'version_file': os.path.join('arthur', '_version.py'),
             'tests': True}],
     'grimoireelk': [{'name': 'grimoire-elk', 'dir': '',
-            'repo_url': 'http://github.com/grimoirelab/grimoireelk',
+            'repo_url': 'http://github.com/chaoss/grimoirelab-elk',
             'version_file': os.path.join('grimoire_elk', '_version.py')}],
     'sortinghat': [{'name': 'sortinghat', 'dir': '',
-            'repo_url': 'http://github.com/grimoirelab/sortinghat',
+            'repo_url': 'http://github.com/chaoss/grimoirelab-sortinghat',
             'version_file': os.path.join('sortinghat', '_version.py')}],
     'kidash': [{'name': 'kidash', 'dir': '',
             'repo_url': 'http://github.com/chaoss/grimoirelab-kidash',
             'version_file': os.path.join('kidash', '_version.py')}],
-    'panels': [{'name': 'grimoirelab-panels', 'dir': '',
-            'repo_url': 'http://github.com/grimoirelab/panels',
+    'sigils': [{'name': 'grimoirelab-panels', 'dir': '',
+            'repo_url': 'http://github.com/chaoss/grimoirelab-sigils',
             'version_file': os.path.join('panels', '_version.py')}],
     'manuscripts': [{'name': 'manuscripts', 'dir': '',
             'repo_url': 'http://github.com/chaoss/grimoirelab-manuscripts',
             'version_file': os.path.join('manuscripts', '_version.py')}],
     'mordred': [{'name': 'grimoire-mordred', 'dir': '',
-            'repo_url': 'http://github.com/grimoirelab/mordred',
-            'version_file': os.path.join('mordred', '_version.py')}]
+            'repo_url': 'http://github.com/chaoss/grimoirelab-mordred',
+            'version_file': os.path.join('mordred', '_version.py')}],
+    'cereslib': [{'name': 'grimoire-cereslib', 'dir': '',
+            'repo_url': 'http://github.com/chaoss/grimoirelab-cereslib',
+            'version_file': os.path.join('cereslib', '_version.py')}]
 }
 """Structure of GrimoireLab, and the specifics of the Python modules
 that will come out of it.
 For each git repository list of module descriptions
 (package name and directory).
+* Keys in the dictionary are the names in the releases file, lowecased,
+and with '_' changed to '-'.
+* name: name of the Python package to be produced
+* repo_url: url of the git repository
+* dir: directory with the pacakge in the git repository
+* version_file: where to find the _version.py file, relative to the directory
 """
 
 def parse_args ():
