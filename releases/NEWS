@@ -1,3 +1,81 @@
+## 18.03-02
+
+Released: 2018-03-20
+
+* SortingHat
+**    [cmd:autogender] Check well-formed names only and Retry and skip connection errors
+
+* Perceval
+** [backend] Remove empty category from parsed arguments
+** Mozilla
+*** Add tests requirements pip file
+*** Add support to run tests using setup.py file
+
+** OPNFV
+*** Add tests requirements pip file
+*** Add support to run tests using setup.py file
+** Puppet
+*** Add tests requirements pip file
+*** Add support to run tests using setup.py file
+
+* Mordred
+** [task_projects][eclipse] Add support for extracting the github repositories
+** [clean] Remove legacy testing grimoire_elk symlink
+** [task_identities] Add gender support
+** [task_panels] Add as data source stackoverflow if stackexchange is included
+** [tests] Fix tests including the gender fields in SH identities files
+
+* GrimoireELK
+** [elk] Fix check condition ES version for rss, meetup, nntp
+** [elk] Limit size of attributes for several data sources to avoid keyword max length issues
+** [elk] Fix mappings ES 5.1.x for all backends
+** [ocean] Prevent Slack attachment info to be indexed
+** [ocean/elasttic] Replace bulk_upload_sync with bulk_upload
+** [elastic] Delete bulk_upload_sync method
+** [askbot] Refine information to track accepted answers
+** [tests] Modify test data for askbot
+** [elk] Enrich item to track accepted answers
+** [ocean] Add mappings for Askbot ocean
+** [enrich][bugzillarest] Change " " with "+" in product and component names to follow Mozilla projects mapping
+** [elk] Add gender info from SortingHat
+** [ocean][conf] Remove legacy conf index not used anymore
+** [utils] Remove not used scripts o2s.py and ocean.py
+** [utils] Remove symlink grimoire_elk to avoid hacks in modules import
+** [utils] Remove not needed old symlink
+
+* Sigils (old panels)
+** [Askbot] Add fields to askbot.csv to track accepted answers
+** [schema] Update Meetup schema to deal with aggregatable fields in Kibana
+** [panels] Fix Gerrit panel to use author name field
+** Added schema for time_to_commit
+
+* Manuscripts (old reports)
+** Select by user for custom indices for each data
+** Create default indices if no custom index is provided
+** Change the default name for the enriched git index from 'git_enrich' to 'git'
+
+* Kidash
+
+* GrimoireLab Toolkit
+
+* King Arthur
+
+* Bestiary
+** Add new features: edit and remove ecosystems and projects
+** Add information messages to web UI related to important actions
+** Change position of ecosystem-related buttons
+
+* Hatstall
+** Add custom pagination in order to retrieve the data paginated
+** Add search box that searchs directly to the sh database
+** Fix last_modified field show in unique identities
+** Add 'show' custom in order to get length of the table paginated
+** Change button show entries for 'onchange' event in the select
+
+* Cereslib
+** [events] Add Git author domain from email
+
+
 ## 18.03-01-a
 
 Released: 2018-03-14
