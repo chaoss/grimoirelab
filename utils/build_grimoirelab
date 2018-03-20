@@ -74,7 +74,7 @@ all_repos = {
     'mordred': [{'name': 'grimoire-mordred', 'dir': '',
             'repo_url': 'http://github.com/chaoss/grimoirelab-mordred',
             'version_file': os.path.join('mordred', '_version.py')}],
-    'cereslib': [{'name': 'grimoire-cereslib', 'dir': '',
+    'cereslib': [{'name': 'cereslib', 'dir': '',
             'repo_url': 'http://github.com/chaoss/grimoirelab-cereslib',
             'version_file': os.path.join('cereslib', '_version.py')}]
 }
