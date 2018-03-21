@@ -1,3 +1,46 @@
+## 18.03-04
+
+Released: 2018-03-21
+
+* SortingHat
+
+* Perceval
+** [pipermail] Handle inaccessible archive URLs
+** Mozilla
+** OPNFV
+** Puppet
+
+* Mordred
+** [task_enrich] Replace bulk_upload_sync with bulk_upload
+** [mordred] Remove param studies en enrich section which does not exists anymore
+
+* GrimoireELK
+** [ocean] Fix mappings with jenkins to avoid regression errors
+** [enrich][mbox] Return an empty SH identity if the identity provided is None
+
+* Sigils (old panels)
+
+* Manuscripts (old reports)
+** Default name of manuscripts added
+** Added -v argument to show version of manuscripts
+
+* Kidash
+
+* GrimoireLab Toolkit
+
+* King Arthur
+
+* Bestiary
+
+* Hatstall
+** Add paginated table in proifle page with 3 columns instead of 2
+** Add more info of uidentity when click on 'view' in profile page
+** Change behaviour of the columns when open/close columns
+** Add button in the card info of unique identity to merge it
+** Fix table size joining columns
+
+* Ceres
+
 ## 18.03-03
 
 Released: 2018-03-20
