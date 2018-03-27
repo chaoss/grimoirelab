@@ -1,3 +1,82 @@
+## 18.03-05
+
+Released: 2018-03-27
+
+## Release details
+
+* SortingHat
+
+* Perceval
+** Handle negative sleep time for rate limit reset: meetup, gitlab, github, client
+** [git] Add --to-date to git backend to pull data upto a given time
+** [github] Add  pull request data
+** [pipermail] Increase test coverage
+** Mozilla
+** [remo] Add params to fetch events from older to newer
+** OPNFV
+** Puppet
+
+* Mordred
+** [task_panels] Don't use anymore the kibiter version from general config in mordred
+** [config] Fix howto import the version from mordred
+** [doc] Add first version of the mordred params documented generated automatically
+** [config] Add description to all params and remove the params not used anymore
+** [doc] Initial version of setup automatic doc generation
+** Update import sections to follow grimoire-elk changes
+** Fix flake8 errors
+** [task_identities] Fix the call to get gender data (hotfix commit)
+
+* grimoirelab-elk (old GrimoireELK)
+** [utils] Remove puppetforge support until there is a pip package and it is supported in grimoirelab_build script
+** [elk] Fix mapping path for areas of code index
+** [elk] Add onion study to GitHub
+** [enriched] Handle wrong time offset in Git enrichment
+** [p2o] Use directly the params definition from utils.py
+** [enrich] Add doc for enrich_items method and remove not needed code
+** [enrich][phabricator] Add enrich metadata to enriched items
+** [puppetforge] Implement the enrich spec for PuppetForge
+** [enrich] Add `answer_status` field to askbot
+** [raw] Fix typos in ES 2.2 mappings for gerrit
+** [enrich] Fix limit comment message in gerrit, git 
+** [enriched] Set not accepted answer flag to askbot unanswered question
+** [all] Replace arthur with with elk in import sections
+** [all] Replace elk with enriched in import sections
+** [all] Replace ocean with raw in import sections
+** [arthur] Rename the file name arthur.py to elk.py
+** [ocean/elk] Change packages names: This code renames the packages ocean and elk to raw and enriched
+** [ocean][hyperkitty] Create specific HyperKittyOcean class
+** [utils] Support that the name of a connector could include a suffix
+** [elk] Fix params parsing for arthur tasks
+** Move CSVs schema definition from Sigils to GrimoireELK
+** [Askbot] Add fields to askbot.csv to track accepted answers
+** [doc] Add documentation for Areas of Code study
+** [elk] Include mappings to discourse backend
+** [ocean] Add ES 2.x mappings for askbot backend
+** [elk] Create areas of code output index if needed
+** [doc] Add documentation on Onion study
+** [elk] Add onion study
+
+* Sigils (old panels)
+* [csv] Remove CSVs moved to grimoirelab-elk
+
+* Manuscripts (old reports)
+
+* Kidash
+** [kidash] Update elk import
+
+* GrimoireLab Toolkit
+
+* King Arthur
+
+* Bestiary
+
+* Hatstall
+
+* Ceres
+** [examples] Update elk import
+** [events] Update elk import
+
+
 ## 18.03-04
 
 Released: 2018-03-21
