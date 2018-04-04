@@ -1,3 +1,67 @@
+## 18.04-01
+
+Released: 2018-04-04
+
+## Release details
+
+* SortingHat
+
+* Perceval
+** Fix the error "Not a gzipped file (b'00')"
+** [client] Sanitize url, payload and headers when archiving data
+** [all backends Remove credentials when archiving data
+** [jira] Avoid init HTTP session when fetching data from archive
+** [tests] Fix fetch_from_archive test
+** Mozilla
+** OPNFV
+** Puppet
+
+* Mordred
+** [panels] Add hyperkitty panel (the same than mbox)
+** [task_collection] Support that the name of a backend section could include a suffix
+** [task_panels] Filter with data sources active only multi data source visualizations
+** [tests] Add archive for testing remo
+
+* grimoirelab-elk
+** [utils] Add PuppetForge support once perceval pip package is available
+** [raw] Update mappings to filter body information in confluence items
+** [enrich] Limit size of summary and main_description in bugzillarest
+** [enrich] Limit size of value attribute summary in bugzilla
+** [raw] Change discourse mapping for data.post_stream.posts.cooked
+** [enrich] Fix mapping for attribute question_title in discourse
+** [enrich] Handle missing accepted_answer_id attribute
+** Added support for co-author
+** Fix flake8 issues
+** [schema] Update askbot.csv
+** [studies] Add timeout to ES connections
+** [tests] Remove old test data
+
+* Sigils (old panels)
+
+* Manuscripts (old reports)
+** Remove recursive copying of report directory
+** Add user defined logo option
+
+* Kidash
+
+* GrimoireLab Toolkit
+** [tests] Increase test coverage
+** [datetime] Handle wrong timezone offset
+
+* King Arthur
+** Fix Travis CI badge
+** Update required version of Perceval
+** Rename GrimoireLab references to CHAOSS
+** [jobs] Fix 'from_date' and 'offset' reset error
+
+* Bestiary
+
+* Hatstall
+** [conf] Configure Hatstall using the setup file if exists first and then the web form
+
+* Ceres
+
+
 ## 18.03-05
 
 Released: 2018-03-27
