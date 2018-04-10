@@ -1,3 +1,14 @@
+## 18.04-01-a
+
+Released: 2018-04-10
+
+* Mordred
+** [task] Include projects data when creating the enrich backend for studies
+** [task_report] Fix import from report.report to manuscripts.report
+** Improve documentation about "bulk_size" and "scroll_size"
+** [tests] Update archives after sanitizing archived data
+
+
 ## 18.04-01
 
 Released: 2018-04-04
