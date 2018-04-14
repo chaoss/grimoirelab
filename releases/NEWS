@@ -1,3 +1,94 @@
+## 18.04-02
+
+Released: 2018-04-14
+
+* SortingHat
+
+* Perceval
+** [phabricator] Handle project info in core:edge transactions
+** Update copyright information
+** [phabricator] Include project/user information in task transactions
+** [jenkins] Control detail level of Jenkins data
+** [gerrit] Rename parameter 'url' to 'hostname'
+** Mozilla
+*** [mozillaclub] Change log level message when missing event data
+** OPNFV
+** Puppet
+
+* Mordred
+** [task] Include projects data when creating the enrich backend for studies
+** [[task_report] Fix import from report.report to manuscripts.report
+** [Improve documentation about "bulk_size" and "scroll_size"
+** [[tests] Update archives after sanitizing archived data
+
+* grimoirelab-elk
+** [enrich][jira] Check that main_description field is not None before trunctating it
+** [doc] Add information about alias to studies doc
+** [studies] Add alias management to onion study
+** [studies] Add alias management for areas of code
+** [studies] Add methods to manage aliases
+** [enrich] Add meta fields only if the meta field is a dict
+** [tests] Add test for load identities in sortinghat
+** [schema] Add Gerrit CSV aggregatable and description fields
+** [phabricator] Handle dots in JSON attribute names
+** [nntp] Remove X-fields in raw data
+** [mbox] Remove X-fields in raw data
+** [tests] Include _fix_item method in tests
+** [nntp] Use mbox mappings for NNTP items
+** [enrich] Handle case sensitive attributes in mbox items
+** [enrich][metadata] Add project metadata fields to the enriched items
+** [schema] Update git schema
+** [schema] Fix `grimoire_creation_date` description
+** [schema] Update areas of code schema
+** [enrich] Handle long text values in  mozillaclub
+** [enrich] Handle different formats for failures in functest
+** [travis] Add perceval-puppet dependency
+** [enrich] Handle revisions without comment in mediawiki
+** [tests] Update tests data for Slack
+** [tests] Update test data for Jira
+** [doc][studies] Improve studies doc for executing them in mordred
+** [doc] Add CSV for areas of code and update doc
+** [enrich] Limit size of fields.description in Jira
+** [raw] Handle long description in jira fields
+** [setup] Add dependency with perceval-puppet
+** [raw] Filter attachment-related data of slack messages
+
+* Sigils (old panels)
+** [panels] Update git index pattern
+** [askbot] Add accepted answer info
+
+* Manuscripts (old reports)
+** [tests] Added tests for the function replace_text_dir in report.py
+** [report] Remove dependency on GREP and SED
+** Update requirements for sortinghat
+
+* Kidash
+
+* GrimoireLab Toolkit
+** [introspect] Add function to find the properties in a class
+
+* King Arthur
+** [scheduler] Rename 'max_retries_job' to 'max_retries'
+** [jobs] Replace scheduler arguments by 'max_retries'
+
+* Bestiary
+
+* Hatstall
+** [deployment] Config the Django settings for deployment in production
+** [docker] Improve how gunicorn is started increasing the number of workers and the timeout
+** [docker][travis] Fill the Django SECRET_KEY during deployment
+** [docker] Add file based config sample for Hatstall
+** [django] Remove SECRET_KEY to avoid its use in a production system
+** [urls] Add urls to static contents so gunicorn can use them
+** [docker] Use the CHAOSS URL to clone Hatstall
+** [pip] Add all the files needed to create the django-hatstall pip package
+** [hatstall app] Refactor all code to have a "hatstall" app that can be reused
+** [docker] Leave alone hatstall in the docker-compose file
+** [docker] Use the grimoirelab/hatstall docker image and remove link to mariadb
+
+* Ceres
+
+
 ## 18.04-01-a
 
 Released: 2018-04-10
@@ -12,8 +103,6 @@ Released: 2018-04-10
 ## 18.04-01
 
 Released: 2018-04-04
-
-## Release details
 
 * SortingHat
 
@@ -76,8 +165,6 @@ Released: 2018-04-04
 ## 18.03-05
 
 Released: 2018-03-27
-
-## Release details
 
 * SortingHat
 
