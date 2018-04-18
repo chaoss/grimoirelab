@@ -1,3 +1,31 @@
+## 18.04-03
+
+Released: 2018-04-18
+
+* SortingHat
+* Perceval
+** Mozilla
+** OPNFV
+** Puppet
+* Mordred
+* grimoirelab-elk
+** [jenkins] Update raw mappings to deal with large comments
+** [jira] Handle data.changelog.histories fields
+** [tests] Update test load identites
+** [elk] load identities by bulks to sortinghat
+** [sortinghat_gelk] Handle possible exeception when adding identities
+* Sigils (old panels)
+* Manuscripts (old reports)
+** [report] Show the perdiod names always as YY-Q[1-4] (16-Q4)
+* Kidash
+* GrimoireLab Toolkit
+* King Arthur
+* Bestiary
+* Hatstall
+** [mod_wsgi] Fix settings so Hatstall works inside Apache mod_wsgi
+* Ceres
+
+
 ## 18.04-02
 
 Released: 2018-04-14
