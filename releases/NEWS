@@ -1,3 +1,35 @@
+## 18.04-04
+
+Released: 2018-04-26
+
+* SortingHat
+* Perceval
+** Mozilla
+** OPNFV
+** Puppet
+* Mordred
+** [setup] Fix dependency on manuscripts
+* grimoirelab-elk
+** [jira] Disable dynamic mappings for data.changelog.histories
+** Remove ES 2.x mappings for all data sources (alexandria is now in ES 5.1)
+** [enrich] Remove emails from all enriched indexes
+** [tests] Add tests using csv mappings (disabled until the results of the tests are fixed)
+** [tests] Add owlwatch model to test mappings
+** [phabricator] Handle long description.raw value in raw items
+** [setup] Add dependency on SortingHat
+* Sigils (old panels)
+* Manuscripts (old reports)
+** [its] Use closed_at as FIELD_DATE for closed issues metrics
+** [metrics][gerrit] Use as date field closed in merged and abandoned reviews
+* Kidash
+* GrimoireLab Toolkit
+* King Arthur
+** [docker] Build various docker images
+* Bestiary
+* Hatstall
+* Ceres
+
+
 ## 18.04-03
 
 Released: 2018-04-18
