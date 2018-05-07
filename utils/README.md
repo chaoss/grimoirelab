@@ -121,6 +121,41 @@ $ build_grimoirelab --install --dist /tmp/dist --install_venv /tmp/ivenv \
   --modules grimoire-kidash
 ```
 
+* Build (creating packages in `/tmp/dist`, install, check, and run tests,
+overriding the default list of repos with those in `repos.json`,
+and using the commits specified in `release`
+
+```
+$ build_grimoirelab --build --install --check --test \
+  --dist /tmp/dist --reposfile repos.json --relfile release
+```
+
+The file `repos.json` can be as follows:
+
+```
+{
+  "perceval": [
+    {
+      "name": "perceval",
+      "dir": "",
+      "repo_url": "/src/chaoss/grimoirelab-perceval",
+      "version_file": "perceval/_version.py",
+      "check_run": "perceval --help",
+      "test": true
+    }
+  ],
+  "perceval-mozilla": [
+    {
+      "name": "perceval-mozilla",
+      "dir": "",
+      "repo_url": "/src/chaoss/grimoirelab-perceval-mozilla",
+      "version_file": "setup.py",
+      "check_run": "perceval kitsune --help"
+    }
+  ]
+}
+```
+
 For complete list of arguments, run:
 
 ```bash
