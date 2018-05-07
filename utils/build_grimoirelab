@@ -22,6 +22,7 @@
 #
 
 import argparse
+import json
 import logging
 import os
 import os.path
@@ -47,7 +48,8 @@ all_repos = {
     'perceval': [{'name': 'perceval', 'dir': '',
             'repo_url': 'http://github.com/chaoss/grimoirelab-perceval',
             'version_file': os.path.join('perceval', '_version.py'),
-            'check_run': 'perceval --help'}],
+            'check_run': 'perceval --help',
+            'test': True}],
     'perceval-mozilla': [{'name': 'perceval-mozilla', 'dir': '',
             'repo_url': 'http://github.com/chaoss/grimoirelab-perceval-mozilla',
             'version_file': 'setup.py',
@@ -63,8 +65,7 @@ all_repos = {
     'kingarthur': [{'name': 'kingarthur', 'dir': '',
             'repo_url': 'http://github.com/chaoss/grimoirelab-kingarthur',
             'version_file': os.path.join('arthur', '_version.py'),
-            'check_run': 'arthurd --help',
-            'tests': True}],
+            'check_run': 'arthurd --help'}],
     'grimoireelk': [{'name': 'grimoire-elk', 'dir': '',
             'repo_url': 'http://github.com/chaoss/grimoirelab-elk',
             'version_file': os.path.join('grimoire_elk', '_version.py'),
@@ -121,14 +122,19 @@ def parse_args ():
                             help="Install modules.")
     args_actions.add_argument("--check", action='store_true',
                             help="Check modules for some invariants.")
+    args_actions.add_argument("--test", action='store_true',
+                            help="Test modules once built.")
 
     parser.add_argument("--relfile", type=str,
                             help="GrimoireLab coordinated release file. "
                                 + "If not specified, origin/master will be used "
                                 + "for each module.")
+    parser.add_argument("--reposfile", type=str,
+                            help="File to complement repositories (JSON)")
 
     parser.add_argument("--modules", type=str, nargs='+',
                             help="Modules to build. Default: all")
+
     parser.add_argument("--reposdir", type=str,
                             help="Directory for storing git repositores. "
                                 + "If not specified, use temporary directory, "
@@ -247,7 +253,7 @@ class CommandRunner (object):
         :param args: command line arguments (including 0)
         :param  cwd: working directory to use
         :param exit: exit if command fails (bool)
-        :return    : success status (boolean)
+        :return    : success status (boolean) and output (string)
         """
 
         result = subprocess.run(args, cwd=cwd,
@@ -347,6 +353,9 @@ class Venv (CommandRunner):
         :return:              update successful (bool)
     """
 
+        if len(module_names) == 0:
+            # No packages to update, nothing to do
+            return True
         common_args = ['pip3', 'install', '--upgrade']
         if dist_dir:
             common_args += ['--pre', '--find-links=' + dist_dir.name]
@@ -452,7 +461,13 @@ class BuildingEnviron(object):
         self.dist_dir = dist_dir
 
     def _build_dist(self, dir):
-        "Build distributable packages from a Python directory"
+        """Build distributable packages from a Python directory
+
+        Build sdist and bdist_wheel packages for the directory,
+        based on running the setup.py file in it.
+
+        :param   dir: directory with the Python module
+        """
 
         setup_file = os.path.join(dir, 'setup.py')
         if os.path.isfile(setup_file):
@@ -467,6 +482,31 @@ class BuildingEnviron(object):
             logging.info("Directory " + dir + " does not have a setup.py file.")
             return "Error"
 
+    def _test_dist(self, dir):
+        """Test a Python directory (with a module)
+
+        For testing will use packages in self.dist_dir.name, if available.
+
+        :param   dir: directory with the Python module
+        :return:      success status (boolean) and output (string)
+        """
+
+        setup_file = os.path.join(dir, 'setup.py')
+        if os.path.isfile(setup_file):
+            (success, output) \
+                = self.venv.run_command(['pip', 'install', '-e', '.',
+                                         '--find-links=' + self.dist_dir.name],
+                                         cwd=dir)
+            if not success:
+                return (False, output)
+            (success, output) \
+                = self.venv.run_command(['python', 'setup.py', 'test'],
+                                        cwd=dir)
+            return (success, output)
+        else:
+            logging.info("Directory " + dir + " does not have a setup.py file.")
+            return (False, "Directory " + dir + " does not have a setup.py file.")
+
     def build_module(self, name):
         """Build module, given its name."""
 
@@ -477,6 +517,24 @@ class BuildingEnviron(object):
         self._runner.clone_git(repo=repo_url, dir=repo_dir, commit=desc['commit'])
         built = self._build_dist(pkg_dir)
         print("Built module " + name + ": " + built)
+
+    def test_module(self, name):
+        """Test module, given its name."""
+
+        desc = self.modules.descriptor(name)
+        if 'test' in desc and desc['test']:
+            repo_url = desc['repo_url']
+            repo_dir = os.path.join(self.repos_dir.name, desc['repo'])
+            pkg_dir = os.path.join(self.repos_dir.name, desc['repo'], desc['dir'])
+            if not os.path.isdir(repo_dir):
+                self._runner.clone_git(repo=repo_url, dir=repo_dir, commit=desc['commit'])
+            (success, output) = self._test_dist(pkg_dir)
+            print("Tested module " + name + ": ", end='')
+            if success:
+                print("OK")
+            else:
+                print("Fail")
+                print(output)
 
     def build_all(self):
         """Build all modules."""
@@ -639,6 +697,11 @@ def main():
     else:
         release = None
 
+    if args.reposfile:
+        with open(args.reposfile) as repos_file:
+            repos = json.load(repos_file)
+            all_repos.update(repos)
+
     modules = Modules(module_names=args.modules, release=release)
     dist_dir = Directory(name=args.distdir, purpose="Distribution",
                         persistent=True)
@@ -659,6 +722,15 @@ def main():
         building = BuildingEnviron(modules=modules, venv=venv,
                                    repos_dir=repos_dir, dist_dir=dist_dir)
         building.build_all()
+
+    if args.test:
+        print("Testing...")
+        for module_name in modules.names():
+            module = Modules(module_names=[module_name], release=release)
+            venv = Venv(purpose="Test", persistent=False)
+            building = BuildingEnviron(modules=module, venv=venv,
+                                       repos_dir=repos_dir, dist_dir=dist_dir)
+            building.test_module(module_name)
 
     if args.install:
         print("Installing...")
