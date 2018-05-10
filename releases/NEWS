@@ -1,3 +1,53 @@
+## 18.05-01
+
+Released: 2018-05-10
+
+* SortingHat
+** [readme] Include troubleshooting section
+
+* Perceval
+** [mattermost] Add Mattermost backend
+** Fix support for package namespaces
+** Mozilla
+** OPNFV
+** Puppet
+
+* Mordred
+** [task_enrich] Ensure number of enrich tasks decreases upon failure
+** [TaskManager] Fix unreachable code
+
+* grimoirelab-elk
+** [elk] raise exception in do_studies
+** [stackexchange] Add fields to csv to track accepted answers
+** [discourse] Add fields to csv to track accepted answers
+** [stackexchange] Add info to get the percentage of accepted answers
+** [discourse] Add info to get the percentage of accepted answers
+** [onion] Check author bucket to make sure it exists
+** [twitter] Change date value to index tweets
+** [enriched][bugzillarest] Fix comment and remove unneeded variable
+** [twitter] Limit number of indexed fields
+** [stackexchange] Handle deleted users
+** [discourse] Add information to track accepted answers
+** [stackexchange] Add information to track accepted answers
+** [elastic] Remove not used global_mapping method
+
+* Sigils
+
+* Manuscripts
+
+* Kidash
+
+* GrimoireLab Toolkit
+
+* King Arthur
+
+* Bestiary
+
+* Hatstall
+
+* Ceres
+
+
 ## 18.04-04
 
 Released: 2018-04-26
