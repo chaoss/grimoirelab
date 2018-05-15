@@ -25,6 +25,8 @@ USER root
 # SearchGuard configuration for Elasticsearch
 RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install -b com.floragunn:search-guard-6:6.1.0-21.0 && \
     cd /usr/share/elasticsearch/plugins/search-guard-6/tools/ && \
+    rm install_demo_configuration.sh && \
+    wget https://raw.githubusercontent.com/floragunncom/search-guard/master/tools/install_demo_configuration.sh && \
     chmod 755 install_demo_configuration.sh && \
     ./install_demo_configuration.sh -y && \
     echo "searchguard.enterprise_modules_enabled: false" >> \

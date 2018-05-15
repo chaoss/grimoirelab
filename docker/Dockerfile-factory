@@ -63,4 +63,4 @@ ENV PYTHONUNBUFFERED 0
 # Entrypoint (build GrimoireLab packages), and default arguments for it
 ENTRYPOINT [ "/usr/local/bin/build_grimoirelab", "--distdir", "/dist", \
     "-l", "debug", "--logfile", "/logs/build.log" ]
-CMD [ "--build", "--install", "--check", "--relfile", "/release" ]
+CMD [ "--build", "--install", "--check", "--test", "--fail", "--relfile", "/release" ]
