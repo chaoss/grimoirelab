@@ -1,3 +1,45 @@
+## 18.05-02
+
+Released: 2018-05-17
+
+* SortingHat
+
+* Perceval
+** [setup] Fix to let setup.py test run
+** Add readthedocs badge
+** [backend] Replace datetime import with grimoirelab-toolkit
+** Mozilla
+*** Fix support for package namespaces
+** OPNFV
+*** Fix support for package namespaces
+** Puppet
+*** Fix support for package namespaces
+
+* Mordred
+
+* grimoirelab-elk
+** [enrich][twitter] Use case insesitive tags for doing the projects mapping
+** [studies][demography] Add tests for the study
+** [studies][demography] Use author_id field to aggregate the authors instead of Author
+
+* Sigils
+
+* Manuscripts
+** [docstrings] Complete docstrings for manuscripts
+
+* Kidash
+
+* GrimoireLab Toolkit
+
+* King Arthur
+
+* Bestiary
+
+* Hatstall
+
+* Ceres
+
+
 ## 18.05-01
 
 Released: 2018-05-10
