@@ -1,3 +1,63 @@
+## 18.05-03
+
+Released: 2018-05-31
+
+* SortingHat
+
+* Perceval
+** [tests] Increase coverage pipermail
+** [pipermail] Disable SSL verification
+** Mozilla
+** OPNFV
+** Puppet
+
+* Mordred
+** [studies] Allow setting up kafka_kip via cfg
+** [task_projects] Add new eclipse_projects_lib.py
+** [tests] Add tests for task_manager
+** [config] Include sections for studies
+** [tests] Align tests for studies with new functionalities
+** [task_enrich] Forward study params to ELK
+** [tests] Enable tests with latest versions of grimoirelab components
+** [task] Improve parsing parameters for perceval
+
+* grimoirelab-elk
+** [twitter] Set field_date for twitter enricher to created_at
+** [enrich][bugzilla] Remove emails from enriched index
+** [enrich][meetup] Change log from error to warning when the date are incorrect from upstream data
+** [gelk-mapping] Add the script to setup.py so it is installed with the pip package
+** [gelk_mapping] Generate files with the JSON mappings to be used by elasticdump to create the indexes
+** [elk] Propagate study params from mordred to elk
+** [enrich] Create all_onion alias if not exist
+** [git] Generalize areas of code study
+** [gelk_mapping.py] Script to show the mappings for a data source
+** [raw] Reduce the number of fields indexed for jenkins items
+** [elk] Fix enrichment of stackexchage answers
+
+* Sigils
+** [panels] Add accepted answers to Discourse panel
+** [panels] Add areas of code panel
+** [confluence] Increase rows and sort by page edits
+** [confluence] Use `content_url` for page links
+
+* Manuscripts
+** [metrics][gerrit] Use closed date field for computing the TTM (time to merge) metric
+
+* Kidash
+
+* GrimoireLab Toolkit
+
+* King Arthur
+** [setup] Update Perceval version
+** [jobs] Modify imports of perceval functions
+
+* Bestiary
+
+* Hatstall
+
+* Ceres
+
+
 ## 18.05-02
 
 Released: 2018-05-17
