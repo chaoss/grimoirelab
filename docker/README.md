@@ -532,3 +532,24 @@ $ docker run --net="host" \
     -v $(pwd)/mytoken.cfg:/override.cfg \
     grimoirelab/installed
 ```
+
+## Testing containers behind a proxy
+
+If the container is separated from the Internet by a proxy, it will be necesary to tell the container where the proxy is. This is done via environment variables. For testing the container works behind a proxy, the following set up can be used:
+
+* Launch a proxy server (squid) to test (of course, if a proxy server is already available, this step can be skipped), available in port 3128:
+
+```
+$ docker run -d -p 3128:3128 datadog/squid
+```
+
+* Launch the `grimoirelab/full` container with environment variables pointing to where the proxy is listening. Be careful of using the IP or host name of the host where the proxy is, not `localhost` (even if the proxy is running in localhost), since locahost needs to be reached directly, without proxying, to access Elasticsearch, MariaDB and Kibiter in the container (see 'no_proxy` variable):
+
+```
+$ docker run -p 127.0.0.1:5601:5601 \
+    -v $(pwd)/mytokenn.cfg:/override.cfg \
+    -e http_proxy=http://163.117.69.195:3128/ \
+    -e https_proxy=http://163.117.69.195:3128/ \
+    -e no_proxy="localhost,127.0.0.1" \
+    -t grimoirelab/full
+```

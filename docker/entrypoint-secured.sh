@@ -19,6 +19,15 @@ echo "Waiting for Elasticsearch to start..."
 sudo netstat -cvulntp |grep -m 1 ".*:9200.*LISTEN.*"
 echo "Elasticsearch started"
 
+sudo /usr/share/elasticsearch/plugins/search-guard-6/tools/sgadmin.sh -cd /usr/share/elasticsearch/plugins/search-guard-6/sgconfig -icl -key /etc/elasticsearch/kirk-key.pem -cert /etc/elasticsearch/kirk.pem -cacert /etc/elasticsearch/root-ca.pem -nhnv
+status=$?
+if [ $status -ne 0 ]; then
+  echo "Failed to configure Elasticsearch / SearchGuard: $status"
+  exit $status
+fi
+
+echo "Elasticsearch / SearchGuard configured."
+
 # Start MariaDB
 echo "Starting MariaDB"
 sudo /etc/init.d/mysql start
@@ -32,7 +41,9 @@ echo "Waiting for MariaDB to start..."
 sudo netstat -cvulntp |grep -m 1 ".*:3306.*LISTEN.*"
 echo "MariaDB started"
 
-# Start Kibana
+# Start Kibiter (ensure passwd is the one in /kibanauser.pass)
+sed -i "s/elasticsearch.password: \"XXX\"/elasticsearch.password: \"$(cat /kibanauser.pass)\"/" ${KB}-linux-x86_64/config/kibana.yml
+
 echo "Starting Kibiter"
 ${KB}-linux-x86_64/bin/kibana > kibana.log 2>&1 &
 
