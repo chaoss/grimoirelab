@@ -3,6 +3,7 @@
         "git": [
             "https://github.com/chaoss/grimoirelab",
             "https://github.com/chaoss/grimoirelab-bestiary",
+            "https://github.com/chaoss/grimoirelab-ceres",
             "https://github.com/chaoss/grimoirelab-elk",
             "https://github.com/chaoss/grimoirelab-hatstall",
             "https://github.com/chaoss/grimoirelab-kidash",
@@ -20,6 +21,7 @@
         "github": [
             "https://github.com/chaoss/grimoirelab",
             "https://github.com/chaoss/grimoirelab-bestiary",
+            "https://github.com/chaoss/grimoirelab-ceres",
             "https://github.com/chaoss/grimoirelab-elk",
             "https://github.com/chaoss/grimoirelab-hatstall",
             "https://github.com/chaoss/grimoirelab-kibiter",
@@ -36,7 +38,7 @@
             "https://github.com/chaoss/grimoirelab-tutorial"
         ],
         "pipermail": [
-            "https://lists.linuxfoundation.org/pipermail/grimoirelab-discussions"
+            "https://lists.linuxfoundation.org/pipermail/grimoirelab-discussions/"
         ]
     },
     "GHData": {
@@ -71,7 +73,7 @@
             "https://github.com/chaoss/metrics"
         ],
         "pipermail": [
-            "https://lists.linuxfoundation.org/pipermail/oss-health-metrics"
+            "https://lists.linuxfoundation.org/pipermail/oss-health-metrics/"
         ]
     },
     "D&I WG": {
@@ -80,6 +82,14 @@
         ],
         "github": [
             "https://github.com/chaoss/wg_diversity_inclusion"
+        ]
+    },
+    "GMD WG": {
+        "git": [
+            "https://github.com/chaoss/wg-gmd"
+        ],
+        "github": [
+            "https://github.com/chaoss/wg-gmd"
         ]
     },
     "Coordination": {
@@ -94,8 +104,8 @@
             "https://github.com/chaoss/governance"
         ],
         "pipermail": [
-            "https://lists.linuxfoundation.org/pipermail/chaoss-members",
-            "https://lists.linuxfoundation.org/pipermail/chaoss-software"
+            "https://lists.linuxfoundation.org/pipermail/chaoss-members/",
+            "https://lists.linuxfoundation.org/pipermail/chaoss-software/"
         ]
     }
 }

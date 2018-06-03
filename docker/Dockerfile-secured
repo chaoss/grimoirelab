@@ -23,7 +23,7 @@ MAINTAINER Jesus M. Gonzalez-Barahona <jgb@bitergia.com>
 USER root
 
 # SearchGuard configuration for Elasticsearch
-RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install -b com.floragunn:search-guard-6:6.1.0-21.0 && \
+RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install -b com.floragunn:search-guard-6:6.1.0-22.2 && \
     cd /usr/share/elasticsearch/plugins/search-guard-6/tools/ && \
     rm install_demo_configuration.sh && \
     wget https://raw.githubusercontent.com/floragunncom/search-guard/master/tools/install_demo_configuration.sh && \
@@ -37,9 +37,9 @@ ADD docker/sg_roles_mapping.yml /usr/share/elasticsearch/plugins/search-guard-6/
 # Launch Elasticsearch, wait until it starts
 #    sed -e "s|anonymous_auth_enabled: false$|anonymous_auth_enabled: true|" -i /usr/share/elasticsearch/plugins/search-guard-6/sgconfig/sg_config.yml && \
 
-RUN /etc/init.d/elasticsearch start && \
-    netstat -cvulntp |grep -m 1 ".*:9300.*LISTEN.*" && \
-    /usr/share/elasticsearch/plugins/search-guard-6/tools/sgadmin.sh -cd /usr/share/elasticsearch/plugins/search-guard-6/sgconfig -icl -key /etc/elasticsearch/kirk-key.pem -cert /etc/elasticsearch/kirk.pem -cacert /etc/elasticsearch/root-ca.pem -nhnv
+#RUN /etc/init.d/elasticsearch start && \
+#    netstat -cvulntp |grep -m 1 ".*:9300.*LISTEN.*" && \
+#    /usr/share/elasticsearch/plugins/search-guard-6/tools/sgadmin.sh -cd /usr/share/elasticsearch/plugins/search-guard-6/sgconfig -icl -key /etc/elasticsearch/kirk-key.pem -cert /etc/elasticsearch/kirk.pem -cacert /etc/elasticsearch/root-ca.pem -nhnv
 
 # Create self-signed certificate for Kibana
 RUN openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 \
@@ -48,13 +48,15 @@ RUN openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 \
     cp -a /host.cert /ca.cert && \
     chown grimoirelab.grimoirelab /host.cert /host.key /ca.cert
 
+RUN echo -n 'kibanaserver' > /kibanauser.pass
+
 USER ${DEPLOY_USER}
 
 # Install SearchGuard Kibana plugin, and its config files
 RUN cd ${DEPLOY_USER_DIR}/${KB}-linux-x86_64 && \
     bin/kibana-plugin install "https://search.maven.org/remotecontent?filepath=com/floragunn/search-guard-kibana-plugin/6.1.0-10/search-guard-kibana-plugin-6.1.0-10.zip" && \
     echo 'elasticsearch.username: "kibanaserver"' >> config/kibana.yml && \
-    echo 'elasticsearch.password: "kibanaserver"' >> config/kibana.yml && \
+    echo 'elasticsearch.password: "XXX"' >> config/kibana.yml && \
     echo 'elasticsearch.url: "https://localhost:9200"' >> config/kibana.yml && \
     echo 'elasticsearch.ssl.verificationMode: none' >> config/kibana.yml && \
     echo 'searchguard.basicauth.enabled: true' >> config/kibana.yml && \
@@ -62,6 +64,9 @@ RUN cd ${DEPLOY_USER_DIR}/${KB}-linux-x86_64 && \
     echo 'server.ssl.key: /host.key' >> config/kibana.yml && \
     echo 'server.ssl.certificate: /host.cert' >> config/kibana.yml && \
     echo 'elasticsearch.ssl.certificateAuthorities: [ "/ca.cert" ]' >> config/kibana.yml
+
+# It seems this line works only in enterprise mode
+#    echo 'searchguard.readonly_mode.roles: ["sg_read_only_1"]' >> config/kibana.yml && \
 
 # Add mordred configuration file for infra
 ADD docker/mordred-infra-ssl.cfg /infra.cfg
