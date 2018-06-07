@@ -1,3 +1,63 @@
+## 18.06-01
+
+Released: 2018-06-07
+
+* SortingHat
+** [parsing:sh] Make gender profile info not required
+
+* Perceval
+** [backend] Include category in backend params
+** [github] Add list of commits hashed included in pull requests
+** [pipermail] Fix command line parameters
+** OPNFV
+** Puppet
+
+* Mordred
+
+* grimoirelab-elk
+** [stackexchage] Fix fields for questions having an accepted answer
+** [jira] Fix typo in enriched jira fields
+** [studies][demography] Use author_uuid field to aggregate the authors instead of author_id
+** [enrich] Modify max length for keyword fields
+
+* Sigils
+** [discourse] Add % of questions answered
+** [stackoverflow] Fix % of questions answered
+** [askbot] Add % of questions with accepted answer
+** [panels] Add community structure panels & documentation
+** [panels] Add accepted answers and project support 
+** [panels] Fixed links to issues and revamp (jira)
+** [panels] Refurbish Jira panel
+** [panels] Fix typo in Jira panels
+** [panels] Modify answers table for consistency
+** [Panels] Rearrange project and authors widgets
+** [panels] Add project support to Askbot
+** [panels] Add crates to Data Status
+
+* Manuscripts
+** Updated esquery.py and created tests/test_esquery.py
+** Updated esquery.py to use elasticsearch_dsl in all places
+
+* Kidash
+** [kidash] Preserve uiStateJSON dict when cleaning a dashboard from not needed data sources
+** [kidash] Use #!/usr/bin/env python3 to work inside venvs correctly
+
+* GrimoireLab Toolkit
+
+* King Arthur
+** [tests] Align tests with arthur tasks validation
+** [arthur] Add validation for tasks
+** [tests] Fix tests for server
+** [jobs] Add category to backend arguments
+** [scheduler] Fix wrong date conversion
+** [server] Allow to add tasks without archiving/scheduling options
+
+* Bestiary
+
+* Hatstall
+
+* Ceres
+
 ## 18.05-03
 
 Released: 2018-05-31
