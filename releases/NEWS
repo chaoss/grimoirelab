@@ -1,3 +1,10 @@
+## 18.06-02
+
+Released: 2018-06-08
+
+* Mordred
+** [studies] Handle empty list of studies in backends
+
 ## 18.06-01
 
 Released: 2018-06-07
