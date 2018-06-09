@@ -48,7 +48,7 @@ Write log file in `/tmp/log`, using log level `debug`.
 ```bash
 $ build_grimoirelab -l debug --logfile /tmp/log --build --install --check \
   --relfile ../releases/elasticgirl.16  --dist /tmp/dist \
-  --repos /tmp/repos --venv /tmp/venv --install_venv /tmp/ivenv
+  --reposdir /tmp/repos --venv /tmp/venv --install_venv /tmp/ivenv
 ```
 
 The stdout shows how the process went, including builds or tests that

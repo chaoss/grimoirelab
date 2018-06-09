@@ -453,12 +453,13 @@ class BuildingEnviron(object):
 
     _runner = CommandRunner()
 
-    def __init__(self, modules, venv, repos_dir, dist_dir):
+    def __init__(self, modules, venv, repos_dir, dist_dir, fail=False):
 
         self.modules = modules
         self.venv = venv
         self.repos_dir = repos_dir
         self.dist_dir = dist_dir
+        self.fail = fail
 
     def _build_dist(self, dir):
         """Build distributable packages from a Python directory
@@ -480,7 +481,7 @@ class BuildingEnviron(object):
             return "OK"
         else:
             logging.info("Directory " + dir + " does not have a setup.py file.")
-            return "Error"
+            return "Fail"
 
     def _test_dist(self, dir):
         """Test a Python directory (with a module)
@@ -517,6 +518,7 @@ class BuildingEnviron(object):
         self._runner.clone_git(repo=repo_url, dir=repo_dir, commit=desc['commit'])
         built = self._build_dist(pkg_dir)
         print("Built module " + name + ": " + built)
+        return(built)
 
     def test_module(self, name):
         """Test module, given its name."""
@@ -535,13 +537,20 @@ class BuildingEnviron(object):
             else:
                 print("Fail")
                 print(output)
+                return("Fail")
+        return("OK")
 
     def build_all(self):
         """Build all modules."""
 
+        some_failed = False
         for name in self.modules.names():
-            self.build_module(name=name)
-
+            built = self.build_module(name=name)
+            if built == "Fail":
+                some_failed = True
+        if self.fail and some_failed:
+            print("Some builds failed")
+            sys.exit(1)
 
 class ReleaseInfo(object):
     """For reading a coordinated release file."""
@@ -720,17 +729,25 @@ def main():
                     dependencies=build_dependencies,
                     purpose="Venv", persistent=False)
         building = BuildingEnviron(modules=modules, venv=venv,
-                                   repos_dir=repos_dir, dist_dir=dist_dir)
+                                   repos_dir=repos_dir, dist_dir=dist_dir,
+                                   fail=args.fail)
         building.build_all()
 
     if args.test:
         print("Testing...")
+        some_failed = False
         for module_name in modules.names():
             module = Modules(module_names=[module_name], release=release)
             venv = Venv(purpose="Test", persistent=False)
             building = BuildingEnviron(modules=module, venv=venv,
-                                       repos_dir=repos_dir, dist_dir=dist_dir)
-            building.test_module(module_name)
+                                       repos_dir=repos_dir, dist_dir=dist_dir,
+                                       fail=args.fail)
+            result = building.test_module(module_name)
+            if result == 'Fail':
+                some_failed = True
+        if args.fail and some_failed:
+            print("Some tests failed")
+            sys.exit(1)
 
     if args.install:
         print("Installing...")
