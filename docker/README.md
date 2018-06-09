@@ -1,6 +1,6 @@
 # Docker images for GrimoireLab
 
-This file describes two docker images that are useful when
+This file describes some docker images that are useful when
 deploying GrimoireLab in containers:
 
 * `grimoirelab/factory`: a "factory" container for GrimoireLab, produces
@@ -18,6 +18,16 @@ needed to produce a dashboard: Elasticsearch, MariaDB, and Kibiter.
 The `installed` and `full` can be easily used to produce a complete dashboard
 from scratch, and in fact both configured by default for producing one
 for GrimoireLab repositories (see below).
+
+There are also some ansible playbooks for building the containers:
+
+* `ansible_release.yml`: for building containers and pip
+packages for a release of grimoirelab.
+
+* `ansible_build_tag.yml`: for building a docker image, and tagging it
+with the release tag.
+
+* `ansible_push.yml`: for pushing docker images to DockerHub
 
 ## grimoirelab/factory
 
@@ -552,4 +562,20 @@ $ docker run -p 127.0.0.1:5601:5601 \
     -e https_proxy=http://163.117.69.195:3128/ \
     -e no_proxy="localhost,127.0.0.1" \
     -t grimoirelab/full
+```
+
+## Building with ansible_push
+
+To build GrimoireLab 18.06-02 pip packages, Docker container images, and
+push them to Pypi and DockerHub:
+
+```
+ansible-playbook ansible_release.yml --extra-vars "18.06-02"
+```
+
+To do the same with the latest version in master for all GrimoireLab
+git repositories:
+
+```
+ansible-playbook ansible_release.yml --extra-vars "release=latest" --tags "build"
 ```

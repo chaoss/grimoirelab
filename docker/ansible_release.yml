@@ -1,0 +1,100 @@
+---
+## Build and push GrimoireLab Docker images to DockerHub
+##
+## For this playbook to work, ensure docker-py is Installed
+## pip install docker-py
+##
+## Run as:
+## ansible-playbook ansible_release.yml --extra-vars "release=18.03-04"
+## ansible-playbook ansible_release.yml --check --extra-vars "release=18.04-01" --tags "build"
+## ansible-playbook ansible_release.yml --check --extra-vars "release=latest" --tags "build"
+## ansible-playbook ansible_release.yml --check --extra-vars "release=18.04-01" --tags "push"
+
+- name: Build grimoirelab/factory
+  hosts: localhost
+  tags:
+    - build
+  tasks:
+    - include_tasks: ansible_build_tag.yml
+      loop:
+        - factory
+
+- name: Build GrimoireLab packages
+  hosts: localhost
+  tags:
+    - build
+    - build_pkgs
+  tasks:
+    - name: "Create directories for packages and old packages"
+      file:
+        path: "{{playbook_dir}}/{{item}}"
+      with_items:
+        - dist
+        - dist.old
+
+    - name: "Move old packages from dist to dist.old"
+      command: "mv -f {{item}} {{ playbook_dir }}/dist.old"
+      with_fileglob:
+        "{{playbook_dir}}/dist/*"
+
+    - name: "Build packages using grimoirelab/factory"
+      when: release != 'latest'
+      docker_container:
+        name: factory
+        image: "grimoirelab/factory:{{ release }}"
+        volumes:
+          - "{{ playbook_dir }}/dist:/dist"
+          - "{{ playbook_dir }}/logs:/logs"
+          - "{{ playbook_dir }}/../releases/{{ release }}:/release"
+        detach: False
+      register: result
+
+    - name: "Build packages using grimoirelab/factory (latest in master)"
+      when: release == 'latest'
+      docker_container:
+        name: factory
+        image: "grimoirelab/factory:{{ release }}"
+        volumes:
+          - "{{ playbook_dir }}/dist:/dist"
+          - "{{ playbook_dir }}/logs:/logs"
+        command: "--build --install --check --test --fail"
+        detach: False
+      register: result
+
+    - debug:
+        var: result.ansible_facts.docker_container.Output
+
+
+- name: "Build grimoirelab/{installed,full,secured}"
+  hosts: localhost
+  tags:
+    - build
+  tasks:
+    - include_tasks: ansible_build_tag.yml
+      loop:
+        - installed
+        - full
+        - secured
+
+- name: "Push packages to pypi"
+  hosts: localhost
+  tags:
+    - push
+    - push_pypi
+  tasks:
+    - command: "twine upload --skip-existing {{item}}"
+      with_fileglob:
+        "{{playbook_dir}}/dist/*"
+
+- name: "Push to DockerHub"
+  hosts: localhost
+  tags:
+    - push
+    - push_docker
+  tasks:
+    - include_tasks: ansible_push.yml
+      loop:
+        - factory
+        - installed
+        - full
+        - secured

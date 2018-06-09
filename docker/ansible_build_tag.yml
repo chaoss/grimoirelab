@@ -1,0 +1,19 @@
+---
+## Build Docker image, and tag it with the release name,
+## for a given item and release.
+## item: name of the image (eg. factory, full)
+## release: will be used as tag (eg 18.05-02)
+
+- name: "Build grimoirelab/{{item}}"
+  docker_image:
+    name: "grimoirelab/{{item}}"
+    path: ..
+    force: yes
+    pull: no
+    dockerfile: "docker/Dockerfile-{{ item }}"
+
+- name: "Tag grimoirelab/{{item}}:{{release}}"
+  command: "docker tag grimoirelab/{{item}} grimoirelab/{{item}}:{{release}}"
+
+- name: "Tag grimoirelab/{{item}}:latest"
+  command: "docker tag grimoirelab/{{item}} grimoirelab/{{item}}:latest"
