@@ -19,8 +19,7 @@ intend to have is considered to fit better elsewhere.
 ### Mailing list
 
 List:
-[grimoirelab-discussions@lists.linuxfoundation.org](https://lists.linux
-foundation.org/mailman/listinfo/grimoirelab-discussions)
+[grimoirelab-discussions@lists.linuxfoundation.org](https://lists.linuxfoundation.org/mailman/listinfo/grimoirelab-discussions)
 
 We use the list for:
 
