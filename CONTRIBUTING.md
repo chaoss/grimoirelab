@@ -44,8 +44,7 @@ project is welcome to join the channel and hang around.
 
 ### Pull request / issues
 
-Repositories: [GrimoireLab repositories in GitHub](http://github.com/chaoss/gr
-imoirelab), which are all in the [CHAOSS organization](http://github.com/chaoss).
+Repositories: [GrimoireLab repositories in GitHub](http://github.com/chaoss/grimoirelab), which are all in the [CHAOSS organization](http://github.com/chaoss).
 
 Most of the work is discussed here, including upgrades and
 proposals for upgrades, bug fixing, and feature requests. For any of
@@ -86,10 +85,10 @@ votes by general committers.
 Votes will be casted as (details taken in part from the Apache
 project):
 
-+ 1: Yes, agree, or the action should be performed.
-0: Abstain, no opinion, or I am happy to let the other group members
+-  +1: Yes, agree, or the action should be performed.
+-    0 : Abstain, no opinion, or I am happy to let the other group members
 decide this issue.
--1: No, I veto this action. All vetos must include an explanation of
+- -1: No, I veto this action. All vetos must include an explanation of
 why the veto is appropriate. A veto with no explanation is void.
 
 A period of four days, since the moment the action item is proposed,
