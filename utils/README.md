@@ -156,6 +156,16 @@ The file `repos.json` can be as follows:
 }
 ```
 
+* Run tests for all repos with tests activated (`test` is true),
+using for each repo the checkout in `18.06-02`,
+and prebuilt packages in the `dir` directory for Installing
+dependencies for running tests:
+
+```
+./build_grimoirelab --test --relfile 18.06-02 \
+  --distdir dist --fail
+```
+
 For complete list of arguments, run:
 
 ```bash

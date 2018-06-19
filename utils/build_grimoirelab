@@ -716,11 +716,12 @@ def main():
                         persistent=True)
 
     # If no action is specified, let it be build
-    if (not args.build) and (not args.install) and (not args.check):
+    if (not args.build) and (not args.install) and (not args.check) \
+            and (not args.test):
         args.build = True
 
-    # We need repos_dir for building and/or checking
-    if args.build or args.check:
+    # We need repos_dir for building, checking and/or testing
+    if args.build or args.check or args.test:
         repos_dir = Directory(name=args.reposdir, purpose="Repos",
                                 persistent=False)
     if args.build:
