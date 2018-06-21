@@ -171,3 +171,15 @@ For complete list of arguments, run:
 ```bash
 $ build_grimoirelab --help
 ```
+
+* In some cases, running tests require of using some specific files,
+such as customization files, that need to be copied to the repository
+where tests will be run. For that, we have the `--confdir` argument.
+`--confdir` specifies a directory where it is expected to have one
+subdirectory per module needing files to be copied,
+with files in the same relative path to where they should be copied.
+
+```
+./build_grimoirelab --test --relfile 18.06-02 \
+  --confdir conf --distdir dist --fail
+```
