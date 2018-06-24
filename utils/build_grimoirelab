@@ -247,21 +247,33 @@ class CommandRunner (object):
     """Simple class for running commands."""
 
     @staticmethod
-    def run_command (args, cwd='/', exit=True):
+    def run_command (args, cwd='/', exit=True, env=None):
         """Run command in this virtual environment (except if self.system)
 
-        If exit=True, and the command fails, it will exit
+        If exit is True, and the command fails, it will exit
         printing the error when executing the command.
         Otherwise, it prints with logging.debug.
+        If env is None, keep the environment variables as they are currently.
+        If not, add these variables (in a dict) to the environment
+        variables of the subprocess executing the command.
 
         :param args: command line arguments (including 0)
         :param  cwd: working directory to use
         :param exit: exit if command fails (bool)
+        :param  env: environmment variables (dict), default: None
         :return    : success status (boolean) and output (string)
         """
 
+        if env is None:
+            env_vars = None
+        else:
+            env_vars = os.environ.copy()
+            env_vars.update(env)
+
         result = subprocess.run(args, cwd=cwd,
-                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                env=env_vars)
+
         if result.returncode == 0:
             success = True
             output_fn = logging.debug
@@ -375,12 +387,17 @@ class Venv (CommandRunner):
 
         self.run_command(['pip3', 'freeze'])
 
-    def run_command (self, args, cwd='/', exit=True):
+    def run_command (self, args, cwd='/', exit=True, env=None):
         """Run command in this virtual environment (except if self.system)
+
+        If env is None, keep the environment variables as they are currently.
+        If not, add these variables (in a dict) to the environment
+        variables of the subprocess executing the command.
 
         :param args: command line arguments, including 0 (list)
         :param  cwd: working directory to use
         :param exit: exit if command fails (bool)
+        :param  env: environmment variables (dict), default: None
         :return    : list with success status (boolean) and output (string)
         """
 
@@ -389,7 +406,8 @@ class Venv (CommandRunner):
             new_args[0] = args[0]
         else:
             new_args[0] = os.path.join(self.name, 'bin', args[0])
-        (success, output) = super().run_command(new_args, cwd=cwd, exit=exit)
+        (success, output) = super().run_command(new_args, cwd=cwd,
+                                                exit=exit, env=env)
         return (success, output)
 
 
@@ -518,14 +536,9 @@ class BuildingEnviron(object):
         setup_file = os.path.join(dir, 'setup.py')
         if os.path.isfile(setup_file):
             (success, output) \
-                = self.venv.run_command(['pip', 'install', '-e', '.',
-                                         '--find-links=' + self.dist_dir.name],
-                                         cwd=dir)
-            if not success:
-                return (False, output)
-            (success, output) \
                 = self.venv.run_command(['python', 'setup.py', 'test'],
-                                        cwd=dir)
+                                        cwd=dir,
+                                        env={'PIP_FIND_LINKS': self.dist_dir.name})
             return (success, output)
         else:
             logging.info("Directory " + dir + " does not have a setup.py file.")
