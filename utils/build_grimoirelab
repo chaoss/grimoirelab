@@ -86,9 +86,9 @@ all_repos = {
             'version_file': os.path.join('manuscripts', '_version.py'),
             'check_run': 'manuscripts --help'}],
     'mordred': [{'name': 'grimoire-mordred', 'dir': '',
-            'repo_url': 'http://github.com/chaoss/grimoirelab-mordred',
-            'version_file': os.path.join('mordred', '_version.py'),
-            'check_run': 'mordred --help'}],
+            'repo_url': 'http://github.com/chaoss/grimoirelab-sirmordred',
+            'version_file': os.path.join('sirmordred', '_version.py'),
+            'check_run': 'sirmordred --help'}],
     'cereslib': [{'name': 'cereslib', 'dir': '',
             'repo_url': 'http://github.com/chaoss/grimoirelab-cereslib',
             'version_file': os.path.join('cereslib', '_version.py')}]
