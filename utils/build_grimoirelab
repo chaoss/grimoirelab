@@ -85,7 +85,7 @@ all_repos = {
             'repo_url': 'http://github.com/chaoss/grimoirelab-manuscripts',
             'version_file': os.path.join('manuscripts', '_version.py'),
             'check_run': 'manuscripts --help'}],
-    'mordred': [{'name': 'grimoire-mordred', 'dir': '',
+    'sirmordred': [{'name': 'sirmordred', 'dir': '',
             'repo_url': 'http://github.com/chaoss/grimoirelab-sirmordred',
             'version_file': os.path.join('sirmordred', '_version.py'),
             'check_run': 'sirmordred --help'}],
