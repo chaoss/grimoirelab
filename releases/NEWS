@@ -1,3 +1,62 @@
+## 18.06-03
+
+Released: 2018-06-28
+
+* SortingHat
+** [tests] Adapt tests to run with setup.py test
+** [all] Remove support for Python 2.7
+** [db:api] Add functions for all the low level operations on SortingHat 
+** [api] Improve output messages for enrollment commands
+** [exceptions] Rename WrappedValueError to InvalidValueError
+
+* Perceval
+** [tests] Replace datetime function with equivalent toolkit one
+** [meetup] Pythonicize `calculate_time_to_reset`
+** [backends] Add backend for Twitter
+** Mozilla
+** OPNFV
+** Puppet
+
+* Mordred
+** Change name from mordred to sirmordred
+
+* grimoirelab-elk
+** [mattermost] Add mattermost support for gelk (raw + enrich)
+** [tests] Modify tests for Twitter backend
+** [utils] Modify connector information for twitter
+** [twitter] Modify enrich connector
+** [twitter] Modify raw connector
+** [tests] Allow testing with latest grimoirelab component versions
+** [enrich] Align ELK with changes in SortingHat
+** [enriched][github] Add code to calculate the first reaction duration to an issue
+** [enrich][redmine] Add `assigned_to` fields
+** [jira] Fix mapping to avoid limit number of fields exception
+** [bugzilla] Fix immense term exception for activity attribute
+** [elastic] Add template to force date format
+** [raw] Update mappings for jenkins to ES 5.x
+** [enrich] Handle deleted user in stackoverflow
+** [enriched] Add `latest_date` method to connector
+
+* Sigils
+** [owlwatch] Move owlwatch to its own repo
+** [GitHub] Revamp timing panels
+** [GitHub ]Update PRs overview panel
+** [demographics] Fix y-axis label for leaving devs
+** [slack] Add projects table
+
+* Manuscripts
+** Updated comments in esquery.py
+
+* GrimoireLab Toolkit
+
+* King Arthur
+
+* Bestiary
+
+* Hatstall
+
+* Ceres
+
 ## 18.06-02
 
 Released: 2018-06-08
