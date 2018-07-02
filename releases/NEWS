@@ -1,3 +1,16 @@
+## 18.07-01
+
+Released: 2018-07-02
+
+* Kidash
+** [tests] Add test for split-index-patterns new param
+** [kidash] Add support for importing and exporting only index patterns
+** Update mapping in Kibana6 if needed
+** Add constant for release date field name
+** Add try/except to show content of error responses
+** Add release_date to panel json
+
+
 ## 18.06-03
 
 Released: 2018-06-28
@@ -46,6 +59,8 @@ Released: 2018-06-28
 
 * Manuscripts
 ** Updated comments in esquery.py
+
+* Kidash
 
 * GrimoireLab Toolkit
 
