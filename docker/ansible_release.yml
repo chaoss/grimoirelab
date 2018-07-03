@@ -9,6 +9,9 @@
 ## ansible-playbook ansible_release.yml --check --extra-vars "release=18.04-01" --tags "build"
 ## ansible-playbook ansible_release.yml --check --extra-vars "release=latest" --tags "build"
 ## ansible-playbook ansible_release.yml --check --extra-vars "release=18.04-01" --tags "push"
+##
+## Build Python packages and containers, not failing if something goes wrong
+## ANSIBLE_STDOUT_CALLBACK=debug ansible-playbook ansible_release.yml --check --extra-vars "release=18.04-01 fail=" --tags "build"
 
 - name: Build grimoirelab/factory
   hosts: localhost
@@ -24,6 +27,8 @@
   tags:
     - build
     - build_pkgs
+  vars:
+    fail: "--fail"
   tasks:
     - name: "Create directories for packages and old packages"
       file:
@@ -46,6 +51,7 @@
           - "{{ playbook_dir }}/dist:/dist"
           - "{{ playbook_dir }}/logs:/logs"
           - "{{ playbook_dir }}/../releases/{{ release }}:/release"
+        command: "--build --install --check --test {{ fail }} --relfile /release"
         detach: False
       register: result
 
@@ -57,7 +63,7 @@
         volumes:
           - "{{ playbook_dir }}/dist:/dist"
           - "{{ playbook_dir }}/logs:/logs"
-        command: "--build --install --check --test --fail"
+        command: "--build --install --check --test {{ fail }}"
         detach: False
       register: result
 
