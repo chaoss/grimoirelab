@@ -1,3 +1,14 @@
+## 18.07-02
+
+Released: 2018-07-03
+
+* Kidash
+** Add release date support for Index Patterns
+
+* Sigils
+** Add panels for kibiter 6.1.0 migration
+
+
 ## 18.07-01
 
 Released: 2018-07-02
