@@ -764,8 +764,14 @@ def main():
             repos = json.load(repos_file)
             all_repos.update(repos)
 
+    # Make the path absolute so it works when pip is invoked from venvs
+    if args.distdir:
+        distdir = os.path.abspath(args.distdir)
+    else:
+        distdir = None
+
     modules = Modules(module_names=args.modules, release=release)
-    dist_dir = Directory(name=args.distdir, purpose="Distribution",
+    dist_dir = Directory(name=distdir, purpose="Distribution",
                         persistent=True)
 
     # If no action is specified, let it be build
