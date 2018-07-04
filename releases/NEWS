@@ -1,3 +1,14 @@
+## 18.07-04
+
+Released: 2018-07-04
+
+* Kidash
+** Don't sys.exit from kidash.py library (raise exceptions)
+
+* Mordred
+** [task_panels] Manage the error loading panels, log it and continue execution
+
+
 ## 18.07-03
 
 Released: 2018-07-03
