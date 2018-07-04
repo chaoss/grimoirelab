@@ -1,3 +1,12 @@
+## 18.07-05
+
+Released: 2018-07-04
+
+* Sirmordred
+** Update menu.yaml to kibana 6 panel and index names
+** [task_panels] Add support for loading several index patterns per data source
+
+
 ## 18.07-04
 
 Released: 2018-07-04
@@ -13,7 +22,7 @@ Released: 2018-07-04
 
 Released: 2018-07-03
 
-* Mordred
+* Sirmordred
 ** [task_panels] Add support for loading index patterns
 
 
