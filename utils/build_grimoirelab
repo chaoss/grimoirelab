@@ -127,6 +127,8 @@ def parse_args ():
                             help="Test modules.")
     args_actions.add_argument("--testinstall", action='store_true',
                             help="Test modules once installed (includes installing).")
+    args_actions.add_argument("--dependencies", action='store_true',
+                            help="Build a list of dependencies for this release.")
 
     parser.add_argument("--relfile", type=str,
                             help="GrimoireLab coordinated release file. "
@@ -149,6 +151,8 @@ def parse_args ():
                             help="Directory for testing configuration, "
                                 + "with one subdirectory per module with "
                                 + "testing configuration.")
+    parser.add_argument("--depfile", type=str,
+                            help="File to write dependencies (eg: requirments.txt).")
 
     args_venv = parser.add_mutually_exclusive_group(required=False)
     args_venv.add_argument("--venv", type=str,
@@ -612,6 +616,37 @@ class BuildingEnviron(object):
                 return("Fail")
         return("OK")
 
+    def get_version(self, module):
+        """Get the version of a module
+
+        This is done in a virtual environment so that setup.py can run.
+
+        :param module: module name (string)
+        """
+
+        desc = self.modules.descriptor(module)
+        repo_url = desc['repo_url']
+        repo_dir = os.path.join(self.repos_dir.name, desc['repo'])
+        pkg_dir = os.path.join(self.repos_dir.name, desc['repo'], desc['dir'])
+        if not os.path.isdir(repo_dir):
+            self._runner.clone_git(repo=repo_url, dir=repo_dir, commit=desc['commit'])
+        print("Getting version for {}: ".format(module), end='', flush=True)
+        (success, output) = self.venv.run_command(['python', 'setup.py', '--version'],
+                                                  cwd=pkg_dir, exit=False)
+
+        version = ''
+        if success:
+            lines = output.splitlines()
+            if len(lines) == 0:
+                success = False
+            else:
+                version = lines[-1]
+            print(version + " OK")
+        if not success:
+            print("Fail")
+            self.failures.append("Failed to get version for {}".format(module))
+        return(success, version)
+
     def build_all(self):
         """Build all modules."""
 
@@ -789,17 +824,23 @@ def main():
     else:
         distdir = None
 
+    if args.dependencies:
+        if not args.depfile:
+            print("--depfile option needed with --dependencies")
+            sys.exit(1)
+
     modules = Modules(module_names=args.modules, release=release)
     dist_dir = Directory(name=distdir, purpose="Distribution",
                         persistent=True)
 
     # If no action is specified, let it be build
     if (not args.build) and (not args.install) and (not args.check) \
-            and (not args.test) and (not args.testinstall):
+            and (not args.test) and (not args.testinstall) \
+            and (not args.dependencies):
         args.build = True
 
-    # We need repos_dir for building, checking and/or testing
-    if args.build or args.check or args.test or args.testinstall:
+    # We need repos_dir for building, checking, testing and/or dependencies
+    if args.build or args.check or args.test or args.testinstall or args.dependencies:
         repos_dir = Directory(name=args.reposdir, purpose="Repos",
                                 persistent=False)
     if args.build:
@@ -828,11 +869,13 @@ def main():
             print("Some tests failed")
             sys.exit(1)
 
+    if args.install or args.testinstall or args.dependencies:
+        install_venv = Venv(system=args.install_system, name=args.install_venv,
+                            dependencies=install_dependencies,
+                            purpose="InstallVenv", persistent=True)
+
     if args.install or args.testinstall:
         print("Installing...")
-        install_venv = Venv(system=args.install_system, name=args.install_venv,
-                        dependencies=install_dependencies,
-                        purpose="InstallVenv", persistent=True)
         install_venv.update(module_names=modules.names(),
                             dist_dir=dist_dir,
                             atonce=args.install_atonce)
@@ -852,6 +895,31 @@ def main():
         if args.fail and some_failed:
             print("Some tests failed")
             sys.exit(1)
+
+    if args.dependencies:
+        dependencies = []
+        some_failed = False
+
+        print("Finding version numbers")
+        for module_name in modules.names():
+            module = Modules(module_names=[module_name], release=release)
+            building = BuildingEnviron(modules=module, venv=install_venv,
+                                       repos_dir=repos_dir, dist_dir=dist_dir,
+                                       fail=args.fail)
+            (result, version) = building.get_version(module_name)
+            if result:
+                dependencies.append(module_name+"=="+version)
+            else:
+                some_failed = True
+
+        if args.fail and some_failed:
+            print("Finding some version numbers failed")
+            sys.exit(1)
+        else:
+            with open(args.depfile, 'w') as depfile:
+                for dependency in dependencies:
+                    depfile.write(dependency + '\n')
+
 
     if args.check:
         print("Checking...")
