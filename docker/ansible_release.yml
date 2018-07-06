@@ -28,7 +28,8 @@
     - build
     - build_pkgs
   vars:
-    fail: "--fail"
+    FAIL: "YES"
+    fail: "{{ ' ' if (FAIL=='NO') else '--fail' }}"
   tasks:
     - name: "Create directories for packages and old packages"
       file:
@@ -56,8 +57,8 @@
       register: result
 
     - debug:
-        msg: "Building output:\n {{result.ansible_facts.docker_container.Output}}"
-      when: (result.ansible_facts is defined) and (release != 'latest')
+        msg: "Building output:\n{{result.ansible_facts.docker_container.Output}}"
+      when: release != 'latest'
 
     - name: "Build packages using grimoirelab/factory (latest in master)"
       when: release == 'latest'
@@ -72,8 +73,8 @@
       register: result
 
     - debug:
-        msg: "Building output:\n {{result.ansible_facts.docker_container.Output}}"
-      when: (result.ansible_facts is defined) and (release == 'latest')
+        msg: "Building output:\n{{result.ansible_facts.docker_container.Output}}"
+      when: release == 'latest'
 
 
 - name: "Build grimoirelab/{installed,full}"
@@ -92,7 +93,7 @@
     - build
     - test
   vars:
-    fail: "--fail"
+    FAIL: "YES"
   tasks:
     - name: "Test using grimoirelab/full:{{release}}"
       docker_container:
@@ -105,7 +106,7 @@
           - "{{ playbook_dir }}/../releases/{{ release }}:/release"
         env:
           TEST: "YES"
-          FAIL: "{{fail}}"
+          FAIL: "{{FAIL}}"
         detach: False
       register: result
 

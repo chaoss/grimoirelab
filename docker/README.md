@@ -620,12 +620,13 @@ Once the packages have been built, tests can be run on them
 
 ```bash
 $ ANSIBLE_STDOUT_CALLBACK=debug ansible-playbook ansible_release.yml \
-  --extra-vars "release=18.07-03 fail=\"\"" --tags "test"
+  --extra-vars "release=18.07-03 FAIL=NO" --tags "test"
 ```
 
 This will get checkouts from all GrimoireLab git repositories,
 for which tests are supported,
 corresponding to the commits specified in the release file for `18.07-03`,
 and will run the tests for them (running `setup.py test`).
-The line is not using the `--fail` flag
-(that is, don't fail if there is some error)
+Tests will not make the full script fail, even if some test fail,
+because of `FAIL=NO`, which will cause `--fail` to be used when calling
+`build_grimoirelab`.
