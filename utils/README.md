@@ -165,6 +165,27 @@ dependencies for running tests:
 ./build_grimoirelab --test --relfile 18.06-02 \
   --distdir dist --fail
 ```
+* In some cases, running tests require of using some specific files,
+such as customization files, that need to be copied to the repository
+where tests will be run. For that, we have the `--confdir` argument.
+`--confdir` specifies a directory where it is expected to have one
+subdirectory per module needing files to be copied,
+with files in the same relative path to where they should be copied:
+
+```
+./build_grimoirelab --test --relfile 18.06-02 \
+  --confdir conf --distdir dist --fail
+```
+
+* We can also obtain a list of all the top level dependencies
+that we need to install a certain release of GrimoireLab (that is,
+the list of GrimoireLab modules with their version numbers),
+suitable for being used as a `requirements.txt` file:
+
+```
+./build_grimoirelab --relfile ../releases/18.07-05 \
+  --dependencies --depfile requirements.txt
+```
 
 For complete list of arguments, run:
 
@@ -172,14 +193,3 @@ For complete list of arguments, run:
 $ build_grimoirelab --help
 ```
 
-* In some cases, running tests require of using some specific files,
-such as customization files, that need to be copied to the repository
-where tests will be run. For that, we have the `--confdir` argument.
-`--confdir` specifies a directory where it is expected to have one
-subdirectory per module needing files to be copied,
-with files in the same relative path to where they should be copied.
-
-```
-./build_grimoirelab --test --relfile 18.06-02 \
-  --confdir conf --distdir dist --fail
-```
