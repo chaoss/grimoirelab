@@ -381,6 +381,24 @@ type `<CTRL> C`, sice that will only kill the shell, but the services
 on the background will stay. You will need to use `docker kill`
 to kill the container.
 
+You can also run GrimoireLab tests using this container,
+using the variable `TEST`:
+
+```bash
+docker run -v$(pwd)/testconf:/testconf \
+    -v$(pwd)/dist:/dist \
+    -v$(pwd)/../releases/18.07-03:/release \
+    -e TEST=YES \
+    -t grimoirelab/full
+```
+
+This will run tests for all GrimoireLab packages with tests,
+by cloning their repository, checking out the commit specified in `/release`,
+copying to that repository the testing configuration files in `/testconf`,
+if any, installing the dependencies (using GrimoireLab packages in `/dist`),
+and running the tests in the repository
+(using 'python setup.py test').
+
 ## Producing the default dashboard with grimoirelab/installed
 
 The `grimoirelab/installed` container is configured for producing
@@ -564,18 +582,50 @@ $ docker run -p 127.0.0.1:5601:5601 \
     -t grimoirelab/full
 ```
 
-## Building with ansible_push
+## Building with Ansible
+
+We also have some Anslible play books for building and testing Python
+packages.
+
+### Build packages, container images, and push to Pypi and DockerHub
 
 To build GrimoireLab 18.06-02 pip packages, Docker container images, and
 push them to Pypi and DockerHub:
 
-```
-ansible-playbook ansible_release.yml --extra-vars "18.06-02"
+```bash
+$ ansible-playbook ansible_release.yml --extra-vars "18.06-02"
 ```
 
-To do the same with the latest version in master for all GrimoireLab
-git repositories:
+### Build packages and container images for master HEAD
 
+To build packages for all GrimoireLab modules, and the standard container images,
+using the latest version in master for all GrimoireLab git repositories:
+
+```bash
+$ ANSIBLE_STDOUT_CALLBACK=debug ansible-playbook ansible_release.yml \
+  --extra-vars "release=latest" --tags "build"
 ```
-ansible-playbook ansible_release.yml --extra-vars "release=latest" --tags "build"
+
+This will include testing all GrimoireLab modules for which testing is
+supported in the `build_grimoirelab` script (see below).
+
+The environment variable `ANSIBLE_STDOUT_CALLBACK=debug` will make
+`\n` be interpreted as a newline in the output, so that it will be much more
+readable for humans.
+
+### Running tests on built packages
+
+Once the packages have been built, tests can be run on them
+(although the usual building includes testing):
+
+```bash
+$ ANSIBLE_STDOUT_CALLBACK=debug ansible-playbook ansible_release.yml \
+  --extra-vars "release=18.07-03 fail=\"\"" --tags "test"
 ```
+
+This will get checkouts from all GrimoireLab git repositories,
+for which tests are supported,
+corresponding to the commits specified in the release file for `18.07-03`,
+and will run the tests for them (running `setup.py test`).
+The line is not using the `--fail` flag
+(that is, don't fail if there is some error)

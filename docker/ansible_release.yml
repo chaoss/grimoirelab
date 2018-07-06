@@ -42,7 +42,7 @@
       with_fileglob:
         "{{playbook_dir}}/dist/*"
 
-    - name: "Build packages using grimoirelab/factory"
+    - name: "Build packages using grimoirelab/factory ({{ release }})"
       when: release != 'latest'
       docker_container:
         name: factory
@@ -51,9 +51,13 @@
           - "{{ playbook_dir }}/dist:/dist"
           - "{{ playbook_dir }}/logs:/logs"
           - "{{ playbook_dir }}/../releases/{{ release }}:/release"
-        command: "--build --install --check --test {{ fail }} --relfile /release"
+        command: "--build --install --check {{ fail }} --relfile /release"
         detach: False
       register: result
+
+    - debug:
+        msg: "Building output:\n {{result.ansible_facts.docker_container.Output}}"
+      when: release != 'latest'
 
     - name: "Build packages using grimoirelab/factory (latest in master)"
       when: release == 'latest'
@@ -63,15 +67,16 @@
         volumes:
           - "{{ playbook_dir }}/dist:/dist"
           - "{{ playbook_dir }}/logs:/logs"
-        command: "--build --install --check --test {{ fail }}"
+        command: "--build --install --check {{ fail }}"
         detach: False
       register: result
 
     - debug:
-        var: result.ansible_facts.docker_container.Output
+        msg: "Building output:\n {{result.ansible_facts.docker_container.Output}}"
+      when: release == 'latest'
 
 
-- name: "Build grimoirelab/{installed,full,secured}"
+- name: "Build grimoirelab/{installed,full}"
   hosts: localhost
   tags:
     - build
@@ -80,6 +85,40 @@
       loop:
         - installed
         - full
+
+- name: "Test using grimoirelab/full"
+  hosts: localhost
+  tags:
+    - build
+    - test
+  vars:
+    fail: "--fail"
+  tasks:
+    - name: "Test using grimoirelab/full:{{release}}"
+      docker_container:
+        name: factory
+        image: "grimoirelab/full:{{ release }}"
+        volumes:
+          - "{{ playbook_dir }}/dist:/dist"
+          - "{{ playbook_dir }}/logs:/logs"
+          - "{{ playbook_dir }}/testconf:/testconf"
+          - "{{ playbook_dir }}/../releases/{{ release }}:/release"
+        env:
+          TEST: "YES"
+          FAIL: "{{fail}}"
+        detach: False
+      register: result
+
+    - debug:
+        msg: "Testing output:\n{{result.ansible_facts.docker_container.Output}}"
+
+- name: "Build grimoirelab/secured"
+  hosts: localhost
+  tags:
+    - build
+  tasks:
+    - include_tasks: ansible_build_tag.yml
+      loop:
         - secured
 
 - name: "Push packages to pypi"
