@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Start ElasticSearch, MariaDB and Kibana, wait for them to be listening,
-# and launch Mordred with the options in the CMD line of the Dockerfile
+# and launch SirMordred with the options in the CMD line of the Dockerfile
 
 echo "Starting container:" $(hostname)
 
@@ -47,22 +47,31 @@ echo "Kibiter started"
 
 if [[ $RUN_MORDRED ]] && [[ $RUN_MORDRED = "NO" ]]; then
   echo
-  echo "All services up, not running Mordred because RUN_MORDRED = NO"
+  echo "All services up, not running SirMordred because RUN_MORDRED = NO"
   echo "Get a shell running docker exec, for example:"
   echo "docker exec -it" $(hostname) "env TERM=xterm /bin/bash"
+elif [[ $TEST ]] && [[ $TEST = "YES" ]]; then
+  echo
+  echo "Testing GrimoireLab"
+  echo "Release file with commits to test in /release,"
+  echo "testing configuration files in /testconf,"
+  echo "Python packages to install as dependencies for testing in /dist"
+  sleep 1
+  /usr/local/bin/build_grimoirelab --test --distdir /dist --confdir /testconf $FAIL
+  exit
 else
   sleep 1
-  # Start Mordred
-  echo "Starting Mordred to build a GrimoireLab dashboard"
+  # Start SirMordred
+  echo "Starting SirMordred to build a GrimoireLab dashboard"
   echo "This will usually take a while..."
-  /usr/local/bin/mordred $*
+  /usr/local/bin/sirmordred $*
   status=$?
   if [ $status -ne 0 ]; then
-    echo "Failed to start Mordred: $status"
+    echo "Failed to start SirMordred: $status"
     exit $status
   fi
   echo
-  echo "Mordred done, dasboard produced, check http://localhost:5601"
+  echo "SirMordred done, dasboard produced, check http://localhost:5601"
   echo
   echo "To make this shell finish, type <CTRL> C"
   echo "but the container will still run services in the background,"

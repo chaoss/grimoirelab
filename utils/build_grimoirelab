@@ -73,7 +73,8 @@ all_repos = {
     'sortinghat': [{'name': 'sortinghat', 'dir': '',
             'repo_url': 'http://github.com/chaoss/grimoirelab-sortinghat',
             'version_file': os.path.join('sortinghat', '_version.py'),
-            'check_run': 'sortinghat --help'}],
+            'check_run': 'sortinghat --help',
+            'test': True}],
     'kidash': [{'name': 'kidash', 'dir': '',
             'repo_url': 'http://github.com/chaoss/grimoirelab-kidash',
             'version_file': os.path.join('kidash', '_version.py'),
@@ -123,7 +124,9 @@ def parse_args ():
     args_actions.add_argument("--check", action='store_true',
                             help="Check modules for some invariants.")
     args_actions.add_argument("--test", action='store_true',
-                            help="Test modules once built.")
+                            help="Test modules.")
+    args_actions.add_argument("--testinstall", action='store_true',
+                            help="Test modules once installed (includes installing).")
 
     parser.add_argument("--relfile", type=str,
                             help="GrimoireLab coordinated release file. "
@@ -524,22 +527,35 @@ class BuildingEnviron(object):
                 shutil.copyfile(src, dest)
                 logging.info("Copying testing config files: " + src + " to " + dest)
 
-    def _test_dist(self, dir):
+    def _test_dist(self, dir, installed=False):
         """Test a Python directory (with a module)
 
         For testing will use packages in self.dist_dir.name, if available.
 
-        :param   dir: directory with the Python module
-        :return:      success status (boolean) and output (string)
+        :param       dir: directory with the Python module
+        :param installed: assume module to test and dependencies are already installed
+        :return:          success status (boolean) and output (string)
         """
 
         setup_file = os.path.join(dir, 'setup.py')
         if os.path.isfile(setup_file):
-            (success, output) \
+            logging.info("Running tests in {dir}. Command: python setup.py test. Env: {env}".format(
+                dir=dir, env="PIP_FIND_LINKS=" + self.dist_dir.name
+            ))
+            if not installed:
+                logging.info("Assuming not installed, running 'pip install -e .'")
+                (success, output) \
+                    = self.venv.run_command(['pip', 'install', '-e', '.'],
+                                            cwd=dir,
+                                            env={'PIP_FIND_LINKS': self.dist_dir.name})
+                if not success:
+                    return (success, output)
+            else:
+                output = ""
+            (success, output_test) \
                 = self.venv.run_command(['python', 'setup.py', 'test'],
-                                        cwd=dir,
-                                        env={'PIP_FIND_LINKS': self.dist_dir.name})
-            return (success, output)
+                                        cwd=dir)
+            return (success, output + '\n\n' + output_test)
         else:
             logging.info("Directory " + dir + " does not have a setup.py file.")
             return (False, "Directory " + dir + " does not have a setup.py file.")
@@ -556,7 +572,7 @@ class BuildingEnviron(object):
         print("Built module " + name + ": " + built)
         return(built)
 
-    def test_module(self, name, conf_dir=None):
+    def test_module(self, name, conf_dir=None, installed=False):
         """Test module, given its name.
 
         The git repository corresponding to the module will be cloned,
@@ -568,6 +584,7 @@ class BuildingEnviron(object):
 
         :param name: name of the module to test
         :param conf_dir: name of the directory for configuration for testing
+        :param installed: assume module to test and dependencies are already installed
         :return: "OK" or "Fail"
         """
 
@@ -579,11 +596,13 @@ class BuildingEnviron(object):
             if not os.path.isdir(repo_dir):
                 self._runner.clone_git(repo=repo_url, dir=repo_dir, commit=desc['commit'])
             if conf_dir is not None:
+                if not os.path.isdir(conf_dir):
+                    print("Testing configuration directory (confdir) is not a directory:", conf_dir)
+                    sys.exit(1)
                 conf_dir_module = os.path.join(conf_dir, name)
                 if os.path.isdir(conf_dir_module):
-                    print(conf_dir_module)
-                    self._test_conf(conf_dir_module, repo_dir)
-            (success, output) = self._test_dist(pkg_dir)
+                    self._test_conf(conf_dir_module, pkg_dir)
+            (success, output) = self._test_dist(pkg_dir, installed)
             print("Tested module " + name + ": ", end='')
             if success:
                 print("OK")
@@ -776,11 +795,11 @@ def main():
 
     # If no action is specified, let it be build
     if (not args.build) and (not args.install) and (not args.check) \
-            and (not args.test):
+            and (not args.test) and (not args.testinstall):
         args.build = True
 
     # We need repos_dir for building, checking and/or testing
-    if args.build or args.check or args.test:
+    if args.build or args.check or args.test or args.testinstall:
         repos_dir = Directory(name=args.reposdir, purpose="Repos",
                                 persistent=False)
     if args.build:
@@ -809,7 +828,7 @@ def main():
             print("Some tests failed")
             sys.exit(1)
 
-    if args.install:
+    if args.install or args.testinstall:
         print("Installing...")
         install_venv = Venv(system=args.install_system, name=args.install_venv,
                         dependencies=install_dependencies,
@@ -818,6 +837,21 @@ def main():
                             dist_dir=dist_dir,
                             atonce=args.install_atonce)
         print("Installed modules: " + ','.join(modules.names()))
+
+    if args.testinstall:
+        print("Testing installed...")
+        some_failed = False
+        for module_name in modules.names():
+            module = Modules(module_names=[module_name], release=release)
+            building = BuildingEnviron(modules=module, venv=install_venv,
+                                       repos_dir=repos_dir, dist_dir=dist_dir,
+                                       fail=args.fail)
+            result = building.test_module(module_name, args.confdir, installed=True)
+            if result == 'Fail':
+                some_failed = True
+        if args.fail and some_failed:
+            print("Some tests failed")
+            sys.exit(1)
 
     if args.check:
         print("Checking...")

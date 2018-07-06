@@ -78,5 +78,5 @@ USER ${DEPLOY_USER}
 WORKDIR ${DEPLOY_USER_DIR}
 
 # Entrypoint (mordred)
-ENTRYPOINT [ "/usr/local/bin/mordred" ]
+ENTRYPOINT [ "/usr/local/bin/sirmordred" ]
 CMD [ "-c", "/infra.cfg", "/dashboard.cfg", "/project.cfg", "/override.cfg"]
