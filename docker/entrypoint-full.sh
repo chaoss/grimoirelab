@@ -56,8 +56,14 @@ elif [[ $TEST ]] && [[ $TEST = "YES" ]]; then
   echo "Release file with commits to test in /release,"
   echo "testing configuration files in /testconf,"
   echo "Python packages to install as dependencies for testing in /dist"
+  if [[ $FAIL ]] && [[ $FAIL = "NO" ]]; then
+    echo "Not failing even if tests fail because $FAIL=NO"
+    fail=""
+  else
+    fail="--fail"
+  fi
   sleep 1
-  /usr/local/bin/build_grimoirelab --test --distdir /dist --confdir /testconf $FAIL
+  /usr/local/bin/build_grimoirelab --test --distdir /dist --confdir /testconf $fail
   exit
 else
   sleep 1
