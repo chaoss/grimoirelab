@@ -1,3 +1,62 @@
+## 18.07-06
+
+Released: 2018-07-10
+
+## Release details
+
+* SortingHat
+** [travis] Include cryptography package
+** [tests] Align tests to logging support
+** [sortinghat] Add logging support
+
+* Perceval
+** [twitter] Change metadata_id attribute
+** Mozilla
+** OPNFV
+** Puppet
+
+* Sirmordred
+** [tests] Add twitter archive
+** [dashboard title] Fix typo in project name extraction
+** [tests] Add arthur and perceval eggs to requirements.txt
+** [studies] Include raw backend to studies
+
+* grimoirelab-elk
+** [enriched] Add support for github pull request data
+** [raw] Add support for github pull request data
+** [tests] Add test for kafka kip study, git studies and SSL support
+** [enriched] Improve logging for studies
+** [enriched] Include ocean backend in studies
+** [elk] Add raw backend to studies params
+** [raw] Add parser params for perceval mattermost backend
+** [studies] Fix ES conns to use insecure parameter
+** [enrich][mattermost] Fix project mapping support
+** [enrich][slack] Fix slack project mapping to use just the channel id in the projects mapping file
+** [tests] Use the projects mapping json file for testing
+
+* Sigils
+** [telegram] Add Telegram panels migrated to Kibana 6
+** [apache] Add Apache panels
+** Updated panels for askbot, discourse, stackoverflow, rss, bugzilla timing, redmine, maniphest, bugzilla, onion, overview, git, data status, mediawiki, jenkins, stackoverflow, confluence, slack, maniphest, github, irc, mbox, jira, bugzilla, gerrit, 
+* Manuscripts
+** Add manuscripts2 containing new functions to calculate the metrics
+** Closes #48: start date not provided use case
+
+* Kidash
+
+* GrimoireLab Toolkit
+
+* King Arthur
+
+* Bestiary
+
+* Hatstall
+** [urls] Add support for using /identities as the base path for accessing Hatstall
+** [docker] Default admin account can be now set via docker environment variables
+** [docker] Modify path of sqlite file when env variable exists
+
+* Ceres
+
 ## 18.07-05
 
 Released: 2018-07-04
