@@ -57,7 +57,7 @@
 
     - debug:
         msg: "Building output:\n {{result.ansible_facts.docker_container.Output}}"
-      when: release != 'latest'
+      when: (result.ansible_facts is defined) and (release != 'latest')
 
     - name: "Build packages using grimoirelab/factory (latest in master)"
       when: release == 'latest'
@@ -73,7 +73,7 @@
 
     - debug:
         msg: "Building output:\n {{result.ansible_facts.docker_container.Output}}"
-      when: release == 'latest'
+      when: (result.ansible_facts is defined) and (release == 'latest')
 
 
 - name: "Build grimoirelab/{installed,full}"
@@ -111,6 +111,7 @@
 
     - debug:
         msg: "Testing output:\n{{result.ansible_facts.docker_container.Output}}"
+      when: result.ansible_facts is defined
 
 - name: "Build grimoirelab/secured"
   hosts: localhost
