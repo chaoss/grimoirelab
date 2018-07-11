@@ -2,6 +2,8 @@
 - name: Git
   source: git
   icon: default.png
+  index-patterns:
+  - panels/json/git-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/git.json
@@ -10,6 +12,8 @@
 - name: Gerrit
   source: gerrit
   icon: default.png
+  index-patterns:
+  - panels/json/gerrit-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/gerrit.json
@@ -20,26 +24,32 @@
 - name: GitHub PRs
   source: github
   icon: default.png
+  index-patterns:
+  - panels/json/github_issues-index-pattern.json
   menu:
   - name: Overview
-    panel: panels/json/github_pullrequests.json
+    panel: panels/json/github_pull_requests.json
   - name: Backlog
-    panel: panels/json/github_backlog.json
+    panel: panels/json/github_pull_requests_backlog.json
   - name: Timing
-    panel: panels/json/github_pullrequests_timing.json
+    panel: panels/json/github_pull_requests_timing.json
 - name: GitHub Issues
   source: github
   icon: default.png
+  index-patterns:
+  - panels/json/github_issues-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/github_issues.json
   - name: Backlog
-    panel: panels/json/github_backlog.json
+    panel: panels/json/github_issues_backlog.json
   - name: Timing
     panel: panels/json/github_issues_timing.json
 - name: Phabricator
   source: phabricator
   icon: default.png
+  index-patterns:
+  - panels/json/maniphest-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/maniphest.json
@@ -50,16 +60,20 @@
 - name: Redmine
   source: redmine
   icon: default.png
+  index-patterns:
+  - panels/json/redmine-index-pattern.json
   menu:
   - name: Overview
-    panel: panels/json/redmine-projects.json
+    panel: panels/json/redmine.json
   - name: Backlog
-    panel: panels/json/redmine_backlog-projects.json
+    panel: panels/json/redmine_backlog.json
   - name: Timing
-    panel: panels/json/redmine_timing-projects.json
+    panel: panels/json/redmine_timing.json
 - name: Jira
   source: jira
   icon: default.png
+  index-patterns:
+  - panels/json/jira-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/jira.json
@@ -70,114 +84,157 @@
 - name: Bugzilla
   source: bugzilla
   icon: default.png
+  index-patterns:
+  - panels/json/bugzilla-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/bugzilla.json
   - name: Backlog
     panel: panels/json/bugzilla_backlog.json
+  - name: Timing
+    panel: panels/json/bugzilla_timing.json
 - name: Bugzilla
   source: bugzillarest
   icon: default.png
+  index-patterns:
+  - panels/json/bugzilla-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/bugzilla.json
   - name: Backlog
     panel: panels/json/bugzilla_backlog.json
+  - name: Timing
+    panel: panels/json/bugzilla_timing.json
 - name: Confluence
   source: confluence
   icon: default.png
+  index-patterns:
+  - panels/json/confluence-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/confluence.json
 - name: MediaWiki
   source: mediawiki
   icon: default.png
+  index-patterns:
+  - panels/json/mediawiki-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/mediawiki.json
 - name: Mailing Lists
   source: mbox
   icon: default.png
+  index-patterns:
+  - panels/json/mbox-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/mailinglists.json
 - name: Mailing Lists
   source: pipermail
   icon: default.png
+  index-patterns:
+  - panels/json/mbox-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/mailinglists.json
 - name: Discourse
   source: discourse
   icon: default.png
+  index-patterns:
+  - panels/json/discourse-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/discourse.json
 - name: Blogs (RSS)
   source: rss
   icon: default.png
+  index-patterns:
+  - panels/json/rss-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/rss.json
 - name: IRC
   source: supybot
   icon: default.png
+  index-patterns:
+  - panels/json/irc-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/irc.json
 - name: Slack
   source: slack
   icon: default.png
+  index-patterns:
+  - panels/json/slack-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/slack.json
 - name: Telegram
   source: telegram
   icon: default.png
+  index-patterns:
+  - panels/json/telegram-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/telegram.json
 - name: Twitter
   source: twitter
   icon: default.png
+  index-patterns:
+  - panels/json/twitter-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/twitter.json
-- name: Kitsune
-  source: kitsune
-  icon: default.png
-  menu:
-  - name: Overview
-    panel: panels/json/kitsune.json
 - name: Askbot Q&A
   source: askbot
   icon: default.png
+  index-patterns:
+  - panels/json/askbot-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/askbot.json
 - name: StackOverflow
   source: stackexchange
   icon: default.png
+  index-patterns:
+  - panels/json/stackoverflow-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/stackoverflow.json
 - name: Jenkins
   source: jenkins
   icon: default.png
+  index-patterns:
+  - panels/json/jenkins-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/jenkins.json
+- name: Mozilla Club
+  source: mozillaclub
+  icon: default.png
+  index-patterns:
+  - panels/json/mozillaclub-index-pattern.json
+  menu:
+  - name: Events
+    panel: panels/json/mozilla_club.json
 - name: Mozilla Reps
   source: remo
   icon: default.png
+  index-patterns:
+  - panels/json/remo-activities-index-pattern.json
+  - panels/json/remo-activities_metadata__timestamp-index-pattern.json
+  - panels/json/remo-events-index-pattern.json
+  - panels/json/remo-events_metadata__timestamp-index-pattern.json
   menu:
   - name: Events
-    panel: panels/json/reps2.json
+    panel: panels/json/reps_events.json
   - name: Activities
-    panel: panels/json/reps2_activities.json
+    panel: panels/json/reps_activities.json
 - name: Meetup
   source: meetup
   icon: default.png
+  index-patterns:
+  - panels/json/meetup-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/meetup.json
@@ -186,12 +243,32 @@
 - name: Google Hits
   source: google_hits
   icon: default.png
+  index-patterns:
+  - panels/json/google-hits-index-pattern.json
   menu:
   - name: Overview
-    panel: panels/json/google-hits.json
+    panel: panels/json/google_hits.json
 - name: DockerHub
   source: dockerhub
   icon: default.png
+  index-patterns:
+  - panels/json/dockerhub-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/dockerhub.json
+- name: Apache
+  source: apache
+  icon: default.png
+  index-patterns:
+  - panels/json/apache-index-pattern.json
+  menu:
+  - name: Overview
+    panel: panels/json/apache.json
+- name: Testing
+  source: functest
+  icon: default.png
+  index-patterns:
+  - panels/json/functest-index-pattern.json
+  menu:
+  - name: Overview
+    panel: panels/json/testing_all.json
