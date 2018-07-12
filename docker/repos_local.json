@@ -1,0 +1,5 @@
+{
+    "grimoirelab": [{"name": "grimoirelab",  "dir": "",
+            "repo_url": "/grimoirelab",
+            "version_file": "grimoirelab/_version.py"}]
+}

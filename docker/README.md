@@ -500,7 +500,7 @@ If instead of the default release (`releases/latest`)
 you want to run some other,
 use the following line (in this case, to build `elasticgirl.29`):
 
-```
+```bash
 $ docker run \
     -v $(pwd)/docker/dist:/dist \
     -v $(pwd)/docker/logs:/logs \
@@ -515,7 +515,7 @@ the `grimoirelab/installed` image, which contains those packages
 already installed
 (command run from the root of the repository, notice the dot at the end):
 
-```
+```bash
 $ docker build -f docker/Dockerfile-installed -t grimoirelab/installed .
 ```
 
@@ -523,7 +523,7 @@ After it, you can also produce `grimoirelab/full`, which contains the
 same, plus the servers needed to build a complete dashboard
 (Elasticsearch, MariaDB, Kibiter):
 
-```
+```bash
 $ docker build -f docker/Dockerfile-full -t grimoirelab/full .
 ```
 

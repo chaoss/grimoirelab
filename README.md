@@ -47,3 +47,5 @@ Includes a script to produce Python packages for a coordinated release, etc.
 Includes dockerfiles and configuration files for the GrimoireLab containers
 that can be used to demo the technology, and can be the basis for real
 deployments. See more information in the [docker README.md file](docker/README.md).
+
+* How releases of GrimoireLab are built and tested: [Building](BUILDING.md)

@@ -13,6 +13,7 @@
     - organization: Bitergia
   email:
     - alpgarcia@bitergia.com
+    - alpgarcia@gmail.com
   github:
     - alpgarcia
 
@@ -63,6 +64,15 @@
     - benp@osg.samsung.com
   github:
     - BenLloydPearson
+
+- profile:
+    name: Carter Landis
+  enrollments:
+    - organization: University of Missouri
+  email:
+    - ccarterlandis@gmail.com
+  github:
+    - ccarterlandis
 
 - profile:
     name: Christian Cmehil-Warn
@@ -124,6 +134,15 @@
     - howderek
 
 - profile:
+    name: Emma Irwin
+  enrollments:
+    - organization: EZserver
+  email:
+    - emma.irwin@gmail.com
+  github:
+    - emmairwin
+
+- profile:
     name: Evan Wilde
   enrollments:
     - organization: University of Victoria
@@ -140,6 +159,15 @@
     - fil@adobe.com
   github:
     - filmaj
+
+- profile:
+    name: Gabe Heim
+  enrollments:
+    - organization: University of Missouri
+  email:
+    - gabe.heim@yahoo.com
+  github:
+    - gabe-heim
 
 - profile:
     name: Georg Link
@@ -233,6 +261,21 @@
     - canibano_iglesias@hotmail.com
 
 - profile:
+    name: Keanu Nichols
+  enrollments:
+    - organization: Independent
+      end: 2018-05-13
+    - organization: GSoC
+      start: 2018-05-14
+      end: 2018-08-14
+    - organization: Independent
+      start: 2018-08-15
+  email:
+    - nichols.keanu9@gmail.com
+  github:
+    - kmn5409
+
+- profile:
     name: klumb
   enrollments:
     - organization: University of Omaha
@@ -312,6 +355,21 @@
     - organization: Open Symphony
   github:
     - pmonks
+
+- profile:
+    name: Pranjal Aswani
+  enrollments:
+    - organization: Independent
+      end: 2018-05-13
+    - organization: GSoC
+      start: 2018-05-14
+      end: 2018-08-14
+    - organization: Independent
+      start: 2018-08-15
+  email:
+    - aswani.pranjal@gmail.com
+  github:
+    - aswanipranjal
 
 - profile:
     name: Quan Zhou
