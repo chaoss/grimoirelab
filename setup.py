@@ -34,7 +34,7 @@ from setuptools.command.test import test as TestClass
 
 here = os.path.abspath(os.path.dirname(__file__))
 readme_md = os.path.join(here, 'README.md')
-version_py = os.path.join(here, 'grimoirelab_pkg', '_version.py')
+version_py = os.path.join(here, 'grimoirelab', '_version.py')
 
 # Pypi wants the description to be in reStrcuturedText, but
 # we have it in Markdown. So, let's convert formats.
@@ -93,7 +93,7 @@ setup(name="grimoirelab",
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4'],
       keywords="development repositories analytics",
-      packages=['grimoirelab_pkg'],
+      packages=['grimoirelab'],
       scripts=[
           "bin/grimoirelab",
           "utils/build_grimoirelab"

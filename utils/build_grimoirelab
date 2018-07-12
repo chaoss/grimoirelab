@@ -42,9 +42,13 @@ build_dependencies = ['pip', 'setuptools', 'pypandoc', 'twine', 'wheel']
 install_dependencies = ['pip', 'setuptools', 'wheel']
 
 all_repos = {
+    'grimoirelab': [{'name': 'grimoirelab',  'dir': '',
+            'repo_url': 'http://github.com/chaoss/grimoirelab',
+            'version_file': os.path.join('grimoirelab', '_version.py')}],
     'grimoirelab-toolkit': [{'name': 'grimoirelab-toolkit', 'dir': '',
             'repo_url': 'http://github.com/chaoss/grimoirelab-toolkit',
-            'version_file': os.path.join('grimoirelab', 'toolkit', '_version.py')}],
+            'version_file': os.path.join('grimoirelab_toolkit', '_version.py'),
+            'test': True}],
     'perceval': [{'name': 'perceval', 'dir': '',
             'repo_url': 'http://github.com/chaoss/grimoirelab-perceval',
             'version_file': os.path.join('perceval', '_version.py'),
@@ -489,6 +493,7 @@ class BuildingEnviron(object):
         self.repos_dir = repos_dir
         self.dist_dir = dist_dir
         self.fail = fail
+        self.failures = []
 
     def _build_dist(self, dir):
         """Build distributable packages from a Python directory
@@ -689,7 +694,7 @@ class ReleaseInfo(object):
     def get_commit(self, repo):
         """Get the commit corresponding to this repo in this release."""
 
-        return self.info[repo]
+        return self.info.get(repo)
 
     def get_repos(self):
 
@@ -812,6 +817,12 @@ def main():
         release = ReleaseInfo(file=args.relfile)
     else:
         release = None
+
+    if release:
+        gl_rel = release.get_commit('grimoirelab-rel')
+    if (not release) or (not gl_rel):
+        gl_rel = 'Unknown'
+    print("GrimoireLab release:", gl_rel)
 
     if args.reposfile:
         with open(args.reposfile) as repos_file:

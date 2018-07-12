@@ -12,6 +12,10 @@
 ##
 ## Build Python packages and containers, not failing if something goes wrong
 ## ANSIBLE_STDOUT_CALLBACK=debug ansible-playbook ansible_release.yml --check --extra-vars "release=18.04-01 fail=" --tags "build"
+##
+## Variables:
+##  - release: release id (18.07-11, latest, ...)
+##  - fail: fail if errors (default --fail, set as "" if not to fail)
 
 - name: Build grimoirelab/factory
   hosts: localhost
@@ -30,7 +34,15 @@
   vars:
     FAIL: "YES"
     fail: "{{ ' ' if (FAIL=='NO') else '--fail' }}"
+    local: "False"
+    repos_file: ""
+    repo: ""
   tasks:
+    - name: "Define local vars if local"
+      set_fact:
+        repos_file: "--reposfile /grimoirelab/docker/repos_local.json"
+        repo_vol: "{{ playbook_dir }}/..:/grimoirelab"
+      when: local == "True"
     - name: "Create directories for packages and old packages"
       file:
         path: "{{playbook_dir}}/{{item}}"
@@ -52,7 +64,8 @@
           - "{{ playbook_dir }}/dist:/dist"
           - "{{ playbook_dir }}/logs:/logs"
           - "{{ playbook_dir }}/../releases/{{ release }}:/release"
-        command: "--build --install --check {{ fail }} --relfile /release"
+          - "{{repo_vol}}"
+        command: "--build --install --check {{ fail }} --relfile /release {{repos_file}}"
         detach: False
       register: result
 

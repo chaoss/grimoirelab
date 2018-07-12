@@ -1,0 +1,14 @@
+grimoirelab==0.1.0
+grimoirelab-toolkit==0.1.8
+perceval==0.11.7
+perceval-mozilla==0.2.3
+perceval-opnfv==0.1.11
+perceval-puppet==0.1.10
+kingarthur==0.1.12
+grimoire-elk==0.30.47
+sortinghat==0.6.8
+kidash==0.4.8
+grimoirelab-panels==0.0.18
+manuscripts==0.2.16
+sirmordred==0.1.39
+cereslib==0.1.3

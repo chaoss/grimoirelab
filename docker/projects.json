@@ -9,7 +9,7 @@
             "https://github.com/chaoss/grimoirelab-kidash",
             "https://github.com/chaoss/grimoirelab-kingarthur",
             "https://github.com/chaoss/grimoirelab-manuscripts",
-            "https://github.com/chaoss/grimoirelab-mordred",
+            "https://github.com/chaoss/grimoirelab-sirmordred",
             "https://github.com/chaoss/grimoirelab-perceval",
             "https://github.com/chaoss/grimoirelab-perceval-mozilla",
             "https://github.com/chaoss/grimoirelab-perceval-opnfv",
@@ -28,7 +28,7 @@
             "https://github.com/chaoss/grimoirelab-kidash",
             "https://github.com/chaoss/grimoirelab-kingarthur",
             "https://github.com/chaoss/grimoirelab-manuscripts",
-            "https://github.com/chaoss/grimoirelab-mordred",
+            "https://github.com/chaoss/grimoirelab-sirmordred",
             "https://github.com/chaoss/grimoirelab-perceval",
             "https://github.com/chaoss/grimoirelab-perceval-mozilla",
             "https://github.com/chaoss/grimoirelab-perceval-opnfv",
@@ -41,12 +41,12 @@
             "https://lists.linuxfoundation.org/pipermail/grimoirelab-discussions/"
         ]
     },
-    "GHData": {
+    "Augur": {
         "git": [
-            "https://github.com/OSSHealth/ghdata"
+            "https://github.com/OSSHealth/augur"
         ],
         "github": [
-            "https://github.com/OSSHealth/ghdata"
+            "https://github.com/OSSHealth/augur"
         ]
     },
     "cregit": {
@@ -78,10 +78,10 @@
     },
     "D&I WG": {
         "git": [
-            "https://github.com/chaoss/wg_diversity_inclusion"
+            "https://github.com/chaoss/wg-diversity-inclusion"
         ],
         "github": [
-            "https://github.com/chaoss/wg_diversity_inclusion"
+            "https://github.com/chaoss/wg-diversity-inclusion"
         ]
     },
     "GMD WG": {

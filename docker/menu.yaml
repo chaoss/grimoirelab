@@ -4,11 +4,21 @@
   icon: default.png
   index-patterns:
   - panels/json/git-index-pattern.json
+  - panels/json/git_areas_of_code-index-pattern.json
+  - panels/json/all_onion-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/git.json
   - name: Attraction/Retention
     panel: panels/json/git_demographics.json
+  - name: Areas of code
+    panel: panels/json/git_areas_of_code.json
+  - name: Community Structure Overall
+    panel: panels/json/onion_overall.json
+  - name: Community Structure by project
+    panel: panels/json/onion_projects.json
+  - name: Community Structure by organization
+    panel: panels/json/onion_organizations.json
 - name: Gerrit
   source: gerrit
   icon: default.png

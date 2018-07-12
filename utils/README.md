@@ -33,7 +33,7 @@ The output (stdout) shows a summary of the process, including builds
 and checks that failed. In general, any command that fails causes the
 script to finish.
 
-Examples:
+### Examples
 
 * Build all modules in a coordinated release of GrimoireLab
 (the one corresponding to `../releases/elasticgirl.16`),
