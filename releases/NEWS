@@ -1,3 +1,49 @@
+## 18.07-07
+
+Released: 2018-07-12
+
+## Release details
+
+* SortingHat
+
+* Perceval
+** Changes to work with grimoirelab_toolkit.
+** Mozilla
+*** Changes to work with grimoirelab_toolkit.
+** OPNFV
+*** Changes to work with grimoirelab_toolkit.
+** Puppet
+*** Changes to work with grimoirelab_toolkit.
+
+* Sirmordred
+** [config] Add tag to backend sections
+
+* grimoirelab-elk
+** [raw] Fix mapping Twitter
+** [enriched] Add code to calculate github pull requests enriched data
+** [enriched] Change toolkit import in git enricher
+** [enriched] Change toolkit import in ceres_base
+** [p2o] Add support for execution a list of studies
+** [enrich][git][demography] Add doc and fix the incremental support
+
+* Sigils
+
+* Manuscripts
+
+* Kidash
+
+* GrimoireLab Toolkit
+** Change module name to grimoirelab_toolkit.
+
+* King Arthur
+** [arthur] Change toolkit import
+
+* Bestiary
+
+* Hatstall
+
+* Ceres
+
 ## 18.07-06
 
 Released: 2018-07-10
