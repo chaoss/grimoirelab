@@ -1,3 +1,14 @@
+## 18.07-10 
+
+Released: 2018-07-17
+
+## Release details
+
+* grimoirelab-elk
+** [studies] Use hash instead of plain text as id
+** [enriched] Use metadata__update_on to index tweets
+
+
 ## 18.07-09 
 
 Released: 2018-07-15
