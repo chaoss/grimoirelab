@@ -55,6 +55,7 @@ $ cd grimoirelab
 ```
 
 Now, produce your own release file, under the `releases` directory.
+In our example, it will be `releases/18.07-11`.
 You can use as a template the one for the latest official release.
 Those files are very simple:
 just set the commit you want to have for every git repo involved in a
@@ -62,7 +63,18 @@ GrimoireLab release. Have in mind that each of those commits should
 change the version id for the packages produced from those repositories,
 so if you want to use specific commits, you should also ensure that those
 commits modify the version id for the package (usually in the `package/_version.py` file).
-For `GRIMOIRELAB`, specify a new tag, that we will produce later (see below).
+For `GRIMOIRELAB`, specify a new tag, that we will produce later,
+ and will be the same string than the `grimoirelab` package version,
+ `0.1.1` in this example (see below).
+
+Update the version of the `grimoirelab` package, so that it doesn't
+conflict with other past packages. This is done by editing
+`grimoirelab/_version.py`. In our example, the version file will be
+(version of the `grimoirelab` package is therefore `0.1.1`):
+
+```python
+__version__ = "0.1.1"
+```
 
 Produce the `requirements.txt` file for those commits.
 You can do that automatically, using `build_grimoirelab`.
@@ -92,12 +104,15 @@ This new `requirements.txt` file should be a part of a new commit,
 along with the release file.
 Since a commit hash needs to be specified for the `grimoirelab`
 repository in the release file, but that file is a part of the commit,
-we use a label for it instead (see above):
+we use a label for it instead (see above).
+And we link `releases/latest` to the latest release file
+(this is not mandatory, but useful).
 
 ```bash
-$ git add releases/0.1 requirements.txt
-$ git commit -m "Release 0.1, corresponding to release file 18.07-11" .
-$ git tag 0.1.0
+$ ln -sf releases/18.07-11 releases/latest
+$ git add releases/18.07-11 releases/latest requirements.txt
+$ git commit -m "Release 0.1.1, corresponding to release file 18.07-11" .
+$ git tag 0.1.1
 ```
 
 And now, we can produce packages for this new release,
@@ -179,7 +194,9 @@ $ docker run -v $(pwd)/docker/dist:/dist \
   -v $(pwd)/releases/18.07-11:/release \
   -v $(pwd):/grimoirelab \
   --net="host" grimoirelab/factory \
-  --build --install --check --test --relfile /release --reposfile /grimoirelab/docker/repos_local.json \
+  --build --install --check --test \
+  --relfile /release \
+  --reposfile /grimoirelab/docker/repos_local.json \
   --confdir /grimoirelab/docker/testconf
 ```
 
