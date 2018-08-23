@@ -821,7 +821,7 @@ def main():
     if release:
         gl_rel = release.get_commit('grimoirelab-rel')
     if (not release) or (not gl_rel):
-        gl_rel = 'Unknown'
+        gl_rel = 'Current master from git repos'
     print("GrimoireLab release:", gl_rel)
 
     if args.reposfile:
