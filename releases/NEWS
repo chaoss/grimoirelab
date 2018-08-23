@@ -1,4 +1,139 @@
-## 18.07-11 
+## 18.08-01
+
+Released: 2018-08-23
+
+* SortingHat
+** [api] Fix lost enrollments error merging identities
+** [db] Handle disconnection using pessimistic mode
+
+* Perceval
+** [doc] Include doc to execute the googlehits backend
+** [backends] Add backend for GoogleHits
+** [slack] Fix flake8 error
+** [slack] Include num members in channel info
+** [doc] Update install from source code section in README.md
+** Mozilla
+**     [doc] Update install from source code section in README.md
+** OPNFV
+**     [doc] Update install from source code section in README.md
+** Puppet
+**     [doc] Update install from source code section in README.md
+
+* Sirmordred
+** Fix typos in menu.yaml for 6.x panels and index patterns
+** [task_panels] Update index pattern files for Onion panels
+** [utils] Add conf files for micro-mordred
+** [utils] Add micro-mordred
+** [test_task_panels] Update tests for community section menu
+** [task_panels] Add community structure menu
+** [config] Add time interval for autorefresh
+** [panels] Remove unused panels
+** Fix weird warning
+** [tests] Update test_config.py
+** [tests] Add example of enrich_pull_requests study in test_studies.cfg
+** [config] Add `enrich_pull_requests` to the tuple of studies
+
+* grimoirelab-elk
+** [enrich-mediawiki] Change way url is created
+** [aoc] Replace message commit with first 80 chars
+** [enrich-slack] Use `num_members` attribute to count channel members
+** [studies] Add enrich_pull_requests study
+** [aoc] Fix study to do nothing if no events
+
+* Sigils
+** Merge branch 'kibana6-migration'
+** Use 'edits' instead of 'editions' for MediaWiki
+** [mattermost] Add Kibana 6 panel and index pattern
+** [reps activities] Add panel migrated to Kibana 6
+** [reps events] add panel fro Kibana 6
+** [about] Add about.json from master
+** [dockerhub] Fix legend title for Stars and Pulls
+** [dockerhub] Update evolutionary charts to use Timelion and use Deltas
+** [dockerhub] Add DockerHub panel and index pattern
+** [functest] Add panel for functest project
+** [functest] Add testing overview panel
+** [mediawiki] Use 'edits' instead of 'editions'
+** [mozilla-club] Increase size of pie charts
+** Add Mozilla Club panels and index patterns
+** [google-hits] Add Google Hits panel and index pattern
+** [twitter] Migrate panel to Kibana 6
+
+* Manuscripts
+** [Notebooks] Update README with instructions to run the notebooks
+** Add Notebooks for GMD metrics and sample visualisations
+** Some (hopefully minor) changes
+** [MS2/report/tests] Add basic tests for manuscripts2 reports
+** [MS2/tests] Set up module level test fixtures
+** [MS2/README] Update README with instructions to generate the report
+** [MS2/manuscripts2] Update bin/manuscripts2 to take cmd inputs
+** [MS2/latex] Separate github_issues and github_prs data for Overview
+** [MS2/reports] Add functions to generate the PDF reports
+** [MS2/reports] Add latex template folder from the old manuscripts
+** [MS2/reports] Remove "_"  from strings and update create_csv_fig_from_df
+** [MS2/reports] Fix minor errors and change folder names
+** [MS2/Reports] Add the project process section of the report
+** [tests] Add tests for Metrics under project process in github_prs
+** [MS2/metrics] Add project_process Metrics & function for github_prs
+** [tests] Add tests for Metrics under project process in github_issues
+** [MS2/metrics] Add project_process Metrics & function for github_issues
+** [MS2/elasticsearch] Update calculate_bmi function
+** [MS2/metrics] Change field for timeseries aggregations in ClosedIssues
+** [MS2/reports] Add PROJECT_COMMUNITY section of the report
+** [manuscripts2/metrics] Rename NAME variable to DS_NAMES In all the data source files
+** [tests] Add tests for aggregations() in Authors and Organizations classes
+** [MS2/metrics] Add capability to calculate project_community metrics
+** [tests] Clean up code. Add tests/utils.py
+** [manuscripts2/elasticsearch] Add get_list method for Query class
+** [config] Add studies params
+** [tests] Add tests for timeseries metrics generated in github_prs
+** [github_prs] Add project_activity function
+** [tests] Add tests for timeseries metrics generated in github_issues
+** [github_issues] Add project_activity function
+** [tests] Add tests for timeseries metrics generated in git
+** [git] Add project_activity function
+** [report] Add functionality to calculate PROJECT ACTIVITY section
+** [tests] Rearrange the test data into specific folders
+** [tests] Add tests for github_issues data source
+** [manuscripts2] Add OVERVIEW section for github_issues data source
+** [tests] Update test_elasticsearch.py to use test base class
+** [tests] Update tests/data/git_commit.json file
+** [tests] Update git_commit.json data
+** [tests] Update test base class
+** Rename manuscripts2/Readme.md to manuscripts2/README.md
+** [tests] Add example to use the test base class
+** [tests] Add test base class
+** [manuscripts2] Add tests for OVERVIEW section of 'git' data source
+** [manuscripts2] Add code to calculate OVERVIEW section for 'git' data source
+
+* Kidash
+
+* GrimoireLab Toolkit
+
+* King Arthur
+
+* Bestiary
+
+* Hatstall
+** [docker] Update password of admin user when container restart
+** Change href of Profiles item to "list" instead of "/"
+** Update href in order to avoid absolute/relative problems
+** Allow None country in the profile form
+** [docker] Modify path of sqlite file when env variable exists
+** [docker] Default admin account can be now set via docker environment variables
+** [urls] Add support for using /identities as the base path for accessing Hatstall
+** [docker] Remove gunicorn and use stage from Docker image
+** [docker] Modify apache config to serve static files and generate the static files during deployment
+** [static] Reorganize static contents for the base template in the django-hatstall project
+** [urls] Remove gunicorn suport for static contents
+** [docker] Add in stage the activation of ssl module in Apache
+** [docker] Support https for accessing the Django Hatstall application
+** [docker] Convert Django Hatstall deployment to Apache2 + mod_wsgi
+
+* Ceres
+** Fix filter method when a column has no values
+
+
+## 18.07-11
 
 Released: 2018-07-25
 
@@ -87,7 +222,7 @@ Released: 2018-07-25
 * Ceres
 
 
-## 18.07-10 
+## 18.07-10
 
 Released: 2018-07-17
 
@@ -98,7 +233,7 @@ Released: 2018-07-17
 ** [enriched] Use metadata__update_on to index tweets
 
 
-## 18.07-09 
+## 18.07-09
 
 Released: 2018-07-15
 
@@ -108,7 +243,7 @@ Released: 2018-07-15
 ** Use kibana6-migration branch
 
 
-## 18.07-08 
+## 18.07-08
 
 Released: 2018-07-13
 
@@ -203,7 +338,7 @@ Released: 2018-07-10
 * Sigils
 ** [telegram] Add Telegram panels migrated to Kibana 6
 ** [apache] Add Apache panels
-** Updated panels for askbot, discourse, stackoverflow, rss, bugzilla timing, redmine, maniphest, bugzilla, onion, overview, git, data status, mediawiki, jenkins, stackoverflow, confluence, slack, maniphest, github, irc, mbox, jira, bugzilla, gerrit, 
+** Updated panels for askbot, discourse, stackoverflow, rss, bugzilla timing, redmine, maniphest, bugzilla, onion, overview, git, data status, mediawiki, jenkins, stackoverflow, confluence, slack, maniphest, github, irc, mbox, jira, bugzilla, gerrit,
 * Manuscripts
 ** Add manuscripts2 containing new functions to calculate the metrics
 ** Closes #48: start date not provided use case
@@ -282,7 +417,7 @@ Released: 2018-06-28
 * SortingHat
 ** [tests] Adapt tests to run with setup.py test
 ** [all] Remove support for Python 2.7
-** [db:api] Add functions for all the low level operations on SortingHat 
+** [db:api] Add functions for all the low level operations on SortingHat
 ** [api] Improve output messages for enrollment commands
 ** [exceptions] Rename WrappedValueError to InvalidValueError
 
@@ -370,7 +505,7 @@ Released: 2018-06-07
 ** [stackoverflow] Fix % of questions answered
 ** [askbot] Add % of questions with accepted answer
 ** [panels] Add community structure panels & documentation
-** [panels] Add accepted answers and project support 
+** [panels] Add accepted answers and project support
 ** [panels] Fixed links to issues and revamp (jira)
 ** [panels] Refurbish Jira panel
 ** [panels] Fix typo in Jira panels
@@ -816,7 +951,7 @@ Released: 2018-03-27
 ** [puppetforge] Implement the enrich spec for PuppetForge
 ** [enrich] Add `answer_status` field to askbot
 ** [raw] Fix typos in ES 2.2 mappings for gerrit
-** [enrich] Fix limit comment message in gerrit, git 
+** [enrich] Fix limit comment message in gerrit, git
 ** [enriched] Set not accepted answer flag to askbot unanswered question
 ** [all] Replace arthur with with elk in import sections
 ** [all] Replace elk with enriched in import sections
@@ -1028,7 +1163,7 @@ Released: 2018-03-13
 ** [all backends] Add archive support
 ** Update CI config to run tests using Python 3.5 and 3.6
 ** Update coverage call to remove 'omit' parameter
-** [askbot] Add data about accepted answers 
+** [askbot] Add data about accepted answers
 ** [mbox] Define 'tmp_path' variable before copying mboxes
 ** [backend] Ignore errors produced while fetching from archives
 ** [backend] Fix 'Namespace' object has no attribute 'fetch_archive'
