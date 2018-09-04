@@ -1,3 +1,70 @@
+## 18.09-01
+
+Released: 2018-09-04
+
+* Perceval
+** [googlehits] Modify item id generation
+** [github] Increase number of items retrieved per page
+** type fix on tests requirements file
+
+* Sirmordred
+** [menu.yml] Fix typo in googlehits data source
+** [task_panels] Include phabricator panels in overview and data status
+** [task_panels] Enable kafka studies
+** [config] Include option to visualize kafka studies
+** [tests] Align tests for new panels
+** [utils] Align micro-morded menu.yml with mordred one
+** [task_panels] Include mbox-type panels
+** [menu.yml] Include mbox-type entries
+** [task_panels] Do not import panels that don't have the release field
+** [task_panels] Replace google_hits backend name
+** [menu.yml] Modify google hits source name
+** [tests] Fix tests for task_panels
+** [tests] Fix tests for task_enrich
+** [tests] Fix tests for test_task
+** [collection] Add support for mediawiki tag
+** [utils] Add mattermost panels to menu.yml micro-mordred
+** [menu] Add mattermost entry
+** [menu.yaml] Remove duplicated community info in git menu
+** [utils] Fix setup.cfg for micro-mordred
+** [menu] Add index pattern for remo-activities
+** [menu] Fix remo-activities index-patterns entry
+
+* grimoirelab-elk
+** [enrich-meetup] Fix error printing the number of comments and RSVPs
+** [tests] Update Git test data
+** [tests] Update Slack test data
+** [tests] Update Jira test data
+** [enrich-jira] Remove unknown user data logic
+** [enrich-git] Remove unknown user data logic
+** Set Unknown to null user data (org, name and username)
+** [elk] Modify logic to load new identities to SH
+** [enrich-mbox] Replace lists with yields
+** [enrich-meetup] Replace lists with yields
+** [enriched] Update mediawiki project json params
+** [enriched-jira] Set Unassigned to null assignee orgs and usernames
+** [enrich-jira] Improve jira enricher
+** [enrich-git] Handle commits with missing user info
+** [tests] Enable tests from no-localhost ES
+
+* Sigils
+** [kip] Disable search panel
+** [overview] Add mattermost widgets
+** [data status] Add mattermost widgets
+** [overview] Fix missing widget panels
+** [data_status] Fix visualization ids
+** [meetup] Fix visualization id for `meetups_main_numbers`
+** [overview] Replace dockerhub viz by current ones
+** [kip] Migrate panel to Kibana 6
+** [data status] Add remo activities index pattern
+** [about] Update panel to include release date
+** [data status] Fix dockerhub index pattern name
+** [data status] Fix google hits widgets
+** [overview] Fix index name for Dockerhub viz
+** [overview] Update google hits widgets
+** [google-hits] Panel updated to support new backend
+
+
 ## 18.08-01
 
 Released: 2018-08-23
