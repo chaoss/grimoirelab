@@ -1,3 +1,35 @@
+## 18.09-02
+
+Released: 2018-09-07
+
+* Perceval
+** Remove unused and not working config_file option
+
+* grimoirelab-elk
+** [tests] Fix load identities test
+** [tests] Add tests for googlehits connectors
+** [utils] Add googlehits connectors
+** [enrich] Add support to enrich googlehits raw data
+** [raw] Add support for googlehits data
+
+* Sigils
+** [irc] Fix orgs table participants count
+** [KIP] Restore search viz
+
+* SirMordred
+** [utils] Update micro-mordred menu.yml
+** [task_panels] Modify alias for google hits
+** [config] Remove google_hits from extra backends
+** [archives] Update slack archive
+** [archives] Update github archive
+** [tests] Add tests for googlehits
+
+* Hatstall
+** Add new index that show just an form in order to search identities
+** Delete the first and last " with strip()
+** Add CSRF_TRUSTED_ORIGINS as a docker env variable
+
+
 ## 18.09-01
 
 Released: 2018-09-04
