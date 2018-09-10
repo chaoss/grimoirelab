@@ -12,8 +12,8 @@
     pull: no
     dockerfile: "docker/Dockerfile-{{ item }}"
 
-- name: "Tag grimoirelab/{{item}}:{{release}}"
-  command: "docker tag grimoirelab/{{item}} grimoirelab/{{item}}:{{release}}"
+- name: "Tag grimoirelab/{{item}}:{{RELEASE}}"
+  command: "docker tag grimoirelab/{{item}} grimoirelab/{{item}}:{{RELEASE}}"
 
 - name: "Tag grimoirelab/{{item}}:latest"
   command: "docker tag grimoirelab/{{item}} grimoirelab/{{item}}:latest"

@@ -4,8 +4,8 @@
 ## item: name of the image (eg. factory, full)
 ## release: will be used as tag (eg 18.05-02)
 
-- name: "Push grimoirelab/{{item}}:{{release}}"
-  command: "docker push grimoirelab/{{item}}:{{release}}"
+- name: "Push grimoirelab/{{item}}:{{RELEASE}}"
+  command: "docker push grimoirelab/{{item}}:{{RELEASE}}"
 
 - name: "Push grimoirelab/{{item}}"
   command: "docker push grimoirelab/{{item}}"
