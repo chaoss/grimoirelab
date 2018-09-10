@@ -813,6 +813,8 @@ def main():
     if args.logging:
         set_logging(args.logging, args.logfile)
 
+    logging.debug("Executed as: " + str(sys.argv))
+
     if args.relfile:
         release = ReleaseInfo(file=args.relfile)
     else:

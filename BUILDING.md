@@ -41,6 +41,24 @@ To be written
 
 To be written
 
+## pip packages and Docker images using Ansible
+
+There is an Ansible playbook that can be used to build
+all Python packages and all container images for a GrimoireLab release:
+`ansible_release.yml`. You can run it as follows (from the docker directory,
+being `18.09-02` the release to build):
+
+```bash
+$ pip install ansible
+$ git clone https://github.com/chaoss/grimoirelab
+$ cd grimoirelab/docker
+$ ANSIBLE_STDOUT_CALLBACK=debug ansible-playbook ansible_release.yml \
+  --extra-vars "RELEASE=18.09-02" --tags "build"
+```
+
+For running the playbook, you will need to have Docker installed.
+
+
 ## Producing your own GrimoireLab package releases
 
 You will only need this if you want to produce your "own" release,
@@ -234,7 +252,7 @@ $ docker run --net="host" -v $(pwd)/mytoken.cfg:/override.cfg \
   -t grimoirelab/installed
 ```
 
-Now, point your web broser at [http://127.0.0.1:5601](http://127.0.0.1:5601),
+Now, point your web browser at [http://127.0.0.1:5601](http://127.0.0.1:5601),
 and you should see the dashboard.
 
 For `grimoirelab/full`, since it already includes the services,
@@ -244,6 +262,9 @@ you can type:
 $ docker run -p 127.0.0.1:5601:5601 -v $(pwd)/mytoken.cfg:/override.cfg \
   -t grimoirelab/full
 ```
+
+And again, point your web browser at [http://127.0.0.1:5601](http://127.0.0.1:5601)
+
 
 ## Producing everything with ansible
 
@@ -262,7 +283,7 @@ $ utils/build_grimoirelab --relfile releases/18.07-11 \
   --reposfile repos_local.json
 $ cd docker
 $ ANSIBLE_STDOUT_CALLBACK=debug ansible-playbook ansible_release.yml \
-  --extra-vars "release=18.07-11 local=True" --tags "build"
+  --extra-vars "RELEASE=18.07-11 LOCAL=YES" --tags "build"
 ```
 
 The `repos_local.json` file is as follows

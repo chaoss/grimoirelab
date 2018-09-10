@@ -5,17 +5,25 @@
 ## pip install docker-py
 ##
 ## Run as:
-## ansible-playbook ansible_release.yml --extra-vars "release=18.03-04"
-## ansible-playbook ansible_release.yml --check --extra-vars "release=18.04-01" --tags "build"
-## ansible-playbook ansible_release.yml --check --extra-vars "release=latest" --tags "build"
-## ansible-playbook ansible_release.yml --check --extra-vars "release=18.04-01" --tags "push"
+## ansible-playbook ansible_release.yml --extra-vars "RELEASE=18.03-04"
+## ansible-playbook ansible_release.yml --check --extra-vars "RELEASE=18.04-01" --tags "build"
+## ansible-playbook ansible_release.yml --check --extra-vars "RELEASE=latest" --tags "build"
+## ansible-playbook ansible_release.yml --check --extra-vars "RELEASE=18.04-01" --tags "push"
 ##
 ## Build Python packages and containers, not failing if something goes wrong
-## ANSIBLE_STDOUT_CALLBACK=debug ansible-playbook ansible_release.yml --check --extra-vars "release=18.04-01 fail=" --tags "build"
+## ANSIBLE_STDOUT_CALLBACK=debug ansible-playbook ansible_release.yml --check --extra-vars "RELEASE=18.04-01 fail=" --tags "build"
 ##
 ## Variables:
-##  - release: release id (18.07-11, latest, ...)
-##  - fail: fail if errors (default --fail, set as "" if not to fail)
+##  - RELEASE: release id (default "latest", other examples: "18.07-11"...)
+##  - LOCAL: use repos_local.json to override repos with local ones
+##      (default "NO", set as "YES" if using local repos)
+##  - FAIL: fail if errors (default "YES", set as "NO" if not to fail)
+##
+## Tags:
+##  - build_pkgs: Build Python packages (and factory container image)
+##  - build: Build Python packages and all container images, and run tests
+##  - push: Push packages and containers to Pypi and DockerHub
+##  - test: Run package tests (assumes container images are available)
 
 - name: Build grimoirelab/factory
   hosts: localhost
@@ -32,17 +40,18 @@
     - build
     - build_pkgs
   vars:
+    RELEASE: "latest"
+    LOCAL: "NO"
     FAIL: "YES"
     fail: "{{ ' ' if (FAIL=='NO') else '--fail' }}"
-    local: "False"
     repos_file: ""
-    repo: ""
+    repo_vol: "{{ playbook_dir }}/..:/grimoirelab"
   tasks:
-    - name: "Define local vars if local"
+    - name: "Define local vars if LOCAL"
       set_fact:
         repos_file: "--reposfile /grimoirelab/docker/repos_local.json"
-        repo_vol: "{{ playbook_dir }}/..:/grimoirelab"
-      when: local == "True"
+      when: LOCAL == "YES"
+
     - name: "Create directories for packages and old packages"
       file:
         path: "{{playbook_dir}}/{{item}}"
@@ -55,15 +64,15 @@
       with_fileglob:
         "{{playbook_dir}}/dist/*"
 
-    - name: "Build packages using grimoirelab/factory ({{ release }})"
-      when: release != 'latest'
+    - name: "Build packages using grimoirelab/factory ({{ RELEASE }})"
+      when: RELEASE != 'latest'
       docker_container:
         name: factory
-        image: "grimoirelab/factory:{{ release }}"
+        image: "grimoirelab/factory:{{ RELEASE }}"
         volumes:
           - "{{ playbook_dir }}/dist:/dist"
           - "{{ playbook_dir }}/logs:/logs"
-          - "{{ playbook_dir }}/../releases/{{ release }}:/release"
+          - "{{ playbook_dir }}/../releases/{{ RELEASE }}:/release"
           - "{{repo_vol}}"
         command: "--build --install --check {{ fail }} --relfile /release {{repos_file}}"
         detach: False
@@ -71,13 +80,14 @@
 
     - debug:
         msg: "Building output:\n{{result.ansible_facts.docker_container.Output}}"
-      when: release != 'latest'
+      when: RELEASE != 'latest' and result.ansible_facts is defined
+
 
     - name: "Build packages using grimoirelab/factory (latest in master)"
-      when: release == 'latest'
+      when: RELEASE == 'latest'
       docker_container:
         name: factory
-        image: "grimoirelab/factory:{{ release }}"
+        image: "grimoirelab/factory:{{ RELEASE }}"
         volumes:
           - "{{ playbook_dir }}/dist:/dist"
           - "{{ playbook_dir }}/logs:/logs"
@@ -87,7 +97,7 @@
 
     - debug:
         msg: "Building output:\n{{result.ansible_facts.docker_container.Output}}"
-      when: release == 'latest'
+      when: RELEASE == 'latest' and result.ansible_facts is defined
 
 
 - name: "Build grimoirelab/{installed,full}"
@@ -108,15 +118,15 @@
   vars:
     FAIL: "YES"
   tasks:
-    - name: "Test using grimoirelab/full:{{release}}"
+    - name: "Test using grimoirelab/full:{{RELEASE}}"
       docker_container:
         name: factory
-        image: "grimoirelab/full:{{ release }}"
+        image: "grimoirelab/full:{{ RELEASE }}"
         volumes:
           - "{{ playbook_dir }}/dist:/dist"
           - "{{ playbook_dir }}/logs:/logs"
           - "{{ playbook_dir }}/testconf:/testconf"
-          - "{{ playbook_dir }}/../releases/{{ release }}:/release"
+          - "{{ playbook_dir }}/../releases/{{ RELEASE }}:/release"
         env:
           TEST: "YES"
           FAIL: "{{FAIL}}"
