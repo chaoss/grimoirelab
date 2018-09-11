@@ -27,6 +27,9 @@ Currently, GrimoireLab is organized in the following repositories:
 
 GrimoireLab is a [CHAOSS](https://chaoss.community) project.
 
+There are also some [components built by the GrimoreLab community](community_components.md),
+which can be useful for you.
+
 ## Contents of this repository
 
 This repository is for stuff relevant to GrimoireLab as a whole. For example:
