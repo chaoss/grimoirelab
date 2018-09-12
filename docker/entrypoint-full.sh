@@ -77,7 +77,7 @@ else
     exit $status
   fi
   echo
-  echo "SirMordred done, dasboard produced, check http://localhost:5601"
+  echo "SirMordred done, dashboard produced, check http://localhost:5601"
   echo
   echo "To make this shell finish, type <CTRL> C"
   echo "but the container will still run services in the background,"
