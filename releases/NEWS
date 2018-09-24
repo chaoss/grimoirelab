@@ -1,3 +1,84 @@
+## 18.09-03
+
+Released: 2018-09-24
+
+* GrimoireLab
+** [doc] Added file for community components.
+** [docker] Clarify variable names in ansible file for building release.
+
+* Perceval
+** [tests] Add tests for GitLab merge request data
+** [gitlab] Add merge_request category
+** [github] Fix doc in fetch method
+** [args] Add new argument --json-line
+
+** grimoirelab-elk
+* [tests] Include tests data for GitLab merge requests
+* [enrich-gitlab] Add merge request enrich item
+* [enrich-mediawiki] Fix unique id for enriched items
+* [tests] Include tests data for GitHub pull requests
+* [enrich-stackexchange] Add 'origin' and 'tag' fields to answer items
+* [raw] Improve logging message in elastic
+
+* Sigils
+** [overview] Minor change to make gitlab panels visible
+** [data_status] Minor change to make gitlab panels visible
+** [gitlab] Minor change on merge panels
+** [gitlab] Minor change on issue panels
+** [gitlab] Add Issues and MR info to Overview and Status panels
+** [adoption] Panel for Rust adoption
+** [dev] Panel for dev related sources
+** [social] Panel for Social sources
+** [mediawiki] Use 'edits' instead of 'editions'
+** [gitlab mr] Update URL links and fix a couple of titles
+** Add GitLab Merge Request panels
+** [jenkins] Add panel to track nodes
+** [jenkins] Add panel for tracking jobs
+** [gitlab] Fix issue with URLs in the repositories table
+** [gitlab] Update GitLab panels based on the review. Minor fixes.
+** [gitlab] Add GitLab panels focused just on issues
+** [github] Fix acc time widget in PRs backlog
+
+* SirMordred 
+** [utils] Update setup.cfg micro-mordred
+** [config] Change gitlab param names
+** [task_panels] Change gitlab data source names
+** [tasks_panels] Disable kibiter 6 configuration
+** [utils] Add gitlab entries in setup.cfg and .json
+** [task_panels] Add aliases to gitlab indexes
+** [utils] Update setup.cfg and .json micromordred
+** [utils] Update menu.yml
+** [menu.yml] Adding nodes and jobs panels
+** [tests] Include strict param in mock tests task panels
+** [task_panels] Handle strict mode loading panels via setup.cfg
+** [config] Handle strict loading of panels
+** [tests] Update number of loaded panels
+** [utils] Align menu.yml micro-mordred with upstream one
+** [menu.yml] Remove mattermost from menu.yml
+** [tasks_panels] Handle mattermost panels via setup.cfg
+** [config] Load mattermost panels by the setup.cfg
+** [tasks_panels] Handle gitlab panels via setup.cfg
+** [config] Load gitlab panels by the setup.cfg
+** [tests] Include archives for gitlab merges and github pulls 
+** [task_panels] Align task panels with kidash
+** [tests] Align configuration files with new changes
+** [tests] Align tests with new changes in task_panels
+** [doc] Update config.md
+** [README.md] Update readme
+** [config] Make kibiter url mandatory for panels section
+** [task_panels] Set kibana settings programmatically
+** [task-collection] Improve logging message
+
+* Hatstall
+** Fix url redirection to /identities/hatstall
+** Change absolute urls in href and actions to the Django right ones
+
+* Kidash
+** Revert previous commit
+** [import] Create the Kibana index if not exists before importing anything
+
+
+
 ## 18.09-02
 
 Released: 2018-09-07
