@@ -1,3 +1,42 @@
+## 18.10-01
+
+Released: 2018-10-03
+
+* Perceval
+** [tests] Align mediawiki after API calls optimization
+** [mediawiki] Optimize number of calls to API
+** [tests] Use output method in assertLogs for mbox test
+** [tests] Use output method in assertLogs for gitlab test
+** [tests] Add test to handle mediawiki version exception
+** [mediawiki] Fix error in client `get_version` method
+** [gitlab] Fix typo initiazaling common MRs fields
+
+* grimoirelab-elk
+** [enrich-stackexchange] Handle KeyError exception
+** [aoc] Add support for autorfresh in sirmordred
+** [demography] Catch conn exceptions when fetching author commits
+** [enrich] Set identities fields to UNDEFINED for null values
+
+* SirMordred
+** [tasks_panels] Fix initialization of .kibana index in Kibana 6.x
+
+** Sigils
+** [data_status] Fix error showing GitLab issues retrieval dates
+** [twitter] Replaces Latest tweets widget at the bottom
+** Update documentation about contributing to be updated with Kibiter 6.1.0 release
+** Fix hidden legends in bar charts
+** Fix title of organizations pie chart
+** Fix badly stacked bar bug
+
+* SortingHat
+** Support UTF-8 fully in MySQL/MariaDB
+
+* Hatstall
+** Register new template filter when a name is blank but isn't None
+
+* Kidash
+* [kidash] Enable Kibiter 6 configuration
+
 ## 18.09-03
 
 Released: 2018-09-24
@@ -12,13 +51,13 @@ Released: 2018-09-24
 ** [github] Fix doc in fetch method
 ** [args] Add new argument --json-line
 
-** grimoirelab-elk
-* [tests] Include tests data for GitLab merge requests
-* [enrich-gitlab] Add merge request enrich item
-* [enrich-mediawiki] Fix unique id for enriched items
-* [tests] Include tests data for GitHub pull requests
-* [enrich-stackexchange] Add 'origin' and 'tag' fields to answer items
-* [raw] Improve logging message in elastic
+* grimoirelab-elk
+** [tests] Include tests data for GitLab merge requests
+** [enrich-gitlab] Add merge request enrich item
+** [enrich-mediawiki] Fix unique id for enriched items
+** [tests] Include tests data for GitHub pull requests
+** [enrich-stackexchange] Add 'origin' and 'tag' fields to answer items
+** [raw] Improve logging message in elastic
 
 * Sigils
 ** [overview] Minor change to make gitlab panels visible
