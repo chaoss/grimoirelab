@@ -50,4 +50,4 @@ for retrieving data from its data sources.
 
 ## Scripts and miscellanenous utilities
 
-* [json2hat](https://github.com/lukaszgryglicki/bitergia_deployment/blob/master/cmd/json2hat/json2hat.go). Go script that imports the file github_users.json from the [cncf/gitdm](https://github.com/cncf/gitdm) GitHub repo into a SortingHat database. By @lukaszgryglicki.
+* [json2hat](https://github.com/lukaszgryglicki/bitergia_deployment/blob/master/cmd/json2hat/json2hat.go) by [Łukasz Gryglicki](https://github.com/lukaszgryglicki). Go script that imports the file github_users.json from the [cncf/gitdm](https://github.com/cncf/gitdm) GitHub repo into a SortingHat database.
