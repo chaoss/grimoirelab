@@ -36,11 +36,11 @@ Linux Foundation's CHAOSS Project on open source software metrics.
 Augur is a sister project in CHAOSS, using Perceval (a GrimoireLab component) 
 for retrieving data from some of its data sources.
 
-* [Data visualization for open source software development](https://github.com/zhquan/TFG/)
+* [Q-DashMan](https://github.com/zhquan/TFM/)
 by [Quan Zhou](https://github.com/zhquan).
 Master thesis which consists of a completely automated system that provides
 a web interface for configuring GrimoireLab, so that it analyizes any set of
-repositories. [More information (in Spanish)](http://zhquan.github.io/TFG/).
+repositories.
 
 * [Prospector](https://github.com/chaoss/prospector).
 Prospector permits automated collection of a wide range of metrics of open source projects 
