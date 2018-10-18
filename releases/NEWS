@@ -1,3 +1,72 @@
+## 18.10-02
+
+Released: 2018-10-18
+
+* Perceval
+** [groupsio] Make api token a required param
+** [groupsio] Fetch archives from group-specific domains
+** Adding academic reference
+
+* grimoirelab-elk
+** [enrich_mattermost] Fix error setting empty emails for identities
+** [enrich_mattermost] Fix error setting blank names on identities
+** [enrich-github] Include label lists in enriched items
+** [enrich-git] Replace list with yield
+** [enrich-github] Replace list with yield
+** [enrich-gerrit] Replace list with yield
+** [enrich-bugzilla] Replace list with yield
+** [tests] Extend tests for demography study
+** [enrich] Add method to include aliases in enriched index
+** [enrich-gerrit] Add demography study to gerrit
+** [install] Update dependencies
+** [tests] Update .travis.yml
+** [tests] Align tests for git demography study
+** [enrich] Add generic demography study
+** [enrich-git] Replace ad-hoc git demography
+** [enrich-gitlab] Include labels list in enriched items
+** [onion] Fix `all_onion` alias creation
+** [onion] Add refresh interval
+** [enrich] Check presence of input index onion
+** [gitlab-enrich] Add onion study
+** [schema] Add schema for gitlab issues
+** [schema] Add schema for gitlab merges
+** [aoc] Add a constant for out_index default value
+** [tests] Extend tests data for Gitlab milestone attribute
+** [enrich-gitlab] Add milestone attribute for gitlab items
+
+* SirMordred
+** [onion] Add documentation for 'seconds' parameter
+** [setup] Update dependencies
+** [menu] Remove onion index pattern from Git panel
+** [panels] Add demographics panel in community section
+** [tests] Fix tests for task panels
+** [tests] Fix tests for config
+** [tests] Update mediawiki 1.28 archive
+** [tests] Update .travis.yml
+** [cfg] Update config files
+** [doc] Update documentation with gitlab info
+** [micro] Handle raw and enrich tasks exceptions
+** [doc] Include doc for gitlab onion studies
+** [doc] Add autorefresh_interval description
+** [autorefresh] Add autorefresh identities in AOC
+
+* Sigils
+** [data_status] Update google_hits data status entry
+** [demographics] Add known limitations and issues
+** [demographics] Add panel for multiple sources
+** Update info about index patterns and panel ids
+** [gitlab] Increase the number of issues shown in timing panels
+** [gitlab] Remove invalid search object for MRs backlog
+** [gitlab] Adjust "Avg. Time Open" column in Backlog Submitters table
+** [gitlab] Show full list of participants in GitLab panels
+** [gitlab] Add milestone visualizations to GitLab merge requests
+** [gitlab] Add milestone visualizations to GitLab issues
+** [onion] Add data source filter widget to panels
+** [gitlab] Fix typo in visualizations
+
+* Kidash
+** Add check for query key in bool filter fix
+
 ## 18.10-01
 
 Released: 2018-10-03
