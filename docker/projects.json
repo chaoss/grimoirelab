@@ -43,10 +43,10 @@
     },
     "Augur": {
         "git": [
-            "https://github.com/OSSHealth/augur"
+            "https://github.com/chaoss/augur"
         ],
         "github": [
-            "https://github.com/OSSHealth/augur"
+            "https://github.com/chaoss/augur"
         ]
     },
     "cregit": {
@@ -71,9 +71,6 @@
         ],
         "github": [
             "https://github.com/chaoss/metrics"
-        ],
-        "pipermail": [
-            "https://lists.linuxfoundation.org/pipermail/oss-health-metrics/"
         ]
     },
     "D&I WG": {
@@ -82,6 +79,9 @@
         ],
         "github": [
             "https://github.com/chaoss/wg-diversity-inclusion"
+        ],
+        "pipermail": [
+            "https://lists.linuxfoundation.org/pipermail/chaoss-diversity-inclusion/"
         ]
     },
     "GMD WG": {
@@ -104,8 +104,10 @@
             "https://github.com/chaoss/governance"
         ],
         "pipermail": [
+            "https://lists.linuxfoundation.org/pipermail/chaoss/",
             "https://lists.linuxfoundation.org/pipermail/chaoss-members/",
-            "https://lists.linuxfoundation.org/pipermail/chaoss-software/"
+            "https://lists.linuxfoundation.org/pipermail/chaoss-software/",
+            "https://lists.linuxfoundation.org/pipermail/oss-health-metrics/"
         ]
     }
 }
