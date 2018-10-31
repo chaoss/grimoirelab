@@ -1,3 +1,71 @@
+## 18.11-01
+
+Released: 2018-11-06
+
+* Perceval
+** [jenkins] Update message level when handling blacklisted jobs
+** [gitlab] Allow to blacklist merge/issue ids
+** Ignore W504 flake8 error code
+** [backends] Fix flake8 errors
+
+* grimoirelab-elk
+** [enrich-redmine] Add ELK metadata
+** [enrich-mozillaclub] Add ELK metadata
+** [enrich-mediawiki] Add ELK metadata
+** [elastic_items] Handle pagination over none index
+** [enrich] Handle insertion of empty identities
+** [elk] Avoid processing None identities
+** [enrich-meetup] Prevent insert enrich items with no time
+** [enrich-discourse] Refactor logic to enrich items
+** [ELK] Fix flake8 errors
+** [utils] goodbye google-hits script
+** [utils] Goodbye rest script
+** [enrich-gitlab] Handle missing milestone attribute in raw items
+** [elastic_items] Refactor `fetch` method
+** [enrich-google_hits] Redifine has_identities method
+** [enrich-functest] Redifine has_identities method
+** [enrich-dockerhub] Redifine has_identities method
+** [enrich-jenkins] Redifine has_identities method
+** [elk] Add condition to skip loading identites
+** [enrich] Add has_identities method
+** [enrich-askbot] Replace list with yield
+** [enrich-bugzillarest] Replace list with yield
+** [enrich-confluence] Replace list with yield
+** [enrich-discourse] Replace list with yield
+** [enrich-gitlab] Replace list with yield
+** [enrich-jira] Replace list with yield
+** [enrich-kitsune] Replace list with yield
+** [enrich-mattermost] Replace list with yield
+** [enrich-mediawiki] Replace list with yield
+** [enrich-phabricator] Replace list with yield
+** [enrich-mozillaclub] Replace list with yield
+** [enrich-puppetforge] Replace list with yield
+** [enrich-redmine] Replace list with yield
+** [enrich-remo] Replace list with yield
+** [enrich-rss] Replace list with yield
+** [enrich-stackexchange] Replace list with yield
+** [enrich-slack] Replace list with yield
+** [enrich-supybot] Replace list with yield
+** [enrich-telegram] Replace list with yield
+** [jenkins] Add node name cleaning based on RE
+** [enrich-twitter] Replace list with yield
+
+* SirMordred
+** Add demographics index pattern
+** [menu] Add index pattern for attraction/retention
+** [tests] Fix flake8 errors after upgrade
+** [sirmordred] Set elasticsearch logging level to INFO
+** [jira] Add index pattern for closed issues
+** Add documentation for jenkins `node_regex` param
+** [jenkins] Add support for node name cleaning
+
+* Sigils
+** [git] Update demographics panel to use new fields
+** [gitlab] Fix latest items tables to size 100
+** [gitlab] Add missing fields in issues index pattern
+** [jira] Add closed issues by project table
+
+
 ## 18.10-03
 
 Released: 2018-10-21
