@@ -17,10 +17,11 @@
 FROM grimoirelab/installed
 MAINTAINER Jesus M. Gonzalez-Barahona <jgb@bitergia.com>
 
-ENV ES=elasticsearch-6.1.0
-ENV KB_VERSION=6.1.0-5
-ENV KB_TAG=kibiter-v${KB_VERSION}
+ENV ES=elasticsearch-6.1.4
+ENV KB_VERSION=6.1.4-1
+ENV KB_TAG=community-v${KB_VERSION}
 ENV KB=kibiter-${KB_VERSION}
+ENV KB_DIR=${KB}-linux-x86_64
 
 USER root
 
@@ -56,16 +57,16 @@ EXPOSE 3306
 USER ${DEPLOY_USER}
 
 # Install Kibana (as DEPLOY_USER)
-RUN wget -nv https://github.com/grimoirelab/kibiter/releases/download/${KB_TAG}/${KB}-linux-x86_64.tar.gz && \
-    tar xzf ${KB}-linux-x86_64.tar.gz && \
-    rm ${KB}-linux-x86_64.tar.gz && \
-    sed -e "s|^#server.host: .*$|server.host: 0.0.0.0|" -i ${KB}-linux-x86_64/config/kibana.yml
+RUN wget -nv https://github.com/grimoirelab/kibiter/releases/download/${KB_TAG}/${KB_DIR}.tar.gz && \
+    tar xzf ${KB_DIR}.tar.gz && \
+    rm ${KB_DIR}.tar.gz && \
+    sed -e "s|^#server.host: .*$|server.host: 0.0.0.0|" -i ${KB_DIR}/config/kibana.yml
 # Run Kibana until optimization is done, to avoid optimizing every
 # time the image is run
-RUN ${KB}-linux-x86_64/bin/kibana 2>&1 | grep -m 1 "Optimization of .* complete in .* seconds"
+RUN ${KB_DIR}/bin/kibana 2>&1 | grep -m 1 "Optimization of .* complete in .* seconds"
 
 RUN sudo /etc/init.d/elasticsearch start && \
-    ${KB}-linux-x86_64/bin/kibana 2>&1 > /dev/null & \
+    ${KB_DIR}/bin/kibana 2>&1 > /dev/null & \
     ( until $(curl --output /dev/null --silent --fail http://127.0.0.1:9200/.kibana/config/_search ); do \
         printf '.' && \
         sleep 2 && \
