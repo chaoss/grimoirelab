@@ -42,6 +42,12 @@ Master thesis which consists of a completely automated system that provides
 a web interface for configuring GrimoireLab, so that it analyizes any set of
 repositories.
 
+* [Prosoul](https://github.com/Bitergia/prosoul)
+The goal of this project is to create a web editor and viewer for software quality models that are used to show metrics in a meaningful way, and importers and exporters for the different quality models used in the industry.
+This software is produced in the context of the [CROSSMINER project](https://github.com/crossminer),
+and interoperates with GrimoireLab by consuming its standard indexes.
+It also uses some visualizations based in GrimoireLab components. 
+
 * [Prospector](https://github.com/chaoss/prospector).
 Prospector permits automated collection of a wide range of metrics of open source projects 
 useful in evaluating the project.
@@ -51,3 +57,12 @@ for retrieving data from its data sources.
 ## Scripts and miscellanenous utilities
 
 * [json2hat](https://github.com/lukaszgryglicki/bitergia_deployment/blob/master/cmd/json2hat/json2hat.go) by [Łukasz Gryglicki](https://github.com/lukaszgryglicki). Go script that imports the file github_users.json from the [cncf/gitdm](https://github.com/cncf/gitdm) GitHub repo into a SortingHat database.
+
+## Research & Development Projects
+
+* [CROSSMINER](https://github.com/crossminer) .
+The CROSSMINER Project, funded under the European Union's Horizon 2020 Research and Innovation Programme,
+aims to enable the monitoring, in-depth analysis and evidence-based selection of open source components, and facilitates knowledge extraction from large open-source software repositories.
+Some of the components produced by it, notoriously [Prosoul](https://github.com/Bitergia/prosoul)
+interoperate with GrimoireLab.
+
