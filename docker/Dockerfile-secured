@@ -20,10 +20,12 @@
 FROM grimoirelab/full
 MAINTAINER Jesus M. Gonzalez-Barahona <jgb@bitergia.com>
 
+ENV SG_VERSION=6.1.4-22.4
+ENV SG_KVERSION=6.1.4-12
 USER root
 
 # SearchGuard configuration for Elasticsearch
-RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install -b com.floragunn:search-guard-6:6.1.0-22.2 && \
+RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install -b com.floragunn:search-guard-6:${SG_VERSION} && \
     cd /usr/share/elasticsearch/plugins/search-guard-6/tools/ && \
     rm install_demo_configuration.sh && \
     wget https://raw.githubusercontent.com/floragunncom/search-guard/master/tools/install_demo_configuration.sh && \
@@ -54,7 +56,7 @@ USER ${DEPLOY_USER}
 
 # Install SearchGuard Kibana plugin, and its config files
 RUN cd ${DEPLOY_USER_DIR}/${KB}-linux-x86_64 && \
-    bin/kibana-plugin install "https://search.maven.org/remotecontent?filepath=com/floragunn/search-guard-kibana-plugin/6.1.0-10/search-guard-kibana-plugin-6.1.0-10.zip" && \
+    bin/kibana-plugin install "https://search.maven.org/remotecontent?filepath=com/floragunn/search-guard-kibana-plugin/${SG_KVERSION}/search-guard-kibana-plugin-${SG_KVERSION}.zip" && \
     echo 'elasticsearch.username: "kibanaserver"' >> config/kibana.yml && \
     echo 'elasticsearch.password: "XXX"' >> config/kibana.yml && \
     echo 'elasticsearch.url: "https://localhost:9200"' >> config/kibana.yml && \

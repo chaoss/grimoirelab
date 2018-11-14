@@ -1,3 +1,267 @@
+## 18.11-01
+
+Released: 2018-11-06
+
+* Perceval
+** [jenkins] Update message level when handling blacklisted jobs
+** [gitlab] Allow to blacklist merge/issue ids
+** Ignore W504 flake8 error code
+** [backends] Fix flake8 errors
+
+* grimoirelab-elk
+** [enrich-redmine] Add ELK metadata
+** [enrich-mozillaclub] Add ELK metadata
+** [enrich-mediawiki] Add ELK metadata
+** [elastic_items] Handle pagination over none index
+** [enrich] Handle insertion of empty identities
+** [elk] Avoid processing None identities
+** [enrich-meetup] Prevent insert enrich items with no time
+** [enrich-discourse] Refactor logic to enrich items
+** [ELK] Fix flake8 errors
+** [utils] goodbye google-hits script
+** [utils] Goodbye rest script
+** [enrich-gitlab] Handle missing milestone attribute in raw items
+** [elastic_items] Refactor `fetch` method
+** [enrich-google_hits] Redifine has_identities method
+** [enrich-functest] Redifine has_identities method
+** [enrich-dockerhub] Redifine has_identities method
+** [enrich-jenkins] Redifine has_identities method
+** [elk] Add condition to skip loading identites
+** [enrich] Add has_identities method
+** [enrich-askbot] Replace list with yield
+** [enrich-bugzillarest] Replace list with yield
+** [enrich-confluence] Replace list with yield
+** [enrich-discourse] Replace list with yield
+** [enrich-gitlab] Replace list with yield
+** [enrich-jira] Replace list with yield
+** [enrich-kitsune] Replace list with yield
+** [enrich-mattermost] Replace list with yield
+** [enrich-mediawiki] Replace list with yield
+** [enrich-phabricator] Replace list with yield
+** [enrich-mozillaclub] Replace list with yield
+** [enrich-puppetforge] Replace list with yield
+** [enrich-redmine] Replace list with yield
+** [enrich-remo] Replace list with yield
+** [enrich-rss] Replace list with yield
+** [enrich-stackexchange] Replace list with yield
+** [enrich-slack] Replace list with yield
+** [enrich-supybot] Replace list with yield
+** [enrich-telegram] Replace list with yield
+** [jenkins] Add node name cleaning based on RE
+** [enrich-twitter] Replace list with yield
+
+* SirMordred
+** Add demographics index pattern
+** [menu] Add index pattern for attraction/retention
+** [tests] Fix flake8 errors after upgrade
+** [sirmordred] Set elasticsearch logging level to INFO
+** [jira] Add index pattern for closed issues
+** Add documentation for jenkins `node_regex` param
+** [jenkins] Add support for node name cleaning
+
+* Sigils
+** [git] Update demographics panel to use new fields
+** [gitlab] Fix latest items tables to size 100
+** [gitlab] Add missing fields in issues index pattern
+** [jira] Add closed issues by project table
+
+
+## 18.10-03
+
+Released: 2018-10-21
+
+* GrimoireLab
+** Fixes dependencies problems found in GrimoireLab package
+
+## 18.10-02
+
+Released: 2018-10-18
+
+* Perceval
+** [groupsio] Make api token a required param
+** [groupsio] Fetch archives from group-specific domains
+** Adding academic reference
+
+* grimoirelab-elk
+** [enrich_mattermost] Fix error setting empty emails for identities
+** [enrich_mattermost] Fix error setting blank names on identities
+** [enrich-github] Include label lists in enriched items
+** [enrich-git] Replace list with yield
+** [enrich-github] Replace list with yield
+** [enrich-gerrit] Replace list with yield
+** [enrich-bugzilla] Replace list with yield
+** [tests] Extend tests for demography study
+** [enrich] Add method to include aliases in enriched index
+** [enrich-gerrit] Add demography study to gerrit
+** [install] Update dependencies
+** [tests] Update .travis.yml
+** [tests] Align tests for git demography study
+** [enrich] Add generic demography study
+** [enrich-git] Replace ad-hoc git demography
+** [enrich-gitlab] Include labels list in enriched items
+** [onion] Fix `all_onion` alias creation
+** [onion] Add refresh interval
+** [enrich] Check presence of input index onion
+** [gitlab-enrich] Add onion study
+** [schema] Add schema for gitlab issues
+** [schema] Add schema for gitlab merges
+** [aoc] Add a constant for out_index default value
+** [tests] Extend tests data for Gitlab milestone attribute
+** [enrich-gitlab] Add milestone attribute for gitlab items
+
+* SirMordred
+** [onion] Add documentation for 'seconds' parameter
+** [setup] Update dependencies
+** [menu] Remove onion index pattern from Git panel
+** [panels] Add demographics panel in community section
+** [tests] Fix tests for task panels
+** [tests] Fix tests for config
+** [tests] Update mediawiki 1.28 archive
+** [tests] Update .travis.yml
+** [cfg] Update config files
+** [doc] Update documentation with gitlab info
+** [micro] Handle raw and enrich tasks exceptions
+** [doc] Include doc for gitlab onion studies
+** [doc] Add autorefresh_interval description
+** [autorefresh] Add autorefresh identities in AOC
+
+* Sigils
+** [data_status] Update google_hits data status entry
+** [demographics] Add known limitations and issues
+** [demographics] Add panel for multiple sources
+** Update info about index patterns and panel ids
+** [gitlab] Increase the number of issues shown in timing panels
+** [gitlab] Remove invalid search object for MRs backlog
+** [gitlab] Adjust "Avg. Time Open" column in Backlog Submitters table
+** [gitlab] Show full list of participants in GitLab panels
+** [gitlab] Add milestone visualizations to GitLab merge requests
+** [gitlab] Add milestone visualizations to GitLab issues
+** [onion] Add data source filter widget to panels
+** [gitlab] Fix typo in visualizations
+
+* Kidash
+** Add check for query key in bool filter fix
+
+## 18.10-01
+
+Released: 2018-10-03
+
+* Perceval
+** [tests] Align mediawiki after API calls optimization
+** [mediawiki] Optimize number of calls to API
+** [tests] Use output method in assertLogs for mbox test
+** [tests] Use output method in assertLogs for gitlab test
+** [tests] Add test to handle mediawiki version exception
+** [mediawiki] Fix error in client `get_version` method
+** [gitlab] Fix typo initiazaling common MRs fields
+
+* grimoirelab-elk
+** [enrich-stackexchange] Handle KeyError exception
+** [aoc] Add support for autorfresh in sirmordred
+** [demography] Catch conn exceptions when fetching author commits
+** [enrich] Set identities fields to UNDEFINED for null values
+
+* SirMordred
+** [tasks_panels] Fix initialization of .kibana index in Kibana 6.x
+
+** Sigils
+** [data_status] Fix error showing GitLab issues retrieval dates
+** [twitter] Replaces Latest tweets widget at the bottom
+** Update documentation about contributing to be updated with Kibiter 6.1.0 release
+** Fix hidden legends in bar charts
+** Fix title of organizations pie chart
+** Fix badly stacked bar bug
+
+* SortingHat
+** Support UTF-8 fully in MySQL/MariaDB
+
+* Hatstall
+** Register new template filter when a name is blank but isn't None
+
+* Kidash
+* [kidash] Enable Kibiter 6 configuration
+
+## 18.09-03
+
+Released: 2018-09-24
+
+* GrimoireLab
+** [doc] Added file for community components.
+** [docker] Clarify variable names in ansible file for building release.
+
+* Perceval
+** [tests] Add tests for GitLab merge request data
+** [gitlab] Add merge_request category
+** [github] Fix doc in fetch method
+** [args] Add new argument --json-line
+
+* grimoirelab-elk
+** [tests] Include tests data for GitLab merge requests
+** [enrich-gitlab] Add merge request enrich item
+** [enrich-mediawiki] Fix unique id for enriched items
+** [tests] Include tests data for GitHub pull requests
+** [enrich-stackexchange] Add 'origin' and 'tag' fields to answer items
+** [raw] Improve logging message in elastic
+
+* Sigils
+** [overview] Minor change to make gitlab panels visible
+** [data_status] Minor change to make gitlab panels visible
+** [gitlab] Minor change on merge panels
+** [gitlab] Minor change on issue panels
+** [gitlab] Add Issues and MR info to Overview and Status panels
+** [adoption] Panel for Rust adoption
+** [dev] Panel for dev related sources
+** [social] Panel for Social sources
+** [mediawiki] Use 'edits' instead of 'editions'
+** [gitlab mr] Update URL links and fix a couple of titles
+** Add GitLab Merge Request panels
+** [jenkins] Add panel to track nodes
+** [jenkins] Add panel for tracking jobs
+** [gitlab] Fix issue with URLs in the repositories table
+** [gitlab] Update GitLab panels based on the review. Minor fixes.
+** [gitlab] Add GitLab panels focused just on issues
+** [github] Fix acc time widget in PRs backlog
+
+* SirMordred 
+** [utils] Update setup.cfg micro-mordred
+** [config] Change gitlab param names
+** [task_panels] Change gitlab data source names
+** [tasks_panels] Disable kibiter 6 configuration
+** [utils] Add gitlab entries in setup.cfg and .json
+** [task_panels] Add aliases to gitlab indexes
+** [utils] Update setup.cfg and .json micromordred
+** [utils] Update menu.yml
+** [menu.yml] Adding nodes and jobs panels
+** [tests] Include strict param in mock tests task panels
+** [task_panels] Handle strict mode loading panels via setup.cfg
+** [config] Handle strict loading of panels
+** [tests] Update number of loaded panels
+** [utils] Align menu.yml micro-mordred with upstream one
+** [menu.yml] Remove mattermost from menu.yml
+** [tasks_panels] Handle mattermost panels via setup.cfg
+** [config] Load mattermost panels by the setup.cfg
+** [tasks_panels] Handle gitlab panels via setup.cfg
+** [config] Load gitlab panels by the setup.cfg
+** [tests] Include archives for gitlab merges and github pulls 
+** [task_panels] Align task panels with kidash
+** [tests] Align configuration files with new changes
+** [tests] Align tests with new changes in task_panels
+** [doc] Update config.md
+** [README.md] Update readme
+** [config] Make kibiter url mandatory for panels section
+** [task_panels] Set kibana settings programmatically
+** [task-collection] Improve logging message
+
+* Hatstall
+** Fix url redirection to /identities/hatstall
+** Change absolute urls in href and actions to the Django right ones
+
+* Kidash
+** Revert previous commit
+** [import] Create the Kibana index if not exists before importing anything
+
+
+
 ## 18.09-02
 
 Released: 2018-09-07

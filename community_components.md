@@ -36,11 +36,11 @@ Linux Foundation's CHAOSS Project on open source software metrics.
 Augur is a sister project in CHAOSS, using Perceval (a GrimoireLab component) 
 for retrieving data from some of its data sources.
 
-* [Data visualization for open source software development](https://github.com/zhquan/TFG/)
+* [Q-DashMan](https://github.com/zhquan/TFM/)
 by [Quan Zhou](https://github.com/zhquan).
 Master thesis which consists of a completely automated system that provides
 a web interface for configuring GrimoireLab, so that it analyizes any set of
-repositories. [More information (in Spanish)](http://zhquan.github.io/TFG/).
+repositories.
 
 * [Prosoul](https://github.com/Bitergia/prosoul)
 The goal of this project is to create a web editor and viewer for software quality models that are used to show metrics in a meaningful way, and importers and exporters for the different quality models used in the industry.
@@ -54,6 +54,10 @@ useful in evaluating the project.
 Prospector is a sister project in CHAOSS, using Perceval (a GrimoireLab component) 
 for retrieving data from its data sources.
 
+## Scripts and miscellanenous utilities
+
+* [json2hat](https://github.com/lukaszgryglicki/bitergia_deployment/blob/master/cmd/json2hat/json2hat.go) by [Łukasz Gryglicki](https://github.com/lukaszgryglicki). Go script that imports the file github_users.json from the [cncf/gitdm](https://github.com/cncf/gitdm) GitHub repo into a SortingHat database.
+
 ## Research & Development Projects
 
 * [CROSSMINER](https://github.com/crossminer) .
@@ -61,3 +65,4 @@ The CROSSMINER Project, funded under the European Union's Horizon 2020 Research 
 aims to enable the monitoring, in-depth analysis and evidence-based selection of open source components, and facilitates knowledge extraction from large open-source software repositories.
 Some of the components produced by it, notoriously [Prosoul](https://github.com/Bitergia/prosoul)
 interoperate with GrimoireLab.
+
