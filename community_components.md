@@ -43,13 +43,21 @@ a web interface for configuring GrimoireLab, so that it analyizes any set of
 repositories. [More information (in Spanish)](http://zhquan.github.io/TFG/).
 
 * [Prosoul](https://github.com/Bitergia/prosoul)
-The goal of this project is to create a web editor and viewer for software quality models that are used to show metrics in a meaningful way. Also, importers and exporters for the different quality models used in the industry will be implemented so they can be used as models or evolved for the creation of new quality models. In the initial version the metrics supported will be the CROSSMINER ones (see below), but it will aso support GrimoireLab data. Based on the models, visualizations and assessment for the projects are generated. In the inital version visualizations will be created using GrimoireLab.
-
-* [Crossminer](https://github.com/crossminer) .
-The CROSSMINER Project, is a project funded under the European Union's Horizon 2020 Research and Innovation Programme to enable the monitoring, in-depth analysis and evidence-based selection of open source components, and facilitates knowledge extraction from large open-source software repositories.
+The goal of this project is to create a web editor and viewer for software quality models that are used to show metrics in a meaningful way, and importers and exporters for the different quality models used in the industry.
+This software is produced in the context of the [CROSSMINER project](https://github.com/crossminer),
+and interoperates with GrimoireLab by consuming its standard indexes.
+It also uses some visualizations based in GrimoireLab components. 
 
 * [Prospector](https://github.com/chaoss/prospector).
 Prospector permits automated collection of a wide range of metrics of open source projects 
 useful in evaluating the project.
 Prospector is a sister project in CHAOSS, using Perceval (a GrimoireLab component) 
 for retrieving data from its data sources.
+
+## Research & Development Projects
+
+* [CROSSMINER](https://github.com/crossminer) .
+The CROSSMINER Project, funded under the European Union's Horizon 2020 Research and Innovation Programme,
+aims to enable the monitoring, in-depth analysis and evidence-based selection of open source components, and facilitates knowledge extraction from large open-source software repositories.
+Some of the components produced by it, notoriously [Prosoul](https://github.com/Bitergia/prosoul)
+interoperate with GrimoireLab.
