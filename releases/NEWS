@@ -1,0 +1,81 @@
+# 0.2.0
+
+Released: 2018-11-19
+
+* Cereslib
+    * Fix date parsing errors using grimoirelab-toolkit
+* Grimoire ELK
+    * [flake8] Add W503 to ignore list
+    * [studies] Improve log lines prefix
+    * (alpgarcia/master) [enrich] Use grimoirelab-toolkit methods
+    * [utils] Avoid enriching items over and over
+    * [enrich] Prevent find identities for none ids
+    * [schema] Update type for id in discouse.csv
+    * [enrich-askbot] Fix typo in enrich_items
+    * [schema] Update askbot csv
+    * [enrich-askbot] Update id attribute mapping
+    * [tests] Remove credentials info from log messages
+    * [enriched] Remove credentials info from log messages
+    * [ell] Remove credentials info from log messages
+    * [elastic_items] Remove credentials info from log messages
+    * [elastic] Add `anonymize_url` method
+    * [tests] Add tests for alias management
+    * [enrich-git] Use global variable for aoc alias
+    * [utils] Handle alias management
+    * [elk] Handle alias management
+    * [elastic] Support alias management
+    * [enrich] Remove logic to add aliases
+    * [elk] Refactor `refresh_identities`
+    * [enrich-github] Change mapping type of state attribute
+    * [enrich-gerrit] Change mapping type of status attribute
+    * [gitlab-raw] Fix mappings to avoid immense term exception
+    * [enrich-github] Fix attribute repository
+    * [elastic_items] Handle none page
+    * [raw-gitlab] Allow passing blacklisted items from projects.json
+    * [enrich-askbot] Refactor logic to enrich items
+    * [enrich-crates] Replace list with yield
+    * [enrich-phabricator] Replace list with yield
+    * [enrich-puppetforge] Replace list with yield
+    * [tests] Add method to check value has_identities
+    * [enrich-mediawiki] Remove `has_identities` method
+    * [schema] Update stackoverflow csv
+    * [enrich-stackexchange] Reorganize tags fields
+* Hatstall
+    * Hide identities that does not have profile
+* Kibiter
+    * Synchronized with Kibana 6.1.4
+* Perceval
+    * Updating instructions for querying stackexchange in README
+    * [gitlab] Fix `has_resuming` method
+* Sigils
+    * [slack] Fix duplicates due to the avatar in top participants table
+    * [stackoverflow] Update field for question tags
+    * [affiliations] Add affiliations panel for kibana 6
+    * [doc] Add GitHub and Gerrit efficiency docs
+    * [efficiency] Add panels for GitHub and Gerrit
+    * [mediawiki] Add Mediawiki panel doc
+    * [mediawiki] Add projects table in Mediawiki panel
+* SirMordred
+    * [tests] Update setup.cfg with aliases_file param
+    * [task_enrich] Load aliases path from cfg param
+    * [task_collection] Load aliases path from cfg param
+    * [task] Load aliases.json file from variable path
+    * [config] Add aliases.json path in general cfg section
+    * Fix error importing old TaskPanelsAliases object
+    * [micro] Remove reference to TaskPanelsAliases
+    * [task_enrich] Remove reference of TaskPanelsAliases
+    * [sirmordred] Remove references to TaskPanelsAliases
+    * [task_panels] Remove TaskPanelsAliases task
+    * [sirmordred] Add aliases.json file
+    * [task_enrich] Extend enrich_backend method for alias management
+    * [task_collection] Extend feed_backend method for alias management
+    * [task] Read aliases from file
+    * [task-enrich] Refactor `refresh_identities`
+    * Reorder Gitlab panels putting them before Community panels
+    * Update metadashboard structure according to the new menu
+    * Unify the log debug messages printed by the threads
+    * Add the origin to the log messages both for data collection and enrichment
+    * Change logging level for Perceval and GrimoireELK and disable their logging files
+    * [menu] Add efficiency panels for GitHub and Gerrit
+* SortingHat
+    * [api] Optimize how last modified identities are retrieved
