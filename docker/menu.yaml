@@ -5,7 +5,7 @@
   index-patterns:
   - panels/json/git-index-pattern.json
   - panels/json/git_areas_of_code-index-pattern.json
-  - panels/json/all_onion-index-pattern.json
+  - panels/json/demographics-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/git.json
@@ -13,12 +13,8 @@
     panel: panels/json/git_demographics.json
   - name: Areas of code
     panel: panels/json/git_areas_of_code.json
-  - name: Community Structure Overall
-    panel: panels/json/onion_overall.json
-  - name: Community Structure by project
-    panel: panels/json/onion_projects.json
-  - name: Community Structure by organization
-    panel: panels/json/onion_organizations.json
+  - name: Lifecycle
+    panel: panels/json/lifecyle.json
 - name: Gerrit
   source: gerrit
   icon: default.png
@@ -31,6 +27,8 @@
     panel: panels/json/gerrit_backlog.json
   - name: Timing
     panel: panels/json/gerrit_timing.json
+  - name: Efficiency
+    panel: panels/json/gerrit_efficiency.json
 - name: GitHub PRs
   source: github
   icon: default.png
@@ -43,6 +41,8 @@
     panel: panels/json/github_pull_requests_backlog.json
   - name: Timing
     panel: panels/json/github_pull_requests_timing.json
+  - name: Efficiency
+    panel: panels/json/github_pull_requests_efficiency.json
 - name: GitHub Issues
   source: github
   icon: default.png
@@ -55,6 +55,8 @@
     panel: panels/json/github_issues_backlog.json
   - name: Timing
     panel: panels/json/github_issues_timing.json
+  - name: Efficiency
+    panel: panels/json/github_issues_efficiency.json
 - name: Phabricator
   source: phabricator
   icon: default.png
@@ -84,6 +86,7 @@
   icon: default.png
   index-patterns:
   - panels/json/jira-index-pattern.json
+  - panels/json/jira_resolution_date-index-pattern.json
   menu:
   - name: Overview
     panel: panels/json/jira.json
@@ -132,7 +135,31 @@
   - name: Overview
     panel: panels/json/mediawiki.json
 - name: Mailing Lists
+  source: groupsio
+  icon: default.png
+  index-patterns:
+  - panels/json/mbox-index-pattern.json
+  menu:
+  - name: Overview
+    panel: panels/json/mailinglists.json
+- name: Mailing Lists
+  source: hyperkitty
+  icon: default.png
+  index-patterns:
+  - panels/json/mbox-index-pattern.json
+  menu:
+  - name: Overview
+    panel: panels/json/mailinglists.json
+- name: Mailing Lists
   source: mbox
+  icon: default.png
+  index-patterns:
+  - panels/json/mbox-index-pattern.json
+  menu:
+  - name: Overview
+    panel: panels/json/mailinglists.json
+- name: Mailing Lists
+  source: nntp
   icon: default.png
   index-patterns:
   - panels/json/mbox-index-pattern.json
@@ -219,11 +246,15 @@
   menu:
   - name: Overview
     panel: panels/json/jenkins.json
+  - name: Jobs
+    panel: panels/json/jenkins_jobs.json
+  - name: Nodes
+    panel: panels/json/jenkins_nodes.json
 - name: Mozilla Club
   source: mozillaclub
   icon: default.png
   index-patterns:
-  - panels/json/mozillaclub-index-pattern.json
+  - panels/json/mozilla_club-index-pattern.json
   menu:
   - name: Events
     panel: panels/json/mozilla_club.json
@@ -257,7 +288,7 @@
   - panels/json/google-hits-index-pattern.json
   menu:
   - name: Overview
-    panel: panels/json/google_hits.json
+    panel: panels/json/google-hits.json
 - name: DockerHub
   source: dockerhub
   icon: default.png

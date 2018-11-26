@@ -1,0 +1,15 @@
+{
+  "git": {
+      "raw": ["git-raw"],
+      "enrich": ["git", "git_author", "git_enrich", "affiliations"]
+  },
+  "github": {
+      "raw": ["github-raw"],
+      "enrich": ["github_issues", "github_issues_enrich", "issues_closed",
+                 "issues_created", "issues_updated", "affiliations"]
+  },
+  "pipermail": {
+      "raw": ["pipermail-raw"],
+      "enrich": ["mbox", "affiliations"]
+  }
+}
