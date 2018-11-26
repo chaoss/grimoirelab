@@ -71,8 +71,7 @@ ADD docker/orgs.json /orgs.json
 ADD docker/projects.json /projects.json
 ADD docker/identities.yaml /identities.yaml
 ADD docker/menu.yaml /menu.yaml
-#ADD docker/panels ${DEPLOY_USER_DIR}/panels
-RUN /bin/ln -s /menu.yaml  ${DEPLOY_USER_DIR}/menu.yaml
+ADD docker/aliases.json /aliases.json
 
 USER ${DEPLOY_USER}
 WORKDIR ${DEPLOY_USER_DIR}
