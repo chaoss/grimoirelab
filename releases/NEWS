@@ -1,3 +1,31 @@
+# 0.2.1
+
+Released: 2018-12-04
+
+* Cereslib
+    * [tests] Update FilePath test code
+    * [enrich] Prepend file dir paths with slash
+* Grimoire ELK
+    * [schemas] Fix GitLab CSVs to add missing columns
+    * [enrich-gitlab] Add doc for `time_to_close_days` and `time_to_merge_days`
+    * [enrich-gitlab] Fix `merged` attribute calculation
+    * [enrich-gitlab] Update calculation of `time_to_close_days`
+    * [elastic] Prevent add alias if already in use in ES
+* Perceval
+    * [gitlab] Add retry on 503 HTTP error
+* Sigils
+    * [docs] Fix page titles
+    * [docs] Remove theme
+    * [docs] Update local links
+    * [docs] Remove old documentation
+    * [docs] Add Jekyll based documentation
+    * Ignore Jekyll and Ruby related files
+    * [gitlab] Sync MRs index pattern title with SirMordred aliases
+    * [git] Update Git Demographics panel
+* SortingHat
+    * [cmd:autoprofile] Avoid to set email addresses in name profile
+
+
 # 0.2.0
 
 Released: 2018-11-19
