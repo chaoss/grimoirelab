@@ -1,3 +1,25 @@
+# 0.2.2
+
+Released: 2018-12-11
+
+* Grimoire ELK
+    * [csv] Update gitlab merges schema
+    * [enrich-gitlab] Add time fields info
+* KingArthur
+    * Fix package requirements
+    * Update requirements file due incompatible versions of RQ and Redis
+* Manuscripts
+    * [manuscript] add chinese package
+    * Write notice message when the 'Process' section is empty
+* Sigils
+    * [data-status] Add remo events and activities information
+* SirMordred
+    * [doc] Update documentation of setup.cfg params
+    * [micro] Update micro setup.cfg
+    * [task_panels] Read menu.yaml from setup.cfg
+    * [config] Add menu_file param
+
+
 # 0.2.1
 
 Released: 2018-12-04
