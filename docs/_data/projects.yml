@@ -7,7 +7,7 @@
   icon: tasks
   github-name: grimoirelab-kingarthur
   description: <em>King Arthur</em> commands his loyal knight <em>Sir Perceval</em> mananging the tasks to retrieve data for analysis. It manages data incremental update, parallel downloading, etc.
-- name: GrimoireELK
+- name: Elk
   icon: flask
   github-name: grimoirelab-elk
   description: <em>Playground</em> for testing the whole set of tools as a platform for software development analytics. It's is a prototype of the <em>Grimoire Open Development Analytics</em> platform.
