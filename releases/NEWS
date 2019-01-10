@@ -1,3 +1,64 @@
+# 0.2.3
+
+Released: 2019-01-10
+
+* Grimoire ELK
+    * [elastic] Change log message level when inserting data to ES
+    * [sortinghat_elk] Include stacktrace in log message for unknown exception
+    * [elk] Include stacktrace in log message
+    * [tests] Delete onion index after test execution
+    * [elastic] Change log message level when alias already exists
+    * [enrich] Prevent adding DEMOGRAPHICS alias if already in use
+    * [enrich] Prevent adding ONION alias if already in use
+    * [git-enrich] Prevent adding AOC alias if already in use
+    * [enrich] Use the cfg section name to retrieve project name
+    * [elk] propagate cfg section name from mordred to ELK
+    * [elastic_items] Store value of the cfg section name
+    * Update github_issues.csv
+    * Update github_issues.csv
+    * Documentation added on github_issues.csv
+* Hatstall
+    * Change redirections to the Django urls standard
+    * Redirect to the profile where the others profiles are merged
+    * Decrease minlength of the identities search input to 2 characters
+    * Show error when an uuid does not belong to a profile
+* Perceval
+    * [github] Support `to-date` parameter in GitHub backend
+* Sigils
+    * [affiliations] Set limit author entries due to performance issues
+    * [doc] Update Gerrit Efficiency panel documentation
+    * [efficiency] Specify Lead Time unit on Gerrit panel
+    * [doc] Update GitLab Efficiency panels documentation
+    * [doc] Update GitHub Efficiency panels documentation
+    * [efficiency] Specify Lead Time unit on both GitHub panels
+    * Add recommendations on how to create a panel
+    * Add info on how to use Jekyll with GitHub pages
+    * Update front matter
+    * Fix wrong links
+    * Update contributing guidelines
+    * [doc] Update screenshot for GitLab MRs Efficiency panel
+    * [efficiency] Add efficiency panel for GitLab merge requests
+    * [doc] Add documentation for GitLab merge requests efficiency panel
+    * [doc] Add documentation for GitLab issues efficiency panel
+    * [efficiency] Add efficiency panel for GitLab issues
+    * Fix link URL to CSV schema files in README.md
+    * Update sample documentation file
+    * [docs] Add markdown for Pull Requests Merged panel
+    * [chaoss] Add pull requests merged panel
+    * [git] Add lifecycle panel
+    * Add lifecycle.jpg
+    * Create lifecycle.md
+* SirMordred
+    * [task] Remove credentials from URLs
+    * [task_panels] Add log message when kibiter is not reachable
+    * [task_panels] Replace urljoin with urijoin
+    * [task_enrich] Propagate cfg section name to ELK
+    * [task_panels] Add GitLab efficiency panels
+    * [menu] Add Git Lifecycle panel
+* SortingHat
+    * [cmd:autoprofile] Fix expected string or bytes-like object error
+
+
 # 0.2.2
 
 Released: 2018-12-11
