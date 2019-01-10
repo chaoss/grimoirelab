@@ -55,6 +55,8 @@
     - name: "Create directories for packages and old packages"
       file:
         path: "{{playbook_dir}}/{{item}}"
+        state: directory
+        mode: 0777
       with_items:
         - dist
         - dist.old
@@ -63,6 +65,12 @@
       command: "mv -f {{item}} {{ playbook_dir }}/dist.old"
       with_fileglob:
         "{{playbook_dir}}/dist/*"
+
+    - name: "Create directories for logs"
+      file:
+        path: "{{playbook_dir}}/logs"
+        state: directory
+        mode: 0777
 
     - name: "Build packages using grimoirelab/factory ({{ RELEASE }})"
       when: RELEASE != 'latest'
@@ -79,7 +87,8 @@
       register: result
 
     - debug:
-        msg: "Building output:\n{{result.ansible_facts.docker_container.Output}}"
+#        msg: "Building output:\n{{result.ansible_facts.docker_container.Output}}"
+        msg: "Building output:\n{{result.ansible_facts}}"
       when: RELEASE != 'latest' and result.ansible_facts is defined
 
 

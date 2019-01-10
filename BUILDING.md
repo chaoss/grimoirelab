@@ -45,15 +45,16 @@ To be written
 
 There is an Ansible playbook that can be used to build
 all Python packages and all container images for a GrimoireLab release:
-`ansible_release.yml`. You can run it as follows (from the docker directory,
-being `18.09-02` the release to build):
+`ansible_release.yml`. You can run it as follows, in a Python3 environment (from the docker directory,
+being `0.2.3` the release to build):
 
 ```bash
 $ pip install ansible
+$ pip install docker
 $ git clone https://github.com/chaoss/grimoirelab
 $ cd grimoirelab/docker
 $ ANSIBLE_STDOUT_CALLBACK=debug ansible-playbook ansible_release.yml \
-  --extra-vars "RELEASE=18.09-02" --tags "build"
+  --extra-vars "RELEASE=0.2.3" --tags "build"
 ```
 
 For running the playbook, you will need to have Docker installed.
