@@ -10,13 +10,10 @@
     crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="css/main.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.js" integrity="sha256-cIcPwh2GcosI6bCl+ZAZt2j0Sk1QfgQ1ejEpjYOfa8g="
-    crossorigin="anonymous"></script>
   <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
   <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
   <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
-  <script src="js/genES.js"></script>
-  <script src="js/builderESDS.js"></script>
+  <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
   <script src="main.js"></script>
 
   <!--A FRAME-->
@@ -38,6 +35,9 @@
             <a-text value="Stats" scale="0.8 0.8 1" position="-0.25 -0.38 0.10"></a-text>
             <a-image src="#grimoireLabLogo" width="0.6" height="0.6" position="0 0.15 0.10"></a-image>
           </a-entity>
+          <a-entity position="-0.7 1.6 0" scale="0.1 0.1 0.5" material="color: orange;" text-geometry="value: Time evolution of Git Commits per author"></a-entity>
+          <a-entity position="1.13 1.63 0.5" rotation="0 -45 0 " scale="0.1 0.1 0.5" material="color: orange;" text-geometry="value: Git commits per organization"></a-entity>
+          <a-entity position="-2.3 1.65 1.25" rotation="0 30 0 " scale="0.1 0.1 0.5" material="color: orange;" text-geometry="value: Git commits and avg files per author in repositories"></a-entity>
         </a-scene>
       </div>
     </div>
