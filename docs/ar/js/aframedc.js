@@ -2800,7 +2800,7 @@ function aframedc() {
     }
     aframedc.dashboard = function (containerdiv) {
         var scene = document.getElementById("aframeScene");
-        scene.setAttribute('arjs', '');
+        scene.setAttribute('arjs', 'debugUIEnabled: false');
         scene.setAttribute('embedded', '');
         scene.setAttribute('antialias', "true");
         //creating camera 
