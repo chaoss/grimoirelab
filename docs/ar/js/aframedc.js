@@ -2701,7 +2701,7 @@ function aframedc() {
     }
     var dashBoard = function (dashEntity) {
         //var dashEntity = document.createElement("a-entity");
-        dashEntity.id = "aframedc";
+        //dashEntity.id = "aframedc";
         dashEntity.setAttribute('position', '0 0.5 0');
         //scene.appendChild(dashEntity);
         var odashboard = dashEntity;
@@ -2799,7 +2799,7 @@ function aframedc() {
         return parent;
     }
     aframedc.dashboard = function (containerdiv) {
-        var scene = document.createElement("a-scene");
+        var scene = document.getElementById("aframeScene");
         scene.setAttribute('arjs', '');
         scene.setAttribute('embedded', '');
         scene.setAttribute('antialias', "true");
@@ -2817,7 +2817,7 @@ function aframedc() {
         box.setAttribute('position', '0 0.5 0');
         box.setAttribute('material', 'color: red;');
         //scene.appendChild(box);
-        containerdiv.appendChild(scene);
+        //containerdiv.appendChild(scene);
         return dashBoard(scene);
     }
     var baseMixin = {
