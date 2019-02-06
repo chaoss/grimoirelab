@@ -1,3 +1,73 @@
+# 0.2.4
+
+Released: 2019-02-06
+
+* Cereslib
+    * [enrich] Add .go as extension for the Go programming language
+* Grimoire ELK
+    * Remove alias in use check for onion
+    * [elastic] Change log level message when alias is already in use
+    * [elk] Set filter raw in enrich connector
+    * [enrich] Allow to assign project to filtered repos
+    * [raw] Enable filter raw for Gerrit data source
+    * [git] Improve log messages when updating git commits data
+    * [elastic_items] Modify `fetch` method to collect all documents
+    * [git] Remove deleted commits from raw and enriched indexes
+    * [raw] Allow to perform update operations over a raw index
+    * [enrich] Allow to update enriched items
+* Hatstall
+    * Update docs in order to add the env variables of docker deployment
+    * Link apache2 logs files to stderr and stdout
+* KingArthur
+    * [worker] Remove unnecessary RQ connection management in ArthurWorker
+    * [tests] Repair some flake8 warnings
+    * [arthur] Add PUBSUB channel name specification
+* Perceval
+    * [git] Add rev-list command to GitRepository class
+    * [tests] Add tests to check fetch without update
+    * [git] Allow fetch without update repo
+    * [phabricator] Move extra_status_force_list to Client class variable
+    * [meetup] Move extra_status_force_list to Client class variable
+    * [jenkins] Move extra_status_force_list to Client class variable
+    * [googlehits] Move extra_status_force_list to Client class variable
+    * [tests] Add test about retry error for GitHub
+    * [github] Handle upstream server connection problems
+* Sigils
+    * Update StackOverflow index pattern and panel
+    * [chaoss-gmd] Fix screenshots for CHAOSS GMD collection
+    * [jira-backlog] Change label project to repo in Backlog visualization
+    * [jira-timing] Replace attribute project_name with project
+    * [jira-effort] Change label Project with Repository
+    * [jira] Replace project_name with project for jira_repositories viz
+    * Fix merges filter
+    * Updating new changes for the panel
+    * Update panel and documentation for PR merge duration panel
+    * Add documentation for pr merge duration panel
+    * Add pull request merge duration new panel
+    * Add screenshots and update front matter for sigils
+    * Remove word 'legacy' from Sigils title
+    * Add styles to doc pages
+    * [CHAOSS GMD] Update widgets in the panel according to the review
+    * [CHAOSS GMD] Add maintainer response to merge request duration
+    * Add help markdown widget to git demographics panel
+    * Add help markdown widget to demographics panel
+    * [doc][chaoss-gmd] Fix panel creation date
+    * [chaoss][doc] Add documentation for Lines of Code Changed panel
+    * [chaoss] Add Lines of Code Changed panel
+    * [doc] Fix front matter for pull requests merged
+* SirMordred
+    * [doc] Add documentation about micro-mordred
+    * [config] Fix flake8 error
+    * [mordred] Remove global data sources param
+    * [doc] Add description for global_data_sources param
+    * [mordred] Update way of accessing global data sources
+    * [task_projects] Allow to accept list of global source
+    * [config] Make global data sources configurable from cfg
+    * [task_identities] Log message when orgs_file is not found on disk
+* SortingHat
+    * [sortinghat] Fix deprecation warning for SafeConfigParser
+    * Fix a few grammatical errors in README.md (#181)
+
 # 0.2.3
 
 Released: 2019-01-10
