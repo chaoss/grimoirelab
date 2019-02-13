@@ -1,3 +1,17 @@
+# 0.2.5
+
+Released: 2019-02-13
+
+
+* Grimoire ELK
+    * [studies] Add origin based enrichment in AOC
+    * [elastic_items] Update ES query for incremental enrichment
+    * [utils] Handle `get_last_enrich` with raw filters
+    * [elastic] Handle multiple filters for last date of enriched items
+* Toolkit
+    * [dependency] Update python-dateutil to 2.8.0
+
+
 # 0.2.4
 
 Released: 2019-02-06
@@ -67,6 +81,7 @@ Released: 2019-02-06
 * SortingHat
     * [sortinghat] Fix deprecation warning for SafeConfigParser
     * Fix a few grammatical errors in README.md (#181)
+
 
 # 0.2.3
 
