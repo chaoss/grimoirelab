@@ -13,6 +13,7 @@ Currently, GrimoireLab is organized in the following repositories:
 * [Perceval (bundle for OPNFV)](https://github.com/chaoss/grimoirelab-perceval-opnfv)
 * [Perceval (bundle for Mozilla)](https://github.com/chaoss/grimoirelab-perceval-mozilla)
 * [Perceval (bundle for Puppet)](https://github.com/chaoss/grimoirelab-perceval-puppet)
+* [Graal](https://github.com/chaoss/grimoirelab-graal): source data analysis with external tools
 * [KingArthur](https://github.com/chaoss/grimoirelab-kingarthur): batch processing for massive retrieval
 * [GrimoireElk](https://github.com/chaoss/grimoirelab-elk): storage and enrichment of data
 * [GrimoireLab Toolkit](https://github.com/chaoss/grimoirelab-toolkit): common utilities
