@@ -1,3 +1,86 @@
+# 0.2.6
+
+Released: 2019-03-11
+
+* Grimoire ELK
+    * [enrich] Add onion study to gerrit
+    * [p2o] Add None value for param `cfg_section_name` to p2o
+    * [enrich-confluence] Add ancestors data to enriched items
+    * [enriched] Add refresh param to update_by_query and delete_by_query
+    * [elk] Apply data retention policy to study indexes
+    * [utils] Set default value for variable analyzers
+    * [elastic] Add method `delete_items`
+    * [elk] Remove filter-raw-* for enrich backend
+    * [enriched] Handle hidden editors in mediawiki revisions
+    * [raw] Prevent mapping of data.ancestors.extensions for confluence raw items
+    * [elastic_items] Support for filter-raw-prefix
+    * [enrich] Remove raw filters when getting last enriched item
+    * [elk] Remove logic to create filters
+    * [elastic_items] Support filter on multiple attributes
+    * [raw] Remove `get_p2o_params_from_url` from Jira raw connector
+    * [raw] Remove `get_p2o_params_from_url` from Confluence raw connector
+    * [raw] Remove `get_p2o_params_from_url` from Bugzilla raw connector
+    * [raw] Remove `get_p2o_params_from_url` from Askbot raw connector
+    * [raw] Remove `get_p2o_params_from_url` from Gerrit raw connector
+    * [raw] Remove `get_p2o_params_from_url` from Git raw connector
+    * [tests] Add tests for `get_p2o_params_from_url` method
+    * [raw] Parse filters passed in the projects.json entries
+    * [enriched] Handle 502 and 503 errors
+    * [schema] Update jira.csv
+    * [enrich] Add updated field to Jira items
+    * [schema] Update gerrit.csv
+    * [enrich] Add last_updated and created_on to gerrit items
+    * [enrich] Add retry on status forcelist to ES connector
+    * [enrich] Update branch info in git commits
+    * [tests] Add tests for parsing projects.json in Jira raw connector
+    * [raw] Handle filter raw for jira
+    * [raw] Handle filter raw for confluence
+    * [schema] Add schema for GitHub repo data
+    * [enrich] Support enrichment of GitHub repo data
+    * [enrich] Handle Perceval errors on Git repo when updating items
+    * Revert "[enrich] Update Git references data in raw and enriched indexes"
+    * Revert "[schema] Update Git schema to include refs info"
+    * [schema] Update Git schema to include refs info
+    * [enrich] Update Git references data in raw and enriched indexes
+    * [utils] Move p2o description to main
+    * [utils] Move index_mapping description to main
+    * [utils] Move gh2k description to main
+    * [utils] Move gh2arthur description to main
+    * [utils] Move get_git_repos description to main
+    * [utils] Move gelk_mapping description to main
+    * [utils] Move gelk description to main
+    * [utils] Move e2k description to main
+    * [ELK] Update license info
+    * [tests] Update tests for mbox-related enrichers
+    * [schema] Update mbox csv
+    * [enrich] Add mbox_author_domain to mbox data
+* Perceval
+    * [confluence] Extend Perceval Confluence backend to index ancestor pages
+    * [github] Add 'repository' category to fetch metadata from repositories
+    * [perceval] Update license info
+* Sigils
+    * [jira] Add painless field that computes time of issues on the fly
+    * [github] Add delay with painless field to GH Issues panels
+    * [gerrit] Update gerrit panels adding delay with painless field
+    * [github] Add delay with painless field to GH Pull Requests panels
+    * Update onion panels and their documentation
+    * Address changes requested in #339
+    * Add Jenkins Job Categories panel
+    * Add new version of emtech adoption without crates
+* SirMordred
+    * [config] Allow None default value for int config param
+    * [task_enrich] Enable data retention policy after enrichment phase
+    * [task_collection] Enable data retention policy after collection phase
+    * [task] Delete data based on retation_hours param
+    * [doc] Add description for`retention_hours` param
+    * [config] Add param `retention_hours`
+    * [task_collection] Improve doc for filter-raw param
+    * [task] Refactor logic to process --filter-* params
+    * [tests] Fix tests after modification in perceval
+    * [task_enrich] Modify p2o filters-prefix params
+    * Add jenkins job categories panel to `menu.yml`
+
+
 # 0.2.5
 
 Released: 2019-02-13
