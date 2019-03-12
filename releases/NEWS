@@ -1,3 +1,18 @@
+# 0.2.7
+
+Released: 2019-03-12
+
+* Grimoire ELK
+    * [utils] Add missing header to run scripts as Python scripts
+    * [enriched] Update `get_project_repository` for bugzilla enricher
+    * [enrich] Assign default project name to repos in unknown section
+    * [enriched] Remove `get_item_project` for bugzillarest enricher
+    * [elk] Add filter raw info to enrich backend
+* SirMordred
+    * [tests] Add tests for `get_repos_by_backend_section` in TaskProjects
+    * [task_projects] Refactor `get_repos_by_backend_section`
+
+
 # 0.2.6
 
 Released: 2019-03-11
