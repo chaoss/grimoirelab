@@ -1,3 +1,32 @@
+# 0.2.8
+
+Released: 2019-03-15
+
+* Grimoire ELK
+    * [enrich] Change mappings to convert `date` field to keyword
+    * [raw] Change mappings to convert `date` field to keyword
+    * [ELK] Rename finos_meetings to finosmeetings
+    * [tests] Add tests for finosmeetings
+    * [enrich] Add connector for finosmeetings
+    * [raw] Add connector for finosmeetings
+    * [utils] Add connector for finosmeetings Perceval backend
+    * [setup] Add perceval-finos to install_requires list
+    * [requirements] Add perceval-finos to requirements.txt
+
+* Perceval FINOS
+    * [finosmeetings] Fix docstrings and flake8
+    * [finosmeetings] Change UUID calculation
+    * [finosmeetings] Add `date_iso_format` attribute
+    * [finosmeeting] Add backend to index FINOS meetings attendance
+    * Fix typo in FINOS name (hace 2 días)
+    * Initial import
+
+* SirMordred
+    * [doc] Add section getting started in README.md
+    * [aliases] Add aliases for raw and enrich finosmeetings indexes
+    * [requirements] Add perceval-finos to requirements.txt
+
+
 # 0.2.7
 
 Released: 2019-03-12
