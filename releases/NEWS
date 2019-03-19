@@ -1,3 +1,17 @@
+# 0.2.9
+
+Released: 2019-03-19
+
+* Grimoire ELK
+    * [enrich-github] Add url field to enriched repository items
+    * [utils] Use `last_enrich_date` for incremental enrichment
+    * [elk] Add `last_enrich_date` to enrich_backend method
+    * [elastic_items] Add set_from_date method
+    * [schema] Add demography fields to Git
+* SirMordred
+    * [task_enrich] Pass the last timestamp of the index before enrichment
+
+
 # 0.2.8
 
 Released: 2019-03-15
