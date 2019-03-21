@@ -1,3 +1,15 @@
+# 0.2.11
+
+Released: 2019-03-21
+
+* Grimoire ELK
+    * [tests] Update finosmeetrings backend test to the new schema
+* Perceval FINOS
+  * [finosmeetings] Rename activity and program fields
+* SirMordred
+    * [task_projects] Prevent enrich unknown projects when declared also in other projects
+
+
 # 0.2.10
 
 Released: 2019-03-20
@@ -34,7 +46,6 @@ Released: 2019-03-15
     * [utils] Add connector for finosmeetings Perceval backend
     * [setup] Add perceval-finos to install_requires list
     * [requirements] Add perceval-finos to requirements.txt
-
 * Perceval FINOS
     * [finosmeetings] Fix docstrings and flake8
     * [finosmeetings] Change UUID calculation
@@ -42,7 +53,6 @@ Released: 2019-03-15
     * [finosmeeting] Add backend to index FINOS meetings attendance
     * Fix typo in FINOS name (hace 2 días)
     * Initial import
-
 * SirMordred
     * [doc] Add section getting started in README.md
     * [aliases] Add aliases for raw and enrich finosmeetings indexes
