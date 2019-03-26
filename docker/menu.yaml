@@ -250,6 +250,10 @@
     panel: panels/json/jenkins_jobs.json
   - name: Nodes
     panel: panels/json/jenkins_nodes.json
+  - name: Categories
+    panel: panels/json/jenkins_job_categories.json
+  - name: Export
+    panel: panels/json/jenkins_export.json
 - name: Mozilla Club
   source: mozillaclub
   icon: default.png

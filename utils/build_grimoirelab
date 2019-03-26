@@ -69,7 +69,7 @@ all_repos = {
     'perceval-finos': [{'name': 'perceval-finos', 'dir': '',
             'repo_url': 'http://github.com/Bitergia/grimoirelab-perceval-finos',
             'version_file': 'setup.py',
-            'check_run': 'perceval finos --help'}],
+            'check_run': 'perceval finosmeetings --help'}],
     'kingarthur': [{'name': 'kingarthur', 'dir': '',
             'repo_url': 'http://github.com/chaoss/grimoirelab-kingarthur',
             'version_file': os.path.join('arthur', '_version.py'),
