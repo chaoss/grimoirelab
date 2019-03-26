@@ -1,3 +1,47 @@
+# 0.2.12
+
+Released: 2019-03-26
+
+* Grimoire ELK
+    * [meetup-enriched] Prevent to access filter-classified attributes
+    * [elk] Handle filter-classified param
+    * [enriched] Set project name to cm_program for finosmeetings enrich
+    * [enriched] Add sortinghat identities info to finosmeetings
+    * [enrich] Prevent timeout when using ElasticSearch DSL
+    * [enriched] Fix `Too many dynamic script compilations` in git enrich
+    * [jira] Handle missing fields during the enrichment
+    * [jira] Handle multiple type values in `release` attribute during enrichment
+    * [stackexchange] Handle missing `answer_tags`
+    * [enriched] Apply retry mechanism HTTP 504 errors
+* Perceval
+    * [tests] Increase test coverage for confluence backend
+    * [confluence] Fix typo in in-line comment
+    * [confluence] Skip contents if 'when' attribute is missing
+    * [meetup] Add 'group.topics' to the list of classified fields
+    * [backend] Allow to filter classified fields from the command line
+    * [backend] Add 'filter-classified' option to the backend argument parser
+    * [backend] Add 'filter_classified' parameter to fetch() function
+    * [backend] Support filtering of classified fields in Backend class
+    * [git] Fix `rev-list` call with `--max-count`
+    * [doc] Update docstring for `sleep_time` param
+    * [discourse] Add params `sleep_time` and ` max_retries`
+    * [discourse] Add tests for sleep_time and max_retries params
+    * [discourse] Complete raise statements in test code
+    * [discourse] Remove redundant parenthesis in test methods
+    * [github] Add support for GitHub tokens pool
+* SirMordred
+    * [utils] Update setup.cfg and projects.json of micro-mordred
+    * [task_panels] Order dashboards by name
+    * [doc] Update documention for panels section
+    * [menu.yml] Add export panel to Jenkins
+    * [task_panels] Upload github repos panels
+    * [tests] Update aliases.json in tests folder
+    * [config] Add param to upload github-repo panels
+    * [aliases] Add raw and enrich aliases for github:repo
+* Sortinghat
+    * [parsing] Fix YAMLLoadWarning for grimoirelab parser
+
+
 # 0.2.11
 
 Released: 2019-03-21
