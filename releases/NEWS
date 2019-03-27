@@ -1,9 +1,27 @@
+# 0.2.14
+
+Released: 2019-03-27
+
+* Grimoire ELK
+    * [tests] Update finosmeetings test data
+* Perceval FINOS
+    * [finosmeetings] Handle cm_type column
+    * [doc] Fix typo in README installation section
+* Sigils
+    * [docs] Fix broken links in docs
+    * [jira] Add documentation about Jira panel
+    * [jira] Fix mislabeled "Submitters by Organization" pie visualization
+    * [github] Add repositories popularity panel
+    * Update demographics help markdown
+
+
 # 0.2.13
 
 Released: 2019-03-27
 
 * Grimoire ELK
     * [finosmeetings] Change project value to cm_title
+
 
 # 0.2.12
 
