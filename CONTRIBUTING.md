@@ -52,6 +52,28 @@ these, open an issue in corresponding repository. If in doubt, ask in
 the IRC channel, or try in any one: if needed you will be redirected to
 the right repository. If you are proposing code, open a pull request.
 
+## DCO and Sign-Off for contributions
+
+The [CHAOSS Charter](https://github.com/chaoss/governance/blob/master/project-charter.md) requires that contributions
+are accompanied by a [Developer Certificate of Origin](http://developercertificate.org) sign-off.
+For ensuring it, a bot checks all incoming commits.
+
+For users of the git command line interface, a sign-off is accomplished with the `-s` as part of the commit command: 
+
+```
+git commit -s -m 'This is a commit message'
+```
+
+For users of the GitHub interface (using the "edit" button on any file, and producing a commit from it),
+a sign-off is accomplished by writing
+
+```
+Signed-off-by: Your Name <YourName@example.org>
+```
+
+in a single line, into the commit comment field. This can be automated by using a browser plugin like
+[DCO GitHub UI](https://github.com/scottrigby/dco-gh-ui).
+
 ## Committers
 
 Committers will have permision to merge code in GrimoireLab. Committers
