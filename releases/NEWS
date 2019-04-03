@@ -1,3 +1,36 @@
+# 0.2.15
+
+Released: 2019-04-03
+
+* Grimoire ELK
+    * [enrich-meetup] Avoid failures when 'rsvps' field is not available
+    * [enrich-git] Handle rev-list command failures
+    * [enriched] Fix missing ancestor title in confluence enriched items
+    * [elk] A   * dd methods to delete identities
+    * [sortinghat_gelk] Add method `unique_identities`
+    * [sortinghat_gelk] Add method `remove_identity`
+    * [elk] Fix docstring in `do_studies` method
+    * [enriched] Add function `get_diff_current_date` to utils
+    * [utils] Add param mapping to `get_elastic`
+    * [sortinghat_gelk] Add method to remove unique identities
+    * [elk] Retain identities based on identities index data
+    * [elk] Store identities in use in dedicated index
+    * [elastic] Refactor method `delete_items`
+* Perceval
+    * [meetup] Add 'rsvp', 'venue', and 'event_hosts' as classified fields
+    * [update] Remove unused imports
+* Perceval Mozilla
+    * Update Perceval dependency to 0.12.8
+    * [remo] Add 'filter_classified' parameter to metadata()
+    * [kitsune] Add 'filter_classified' parameter to metadata()
+* SirMordred
+    * [doc] Fix missing --cfg param for micro mordred example
+    * [task_enrich] Support retain identities
+    * [config] Add method `get_active_data_sources`
+    * [sirmordred] Replace `retention_hours` with `retention_time`
+    * YAMLLoadWarning solved
+
+
 # 0.2.14
 
 Released: 2019-03-27
