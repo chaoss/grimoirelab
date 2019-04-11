@@ -1,3 +1,31 @@
+# 0.2.16
+
+Released: 2019-04-11
+
+* Grimoire ELK
+    * [raw-jira] Update raw mapping to avoid immense term errors
+    * [enriched-enrich] Refactor `find_item_project` method
+    * [elk] Set value of `projects_json_repo` during enrichment
+    * [elk] Set value of `projects_json_repo` during collection
+    * [elastic_items] Add method `set_projects_json_repo`
+    * [elastic] Check presence of `properties` in mappings
+    * [enriched-jira] Add comments to enriched index
+    * [elastic_items] Handle commas in filter-raw
+    * [enriched-gerrit] Use grimoirelab-toolkit calls
+    * [elk] Handle empty sh uuid attributes
+    * [enriched-git] Fix handling rev-list command error
+    * Update row with missing aggregatable value
+* Perceval
+    * [tests] Increase test coverage of Jira backend
+    * [jira] Add comments in issues
+    * [github] Handle ghost user in pull request comment
+    * [doc] Update documentation for github and gitlab backends
+* SirMordred
+    * [tests] Update jira archive
+    * [task_enrich] Pass projects.json repo url to ELK
+    * [task_collection] Pass projects.json repo url to ELK
+
+
 # 0.2.15
 
 Released: 2019-04-03
