@@ -1,3 +1,22 @@
+# 0.2.17
+
+Released: 2019-04-22
+
+* Grimoire ELK
+    * [aoc] Update write method to upload smaller lists
+    * [enriched-bugzillarest] Change logic to calculate `timeopen_days`
+    * [enriched] Add metadata filter raw to enriched items
+    * [elk] Use filter raw info to assess last enrich date
+    * [enriched-enrich] Add `metadata_filter_raw` method
+    * [enriched-utils] Add filter raw text to retrive last enrich date
+    * [enriched-utils] Fix last enrich date calculation
+* Perceval
+    * [doc] Update help messages for "from-date" and "to-date" params
+* Sigils
+    * Update Jira panel documentation
+    * Update Jira panels to support index with comments
+
+
 # 0.2.16
 
 Released: 2019-04-11
