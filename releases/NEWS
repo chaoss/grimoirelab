@@ -1,3 +1,28 @@
+# 0.2.18
+
+Released: 2019-04-26
+
+* Grimoire ELK
+    * [requirements.txt] Constrain elasticsearch-related dependencies
+    * [setup.py] Constrain elasticsearch-related dependencies
+* Perceval
+    * [backend] Add backend-specific options for --category in helptext
+* Perceval FINOS
+    * [finosmeetings] Update argument parser to display categories in help message
+    * Update Perceval requirement to 0.12.12 or later
+* Perceval Mozilla
+    * Update Perceval requirement to 0.12.12 or later
+    * [backends] Include available category options in the helptext
+* Perceval OPNFV
+    * Update Perceval requirement to 0.12.12 or later
+    * [setup.py] Minor update to avoid flake8 error
+    * [functest] Include available category options in the helptext
+* Perceval Puppet
+    * Update Perceval requirement to 0.12.12 or later
+    * [setup.py] Minor update to avoid flake8 error
+    * [puppetforge] Include available category options in the helptext
+
+
 # 0.2.17
 
 Released: 2019-04-22
