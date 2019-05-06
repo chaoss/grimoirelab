@@ -1,3 +1,39 @@
+# 0.2.19
+
+Released: 2019-05-06
+
+* Grimoire ELK
+    * [schema] Update gerrit.csv
+    * [enriched-gerrit] Add type attribute to changeset items
+    * [enriched-gerrit] Rename `number` attribute to `changeset_number`
+    * [enriched-gerrit] Add changeset author info to enriched items
+    * [enrich-gerrit] Add common field to count review-related items
+    * [enriched-gerrit] Update attribute names (hace 3 días)
+    * [tests] Enhance test for gerrit enriched items
+    * [enriched-gerrit] Add patchset approvals as enriched items
+    * [enriched-gerrit] Add patchsets as enriched items
+    * [enriched-gerrit] Add comments as enriched items
+    * [enriched-git] Add study to process git branches
+    * [enriched-discourse] Force type of score attribute to float
+    * [schema] Update functest schema with `duration_from_api` attribute
+    * [tests] Check duration assessment for functest enriched items
+    * [enriched-functest] Change duration assessment
+    * [tests] Update tests for functest enriched items
+    * [enriched-functest] Handle no float duration times
+    * [enriched-study-ceres-aoc] Limit search size to 500
+* Perceval
+    * [github] Include reviews in pull request data
+* Sigils
+    * [gerrit] Add panel with approvals
+    * [gerrit] Update panels to support the new index
+    * [functest] Update index pattern
+    * [Maniphest] Update time field
+* SirMordred
+    * [menu.yml] Add gerrit approvals panel
+    * [tests] Include enrich_git_branches to test_studies.cfg
+    * [config] Add study to process git branches
+
+
 # 0.2.18
 
 Released: 2019-04-26
