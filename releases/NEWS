@@ -1,3 +1,38 @@
+# 0.2.20
+
+Released: 2019-05-13
+
+* Grimoire ELK
+    * [enriched-git] Add log info to enrich_git_branches
+    * [schema] Add milestone start and due dates to gitlab schemas
+    * [enriched-gitlab] Add milestone start and due dates
+    * [enriched-mediawiki] Add `grimoire_creation_date` field
+    * [enriched-gerrit] Handle gerrit items from multiple servers
+* Kidash
+    * Add viz title to data source removal checks
+* Perceval
+    * [github] Set number of issues/pull requests fetched per page
+    * [gitlab] Handle missing attr `last` in pagination response
+* Sigils
+    * [gitlab-merge-requests] Update index pattern
+    * [gitlab-issues] Update index pattern
+    * [overview] Update mediawiki panels in overview
+    * [mediawiki] Use grimoire_creation_date in panel and search
+    * [overview] Use `grimoire_creation_date` in overview panel
+    * [github] Use grimoire_creation_date in issue panels
+    * [github] Use grimoire_creation_date in pull request panels
+    * [Redmine] Update time field
+    * [gitlab] Update timelion charts in efficiency panel for issues
+    * [gitlab] Rename index pattern for issues
+    * [jira] Use grimoire_creation_date
+* SirMordred
+    * [alias] Remove gitlab alias
+    * [requirements] Fix elasticsearch dependency versions
+    * [tests] Fix assertion in test_config
+    * [tests] Update archives for github pulls and issues
+    * [aliases.json] Rename alias for gitlab issues
+
+
 # 0.2.19
 
 Released: 2019-05-06
