@@ -1,3 +1,18 @@
+# 0.2.21
+
+Released: 2019-05-20
+
+* Grimoire ELK
+    * [enriched-gerrit] Enable refresh identities
+    * [enriched-gerrit] Add ELK metadata to enriched items
+    * [raw-slack] Remove channel_info.previous_names attribute
+    * [enriched-jira] Handle enriched items from multiple jiras
+* Perceval
+    * [slack] Handle timestamps with more than 6 decimals
+    * [gitlab] Add support for Gitlab Oauth tokens
+    * [github] Handle pull request reviewers in Enterprise API
+
+
 # 0.2.20
 
 Released: 2019-05-13
