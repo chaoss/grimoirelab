@@ -100,7 +100,12 @@ all_repos = {
             'check_run': 'sirmordred --help'}],
     'cereslib': [{'name': 'cereslib', 'dir': '',
             'repo_url': 'http://github.com/chaoss/grimoirelab-cereslib',
-            'version_file': os.path.join('cereslib', '_version.py')}]
+            'version_file': os.path.join('cereslib', '_version.py')}],
+    'graal': [{'name': 'graal', 'dir': '',
+                  'repo_url': 'http://github.com/chaoss/grimoirelab-graal',
+                  'version_file': os.path.join('graal', '_version.py'),
+                  'check_run': 'graal --help',
+                  'test': True}]
 }
 """Structure of GrimoireLab, and the specifics of the Python modules
 that will come out of it.
