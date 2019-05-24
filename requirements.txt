@@ -1,4 +1,4 @@
-grimoirelab==0.2.21
+grimoirelab==0.2.22
 grimoirelab-toolkit==0.1.9
 perceval==0.12.15
 perceval-mozilla==0.2.6
@@ -13,3 +13,4 @@ grimoirelab-panels==0.0.37
 manuscripts==0.2.19
 sirmordred==0.2.16
 cereslib==0.1.7
+graal==0.1.0
