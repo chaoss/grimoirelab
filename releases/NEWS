@@ -1,3 +1,38 @@
+# 0.2.22
+
+Released: 2019-05-31
+
+* Graal
+    * Added to GrimoireLab release
+* Grimoire ELK
+    * [tests] Update elasticsearch and elasticsearchdsl versions
+    * [dependencies] Update urllib3 and requests dependencies
+    * [enriched] Use RequestsHttpConnection in Elasticsearch objs
+    * [dependencies] Pin urllib3 and requests dependencies
+    * [schema] Add `repository_labels` attribute
+    * [enriched] Add repo labels support to enrichers
+    * [elk] Add repo_labels param
+    * [elastic_items] Extract repository labels from projects.json
+    * [enriched-github] Filter review comments from ghost users
+    * [schema] Specify where each author field come from
+    * [schema] Add CSV documenting Github PRs index
+    * [enriched-confluence] Add email data to SH identity
+* Perceval
+    * [gitlab] Force UTF-8 encoding on response contents
+* SirMordred
+    * [task_enrich] Add log INFO messages
+    * [task_enrich] Fix elasticsearch.exceptions.SSLError: ConnectionError
+    * [task_enrich] Add support for repository labeling
+    * [task_collection] Add support for repository labeling
+    * [task] Add support for repository labeling
+    * [utils] Add example of grimoirelab identities file
+    * [utils-micro] Add support to load identities in micro
+    * [micro] Fix logging configuration at module scope
+* SortingHat
+    * [parsing:grimoirelab] Add support to parse a blacklist
+    * Update languages and typos in the README
+
+
 # 0.2.21
 
 Released: 2019-05-20
