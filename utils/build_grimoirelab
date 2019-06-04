@@ -572,7 +572,7 @@ class BuildingEnviron(object):
                 output = ""
             (success, output_test) \
                 = self.venv.run_command(['python', 'setup.py', 'test'],
-                                        cwd=dir)
+                                        cwd=dir, exit=False)
             return (success, output + '\n\n' + output_test)
         else:
             logging.info("Directory " + dir + " does not have a setup.py file.")
