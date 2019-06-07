@@ -1,3 +1,15 @@
+# 0.2.24
+
+Released: 2019-06-07
+
+* Grimoire ELK
+    * [raw-bugzillarest] Handle description longer than 32766 chars
+    * [raw-slack] Fix illegal_argument_exception for data.blocks.elements.text
+    * [enriched-enrich] Reduce number of log messages on identity retrieval
+* SirMordred
+    * Fix README.md so that the package is admitted by pypi
+
+
 # 0.2.22
 
 Released: 2019-05-31
