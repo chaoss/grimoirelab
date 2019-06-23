@@ -1,3 +1,21 @@
+# 0.2.25
+
+Released: 2019-06-23
+
+* Grimoire ELK
+    * [raw-jira] Handle data.fields.environment in raw indexes
+* Perceval
+    * [README] Add info to obtain a Groups.io API token
+    * [groupsio] Improve documentation to obtain an API token
+    * [groupsio] Fix description `api_token`
+    * [groupsio] Fix invalid value for 'limit' in subscriptions query
+* Sigils
+    * Add how to import panel into Kibana/Kibiter
+    * [gerrit] Update index pattern (hace 12 días)
+* SirMordred
+    * [task_enrich] Populate identities index only when retetion is on
+
+
 # 0.2.24
 
 Released: 2019-06-07
