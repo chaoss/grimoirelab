@@ -1,3 +1,72 @@
+# 0.2.26
+
+Released: 2019-07-08
+
+* Grimoire ELK
+    * [mediawiki] Fix grimoire_creation_date calculation
+    * removed .DS_Store
+    * Added check so that program does not break if aliases is None
+    * [raw-bugzillarest] Set text mapping type for changes attributes
+    * [elk] Add option to fetch from selected branches
+    * [elk] Return error msg from `feed_backend`
+    * [elastic] Use InvalidDateError in `get_last_item_field`
+    * [ELK] Make explicit indexing when mapping is of text type
+    * [enriched-redmine] Use grimoirelab-toolkit datetime functions
+    * [enriched-redmine] Add text mapping
+    * [enriched-mozillaclub] Add text mapping
+    * [enriched-mediawiki] Use grimoirelab-toolkit datetime functions
+    * [enriched-mediawiki] Add text mapping
+    * [enriched-jira] Add text mapping
+    * [enriched-gerrit] Add text mapping
+    * [enriched-discourse] Add text mapping
+    * [enriched-bugzillarest] Use grimoirelab-toolkit datetime functions
+    * [enriched-bugzillarest] Add text mapping
+    * [enriched-bugzilla] Use grimoirelab-toolkit datetime functions
+    * [enriched-bugzilla] Add text mapping
+    * [elk] Use grimoirelab-toolkit datetime functions
+    * [enriched-utils] Remove function `unixtime_to_datetime`
+    * Update description of time_open_days and time_to_close_days
+    * [enriched-meetup] Store created, time, updated as date
+    * [ELK] Update variable from KEYWORD_MAX_SIZE to KEYWORD_MAX_LENGTH
+    * [enriched-enrich] Decrease max keyword size
+* Perceval
+    * [git] Add proxy support to git clone command
+    * [mediawiki] Skip page without `pageid` attribute
+    * [gitlab] Update description for --is-oauth-token
+    * [meetup] Enable oauth token use
+* Sigils
+    * [twitter] Add bots filter to panel
+    * [stackoverflow] Add bots filter to panel
+    * [slack] Add bots filter to the panel
+    * [rss] Add bots filter to panel
+    * [mozilla-reps] Add bots filter to panels
+    * [redmine] Add bots filter to redmine panels
+    * [mozillaclub] Add bots filter to panel
+    * [meetup] Add bots filter to Meetup panels
+    * [mediawiki] Add bots filter to panel
+    * [mbox] Add bots filter to mailing lists panel
+    * [maniphest] Add bots filter to panels
+    * [chaoss-gmd] Add bots filter to panels
+    * [git] Add bots filter to lifecycle panel
+    * [jira] Add bots filter to Jira panels
+    * [irc] Add bots filter
+    * [gitlab] Add bots filter to Issues and MRs panels
+    * [github] Add bots filter to Issues and PRs panels
+    * [git] Add bots filter to Git demographics panel
+    * [gerrit] Add bots filter and fix backlog panel
+    * [discourse] Add bots filter to panel
+    * [demographics] Add bots filter to panel
+    * [confluence] Add bots filter to panel
+    * [bugzilla] Add bots filter to bugzilla panels
+    * [askbot] Add bots filter to panel
+    * Set the right screenshot
+    * [affiliations] Fix label affiliations_authors_organizations chart
+* SirMordred
+    * [tests] Add mysql service to .travis.yml
+    * [tests] Update slack archive
+    * [task_collection] Return errors info for task collection
+
+
 # 0.2.25
 
 Released: 2019-06-23
@@ -11,7 +80,7 @@ Released: 2019-06-23
     * [groupsio] Fix invalid value for 'limit' in subscriptions query
 * Sigils
     * Add how to import panel into Kibana/Kibiter
-    * [gerrit] Update index pattern (hace 12 días)
+    * [gerrit] Update index pattern
 * SirMordred
     * [task_enrich] Populate identities index only when retetion is on
 
