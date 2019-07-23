@@ -1,3 +1,59 @@
+# 0.2.27
+
+Released: 2019-07-23
+
+* Grimoire ELK
+    * [enriched-enrich] Handle errors in demography study
+    * [schema] Update Jira csv
+    * [enriched-jira] Track creator, assignee, reporter in issues
+    * [enriched-jira] Handle missing identity data
+    * [enriched-github] Set roles to allow refresh identities
+* KingArthur
+    * [writers] Ignore Elasticsearch certificate verification
+    * [scheduler] Schedule task jobs in user-defined queues
+    * [tasks] Add queue parameter to scheduler config
+    * [scheduler] Set to completed tasks with expired lifetime
+    * [tasks] Add task lifetime attribute
+    * [tests] Fix server tests with non-real repositories
+    * [server] Publish task information
+    * [tasks] Use datetime_utcnow() when creating tasks
+    * [jobs] Add funtion to convert job results to dicts
+    * [scheduler] Set infinite time-to-live for jobs and results
+    * [scheduler] Update task jobs list when a job is enqueued
+    * [tasks] Add attribute to Task to store its list of jobs
+    * [scheduler] Handle starting job events
+    * [events] Add task identifier to job event class
+    * [events] Add event to notify when a job starts
+    * [events] Remove handlers initialization in JobEventsListener
+    * [scheduler] Refactor event handlers
+    * [writers] Update dynamic templates
+    * Install Arthur using pip in TravisCI
+    * [scheduler] Rename task scheduler public methods
+    * [scheduler] Delegate queue selection to the task scheduler
+    * [scheduler] Refactor private class JobScheduler in a TaskScheduler
+    * [scheduler] Update tasks status during its life cycle
+    * [tasks] Define task life cycle
+    * [events] Allow job events subscription
+    * [events] Add basic job events
+    * [events] Extract job listener to create a job events listener
+    * [README] Fix coveralls badge
+    * Update for rq async parameter rename, pin rq to 0.12.0
+* Perceval
+    * [gitlab] Recalculate outdated list of merge requests
+    * [slack] Handle `num_members` for archived channels
+    * [jenkins] Support authenticated access using user/API token
+    * [client] Add `auth` param to fetch method
+* Sigils
+    * [affiliations] Udate index pattern
+    * [jira] Update panels to new index structure
+    * Update index patterns to add analyzed fields
+    * [meetup] Update index pattern to fix dates
+* SortingHat
+    * [setup] Set pandas dep version to 0.22.0
+    * [sortinghat] Update copyright info
+    * [setup] Pin pandas dependency
+
+
 # 0.2.26
 
 Released: 2019-07-08
