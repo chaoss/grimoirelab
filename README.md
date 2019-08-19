@@ -20,6 +20,7 @@ Currently, GrimoireLab is organized in the following repositories:
 * [GrimoireLab Toolkit](https://github.com/chaoss/grimoirelab-toolkit): common utilities
 * [SortingHat](https://github.com/chaoss/grimoirelab-sortinghat): identity management
 * [Mordred](https://github.com/chaoss/grimoirelab-mordred): orchestration
+* [Kibiter](https://github.com/chaoss/grimoirelab-kibiter): dashboard, downstream version of Kibana
 * [Sigils](https://github.com/chaoss/grimoirelab-sigils): visualizations and dashboards
 * [Manuscripts](https://github.com/chaoss/grimoirelab-manuscripts): reporting
 * [Bestiary](https://github.com/chaoss/grimoirelab-bestiary): web-based user interface to manage repositories and projects for Mordred
