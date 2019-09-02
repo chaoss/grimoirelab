@@ -1,48 +1,64 @@
+# 0.2.29
+
+Released: 2019-09-02
+
+* Grimoire ELK
+    * [tests] Remove reference to ocean-unique-id
+    * [schema] Remove ocean-unique-id
+    * [raw-askbot] Remove fix_item
+    * [tests] Add main to test_load_identities
+    * [jenkins] Remove ocean-unique-id frmo schema
+    * [Jenkins] Update CSV schema for Jenkins
+* Perceval
+    * [groupsio] Replace HTTP basic auth with cookies based auth (hace 52 minutos)
+    * [slack] Pass API token via headers
+
+
 # 0.2.28
 
 Released: 2019-08-29
 
 * Grimoire ELK
     * [enriched-git] Remove credentials from Git URLs
-    * d19ade9 - [enriched-mediawiki] Remove identity/project info in get_rich_item
-    * d9dc73c - [enriched-gerrit] Add status of gerrit changeset
-    * db1358d - [enriched-gerrit] Handle negative time to first review
-    * 6a8132a - [enriched-gerrit] Add time to first review patchsets
-    * af8c730 - [enriched-gerrit] Add time to first review
-    * 5d3d2c1 - [schema] Add mattermost schema
-    * 17bd4ae - [mattermost-enriched] Remove commented code
-    * 9545c19 - [mattermost-enrich] Add channel name and creation date
-    * 640ac44 - [logger] Add logs for study and Fix CoLic query
-    * b9900af - [colic] Add category reference implementation and corresponding tests
-    * f7799fb - [tests:study] Add tests for CoCom & CoLic study implementation
-    * 4852abb - [schema] Add CoCom and CoLic schema
-    * e19b6d0 - [graal:tests] Add appropriate tests for Graal integration (WIP)
-    * 484aa21 - [graal] Add connector for Graal Backends and Segregate common methods
-    * 505a7a4 - [graal] Add CoCom & CoLic enricher along with study implementation
-    * 8dd5a08 - [requirements.txt] Add Graal module dependency for integration
-    * 582158d - [dependencies] Update pandas dependency to 0.22.0
-    * a6c3a62 - [meetup] Store `group_created` as date
-    * fe5ed23 - Fix outdated link to GrimoireLab tutorial
-    * 62873ad - [schema] Add time_to_first_attention to github_issues.csv
+    * [enriched-mediawiki] Remove identity/project info in get_rich_item
+    * [enriched-gerrit] Add status of gerrit changeset
+    * [enriched-gerrit] Handle negative time to first review
+    * [enriched-gerrit] Add time to first review patchsets
+    * [enriched-gerrit] Add time to first review
+    * [schema] Add mattermost schema
+    * [mattermost-enriched] Remove commented code
+    * [mattermost-enrich] Add channel name and creation date
+    * [logger] Add logs for study and Fix CoLic query
+    * [colic] Add category reference implementation and corresponding tests
+    * [tests:study] Add tests for CoCom & CoLic study implementation
+    * [schema] Add CoCom and CoLic schema
+    * [graal:tests] Add appropriate tests for Graal integration (WIP)
+    * [graal] Add connector for Graal Backends and Segregate common methods
+    * [graal] Add CoCom & CoLic enricher along with study implementation
+    * [requirements.txt] Add Graal module dependency for integration
+    * [dependencies] Update pandas dependency to 0.22.0
+    * [meetup] Store `group_created` as date
+    * Fix outdated link to GrimoireLab tutorial
+    * [schema] Add time_to_first_attention to github_issues.csv
 * Graal
-    * c74dff3 - [graal] Force checkout command
-    * ccb386d - [colic] Filter softlinks from analysis
-    * a8f1d02 - [colic] Filter dir paths from analysis
-    * 93c614b - [analyzer] Add `diff_timeout` param to cloc analyzer
-    * a17e9ed - [analyzers] Suppress deprecation warning lizard.analyze_file
-    * 2495f9f - [docs] Update CoLic definition under documentation adn docstrings
-    * a2de446 - [colic] Add copyright flag for extraction of copyright information
-    * 0e3fd71 - [cloc] Fix cloc error due to mulitple word language-name
-    * f42b799 - [graal] Update license info
-    * 3c17053 - [setup] Fix format type for long description of package
-    * e7c3ac7 - [tests] Fix test_init in test_graal
-    * 961b013 - [analyzer] Fix scancode_cli results
-    * c4ca09a - [docs] Update documentation and links to requirements
-    * 26921fe - [cocom] Add repository level analysis via lizard
-    * 3382cb4 - [analyzer] Fix results for deleted files and alter tests
-    * e61cb0a - [logger] Switch `info` logger level to `debug`
-    * 41f207a - [tests] Add test for deriving `git_path` from `uri`
-    * 692ed86 - [graal] Derive `git_path` from `uri`
+    * [graal] Force checkout command
+    * [colic] Filter softlinks from analysis
+    * [colic] Filter dir paths from analysis
+    * [analyzer] Add `diff_timeout` param to cloc analyzer
+    * [analyzers] Suppress deprecation warning lizard.analyze_file
+    * [docs] Update CoLic definition under documentation adn docstrings
+    * [colic] Add copyright flag for extraction of copyright information
+    * [cloc] Fix cloc error due to mulitple word language-name
+    * [graal] Update license info
+    * [setup] Fix format type for long description of package
+    * [tests] Fix test_init in test_graal
+    * [analyzer] Fix scancode_cli results
+    * [docs] Update documentation and links to requirements
+    * [cocom] Add repository level analysis via lizard
+    * [analyzer] Fix results for deleted files and alter tests
+    * [logger] Switch `info` logger level to `debug`
+    * [tests] Add test for deriving `git_path` from `uri`
+    * [graal] Derive `git_path` from `uri`
 * KingArthur
     * Update to RQ 1.0
 * Perceval
