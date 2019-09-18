@@ -1,3 +1,32 @@
+# 0.2.30
+
+Released: 2019-09-18
+
+* Grimoire ELK
+    * [tests] Fix demography test for gerrit
+    * [enriched-gerrit] Handle missing user information
+    * [enriched-onion] Filter bots from onion study
+    * fix num row error that GitHub complained about
+    * [enriched-aoc] Include origin in AOC items
+* Perceval
+    * [backend] Add search fields in metadata items
+    * [backend] Write summary of results to the backend command log
+    * [backend] Fix typos in backend module documentation
+    * [tests] Generate different 'updated_on' values for backend tests
+    * [backend] Organize BackendItemsGenerator parameters
+    * [backend] Add BackendItemsGenerator context manager
+    * [backend] Include summary of fetch executions
+    * [perceval] Add summary class
+* Sigils
+    * [demographics] Rename demographics_leaving_developers
+    * [meetup] Update index pattern
+* SirMordred
+    * [task_panels] Add contact link inside the About item of the menu
+    * [task_projects] Remove projects_last_diff
+    * [doc] Update README.md with graal-related panels attributes
+    * [utils] Update conf files to use graal backends
+
+
 # 0.2.29
 
 Released: 2019-09-02
