@@ -1,3 +1,52 @@
+# 0.2.31
+
+Released: 2019-10-01
+
+* Grimoire ELK
+    * [doc] Improve README.md info
+    * [enriched-gitlab] Include milestone id, iid and url
+    * Add graal to setup.py, which is now a dependency.
+    * [enriched-git] Add weekday and hour info to enriched commits
+
+* Perceval
+    * [gitlab] Set extra HTTP retry status from backend
+    * [jenkins] Handle skipped items info in summary
+    * [gitlab] Handle skipped items info in summary
+    * [gitlab] Use generic blacklist feature
+    * [jenkins] Replace blacklist-reviews with blacklist-ids
+    * [gerrit] Replace blacklist-reviews with blacklist-ids
+    * [backend] Add support for blacklisting items
+    * [errors] Add BackendCommandArgumentParserError
+    * [backend] Add origin unique field
+    * [backend] Change signature BackendCommandArgumentParser
+
+* Perceval-mozilla, Perceval-puppet, Perceval-opnfv, Perceval-finos
+    * [backend] Change signature BackendCommandArgumentParser
+
+* Sigils
+    * [gitlab] Update index pattern for merge requests
+    * [gitlab] Update index pattern for issues
+
+* Graal
+    * [graal] Update metadata fields
+    * [backend] Change signature BackendCommandArgumentParser
+
+* Manuscripts
+    * [manuscript] Fix flake8 errors
+    * [setup.cfg] Ignore W605 errors
+    * Added first line to make these files executable.
+    * [manuscripts] Update license and copyright info
+    * [setup] Fix format type for long description of package
+
+* SirMordred
+    * [README.md] Add projects.json section
+    * [utils] Comment arthur params in es-collection section
+    * [task_collection] Add filter-no-collection to ignore the collection
+    * [task_identities] Log number of organizations loaded
+    * [task_identities] Support lazy load of SH identities files
+    * [task_identities] Support lazy load of SH organizations
+    * [task_identities] Add `get_file_hash` function
+
 # 0.2.30
 
 Released: 2019-09-18
