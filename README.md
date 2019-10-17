@@ -21,12 +21,12 @@ Requirements:
 Steps:
 1. Clone this project
 ```console
-$ git clone https://github.com/chaoss/grimoirelab
+foo@bar:~$ git clone https://github.com/chaoss/grimoirelab
 ```
 2. Go to `docker-compose` folder and run the following command:
 ```console
-$ cd grimoirelab/docker-compose
-grimoirelab/docker-compose $ docker-compose up -d
+foo@bar:~$ cd grimoirelab/docker-compose
+foo@bar:~/grimoirelab/docker-compose$ docker-compose up -d
 ```
 
 Your dashboard will be ready after a while in `https://localhost:5601`
@@ -46,8 +46,8 @@ $ git clone https://github.com/chaoss/grimoirelab
 ```
 2. Go to the project folder and run the following command:
 ```console
-$ cd grimoirelab
-grimoirelab $ docker run -p 127.0.0.1:5601:5601 \
+foo@bar:~$ cd grimoirelab
+foo@bar:~/grimoirelab $ docker run -p 127.0.0.1:5601:5601 \
 -v $(pwd)/default-grimoirelab-settings/projects.json:/projects.json \
 -v $(pwd)/default-grimoirelab-settings/setup.cfg:/setup.cfg \
 -t grimoirelab/full
