@@ -1,37 +1,41 @@
 # GrimoireLab
 
-GrimoireLab is a toolset for software development analytics. It includes a coordinated set of tools
+GrimoireLab is a [CHAOSS](https://chaoss.community) toolset for software development analytics. It includes a coordinated set of tools
 to retrieve data from systems used to support software development (repositories), store it in databases,
 enrich it by computing relevant metrics, and making it easy to run analytics and visualizations on it.
 
 You can learn more about GrimoireLab in the [GrimoireLab tutorial](https://grimoirelab.gitbooks.io/tutorial),
 or visit the [GrimoireLab website](https://grimoirelab.github.io).
 
-Currently, GrimoireLab is organized in the following repositories:
+# GrimoireLab components
 
-* [Perceval](https://github.com/chaoss/grimoirelab-perceval): retrieval of data from data sources
-* [Perceval (bundle for OPNFV)](https://github.com/chaoss/grimoirelab-perceval-opnfv)
-* [Perceval (bundle for Mozilla)](https://github.com/chaoss/grimoirelab-perceval-mozilla)
-* [Perceval (bundle for Puppet)](https://github.com/chaoss/grimoirelab-perceval-puppet)
-* [Perceval (bundle for FINOS)](https://github.com/Bitergia/grimoirelab-perceval-finos)
-* [Graal](https://github.com/chaoss/grimoirelab-graal): source data analysis with external tools
-* [KingArthur](https://github.com/chaoss/grimoirelab-kingarthur): batch processing for massive retrieval
-* [GrimoireElk](https://github.com/chaoss/grimoirelab-elk): storage and enrichment of data
-* [GrimoireLab Toolkit](https://github.com/chaoss/grimoirelab-toolkit): common utilities
-* [SortingHat](https://github.com/chaoss/grimoirelab-sortinghat): identity management
-* [Mordred](https://github.com/chaoss/grimoirelab-mordred): orchestration
-* [Kibiter](https://github.com/chaoss/grimoirelab-kibiter): dashboard, downstream version of Kibana
-* [Sigils](https://github.com/chaoss/grimoirelab-sigils): visualizations and dashboards
-* [Manuscripts](https://github.com/chaoss/grimoirelab-manuscripts): reporting
-* [Bestiary](https://github.com/chaoss/grimoirelab-bestiary): web-based user interface to manage repositories and projects for Mordred
-* [Hatstall](https://github.com/chaoss/grimoirelab-hatstall): web-based user interface to manage SortingHat identities
-* [Tutorial](https://github.com/chaoss/grimoirelab-tutorial)
-* [GrimoireLab as a whole](https://github.com/chaoss/grimoirelab)
+Currently, GrimoireLab toolkit is organized in the following repositories:
 
-GrimoireLab is a [CHAOSS](https://chaoss.community) project.
+* Data retrieval related components:
+  * [Perceval](https://github.com/chaoss/grimoirelab-perceval): retrieval of data from data sources
+    * [Perceval (bundle for OPNFV)](https://github.com/chaoss/grimoirelab-perceval-opnfv)
+    * [Perceval (bundle for Mozilla)](https://github.com/chaoss/grimoirelab-perceval-mozilla)
+    * [Perceval (bundle for Puppet)](https://github.com/chaoss/grimoirelab-perceval-puppet)
+    * [Perceval (bundle for FINOS)](https://github.com/Bitergia/grimoirelab-perceval-finos)
+  * [Graal](https://github.com/chaoss/grimoirelab-graal): source data analysis with external tools
+  * [KingArthur](https://github.com/chaoss/grimoirelab-kingarthur): batch processing for massive retrieval
+* Data enrichment related components:
+  * [GrimoireElk](https://github.com/chaoss/grimoirelab-elk): storage and enrichment of data
+  * [SortingHat](https://github.com/chaoss/grimoirelab-sortinghat): identity management
+* Data consumption related components:
+  * [Kibiter](https://github.com/chaoss/grimoirelab-kibiter): dashboard, downstream version of Kibana
+  * [Sigils](https://github.com/chaoss/grimoirelab-sigils): visualizations and dashboards
+  * [Manuscripts](https://github.com/chaoss/grimoirelab-manuscripts): reporting
+* Platform management, orchestration, and common utils:
+  * [Mordred](https://github.com/chaoss/grimoirelab-mordred): orchestration
+  * [GrimoireLab Toolkit](https://github.com/chaoss/grimoirelab-toolkit): common utilities
+  * [Bestiary](https://github.com/chaoss/grimoirelab-bestiary): web-based user interface to manage repositories and projects for Mordred
+  * [Hatstall](https://github.com/chaoss/grimoirelab-hatstall): web-based user interface to manage SortingHat identities
 
 There are also some [components built by the GrimoreLab community](community_components.md),
-which can be useful for you.
+which can be useful for you. And other related repositories are:
+* [GrimoireLab Tutorial](https://github.com/chaoss/grimoirelab-tutorial)
+* [GrimoireLab as a whole](https://github.com/chaoss/grimoirelab) (this repository)
 
 ## Contents of this repository
 
@@ -53,5 +57,9 @@ Includes a script to produce Python packages for a coordinated release, etc.
 Includes dockerfiles and configuration files for the GrimoireLab containers
 that can be used to demo the technology, and can be the basis for real
 deployments. See more information in the [docker README.md file](docker/README.md).
+
+* If you feel more comfortable with `docker-compose`, the [docker-compose](docker-compose)
+folder includes instrucctions and configuration files to deploy GrimoireLab using
+`docker-compose` command.
 
 * How releases of GrimoireLab are built and tested: [Building](BUILDING.md)

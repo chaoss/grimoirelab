@@ -1,0 +1,66 @@
+version: '2.2'
+
+services:
+    mariadb:
+      image: mariadb:10.0
+      expose:
+        - "3306"
+      ports:
+        - "3306:3306"
+      environment:
+        - MYSQL_ROOT_PASSWORD=
+        - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+
+    hatstall:
+      image: grimoirelab/hatstall:latest
+      environment:
+        - DATABASE_DIR=/db/
+        - ADMIN_USER=admin
+        - ADMIN_PASS=admin
+      ports:
+        - 8000:80
+      links:
+        - mariadb
+      volumes:
+        - ./apache-hatstall.conf:/home/grimoirelab/apache-hatstall.conf
+        - ./shdb.cfg:/home/grimoirelab/shdb.cfg
+
+    elasticsearch:
+      image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.1.4
+      command: /elasticsearch/bin/elasticsearch -E network.bind_host=0.0.0.0
+      ports:
+        - 9200:9200
+      environment:
+        - ES_JAVA_OPTS=-Xms2g -Xmx2g
+
+    kibiter:
+      restart: on-failure:5
+      image: bitergia/kibiter:optimized-v6.1.4-4
+      environment:
+        - PROJECT_NAME=Demo
+        - NODE_OPTIONS=--max-old-space-size=1000
+        - ELASTICSEARCH_URL=http://elasticsearch:9200
+      links:
+        - elasticsearch
+      ports:
+        - 5601:5601
+
+    mordred:
+      restart: on-failure:5
+      image: bitergia/mordred:grimoirelab-0.2.31
+      volumes:
+        - ../default-grimoirelab-settings/setup.cfg:/home/bitergia/conf/setup.cfg
+        - ../default-grimoirelab-settings/aliases.json:/home/bitergia/conf/aliases.json
+        - ../default-grimoirelab-settings/projects.json:/home/bitergia/conf/projects.json
+        - ../default-grimoirelab-settings/organizations.json:/home/bitergia/conf/organizations.json
+        - ../default-grimoirelab-settings/identities.yml:/home/bitergia/conf/identities.yml
+        - /tmp/:/home/bitergia/logs
+      links:
+        - redis
+      depends_on:
+        - mariadb
+        - elasticsearch
+      mem_limit: 4g
+
+    redis:
+      image: redis
