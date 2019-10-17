@@ -7,6 +7,56 @@ enrich it by computing relevant metrics, and making it easy to run analytics and
 You can learn more about GrimoireLab in the [GrimoireLab tutorial](https://grimoirelab.gitbooks.io/tutorial),
 or visit the [GrimoireLab website](https://grimoirelab.github.io).
 
+# Getting started
+
+GrimoireLab is a set of tools, and to ease starting playing we are providing a [default setup](default-grimoirelab-settings)
+to analyze git activity for this repository. Given such set up, there are several options to run GrimoireLab:
+
+## Using `docker-compose`
+
+Requirements: 
+* Software:[git](https://git-scm.com/), [docker client](https://docs.docker.com/install/), and [docker compose](https://docs.docker.com/compose/install/)
+* Hardware: 2 CPUs, 8GB memory RAM and [enough virtual memory for Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html) 
+
+Steps:
+1. Clone this project
+```console
+$ git clone https://github.com/chaoss/grimoirelab
+```
+2. Go to `docker-compose` folder and run the following command:
+```console
+$ cd grimoirelab/docker-compose
+grimoirelab/docker-compose $ docker-compose up -d
+```
+
+Your dashboard will be ready after a while in `https://localhost:5601`
+
+More details in the [docker-compose folder](./docker-compose/README.md).
+
+## Using `docker run`
+
+Requirements: 
+* Software: [git](https://git-scm.com/), and [docker client](https://docs.docker.com/install/)
+* Hardware: 2 CPUs, 8GB memory RAM and set 
+
+Steps:
+1. Clone this project
+```console
+$ git clone https://github.com/chaoss/grimoirelab
+```
+2. Go to the project folder and run the following command:
+```console
+$ cd grimoirelab
+grimoirelab $ docker run -p 127.0.0.1:5601:5601 \
+-v $(pwd)/default-grimoirelab-settings/projects.json:/projects.json \
+-v $(pwd)/default-grimoirelab-settings/setup.cfg:/setup.cfg \
+-t grimoirelab/full
+```
+
+More details in the [docker folder](./docker/README.md).
+
+Your dashboard will be ready after a while in `https://localhost:5601`
+
 # GrimoireLab components
 
 Currently, GrimoireLab toolkit is organized in the following repositories:
@@ -33,7 +83,7 @@ Currently, GrimoireLab toolkit is organized in the following repositories:
   * [Hatstall](https://github.com/chaoss/grimoirelab-hatstall): web-based user interface to manage SortingHat identities
 
 There are also some [components built by the GrimoreLab community](community_components.md),
-which can be useful for you. And other related repositories are:
+which can be useful for you. Other related repositories are:
 * [GrimoireLab Tutorial](https://github.com/chaoss/grimoirelab-tutorial)
 * [GrimoireLab as a whole](https://github.com/chaoss/grimoirelab) (this repository)
 
