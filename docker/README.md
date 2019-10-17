@@ -4,7 +4,7 @@ This file describes some docker images that are useful when
 deploying GrimoireLab in containers:
 
 * `grimoirelab/factory`: a "factory" container for GrimoireLab, produces
-(and tests, if needed) GrimoireLab pacakges from their
+(and tests, if needed) GrimoireLab packages from their
 git repositories.
 
 * `grimoirelab/installed`: a "preinstalled" container for GrimoireLab,
