@@ -1,0 +1,154 @@
+{
+    "askbot": {
+        "raw": ["askbot-raw"],
+        "enrich": ["askbot", "affiliations"]
+    },
+    "apache": {
+        "raw": ["apache"]
+    },
+    "bugzilla": {
+        "raw": ["bugzilla-raw"],
+        "enrich": ["bugzilla", "affiliations"]
+    },
+    "bugzillarest": {
+        "raw": ["bugzilla-raw"],
+        "enrich": ["bugzilla", "affiliations"]
+    },
+    "crates": {
+        "raw": ["crates-raw"],
+        "enrich": ["crate", "affiliations"]
+    },
+    "confluence": {
+        "raw": ["confluence-raw"],
+        "enrich": ["confluence", "affiliations"]
+    },
+    "discourse": {
+        "raw": ["discourse-raw"],
+        "enrich": ["discourse", "affiliations"]
+    },
+    "dockerhub": {
+        "raw": ["dockerhub-raw"],
+        "enrich": ["dockerhub"]
+    },
+    "functest": {
+        "raw": ["functest-raw"],
+        "enrich": ["functest"]
+    },
+    "gerrit": {
+        "raw": ["gerrit-raw"],
+        "enrich": ["gerrit", "affiliations"]
+    },
+    "git": {
+        "raw": ["git-raw"],
+        "enrich": ["git", "git_author", "git_enrich", "affiliations"]
+    },
+    "github": {
+        "raw": ["github-raw"],
+        "enrich": ["github_issues", "github_issues_enrich", "issues_closed",
+                   "issues_created", "issues_updated", "affiliations"]
+    },
+    "gitlab:issue": {
+        "raw": ["gitlab_issue-raw"],
+        "enrich": ["gitlab", "gitlab_issue", "affiliations"]
+    },
+    "gitlab:merge": {
+        "raw": ["gitlab_merge_requests-raw"],
+        "enrich": ["gitlab_merge", "gitlab_merge_requests", "affiliations"]
+    },
+    "google_hits": {
+        "raw": ["google-hits-raw"],
+        "enrich": ["google-hits"]
+    },
+    "hyperkitty": {
+        "raw": ["hyperkitty-raw"],
+        "enrich": ["mbox", "kafka", "affiliations"]
+    },
+    "groupsio": {
+        "raw": ["groupsio-raw"],
+        "enrich": ["mbox", "kafka", "affiliations"]
+    },
+    "jenkins": {
+        "raw": ["jenkins-raw"],
+        "enrich": ["jenkins"]
+    },
+    "jira": {
+        "raw": ["jira-raw"],
+        "enrich": ["jira", "jira_resolution_date", "affiliations"]
+    },
+    "kitsune": {
+        "raw": ["kitsune-raw"],
+        "enrich": ["kitsune", "affiliations"]
+    },
+    "mattermost": {
+        "raw": ["mattermost-raw"],
+        "enrich": ["mattermost", "affiliations"]
+    },
+    "mbox": {
+        "raw": ["mbox-raw"],
+        "enrich": ["mbox", "kafka", "affiliations"]
+    },
+    "mediawiki": {
+        "raw": ["mediawiki-raw"],
+        "enrich": ["mediawiki", "affiliations"]
+    },
+    "meetup": {
+        "raw": ["meetup-raw"],
+        "enrich": ["meetup", "affiliations"]
+    },
+    "mozillaclub": {
+        "raw": ["mozillaclub-raw"],
+        "enrich": ["mozillaclub", "affiliations"]
+    },
+    "nntp": {
+        "raw": ["nntp-raw"],
+        "enrich": ["mbox", "kafka", "affiliations"]
+    },
+    "phabricator": {
+        "raw": ["phabricator-raw"],
+        "enrich": ["phabricator", "maniphest", "affiliations"]
+    },
+    "pipermail": {
+        "raw": ["pipermail-raw"],
+        "enrich": ["mbox", "kafka", "affiliations"]
+    },
+    "puppetforge": {
+        "raw": ["puppetforge-raw"],
+        "enrich": ["puppetforge", "affiliations"]
+    },
+    "redmine": {
+        "raw": ["redmine-raw"],
+        "enrich": ["redmine", "affiliations"]
+    },
+    "remo": {
+        "raw": ["remo-raw"],
+        "enrich": ["remo", "remo-events", "remo-events_metadata__timestamp", "affiliations"]
+    },
+    "remo:activities": {
+        "raw": ["remo_activities-raw"],
+        "enrich": ["remo-activities", "remo-activities_metadata__timestamp", "affiliations"]
+    },
+    "rss": {
+        "raw": ["rss-raw"],
+        "enrich": ["rss", "affiliations"]
+    },
+    "slack": {
+        "raw": ["slack-raw"],
+        "enrich": ["slack", "affiliations"]
+    },
+    "stackexchange": {
+        "raw": ["stackexchange-raw"],
+        "enrich": ["stackoverflow", "affiliations"]
+    },
+    "supybot": {
+        "raw": ["supybot-raw"],
+        "enrich": ["supybot", "affiliations"]
+    },
+    "telegram": {
+        "raw": ["telegram-raw"],
+        "enrich": ["telegram", "affiliations"]
+    },
+    "twitter": {
+        "raw": ["twitter-raw"],
+        "enrich": ["twitter", "affiliations"]
+    }
+  }
