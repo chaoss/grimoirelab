@@ -4,8 +4,8 @@ GrimoireLab is a [CHAOSS](https://chaoss.community) toolset for software develop
 to retrieve data from systems used to support software development (repositories), store it in databases,
 enrich it by computing relevant metrics, and making it easy to run analytics and visualizations on it.
 
-You can learn more about GrimoireLab in the [GrimoireLab tutorial](https://grimoirelab.gitbooks.io/tutorial),
-or visit the [GrimoireLab website](https://grimoirelab.github.io).
+You can learn more about GrimoireLab in the [GrimoireLab tutorial](https://chaoss.github.io/grimoirelab-tutorial/),
+or visit the [GrimoireLab website](https://chaoss.github.io/grimoirelab).
 
 # Getting started
 
