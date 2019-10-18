@@ -5,6 +5,6 @@
 - name: Bitergia Analytics Platform
   image: eclipse.png
   url: https://www.bitergia.com/products/
-- name: Samsung Open Souce Group Numbers
-  image: samsung-osg.png
-  url: https://blogs.s-osg.org/metrics/
+# - name: Samsung Open Souce Group Numbers
+#   image: samsung-osg.png
+#   url: https://blogs.s-osg.org/metrics/
