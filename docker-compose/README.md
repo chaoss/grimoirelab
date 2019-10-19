@@ -34,9 +34,21 @@ memory in the system, and to estimate file space usage, respectively.
 
 You should ensure [enough virtual memory for Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html) 
 (one of GrimoireLab components). You can do it running the following command as `root` in Linux or as administrator user in MacOS:
+
+## Linux
 ```console
 sysctl -w vm.max_map_count=262144
 ```
+
+## Mac
+```
+$ screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty
+(then run:) sysctl -w vm.max_map_count=262144
+```
+
+Remember also to assign proper resources to Docker through the UI. 8GB Memory and 2GB Swap should work.
+
+![](./mac-docker-configuration.png)
 
 # Getting started in 3 steps
 

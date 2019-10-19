@@ -55,7 +55,7 @@ foo@bar:~/grimoirelab $ docker run -p 127.0.0.1:5601:5601 \
 
 More details in the [docker folder](./docker/README.md).
 
-Your dashboard will be ready after a while in `https://localhost:5601`
+Your dashboard will be ready after a while in `http://localhost:5601`
 
 # GrimoireLab components
 
