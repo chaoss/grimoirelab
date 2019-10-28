@@ -1,3 +1,118 @@
+# 0.2.32
+
+Released: 2019-10-28
+
+* Sigils
+    * [docs] Update demographics.png
+    * [git-demographics] Change column name
+    * [demographics] Change column name
+    * [demographics] Change title `demographics_people_leaving_community`
+    * [git-demographics] Change title `git_demographics_people_living_community`
+
+* Perceval
+    * [github] Make fetching owners information from GitHub API optional
+    * [backend] Manage filtering of classified data within lists
+    * [github] Replace logging with logger call
+    * [test_backend] Provide test for find_backends
+
+* KingArthur
+    * [scheduler] Remove 'arthur' prefix and task id from job ids schema
+    * [setup] Update dependencies
+    * [jobs] Add human readable job identifier
+    * [arthurd] Add ignoring log-path msg when no-daemon is on
+    * [arthurd] Send log messages to stderr when --no-daemon is on
+    * [arthur] Remove 'bin/arthur' script
+    * [test_server] Add test of the job server endpoint
+    * [server] Expose jobs by job_id to the CherryPy server
+    * [requirements] Update package requirements
+    * [jobs] Replace job result object by Perceval summary
+    * [jobs] Refactor 'metadata' decorator
+    * [jobs] Generate items using BackendItemsGenerator
+    * [scheduler] Reschedule failed tasks with resuming
+    * [jobs] Remove jobs resuming support
+    * [tasks] Add has_resuming() method to task
+    * [test_worker] Add tests related to the job log storage
+    * [jobs] Store logs of each job in their "meta" field
+
+* HatStall
+    * Improve login form using Bootstrap style
+
+* Grimoire ELK
+    * [elastic_items] Fix message when scroll_size is 0
+    * [tests] Add test for `enrich_extra_data`
+    * [enriched-github] Handle missing user information
+    * [enriched-enrich] Fix conversion projects.json to map
+    * [enriched-github] Removed not needed code. Added the missing sign off
+    * [enriched-git] Enable extra study
+    * [enrich] Add extra study
+    * [enrich] Adding new study to enable adding extra fields to a target index
+    * [travis] Support tests for python 3.5 and 3.6
+    * [studies] Improve log messages
+    * [tests] Fix test enrich items discourse
+    * [enriched-discourse] Remove `__show_categories_tree` method
+    * [elk] Remove support for filter-raw-prefix
+    * [tests] Align tests to filter-raw-prefix removal
+    * [elastic-items] Remove support for `filter-raw-prefix`
+    * [p2o] Remove support for filter-raw-prefix
+    * [enriched-git] Handle empty repository errors
+    * [elk] Improve log messages
+    * [elastic_items] Change log level message
+    * [elastic] Compact log messages
+    * [raw-elastic] Improve log messages
+    * [enriched-utils] Change `min_enrich` value
+    * [tests] Increase test coverage for raw jenkins
+    * [tests] Increase test coverage for raw twitter
+    * [tests] Increase test coverage for raw supybot
+    * [tests] Increase test coverage for raw stackexchange
+    * [tests] Increase test coverage for raw nntp
+    * [tests] Increase test coverage for raw meetup
+    * [tests] Increase test coverage for raw mediawiki
+    * [tests] Increase test coverage for raw mbox
+    * [tests] Increase test coverage for raw mattermost
+    * [enriched-jira] Handle missing `fields` attribute
+    * [tests] Increase test coverage for raw github
+    * [tests] Increase test coverage for raw graal
+    * [tests] Increase test coverage for raw git
+    * [tests] Increase test coverage for raw functest
+    * [tests] Add test case for errors class
+    * [tests] Increase test coverage for raw dockerhub
+    * [tests] Increase test coverage for raw crates
+    * [enriched-discourse] Handle missing author information
+    * [raw-jenkins] Handle multiple params on repo url
+    * [grimoire_elk] Goodbye track_items.py
+    * Add minor changes to the README file.
+    * remove the dashboards folder
+
+* SirMordred
+    * [task_identities] Call sh affiliate after loading identities file
+    * [task_identities] Call sh unify after loading identites file
+    * [travis] Support tests for python 3.5 and 3.6
+    * [tests]  Add tests for enrich_extra_data study
+    * [doc] Improve desc projects_url
+    * [config] Add external study
+    * [studies] Improve log messages
+    * [task_enrich] Remove support for filter-raw-prefix
+    * [task] Remove support for filter-raw-prefix
+    * [task_manager] Conver INFO messages to DEBUG
+    * [task_enrich] Standardize refresh identities log messages
+    * [sirmordred] Improve log messages related to task projects
+    * [mordred] Ignore INFO messages from elasticsearch
+    * [task_enrich] Change `last_enrich_date` value
+    * [dependencies] Remove manuscripts dependency
+    * [doc] Remove reference to `task_report`
+    * [mordred] Remove `task_report`
+    * [task_project] Prevent random shuffling of repos
+    * [doc] Remove reference to `track_items`
+    * [mordred] Remove `track_items` support
+    * [doc] Update kibiter version to 6.1.4-5
+    * [tests] Minor enhancements on tests
+    * [sirmordred] Set default sleep_for value if sortinghat is undefined
+    * [task_identities] Remove useless inherited code
+    * [task_enrich] Prevent calling sortinghat when not defined
+    * [task] Handle missing sortinghat params
+    * [doc] Refine README.md introduction
+
+
 # 0.2.31
 
 Released: 2019-10-01
