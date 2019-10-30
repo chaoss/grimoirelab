@@ -1,0 +1,26 @@
+# Copyright (C) 2016-2017 Bitergia
+# GPLv3 License
+#
+# Build GrimoireLab packages, install them, check them
+#
+
+FROM grimoirelab/full
+MAINTAINER Jesus M. Gonzalez-Barahona <jgb@bitergia.com>
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+ADD build/fossology-common_3.6.0-1_amd64.deb /tmp
+ADD build/fossology-nomos_3.6.0-1_amd64.deb /tmp
+# install dependencies
+RUN sudo apt-get update && \
+    sudo apt-get -y install /tmp/fossology-common_3.6.0-1_amd64.deb \
+    	/tmp/fossology-nomos_3.6.0-1_amd64.deb \
+        && \
+    sudo apt-get clean && \
+    sudo find /var/lib/apt/lists -type f -delete && \
+    sudo rm /tmp/fossology-common_3.6.0-1_amd64.deb \
+       /tmp/fossology-nomos_3.6.0-1_amd64.deb
+
+# Entrypoint
+ENTRYPOINT [ "/entrypoint.sh" ]
+CMD [ "-c", "/infra.cfg", "/dashboard.cfg", "/project.cfg", "/override.cfg"]

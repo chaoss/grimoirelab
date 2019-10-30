@@ -1,0 +1,58 @@
+# Copyright (C) 2016-2017 Bitergia
+# GPLv3 License
+#
+# Build GrimoireLab packages, install them, check them
+#
+
+FROM debian:buster-slim
+#FROM debian:stretch-slim
+MAINTAINER Jesus M. Gonzalez-Barahona <jgb@bitergia.com>
+
+ENV DEBIAN_FRONTEND=noninteractive
+# install dependencies
+RUN apt-get update && \
+    apt-get -y install --no-install-recommends \
+    	devscripts \
+	fakeroot \
+	build-essential:native \
+	debhelper \
+	libglib2.0-dev \
+	libmagic-dev \
+	libxml2-dev \
+	libmxml-dev \
+	libtext-template-perl \
+	librpm-dev \
+	subversion \
+	rpm \
+	libpcre3-dev \
+	libssl-dev \
+	postgresql-server-dev-all \
+	libboost-regex-dev \
+	libboost-program-options-dev \
+	libjsoncpp-dev \
+	libjson-c-dev \
+	php-cli \
+	php-mbstring \
+	php-zip \
+	php-xml \
+	libboost-system-dev \
+	libboost-filesystem-dev \
+	curl \
+	ca-certificates \
+        && \
+    apt-get clean && \
+    find /var/lib/apt/lists -type f -delete
+
+#ENV LANG=en_US.UTF-8 \
+#    LANGUAGE=en_US:en \
+#    LC_ALL=en_US.UTF-8 \
+#    LANG=C.UTF-8
+
+ADD entrypoint-fossology.sh /entrypoint.sh
+RUN chmod 755 /entrypoint.sh
+RUN mkdir /build
+WORKDIR /build
+
+# Entrypoint (build GrimoireLab packages), and default arguments for it
+ENTRYPOINT [ "/entrypoint.sh" ]
+CMD [ ]
