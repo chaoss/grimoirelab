@@ -1,3 +1,144 @@
+# 0.2.33
+
+Released: 2019-11-28
+
+* Sigils
+    * [git] Update index pattern to include hour/weekday fields
+    * [meetup] Update index pattern to handle group_urlname attribute
+    * [gerrit] Update painless_delay in index pattern
+    * [all_enriched] Make URLs clickable
+    * [demographics] Update screenshot
+    * [sigils] Add OSPO panel collection
+
+
+* Perceval
+    * [gitlab] Raise client error if oauth is set and token is not
+    * [discourse] Pass credentials via headers
+    * [jenkins] Handle workflow multibranch job builds
+    * [tests] Fix variable names in github test
+    * [github] Handle `None` requested reviewers
+    * [groupsio] Add log message upon download archives failure
+    * [travis] Support for python 3.5 and 3.6
+    * [doc] Add git and build-essential to requirements section
+
+
+* Graal
+    * [tests] Increase test coverage for codep and colic
+    * [graal] Fix worktree creation
+    * [graal] Change logic to create worktree
+    * [tests] Add base class to handle tests on analyzers
+    * [tests] Add base class to handle setup of test Git repo
+    * [graal] Replace git cmd with /usr/bin/git
+    * [readme] Add SCC description to README.md
+    * [tests] Add tests for SCC analyzer
+    * [cocom] Added support of scc analyzer to Code Complexity Backend
+
+
+* KingArthur
+    * [server] Add reschedule method to the REST API
+    * [arthur] Allow to re-schedule failed tasks
+    * [scheduler] Allow to reset task counters
+    * [scheduler] Handle TaskRegistryError
+    * [server] Fix docstring for `task`
+    * [arthur] Handle TaskRegistryError
+    * [tasks] Raise TaskRegistryError on task operations
+    * [errors] Add TaskRegistryError
+    * [tasks] Handle Redis errors
+    * [arthur] Fix typos and warnings
+    * [tasks] List tasks based on key prefixes
+    * [tasks] Convert exception to warning when updating tasks
+    * [tasks] Replace dangerous redis commands
+    * [scheduler] Support for reading tasks from redis
+    * [tasks] Add update operation
+    * [tasks] Use redis to store tasks
+    * [scheduler] Reschedule failed tasks into the retry queue
+    * [travis] Support for python 3.5 and 3.6
+    * [tasks] Add JobData tuple to store jobs in the task job list
+    * [server] Return job_number from the metadata of the Job
+    * [scheduler] Save job_number in the meta field of the job enqueued
+
+
+* Grimoire ELK
+    * [github2] Add schema for new version of pull index
+    * [github2] Add schema for new version of issue index
+    * [enriched-github2] New enricher to handle comments and reactions
+    * [enriched-git] Handle missing local git repo
+    * [travis.yml] Support for tests using ODFE
+    * [studies-aoc] Support for ODFE
+    * [studies-onion] Support for ODFE
+    * [enriched] Update bulk endpoint to support ODFE
+    * [enriched-enrich] Update bulk endpoint for ODFE
+    * [enriched-ceres_base] Add class variable for ES major version
+    * [elastic_items] Handle ODFE page info on pagination
+    * [elastic] Update bulk and mapping endpoints for ODFE
+    * [enriched-gerrit] Handle missing reviewer info
+    * [raw-elastic] Change to 'format()' in the logs
+    * [elk] Change to 'format()' in the logs
+    * [elastic_items] Change to 'format()' in the logs
+    * [elastic] Change to 'format()' in the logs
+    * [enriched-study_ceres_onion] Change to 'format()' in the logs
+    * [enriched-study_ceres_aoc] Change to 'format()' in the logs
+    * [enriched-stackexchange] Change to 'format()' in the logs
+    * [enriched-sortinghat_gelk] Change to 'format()' in the logs
+    * [enriched-remo] Change to 'format()' in the logs
+    * [enriched-mozillaclub] Change to 'format()' in the logs
+    * [enriched-meetup] Change to 'format()' in the logs
+    * [enriched-mediawiki] Change to 'format()' in the logs
+    * [enriched-mbox_study_kip] Change to 'format()' in the logs
+    * [enriched-mbox] Change to 'format()' in the logs
+    * [enriched-kitsune] Change to 'format()' in the logs
+    * [enriched-jira] Change to 'format()' in the logs
+    * [enriched-jenkins] Change to 'format()' in the logs
+    * [enriched-gitlab] Change to 'format()' in the logs
+    * [enriched-enrich] Change to 'format()' in the logs
+    * [enriched-ceres_base] Change to 'format()' in the logs
+    * [enriched-askbot] Change to 'format()' in the logs
+    * [enriched-git] Change to 'format()' in the logs
+    * [enriched-gerrit] Change to 'format()' in the logs
+    * [enriched-functest] Change to 'format()' in the logs
+    * [enriched-dockerhub] Change to 'format()' in the logs
+    * [enriched-discourse] Change to 'format()' in the logs
+    * [enriched-bugzillarest] Change to 'format()' in the logs
+    * [enriched-bugzilla] Change to 'format()' in the logs
+    * [enriched-colic] Change to 'format()' in the logs
+    * [enriched-cocom] Change to 'format()' in the logs
+    * [enriched-github] Change to 'format()' in the logs
+    * [enriched] Return empty item_sh when sortinghat is not set
+    * [enriched-meetup] Fix typo in group url name
+    * [dependencies] Update redis to 3.0.0
+    * [enriched-bugzillarest] Handle missing user info
+    * [travis] Support for python 3.5 and 3.6
+    * [elastic_items] Remove white spaces from repo url with labels
+
+
+* SirMordred
+    * [sirmordred] Remove unused modules and change to 'format()' in the logs
+    * [sirmordred] Delete support to log rotation
+    * [doc] Remove eclipse load support for doc
+    * [sirmordred] Delete support to load eclipse projects
+    * [mordred] Decommission bot names params from setup.cfg
+    * [sortinghat] Fix issue when sortinghat is not in the config file
+    * [travis] Support for python 3.5 and 3.6
+
+
+* Cereslib
+    * [events-events] Handle empty sortinghat dict
+    * [README] Add travis and coveralls badges
+    * [setup.cfg] Ignore W605 error
+    * [install] Align dependencies in requirements and setup
+    * [setup.cfg] Ignore W504 error
+    * [setup] Remove scripts param
+    * [cereslib] Remove import from __init__.py
+    * [enrich] Fix flake8 errors
+    * [dfutils] Fix flake8 errors
+    * [tests] Add travis CI
+
+
+* Toolkit
+    * [datetime] Handle dates with offsets outside 24h
+    * [travis] Support for python 3.5 and 3.6
+
+
 # 0.2.32
 
 Released: 2019-10-28
