@@ -17,7 +17,7 @@ to analyze git activity for this repository. Given such set up, there are severa
 ## Using `docker-compose`
 
 Requirements: 
-* Software:[git](https://git-scm.com/), [docker client](https://docs.docker.com/install/), and [docker compose](https://docs.docker.com/compose/install/). As an example of working configuration:
+* **Software**:[git](https://git-scm.com/), [docker client](https://docs.docker.com/install/), and [docker compose](https://docs.docker.com/compose/install/). As an example of working configuration:
 ```console
 root@test-68b8628f:~# git --version
 git version 2.17.1
@@ -26,7 +26,7 @@ Docker version 19.03.1, build 74b1e89
 root@test-68b8628f:~# docker-compose --version
 docker-compose version 1.22.0, build f46880fe
 ```
-* Hardware: 2 CPUs, 8GB memory RAM and [enough virtual memory for Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html) 
+* **Hardware**: 2 CPUs, 8GB memory RAM and [enough virtual memory for Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html) 
 
 Steps:
 1. Clone this project
@@ -46,14 +46,14 @@ More details in the [docker-compose folder](./docker-compose/README.md).
 ## Using `docker run`
 
 Requirements: 
-* Software: [git](https://git-scm.com/), and [docker client](https://docs.docker.com/install/). As an example of working configuration:
+* **Software**: [git](https://git-scm.com/), and [docker client](https://docs.docker.com/install/). As an example of working configuration:
 ```console
 root@test-68b8628f:~# git --version
 git version 2.17.1
 root@test-68b8628f:~# docker --version
 Docker version 19.03.1, build 74b1e89
 ```
-* Hardware: 2 CPUs, 8GB memory RAM and set 
+* **Hardware**: 2 CPUs, 8GB memory RAM and set
 
 Steps:
 1. Clone this project
