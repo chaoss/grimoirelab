@@ -18,7 +18,7 @@ FROM grimoirelab/installed
 MAINTAINER Jesus M. Gonzalez-Barahona <jgb@bitergia.com>
 
 ENV ES=elasticsearch-6.1.4
-ENV KB_VERSION=6.1.4-1
+ENV KB_VERSION=6.1.4-4
 ENV KB_TAG=community-v${KB_VERSION}
 ENV KB=kibiter-${KB_VERSION}
 ENV KB_DIR=${KB}-linux-x86_64
