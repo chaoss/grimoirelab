@@ -47,7 +47,7 @@ services:
 
     mordred:
       restart: on-failure:5
-      image: bitergia/mordred:grimoirelab-0.2.31
+      image: bitergia/mordred:grimoirelab-0.2.33
       volumes:
         - ../default-grimoirelab-settings/setup.cfg:/home/bitergia/conf/setup.cfg
         - ../default-grimoirelab-settings/aliases.json:/home/bitergia/conf/aliases.json
