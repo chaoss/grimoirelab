@@ -91,6 +91,8 @@ environment:
 docker-compose -f docker-compose-secured.yml up -d
 ```
 
+The difference is that it uses a secured Elasticsearch image and a secured Kibiter image.
+
 To access to the dashboard would be the same as previously, but if you need to modify something, you would be 
 asked to login.
 * User: `admin`
