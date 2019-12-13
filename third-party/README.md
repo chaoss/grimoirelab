@@ -19,12 +19,11 @@ $ docker run -v $(pwd)/build:/build -t grimoirelab/fossology-factory
 
 As a result, all packages (source and binary) are in the build directory.
 
-## Docker image grimoirelab/full-nomos
+## Docker image grimoirelab/full-3p
 
-This is a decendent image from grimoirelab/full, with the nomos
-binary in it, via the installation of the fosssology-nomos package
-built with `grimoirelab/fossology-factory`:
+This is a decendent image from grimoirelab/full, with third party tools in it (e.g., nomos, cloc). For instance,
+nomos is obtained via the installation of the fosssology-nomos package built with `grimoirelab/fossology-factory`:
 
 ```
-docker build -f Dockerfile-grimoirelab-nomos -t grimoirelab/full-nomos .
+docker build -f Dockerfile-grimoirelab-3p -t grimoirelab/full-3p .
 ```
