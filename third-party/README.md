@@ -175,8 +175,8 @@ You can access the data via ElasticSearch or Kibiter.
 - **ElasticSearch**
     - List indices info: http://localhost:9000/_cat/indices?pretty
     - List indices and their aliases: http://localhost:9000/_alias?pretty
-    - List the mappings of an index: http://localhost:9000/<your-index>?pretty
-    - List some items in an index: http://localhost:9000/<your-index>/_search?pretty
+    - List the mappings of an index: http://localhost:9000/your-index?pretty
+    - List some items in an index: http://localhost:9000/your-index/_search?pretty
 
 - **Kibiter**
     - Explore the dashboards: http://localhost:5601
