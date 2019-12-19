@@ -1,3 +1,44 @@
+# 0.2.34
+
+Released: 2019-12-19
+
+* Perceval
+    * [jenkins] Log debug message when builds are not found
+    * [jira] Add info for data obtained with authenticated access
+
+* Sigils
+    * Update CONTRIBUTING.md
+    * [engagement panel] Fix dashboard name
+    * [colic] Fix dashboard name
+    * [cocom] Fix dashboard name
+    * Fix file name to use hypens instead of underscores
+    * [github_issues] Retitle issues open to issues
+    * [gitlab_issues] Retitle issues open to issues
+    * [about] Add mention to CHAOSS project
+
+* ELK
+    * [enrich-gitlab] Handle TypeError: 'NoneType' exception
+    * [utils] Add 429 error to status_force_list
+    * [enriched-gerrit] Handle missing user info
+
+* SirMordred
+    * [docker] Remove track_items info from readme
+    * [tests] Fix flake8 errors
+    * Add unit tests for the main methods of healthcheck.py
+    * Add healthcheck to Docker image with a call to the script 'utils/healthcheck.py'
+    * Add healthcheck script to installation setup file
+    * Python healthcheck script added to utils folder
+    * [task_panels] Include OSPO panels in community menu
+
+* SortingHat
+    * [matching-email] Remove `_filter_emails`
+    * [matching-email] Support blacklist when strict matching is False
+    * [tests] Remove hard-coded DB params
+    * [travis] Support for python 3.5 and 3.6
+    * [tests] Set mysql `sql_mode` in travis
+    * [tests] Add mysql service to travis.yml
+
+
 # 0.2.33
 
 Released: 2019-11-28
