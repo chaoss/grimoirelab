@@ -16,11 +16,20 @@ RUN sudo apt-get update && \
     sudo apt-get -y install /tmp/fossology-common_3.6.0-1_amd64.deb \
     	/tmp/fossology-nomos_3.6.0-1_amd64.deb \
     	cloc \
+	    maven \
         && \
     sudo apt-get clean && \
     sudo find /var/lib/apt/lists -type f -delete && \
     sudo rm /tmp/fossology-common_3.6.0-1_amd64.deb \
        /tmp/fossology-nomos_3.6.0-1_amd64.deb
+
+VOLUME /tmp
+RUN git clone https://github.com/crossminer/nlp-rest-api && \
+    cd nlp-rest-api && mvn -N io.takari:maven:wrapper && ./mvnw install
+EXPOSE 8080
+
+ADD entrypoint-3p.sh /entrypoint.sh
+RUN sudo chmod 755 /entrypoint.sh
 
 # Entrypoint
 ENTRYPOINT [ "/entrypoint.sh" ]
