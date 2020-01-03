@@ -1,3 +1,23 @@
+# 0.2.35
+
+Released: 2019-01-03
+
+* ELK
+    * [raw-bugzillarest] Set text mapping type for thetext attribute
+* Graal
+    * Fix lizard package dependency
+* Hatstall
+    * [hatstall] Support check/uncheck all options in checkbox tables
+    * [hatstall] Add support for editing organizations and domains
+* Kidash
+    * [setup] Remove ELK dependency
+    * [kidash/kidash] Remove ELK imports
+    * [bin/kidash] Remove ELK imports
+    * [bin/kidash] Remove unused imports
+* SortingHat
+    * [database] Allow SSL connections
+
+
 # 0.2.34
 
 Released: 2019-12-19
