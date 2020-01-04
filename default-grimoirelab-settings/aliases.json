@@ -47,9 +47,9 @@
         "enrich": ["github_issues", "github_issues_enrich", "issues_closed",
                    "issues_created", "issues_updated", "affiliations"]
     },
-    "gitlab:issue": {
-        "raw": ["gitlab_issue-raw"],
-        "enrich": ["gitlab", "gitlab_issue", "affiliations"]
+    "gitlab:issues": {
+        "raw": ["gitlab_issues-raw"],
+        "enrich": ["gitlab", "gitlab_issues", "affiliations"]
     },
     "gitlab:merge": {
         "raw": ["gitlab_merge_requests-raw"],
