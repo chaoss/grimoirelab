@@ -1,3 +1,11 @@
+# 0.2.36
+
+Released: 2019-01-08
+
+* ELK
+    * [enriched] Remove support geolocation for github enriched indexes
+
+
 # 0.2.35
 
 Released: 2019-01-03
