@@ -319,15 +319,15 @@ class CommandRunner (object):
             cls.run_command(['git', 'clone', repo, dir])
             logging.debug("Cloned: " + dir)
         logging.debug("Fetching: " + dir)
-        cls.run_command(['git', '-C', dir, 'fetch'])
+        cls.run_command(['git', '-c', dir, 'fetch'])
         logging.debug("Fetched: " + dir)
-        cls.run_command(['git', '-C', dir, 'checkout', commit])
+        cls.run_command(['git', '-c', dir, 'checkout', commit])
         logging.debug("Checked out: " + dir)
 
     def check_version(cls, dir, commit, version_file):
 
         logging.debug("Checking version in commit: " + dir)
-        (success, output) = cls.run_command(['git', '-C', dir, 'diff-tree',
+        (success, output) = cls.run_command(['git', '-c', dir, 'diff-tree',
                 '--no-commit-id', '--name-only', '-r', commit])
         check = False
         if success:
