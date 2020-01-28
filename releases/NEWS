@@ -1,3 +1,86 @@
+# 0.2.37
+
+Released: 2020-01-28
+
+* ELK
+    * [enriched-gitlab] Fix repository value in merge
+    * [travis] Support for python 3.7
+    * [requirements] Relaxing pandas constraint
+    * [enriched-github2] Add support for geolocation study
+    * [enriched-enrich] Add geolocation study
+    * [enriched-github2] Remove hardcoded geolocation support
+    * [enrich-github] Remove dead code
+    * [enriched-github] Remove hardcoded geolocation support
+    * [dep] Add geopy dependency
+    * [enriched-dockerhub] Handle never updated images
+    * [git-enriched] Remove github commit support
+    * [elastic] Refactor all_properties method
+    * [tests] Add tests for elastic.py
+    * [elastic] Change logic to handle errors when creating a mapping
+    * [elastic] Initialize `error` variable for `safe_put_bulk`
+    * [elastic] Improve methods documentation
+    * [elastic] Rename `_check_instance` method
+    * [elastic] Replace dateutil call with str_to_datetime
+    * [elastic] Move logic to create index to new method
+    * [elastic] Enable loading of complex aliases
+    * [tests] Fix CI tests for elastic items
+    * (fix-ci-travisx) [elastic_items] Improve doc and test coverage
+    * [elk] Replace ElasticConnect, ElasticWriter exceptions with ElasticError
+    * [errors] Add ElasticError
+    * Let pandas be >= 0.22.0
+    * [utils] Remove track_items script and related methods
+    * [elk] Remove `get_items_from_uuid` method
+    * [github2] Update github2 fields
+    * Fix possible error 2
+    * Fix possible error
+    * Fix flake8 errors
+    * Add support for releasing scroll and waiting for available scroll (wait configurable amount of time)
+    * [enriched-colic] Handle missing commit message
+    * [enriched-cocom] Handle missing commit message
+    * [schema] Update colic schema
+    * [schema] Update cocom schema
+    * [enriched-colic] Handle credentials in origin
+    * [enriched-cocom] Handle credentials in origin
+    * [raw-github] Handle immense term for data.reviews_data.body
+* Hatstall
+    * [docker] Download Hatstall code while the container is built
+* Mordred
+    * [doc] Add example for github2 sections
+    * [travis] Support python 3.7
+    * [config] Add support for geolocation study
+    * [sirmordred] Remove support for github commit
+    * [aliases] Handle complex aliases
+    * [doc] Add notes to enable github-comments
+    * [aliases] Add github2 aliases for issues and pull requests
+    * [task_panels] Support github-comments dashboard upload
+    * [config] Add support for github-comments
+    * [tests] Add test with archives for task_enrich
+    * [tests] Optimize test for task_collection
+    * [doc] Complete list of data sources supported
+    * Made gitlab issues naming consistent
+* SortingHat
+    * [setup] Let pandas be >= 0.22.0
+* Cereslib
+    * [setup] Reduce constraints on dependencies
+* Sigils
+    * [docs] Add documentation for gerrit approvals dashboard
+    * [gerrit-approvals] Fix typo in `Approvals by Contributor`
+    * [docs] Add documentation for gerrit dashboard
+    * [docs] Update name and image of gerrit review efficiency dashboard
+    * [docs] Update gerrit review efficiency
+    * [gerrit] Align nomenclature in Gerrit panels
+    * Fix schema links
+    * Fix broken link to github2_issues schema
+    * [gerrit_approvals] Add total number of approvals
+    * Add GitHub pull requests collaboration dashboard
+    * Add GitHub issues collaboration and comments dash
+    * Update affiliations dashboard
+    * [colic] Update colic panels
+    * [cocom] Update cocom panels
+    * Update Jekyll installation instructions
+    * Update Kidash installation to mention Python 3
+
+
 # 0.2.36
 
 Released: 2019-01-08
