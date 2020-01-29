@@ -39,7 +39,7 @@ foo@bar:~$ cd grimoirelab/docker-compose
 foo@bar:~/grimoirelab/docker-compose$ docker-compose up -d
 ```
 
-Your dashboard will be ready after a while in `https://localhost:5601`
+Your dashboard will be ready after a while in `http://localhost:5601`
 
 More details in the [docker-compose folder](./docker-compose/README.md).
 
