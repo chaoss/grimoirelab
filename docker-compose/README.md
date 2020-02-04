@@ -54,7 +54,7 @@ Remember also to assign proper resources to Docker through the UI. 8GB Memory an
 
 1. Clone this project:
 ```console
-git clone https://github.com/grimoirelab
+git clone https://github.com/chaoss/grimoirelab
 ```
 
 2. By default, this repository comes with some configuration files in [`default-grimoirelab-settings`](../default-grimoirelab-settings).
