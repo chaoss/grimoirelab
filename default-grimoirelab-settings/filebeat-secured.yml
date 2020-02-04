@@ -1,0 +1,17 @@
+---
+
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /log/all.log
+output.elasticsearch:
+  hosts: ["https://elasticsearch:9200"]
+  index: "mordred-logs-%{+yyyy.MM.dd}"
+  username: "admin"
+  password: "admin"
+  ssl:
+    verification_mode: none
+
+setup.template.name: "mordred-logs"
+setup.template.pattern: "mordred-logs*"

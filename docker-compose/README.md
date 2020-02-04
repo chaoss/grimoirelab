@@ -1,7 +1,7 @@
 # Running GrimoireLab with docker-compose
 
-This folder host configuration files to run GrimoireLab using 
-[docker-compose](https://docs.docker.com/compose/), one of the 
+This folder host configuration files to run GrimoireLab using
+[docker-compose](https://docs.docker.com/compose/), one of the
 easiest way to get started with GrimoireLab.
 
 # Requirements
@@ -29,10 +29,10 @@ du: cannot access '/proc/2234/fd/3': No such file or directory
 du: cannot access '/proc/2234/fdinfo/3': No such file or directory
 26G     /
 ```
-**Note**: `free` and `du` are Linux utilities to display amount of free and used 
+**Note**: `free` and `du` are Linux utilities to display amount of free and used
 memory in the system, and to estimate file space usage, respectively.
 
-You should ensure [enough virtual memory for Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html) 
+You should ensure [enough virtual memory for Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html)
 (one of GrimoireLab components). You can do it running the following command as `root` in Linux or as administrator user in MacOS:
 
 ## Linux
@@ -84,7 +84,7 @@ Deployed infrastructure following previous steps doesn't provide any security pr
 on the data generated, so **don't use this for production environments or in public access environments**.
 
 If you want to deploy this infrastructure with minimal security, use the *secured*
-environment: 
+environment:
 * Edit [`default-grimoirelab-settings/setup-secured.cfg`](../default-grimoirelab-settings/setup-secured.cfg) to fit your needs
 * Instead of the the regular `docker-compose.yml` file, we will use `docker-compose-secured.yml`:
 ```console
@@ -93,7 +93,7 @@ docker-compose -f docker-compose-secured.yml up -d
 
 The difference is that it uses a secured Elasticsearch image and a secured Kibiter image.
 
-To access to the dashboard would be the same as previously, but if you need to modify something, you would be 
+To access to the dashboard would be the same as previously, but if you need to modify something, you would be
 asked to login.
 * User: `admin`
 * Password: `admin`
@@ -134,3 +134,20 @@ If you are using the *secured* environment, remember that the command is differe
 ```console
 docker-compose -f docker-compose-secured.yml up -d
 ```
+
+**How to access Mordred logs?**
+
+In order to make sure Mordred is working properly you may need to get access to the Mordred Logs. By default they are stored in the `/tmp/all.log` file, but our recommendation is to use the Kibiter interface to browse them. This is what you have to do:
+
+- go to http://localhost:5601/
+- if you are using the secured version, log in before continue
+- "management" -> "index patterns" -> "create index patterns"
+- type `mordred*` and click on "Next step"
+- choose `@timestamp` as the "Time Filter field name"
+- click on "Create Index Pattern"
+
+Now you can inspect Mordred logs using Kibiter.
+- go to discover http://localhost:5601/app/kibana#/discover
+- select the `mordred*` index (on top of the left column)
+
+Our recommendation to see what is happening is to select the past 15 minutes with an Auto-refresh of 10 seconds. It is also a good idea to select the field `message` on the left column so you don't see all the fields.

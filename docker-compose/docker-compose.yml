@@ -58,3 +58,9 @@ services:
         - mariadb
         - elasticsearch
       mem_limit: 4g
+
+    filebeat:
+      image: docker.elastic.co/beats/filebeat-oss:6.8.6
+      volumes:
+        - /tmp/:/log/
+        - ../default-grimoirelab-settings/filebeat.yml:/usr/share/filebeat/filebeat.yml
