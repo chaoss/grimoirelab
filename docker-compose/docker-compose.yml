@@ -5,8 +5,6 @@ services:
       image: mariadb:10.0
       expose:
         - "3306"
-      ports:
-        - "3306:3306"
       environment:
         - MYSQL_ROOT_PASSWORD=
         - MYSQL_ALLOW_EMPTY_PASSWORD=yes
