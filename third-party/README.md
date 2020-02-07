@@ -129,7 +129,6 @@ Copy/replace the following files in the current directory (`default-grimoirelab-
     category = code_complexity_lizard_file
     studies = [enrich_cocom_analysis]
     branches = master
-    git-path = /tmp/git-cocom
     worktree-path = /tmp/cocom/
     
     [enrich_cocom_analysis]
@@ -143,7 +142,6 @@ Copy/replace the following files in the current directory (`default-grimoirelab-
     studies = [enrich_colic_analysis]
     exec-path = /usr/share/fossology/nomos/agent/nomossa
     branches = master
-    git-path = /tmp/git-colic
     worktree-path = /tmp/colic
     
     [enrich_colic_analysis]
