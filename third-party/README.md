@@ -4,6 +4,39 @@ This directory is for configuration files, data, documentation, etc,
 related to third party tools useful (or in some cases, needed)
 by GrimoireLab or some of the GrimoireLab tools.
 
+## Docker image cross-nlp-rest-api
+
+This is image is used to add sentiment and emotion data to GrimoireLab data. The image can be created
+using the following steps (derived from https://github.com/Danny2097/CROSS-NLP-REST-API):
+```bash
+$ git clone https://github.com/Danny2097/CROSS-NLP-REST-API.git
+$ cd CROSS-NLP-REST-API/cross-nlp-rest-api
+$ mvn -N io.takari:maven:wrapper
+$ ./mvnw install
+$ docker build -t cross-nlp-rest-api .
+``` 
+
+Once done, you can run the container with the command below:
+```bash
+$ docker run -p <Port>:8080 -t cross-nlp-rest-api --name cross-nlp-rest-api
+```
+
+Then, you can and add sentiment and emotion information to your Github data by adding the study `enrich_feelings` to your setup.cfg:
+
+```buildoutcfg
+[github2:issue]
+api-token = ...
+raw_index = github2-issue_chaoss
+enriched_index = github2-issue_chaoss_enriched
+sleep-for-rate = true
+no-archive = true
+studies = [enrich_feelings]
+
+[enrich_feelings]
+attributes = [body]
+nlp_rest_url = http://localhost:<Port>
+``` 
+
 ## Docker image grimoirelab/fossology-factory
 
 This image is for building the
