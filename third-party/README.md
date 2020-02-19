@@ -7,12 +7,14 @@ by GrimoireLab or some of the GrimoireLab tools.
 ## Docker image cross-nlp-rest-api
 
 This is image is used to add sentiment and emotion data to GrimoireLab data. The image can be created
-using the following steps (derived from https://github.com/Danny2097/CROSS-NLP-REST-API):
+using the following steps:
 ```bash
-$ git clone https://github.com/Danny2097/CROSS-NLP-REST-API.git
+$ sudo apt-get install maven (if you don't have Maven in your machine)
+$ git clone https://github.com/CROSS-NLP/CROSS-NLP-REST-API.git
 $ cd CROSS-NLP-REST-API/cross-nlp-rest-api
 $ mvn -N io.takari:maven:wrapper
 $ ./mvnw install
+$ cd ..
 $ docker build -t cross-nlp-rest-api .
 ``` 
 
