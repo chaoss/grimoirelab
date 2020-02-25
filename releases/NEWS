@@ -1,3 +1,115 @@
+# 0.2.38
+
+Released: 2020-01-25
+
+* Perceval
+    * Fixed Typos and Grammatical Errors
+    * [telegram] Handle edited messages
+    * Update doc in README
+    * [github] Update the docstrings
+    * [twitter] Support for SSL verification
+    * [telegram] Support for SSL verification
+    * [stackexchange] Support for SSL verification
+    * [slack] Support for SSL verification
+    * [rss] Support for SSL verification
+    * [launchpad] Support for SSL verification
+    * [jenkins] Support for SSL verification
+    * [meetup] Support for SSL verification
+    * [mediawiki] Support for SSL verification
+    * [hyperkitty] Support for SSL verification
+    * [googlehits] Support for SSL verification
+    * [gitlab] Support for SSL verification
+    * [dockerhub] Support for SSL verification
+    * [discourse] Support for SSL verification
+    * [confluence] Support for SSL verification
+    * [bugzillarest] Support for SSL verification
+    * [groupsio] Support for SSL verification
+    * [github] Support for SSL verification
+    * [jira] Support for SSL verification
+    * [mattermost] Support for SSL verification
+    * [phabricator] Support for SSL verification
+    * [pipermail] Support for SSL verification
+    * [mbox] Support for SSL verification
+    * [redmine] Support for SSL verification
+    * [bugzilla] Support for SSL verification
+    * [askbot] Support for SSL verification
+    * [client] Support for tunable SSL verification
+    * [backend] Allow to disable SSL verification
+    * [doc] Update groupsio documentation in README.md
+    * [groupsio] Fetch messages after a given date
+* ELK
+    * [github2] Fix loading identities
+    * [github] Fix filter classified in GitHub and GitHub2 enrich
+    * add schema for backlog studie
+    * Add additional index to compute the chronological evolution of opened issues and average opened time issues.
+    * add description in git schema for commit_tags field
+    * add "tags" field in git enriched index to get the number of releases.
+    * [schema] Add scheams for docker smells and deps
+    * [grimoire_elk] Add connectors for docker smells and deps
+    * [grimoire_elk] Support for Docker smells analysis
+    * [grimoire_elk] Support for Docker dependencies analysis
+    * Update README.md
+    * [tests] Stop loop when finding a target study
+    * [tests] Move httpretty to requirements_tests
+    * [github2] Add support for feeling study
+    * [enriched-enrich] Add enrich_feelings study
+    * [schema] Add CSV for survival git data
+    * [dependencies] Add statsmodels dep to setup and requirements
+    * [enriched-git] Add support for survival study
+    * [enriched-enrich] Add survival developer study
+    * [doc] Add documentation to run tests and coverage
+    * [doc] fix mistake in README.md
+    * [enriched-telegram] Handle edited message
+    * [enriched-telegram] Handle missing username in Telegram messages
+    * [enriched-jira] Handle missing creator/ assignee displayName and name
+    * [tests] Fix tests for enrich_geolocation
+    * [raw-bugzillarest] Prevent indexing of clones attribute
+* Hatstall
+    * [hatstall] Fix method editing organization domain
+    * Update templates location to make the application self-contained
+    * Update files to create the django-hatstall pip package
+    * [docs] Update documentation
+* Mordred
+    * [mordred] Add support for backlog analysis study
+    * [doc] Add instructions to use dockersmells and dockerdeps
+    * [doc] fix docker-compose file
+    * Removed faulty parameter from utils/setup.cfg
+    * [aliases] Fix supybot alias `irc` instead of `supybot`
+    * [doc] Add instructions to execute the enrich_feelings study
+    * [config] Add `enrich_feelings` study
+    * [doc] Add instruction to execute `enrich_forecast_activity` study
+    * [config] Add support for `enrich_forecast_activity` study
+    * [sirmordred] Remove doc folder
+    * [config] Remove write_doc method
+    * [doc] Add an example of setup.cfg and projects.json for each data source
+    * [doc] Clarify the behavior of the 'Data Status' and 'Overview' dashboards
+    * [aliases.json] Remove old github2 aliases
+    * Add info about labels
+* SortingHat
+    * [tests] Fix `test_not_null_source` in test_model
+    * [db-model] Remove CoerceToBool type
+    * Add requirements file
+* Graal
+    * [coqua] Add support for Docker smells analysis
+    * [tests] Add travis support for Jadolint
+    * [codep] Add support for Docker dependencies analysis
+    * [analyzers] Add support for Jadolint
+    * [graal] Add exec_path as default parameter
+    * [graal] Use backend name to init default git path
+* Sigils
+    * [docker] Add dashboard for docker smells and dependencies
+    * [feelings] Add dashboard for github comments, collaboration and feelings
+    * [org-tracking] Add org tracking dashboard
+    * Add organization tracking overview documentation
+    * [doc] Delete hidden documentation pages
+    * [doc] Update link for mediawiki dashboard
+    * [sigils] Remove images in docs/assets/images
+    * [doc] Add info to create a Gemfile in contributing.md
+    * Update Affiliations documentation
+    * Uodate all_enriched index pattern
+    * Update text of Hatstall links from Affiliations
+    * Fix collaboration dashboards documentation
+
 # 0.2.37
 
 Released: 2020-01-28
