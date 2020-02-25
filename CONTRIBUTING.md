@@ -146,6 +146,54 @@ version 3).
 The list of current repositories is the list of projects in the
 GrimoireLab organization in GitHub.
 
+#### Guidelines to follow to write good commit messages
+Writing a well-crafted Git commit message is the best way to
+communicate context about a change to fellow developers.
+
+ Seven rules of a great Git commit message are mentioned in 
+ [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/):
+
+1. Separate subject from body with a blank line
+1. Limit the subject line to 50 characters
+1. Capitalize the subject line and (optionally) 
+start the subject with a tag
+1. Do not end the subject line with a period
+1. Use the imperative mood in the subject line
+1. Wrap the body at 72 characters
+1. Use the body to explain what and why vs. how
+
+The below git commit message is a good example which follows
+the above rules.
+
+```Summarize changes in around 50 characters or less
+
+More detailed explanatory text, if necessary. Wrap it to about 72
+characters or so. In some contexts, the first line is treated as the
+subject of the commit and the rest of the text as the body. The
+blank line separating the summary from the body is critical (unless
+you omit the body entirely); various tools like `log`, `shortlog`
+and `rebase` can get confused if you run the two together.
+
+Explain the problem that this commit is solving. Focus on why you
+are making this change as opposed to how (the code explains that).
+Are there side effects or other unintuitive consequences of this
+change? Here's the place to explain them.
+
+Further paragraphs come after blank lines.
+
+ - Bullet points are okay, too
+
+ - Typically a hyphen or asterisk is used for the bullet, preceded
+   by a single space, with blank lines in between, but conventions
+   vary here
+
+If you use an issue tracker, put references to them at the bottom,
+like this:
+
+Resolves: #123
+See also: #456, #789
+```
+
 ## Incubating repositories
 
 In some cases, activity related to GrimoireLab may start in
