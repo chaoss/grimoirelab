@@ -32,6 +32,7 @@ RUN apt-get update && \
         texlive-latex-extra \
         latex-cjk-common \
         unzip curl wget sudo ssh \
+        logrotate \
         && \
     apt-get clean && \
     find /var/lib/apt/lists -type f -delete
@@ -75,6 +76,10 @@ ADD docker/projects.json /projects.json
 ADD docker/identities.yaml /identities.yaml
 ADD docker/menu.yaml /menu.yaml
 ADD docker/aliases.json /aliases.json
+RUN chmod 755 /orgs.json /projects.json /identities.yaml /aliases.json
+
+# Add logrotate configuration files
++ADD docker/mordred-logrotate.conf /etc/logrotate.d/mordred.conf
 
 USER ${DEPLOY_USER}
 WORKDIR ${DEPLOY_USER_DIR}
