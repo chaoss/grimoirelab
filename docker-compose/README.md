@@ -60,7 +60,7 @@ git clone https://github.com/chaoss/grimoirelab
 2. By default, this repository comes with some configuration files in [`default-grimoirelab-settings`](../default-grimoirelab-settings).
 These files are the minimum set up to analyze git activity in this repository. If you want to analyze a different project with a different
 set of repositories and data sources, you need to modify [`projects.json`](../default-grimoirelab-settings/projects.json) and
-[`setup.cfg`](default-grimoirelab-settings/setup.cfg) files. See [below](#more-information) more information about these files format.
+[`setup.cfg`](../default-grimoirelab-settings/setup.cfg) files. See [below](#more-information) more information about these files format.
 
 3. Access to [`docker-compose`](./) folder and deploy GrimoireLab running this command:
 ```console
