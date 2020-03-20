@@ -1,6 +1,124 @@
+# 0.2.39
+
+Released: 2020-03-20
+
+* Kidash
+    * [kidash/kidash] Delete dependency with `grimoirelab-panels`
+    * [doc] Update README
+* Graal
+    * [graal] Update license and copyright information
+* Cereslib
+    * [events] Add support for multiple affiliations
+* Mordred
+    * [doc] Add PyCharm installation instructions
+    * added logging to file support for micro.py
+    * Troubleshooting fixed
+    * [doc] Fix askbot configuration typos
+    * Fix broken backlinks in supported resources
+    * Refracted Readme, Added navigation and contents
+    * Fixed README for docker-compose(without SearchGuard) with changes
+    * Corrected mariadb services for docker-compose.yml for without SearchGuard section
+    * [doc] Added Getting-Started doc
+    * added color logging facility in micro.py
+    * [micromordred] Replace actual api-token
+    * fixed username and pass for kibiter login
+    * Update README.md troubleshooting section - processes conflict with SearchGuard
+    * Update README.md troubleshooting section - processes conflict with SearchGuard
+    * Update 'Source code and docker' section of README.md to include unsecure docker-compose
+    * correcting spelling mistakes in Readme
+    * Added Empty Index Problem with Solution in troubleshooting section of Readme
+    * [utils] Add script to upload menu and dashboards
+    * Fixed phase enrichment time duration not counting days
+    * Added troubleshooting section in readme
+    * [sirmordred] Remove support for arthur
+    * [task_panels] Upload panels from the sigils module
+    * Merge branch 'add-colic' of 'https://github.com/snack0verflow/grimoirelab-sirmordred'
+    * [doc] Update readme with colic data and fix lexical order
+    * [readme] Improve doc to get a token for twitter
+    * [doc] Add sample cocom fields
+* ELK
+    * [schema] Add attribute for multi org names in github_pull_requests.csv
+    * [schema] Add attribute for multi org names in github_issues.csv
+    * [schema] Add attribute for multi org names in git.csv
+    * [enriched-mappings] Update aoc mappings
+    * [enriched-study-ceres-onion] Support for multiple affiliations
+    * [tests] Add tests for multi_org_name fields
+    * [jira] Propagate multiple affiations attributes
+    * [gerrit] Propagate multiple affiations attributes
+    * [grimoire_elk] Add support for multiple affiliations
+    * modified:   tests/test_git.py
+    * [raw-gerrit] Handle long text for data.patchSets.comments.message
+    * Update github_backlog.csv for a field missing
+    * [git] Include fields related with sortinghat when it is disabled
+    * [meetup] Include fields related with sortinghat when it is disabled
+    * [gitlab] Include fields related with sortinghat when it is disabled
+    * [github] Include fields related with sortinghat when it is disabled
+    * [sortinghat] Create enriched fields related to Sortinghat when it is disabled
+    * [enriched-gitlab] Fix repository value in issue
+    * [schema] Update field description
+    * [schema] Add project and project_1 descriptions to jenkins
+    * [elk] Remove support for arthur
+    * Update the mattermost.csv to fix a format issue
+    * [doc] Update readme for secure elasticsearch
+* Perceval
+    * [groupsio] Update log message
+    * [perceval] Update license and copyright information
+    * [backend] Add Pagure backend to Perceval
+    * [perceval] Update license info
+    * [groupsio] Format from_date with utc+0 timezone
+    * [doc] Fix broken link in README
+* Sigils
+    * [jenkins] Add index pattern
+    * Remove date formatting for grimoire_creation_date
+    * [all_enriched_tickets] Add date format
+    * [all_enriched] Add grimoire_creation_date format
+    * [affiliations] Add grimoire_creation_date format
+    * [github_issues] Update index pattern to include multi org names
+    * [git_areas_of_code] Update index pattern to include multi org names
+    * [git] Update index pattern to include multi org names
+    * [all_onion] Update index pattern to include multi org names
+    * [all_enriched_tickets] Update index pattern to include multi org names
+    * [all_enriched] Update index pattern to include multi org names
+    * [affiliations] Update index pattern to include multi org names
+    * Update affiliations index pattern
+    * [jenkins-job-categories] Add Jenkins projects pie chart
+    * [jenkins-nodes] Add Jenkins projects pie chart
+    * [jenkins-jobs] Add Jenkins projects pie chart
+    * [jenkins] Add Jenkins projects pie chart
+    * [jenkins] Update index pattern
+    * [twitter] Add link format to author_uuid field
+    * [stackoverflow] Add link format to author_uuid
+    * [slack] Add link format to author_uuid field
+    * [rss] Add link format to author_uuid field
+    * [redmine] Add link format to author_uuid field
+    * [meetup] Add link format to author_uuid field
+    * [mediawiki] Add link format to author_uuid field
+    * [mbox] Add link format to author_uuid field
+    * [mattermost] Add link format to author_uuid field
+    * [maniphest] Add link format to author_uuid field
+    * [kip] Add link format to author_uuid field
+    * [jira_resolution_date] Add format to author_uuid
+    * [jira] Add link format to author_uuid field
+    * [irc] Add link format to author_uuid field
+    * [gitlab-mrs] Add link format to author_uuid field
+    * [gitlab-issues] Add link format to author_uuid
+    * [github2-prs] Add link format to author_uuid
+    * [guthub2-issues] Add link format to author_uuid
+    * [git-aoc] Add link format to author_uuid field
+    * [gerrit] Add link format to author_uuid field
+    * [discourse] Add link format to author_uuid field
+    * [demographics] Add link format to author_uuid
+    * [confluence] Add link format to author_uuid field
+    * [bugzilla] Add link format to author_uuid field
+    * [askbot] Add link format to author_uuid field
+    * [all_onion] Add link format to author_uuid field
+    * [all_enriched_tickets] Add format to author_uuid
+    * [github-issues] Add link format to author_uuid
+    * [git] Add link format to author_uuid field
+
 # 0.2.38
 
-Released: 2020-01-25
+Released: 2020-02-25
 
 * Perceval
     * Fixed Typos and Grammatical Errors
