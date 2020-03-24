@@ -47,7 +47,7 @@ services:
 
     mordred:
       restart: on-failure:5
-      image: bitergia/mordred:grimoirelab-0.2.33
+      image: bitergia/mordred:grimoirelab-0.2.39
       volumes:
         - ../default-grimoirelab-settings/setup-secured.cfg:/home/bitergia/conf/setup.cfg
         - ../default-grimoirelab-settings/aliases.json:/home/bitergia/conf/aliases.json
@@ -55,12 +55,7 @@ services:
         - ../default-grimoirelab-settings/organizations.json:/home/bitergia/conf/organizations.json
         - ../default-grimoirelab-settings/identities.yml:/home/bitergia/conf/identities.yml
         - /tmp/:/home/bitergia/logs
-      links:
-        - redis
       depends_on:
         - mariadb
         - elasticsearch
       mem_limit: 4g
-
-    redis:
-      image: redis
