@@ -33,7 +33,7 @@ services:
 
     kibiter:
       restart: on-failure:5
-      image: bitergia/kibiter:optimized-v6.1.4-4
+      image: bitergia/kibiter:optimized-v6.1.4-3
       environment:
         - PROJECT_NAME=Demo
         - NODE_OPTIONS=--max-old-space-size=1000
