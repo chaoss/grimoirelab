@@ -9,18 +9,18 @@ MAINTAINER Jesus M. Gonzalez-Barahona <jgb@bitergia.com>
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-ADD build/fossology-common_3.6.0-1_amd64.deb /tmp
-ADD build/fossology-nomos_3.6.0-1_amd64.deb /tmp
+ADD build/fossology-common_3.0.0-1_amd64.deb /tmp
+ADD build/fossology-nomos_3.0.0-1_amd64.deb /tmp
 # install dependencies
 RUN sudo apt-get update && \
-    sudo apt-get -y install /tmp/fossology-common_3.6.0-1_amd64.deb \
-    	/tmp/fossology-nomos_3.6.0-1_amd64.deb \
+    sudo apt-get -y install /tmp/fossology-common_3.0.0-1_amd64.deb \
+    	/tmp/fossology-nomos_3.0.0-1_amd64.deb \
     	cloc \
         && \
     sudo apt-get clean && \
     sudo find /var/lib/apt/lists -type f -delete && \
-    sudo rm /tmp/fossology-common_3.6.0-1_amd64.deb \
-       /tmp/fossology-nomos_3.6.0-1_amd64.deb
+    sudo rm /tmp/fossology-common_3.0.0-1_amd64.deb \
+       /tmp/fossology-nomos_3.0.0-1_amd64.deb
 
 RUN wget https://github.com/crossminer/crossJadolint/releases/download/Pre-releasev2/jadolint.jar
 
