@@ -1,3 +1,110 @@
+# 0.2.40
+
+Released: 2020-04-24
+
+* Perceval
+    * [perceval] Add githubql backend
+    * [doc]Fixed minor typos
+    * [Travis] upgrade pip and setuptools
+    * [pagure] Add sanitize for archive
+    * [mattermost] Add sanitize for archive
+    * [github] Add sanitize for archive
+    * [discourse] Add sanitize for archive
+    * [backend] Add predefined paramaters to clients
+    * [pagure] Fix failing tests
+    * [backend] Add Gitter backend
+    * [gerrit] Extend `--start` param to gerrit 3.x
+* Perceval-opnfv
+    * [travis] Upgrade setuptools and pip
+* Perceval-puppet
+    * [travis] Upgrade setuptools and pip
+* Perceval-mozilla
+    * [travis] Upgrade setuptools and pip
+* Perceval-finos
+    * [travis] Upgrade setuptools and pip
+* Graal
+    * [travis] Upgrade setuptools and pip
+* Sortinghat
+    * [doc] Add examples of SortingHat API via Python
+    * [travis] Upgrade setuptools and pip
+    * Clarifying sortinghat intro
+    * Fix broken link to Perceval in README.md
+* Mordred
+    * [mordred] Add support for github events
+    * [doc-git] Add parameter `run_month_days` in `enrich_git_branches`
+    * This commit adds config, alias, menu entry and documentaion for gitter backend.
+    * Fixed the typoes of docker/README.md
+    * [doc] Add Pagure datasource
+    * [tests] Remove user/password from es_enrichment section
+    * Remove user and password parameter from elastic section
+    * added section in getting started and reformatting
+    * added section in getting started and formatting
+    * [travis] Upgrade setuptools and pip
+    * [tests] Add requirements_tests.txt
+    * [docs] revamp of getting-started.md
+    * Fixed Broken Backlinks
+    * Added some sections in 'How to' of GettingStarted document
+    * Make anonymization optional for each backend
+    * fixed link for ssl error and other fixes
+    * fixes made as per comments
+    * Corrected 'Sudo' with 'sudo'
+    * Added how-to dump a mapping/data from an index
+    * added installation for docker and docker-compose, added errors and solutions in troubleshooting section
+    * fix typo in README.md
+    * Fixing typo in Sir Mordred's README.md
+    * [Getting-started] Update kibiter version to 6.1.4-3
+    * Add "How to modify the menu" to the getting started guide
+    * [doc]Added section in 'How to' in Getting-Started.md
+    * Fixed a backlink
+    * [doc] Added How to section in Getting-Started
+    * [sirmordred] Remove duplicate call of execute_batch_tasks
+* Kingarthur
+    * [travis] Upgrade setuptools and pip
+* Manuscripts
+    * [travis] Upgrade setuptools and pip
+    * [travis] Support for python 3.5 and 3.6
+* Cereslib
+    * [travis] Upgrade setuptools and pip
+    * Fix a small typo
+* Toolkit
+    * [travis] Upgrade setuptools and pip
+* ELK
+    * Fix body store-and-process-github-events.yml
+    * [ELK] Add poetry support
+    * [releases] Add release note for feature #853
+    * [ELK] Store and process github events
+    * [enrich-git] Add the param `run_month_days` to enrich_git_branches
+    * [enriched-git] Handle connection problems during enrich_git_branches
+    * This commit addds support for gitter backend. Raw and Enriched indexes have been added along with their tests and schemas.
+    * [pagure] Add support for Pagure
+    * updated the docstring for pair_programming
+    * [enriched-bugzillarest] Add new field `is_open`
+    * changed logic to delete all test indexes
+    * added test for pair_programming
+    * [travis] Upgrade setuptools and pip
+    * [enriched] Check first if the instance of `item` is dict
+    * add language field and compute all cocom study metrics per language
+    * added projects_map db to improve coverage
+    * [releases-notes] Add release note for fix #826
+    * [enriched-meetup] Handle event without geolocation
+    * [meetup] Make users anonymization optional for meetup
+    * [gitlab] Make owners data anonymization optional for gitlab
+    * [github] Make owners data anonymization optional for github
+    * [git] Make author anonymization optional for git
+    * Make anonymization optional for each backend
+    * modified:final test_git.py
+    * [schema] Update dockerhub.csv
+    * [schema] Update askbot.csv
+    * [schema] Update mattermost.csv
+* Sigils
+    * [bugzilla-timing] Change `painless_time_to_now` instead of `timeopen_days`
+    * [github] Add dashboard about closed events
+    * [bugzilla-backlog] Change `painless_time_to_now` instead of `timeopen_days`
+    * [bugzilla] Change `painless_time_to_now` instead of `timeopen_days`
+    * [gitter] Add gitter panels.
+    * Updated docker.json, replaced sirmordred repo link
+
+
 # 0.2.39
 
 Released: 2020-03-20
