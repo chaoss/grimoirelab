@@ -1,30 +1,24 @@
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
+<nav class="navbar navbar-expand-lg text-uppercase fixed-top bg-dark" id="mainNav">
+  <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header page-scroll">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#page-top">
-        <img src="{{site.baseurl}}/img/wizard-y.svg" alt="" height="48px">
-        <span>GrimoireLab</span>
-      </a>
-    </div>
-
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <img src="{{site.baseurl}}/img/wizard-y.svg" alt="" height="48px">
+      <span>GrimoireLab</span>
+    </a>
+    <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <svg class="bi bi-list" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 013 11h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 7h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 3h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
+    </svg></button>
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="hidden">
-          <a href="{{site.baseurl}}/#page-top"></a>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="hidden nav-item mx-0 mx-lg-1">
+          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{site.baseurl}}/#page-top"></a>
         </li>
 
         {% for section in page.sections %}
-        <li class="page-scroll">
-          <a href="{{section.link}}">{{section.name}}</a>
+        <li class="nav-item mx-0 mx-lg-1">
+          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{section.link}}">{{section.name}}</a>
         </li>
         {% endfor %}
 
