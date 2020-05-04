@@ -1,0 +1,35 @@
+<section class="page-section" id="components">
+    <div class="container text-center">
+        <h3 class="page-section-heading text-uppercase">Components</h3>
+        <div class="row mt-5">
+        <div class="col-lg-12">
+          
+          <p>The platform provides the following components:</p>
+        {% for project in site.data.projects %}
+          {% capture modulo %}{{ forloop.index0 | modulo:3 }}{% endcapture %}
+  
+          {% if modulo == '0' or forloop.first %}
+            <div class="row">
+          {% endif %}
+  
+              <div class="col-sm-4 text-center">
+                <h3>{{project.name}}</h3>
+                <p class="text-justify text-small">{{project.description}}</p>
+                <p class="text-justify"><a href="http://github.com/chaoss/{{project.github-name}}"><i data-feather="github"></i> Check {{project.name}} repository</a></p>
+              </div>
+  
+          {% if modulo == '2' or forloop.last %}
+            </div>
+            <div class="divider-custom divider-primary">
+              <div class="divider-custom-line"></div>
+              <div class="divider-custom-icon"><i data-feather="star"></i></div>
+              <div class="divider-custom-line"></div>
+            </div>
+          {% endif %}
+  
+        {% endfor %}
+        </div>
+      </div>
+  
+    </div>
+  </section>

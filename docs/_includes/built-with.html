@@ -1,22 +1,30 @@
 <!-- Built with Section -->
-<section class="success" id="builtwith">
-    <div class="container">
-      <div class="row" style="padding-top: 2em;">
-        <div class="col-lg-12 text-center">
-          <h2>Built with GrimoireLab</h2>
-          <hr class="star-light">
-          <p>Some dashboards and services built using GrimoireLab platform</p>
-        </div>
+<section class="page-section bg-primary text-white" id="builtwith">
+  <div class="container text-center">
+      <h2 class="page-section-heading text-uppercase">Built with GrimoireLab</h2>
+      
+      <p>Some projects and services built using GrimoireLab toolkit</p>
+
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i data-feather="star"></i></div>
+        <div class="divider-custom-line"></div>
       </div>
+
       <div class="row">
         {% for sample in site.data.builtwith %}
-        <div class="col-md-4 col-sm-12 text-center">
-          <h3>{{sample.name}}</h3>
-          <a href="{{sample.url}}" target="_blank"><img src="{{site.baseurl}}/img/dashboards/{{sample.image}}" class="img-responsive" alt="{{sample.name}}"></a>
+        <div class="col-md-3 col-sm-6 text-center">
+          <p><a class="text-white" href="{{sample.url}}" target="_blank">{{sample.name}} <i data-feather="external-link"></i></a></p>
+          <a href="{{sample.url}}" target="_blank"><img src="{{site.baseurl}}/img/dashboards/{{sample.image}}" class="img-fluid" alt="{{sample.name}}"></a>
         </div>
         {% endfor %}
+        <div class="card col-md-3 col-sm-6 text-center align-middle">
+          <div class="card-body">
+            <p><a class="align-middle" href="https://lists.linuxfoundation.org/mailman/listinfo/grimoirelab-discussions"><i data-feather="mail" class="mr-1"></i> Tell us about your use case!</a></p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+  </div>
+</section>
 
 <!-- End of Section -->

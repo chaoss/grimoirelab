@@ -1,10 +1,10 @@
 # Built with GrimoireLab
-- name: Cauldron.io dashboards
-  image: cauldron.png
-  url: http://cauldron.io
+- name: Cauldron.io
+  image: three_images_cauldron.png
+  url: https://cauldron.io
 - name: Bitergia Analytics Platform
   image: eclipse.png
-  url: https://www.bitergia.com/products/
-# - name: Samsung Open Souce Group Numbers
-#   image: samsung-osg.png
-#   url: https://blogs.s-osg.org/metrics/
+  url: https://bitergia.com/bitergia-analytics/
+- name: Mautic Community dashboard
+  image: mautic.png
+  url: https://dashboard.mautic.org/
