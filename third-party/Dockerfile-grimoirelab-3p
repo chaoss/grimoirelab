@@ -9,18 +9,23 @@ MAINTAINER Jesus M. Gonzalez-Barahona <jgb@bitergia.com>
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-ADD build/fossology-common_3.6.0-1_amd64.deb /tmp
-ADD build/fossology-nomos_3.6.0-1_amd64.deb /tmp
+RUN wget https://github.com/fossology/fossology/releases/download/3.8.1/FOSSology-3.8.0-debian9stretch.tar.gz && \
+    tar -xzf FOSSology-3.8.0-debian9stretch.tar.gz && rm FOSSology-3.8.0-debian9stretch.tar.gz && \
+    cp packages/fossology-common_3.8.1-1_amd64.deb /tmp && \
+    cp packages/fossology-nomos_3.8.1-1_amd64.deb /tmp
+
+RUN rm -rf packages
+
 # install dependencies
 RUN sudo apt-get update && \
-    sudo apt-get -y install /tmp/fossology-common_3.6.0-1_amd64.deb \
-    	/tmp/fossology-nomos_3.6.0-1_amd64.deb \
+    sudo apt-get -y install /tmp/fossology-common_3.8.1-1_amd64.deb \
+    	/tmp/fossology-nomos_3.8.1-1_amd64.deb \
     	cloc \
         && \
     sudo apt-get clean && \
     sudo find /var/lib/apt/lists -type f -delete && \
-    sudo rm /tmp/fossology-common_3.6.0-1_amd64.deb \
-       /tmp/fossology-nomos_3.6.0-1_amd64.deb
+    sudo rm /tmp/fossology-common_3.8.1-1_amd64.deb \
+       /tmp/fossology-nomos_3.8.1-1_amd64.deb
 
 RUN wget https://github.com/crossminer/crossJadolint/releases/download/Pre-releasev2/jadolint.jar
 
