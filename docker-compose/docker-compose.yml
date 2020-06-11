@@ -24,16 +24,17 @@ services:
         - ../default-grimoirelab-settings/shdb.cfg:/home/grimoirelab/shdb.cfg
 
     elasticsearch:
-      image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.1.4
-      command: /elasticsearch/bin/elasticsearch -E network.bind_host=0.0.0.0
+      image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.6
+      command: elasticsearch -Enetwork.bind_host=0.0.0.0 -Ehttp.max_content_length=2000mb
       ports:
         - 9200:9200
       environment:
         - ES_JAVA_OPTS=-Xms2g -Xmx2g
+        - ANONYMOUS_USER=true
 
     kibiter:
       restart: on-failure:5
-      image: bitergia/kibiter:optimized-v6.1.4-3
+      image: bitergia/kibiter:community-v6.8.6-3
       environment:
         - PROJECT_NAME=Demo
         - NODE_OPTIONS=--max-old-space-size=1000

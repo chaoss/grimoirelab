@@ -24,8 +24,8 @@ services:
         - ../default-grimoirelab-settings/shdb.cfg:/home/grimoirelab/shdb.cfg
 
     elasticsearch:
-      image: bitergia/elasticsearch:6.1.0-secured
-      command: /elasticsearch/bin/elasticsearch -E network.bind_host=0.0.0.0
+      image: bitergia/elasticsearch:6.8.6-secured
+      command: elasticsearch -Enetwork.bind_host=0.0.0.0 -Ehttp.max_content_length=2000mb
       ports:
         - 9200:9200
       environment:
@@ -33,13 +33,14 @@ services:
 
     kibiter:
       restart: on-failure:5
-      image: bitergia/kibiter:secured-v6.1.4-5
+      image: bitergia/kibiter:secured-v6.8.6-3
       environment:
         - PROJECT_NAME=Demo
         - NODE_OPTIONS=--max-old-space-size=1000
-        - ELASTICSEARCH_URL=https://elasticsearch:9200
         - ELASTICSEARCH_USER=kibanaserver
         - ELASTICSEARCH_PASSWORD=kibanaserver
+        - ELASTICSEARCH_URL=["https://elasticsearch:9200"]
+        - LOGIN_SUBTITLE=If you have forgotten your username or password ...
       links:
         - elasticsearch
       ports:
