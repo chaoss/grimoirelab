@@ -1,3 +1,93 @@
+# 0.2.41
+
+Released: 2020-06-13
+
+* Perceval
+    * [backend] Add Rocket.Chat backend
+    * [perceval] Fix flake8 errors
+    * [doc] Add Slack API token generation info
+    * [slack] Update resource endpoints
+    * [launchpad] Add missing `package` parameter in launchpad
+
+* Sigils
+    * [slack] Add DevRel dashboard
+    * [GitHub] Add DevRel dashboard
+    * [discourse] Add DevRel dashboard
+    * [github] Add dashboard about label-related events
+    * [github2-pulls] Update index pattern
+    * [github2-pulls] Change order results metric in table vizs
+    * [github2-issues] Update index pattern
+    * [github2-issues] Change order results metric in table vizs
+    * [slack] Add new files metrics to index pattern
+    * [gerrit] Add changeset status and value to index pattern
+
+* ELK
+    * [deps] Constrain numpy version to <= 1.18.3
+    * Release 0.73.0
+    * Fix formatting git private repos note
+    * [enriched-githubql] Add label attribute to closed events
+    * [enriched-mediawiki] Handle filters on repo URL
+    * [elastic] Support for filter no-collection on multi params URLs
+    * [enriched-confluence] Extract username from publicName attr
+    * [enriched-git] Sync AOC and Git raw index
+    * [enriched-git] Handle anonymized repos in update_items
+    * [enriched-cocom] Include files in revision
+    * [elk] Fix flake8 errors
+    * [tests] Rename study indexes for tests to ease deletion
+    * [elk] Handle private repos in git studies
+    * [enriched-utils] Remove credentials for repository filter
+    * [raw-git] Remove credentials from origin
+    * [elk] Move anonymize_url to enriched/utils.py
+    * [enriched-cocom] Propagate commit parents to enriched index
+    * [utils] Remove unused function get_time_diff_days
+    * [enriched-mbox-study-kip] Fix calculation for inactive days
+    * [grimoire_elk] Replace datetime/dateutil calls with toolkit
+    * [utils] Remove get_git_repos
+    * [enriched] Remove projects.py
+    * [launchpad] Add support for launchpad
+    * [enriched-gerrit] Propagate changeset status to patchsets
+    * [slack] Update files metric
+    * [tests] Add tests for `copy_raw_fields()` method
+    * [Enrich] Add `copy_raw_fields()` method and refactor enrichers
+    * [telegram] Improve test coverage
+    * [Mbox] Add tests and test data for MBox KIP study.
+    * [test] Add missing test for perceval params
+
+* Mordred
+    * [task_panels] Upload label-related dashboard
+    * [docs] Update getting-started with ES/Kibiter 6.8
+    * [tests] Remove panels test for kibiter 5.x
+    * [aliases] Remove affiliations and all_enriched aliases for github2
+    * [tests] Add tests to process filter-no-collection on multi params URLs
+    * [task_panels] Remove support for Kibiter < 6.x
+    * [tests] Update requirements_test
+    * [sirmordred] Remove credentials from private URLs
+    * [task_identities] add `no-enrollment-periods-validation`
+    * [aliases] Fix enrich alias for gerrit
+
+* Sortinghat
+    * [deps] Constrain numpy version to <= 1.18.3
+    * Update version number to 0.7.13
+    * [misc/grimoirelab2sh] Add new argument to avoid periods validation
+
+* Graal
+    * [cocom] Remove first slash from file path
+    * [travis] Change how to install nomos
+    * [cocom] Include files info in docs generated
+    * [cocom] Include parents info in docs generated
+
+* Cereslib
+    * [enrich-enrich] Fix flake8 E741 ambiguous variable name
+    * [deps] Constraint numpy version to <= 1.18.3
+    * version number to 0.1.13
+    * [test] Add test for Git events
+
+* Kidash
+    * [kidash] Remove support for kibana <6.x
+    * [kidash] Improving log messages
+    * [kidash] Support import to Kibiter/Kibana 6.8
+
+
 # 0.2.40
 
 Released: 2020-04-24
