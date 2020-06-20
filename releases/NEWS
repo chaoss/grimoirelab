@@ -1,3 +1,26 @@
+# 0.2.42
+
+Released: 2020-06-20
+
+* Perceval
+    * [slack] Handle messages without user/bot ID
+
+* ELK
+    * Add release note for rocketchat
+    * [enriched-slack] Handle messages without user data/bot ID
+    * [enriched-githubql] Add reporter data to enriched docs
+    * [enriched-mbox] Handle long body emails
+    * [enriched-githubql] Add duration analysis study
+    * [rocketchat] Increase test coverage and complete doc
+    * [rocketchat] Patch for PR #882
+    * [rocketchat] Add support for RocketChat
+    * [grimoire_elk] Remove tzinfo for date comparison
+
+* Mordred
+    * [config] Add support for duration analysis
+    * [doc] Add instructions to mine rocketchat
+    * [docs] Update Getting-Started.md result image
+
 # 0.2.41
 
 Released: 2020-06-13
