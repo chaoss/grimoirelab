@@ -41,7 +41,7 @@ foo@bar:~$ cd grimoirelab/docker-compose
 foo@bar:~/grimoirelab/docker-compose$ docker-compose up -d
 ```
 
-Your dashboard will be ready after a while in `http://localhost:5601`
+Your dashboard will be ready after a while in `http://localhost:5601`. The waiting time depends on the amount of data to fetch from a repo, for small repositories you can expect your data to be visible in the dashboard after 10-15 minutes.
 
 More details in the [docker-compose folder](./docker-compose/README.md).
 
@@ -71,9 +71,9 @@ foo@bar:~/grimoirelab $ docker run -p 127.0.0.1:5601:5601 \
 -t grimoirelab/full
 ```
 
-More details in the [docker folder](./docker/README.md).
+Your dashboard will be ready after a while in `http://localhost:5601`. The waiting time depends on the amount of data to fetch from a repo, for small repositories you can expect your data to be visible in the dashboard after 10-15 minutes.
 
-Your dashboard will be ready after a while in `http://localhost:5601`
+More details in the [docker folder](./docker/README.md).
 
 # GrimoireLab components
 
