@@ -12,7 +12,7 @@ GrimoireLab  use the following communication channels:
 * IRC channel
 * Issues / pull requests
 
-Each of them is intended for an specific purpose. Please, understand
+Each of them is intended for an specific purpose. Please understand
 that you may be redirected to some other mean if the communication you
 intend to have is considered to fit better elsewhere.
 
@@ -24,8 +24,8 @@ List:
 We use the list for:
 
 * Discussions related to the management of the project, including the
-relationship with the CHAOS Software Technical Committee
-* General announcements, including information about releases
+relationship with the CHAOS Software Technical Committee.
+* General announcements, including information about releases.
 * General discussions about the future of the project, relationship
 with other projects, new features or refactorings that really don't fit
 in other communication means.
@@ -47,10 +47,10 @@ project is welcome to join the channel and hang around.
 Repositories: [GrimoireLab repositories in GitHub](http://github.com/chaoss/grimoirelab), which are all in the [CHAOSS organization](http://github.com/chaoss).
 
 Most of the work is discussed here, including upgrades and
-proposals for upgrades, bug fixing, and feature requests. For any of
-these, open an issue in corresponding repository. If in doubt, ask in
+proposals for upgrades, bug fixing and feature requests. For any of
+these, open an issue in the corresponding repository. If in doubt, ask in
 the IRC channel, or try in any one: if needed you will be redirected to
-the right repository. If you are proposing code, open a pull request.
+the right repository. If you are proposing code change, open a pull request.
 
 ## DCO and Sign-Off for contributions
 
@@ -76,7 +76,7 @@ in a single line, into the commit comment field. This can be automated by using 
 
 ## Committers
 
-Committers will have permision to merge code in GrimoireLab. Committers
+Committers have the permision to merge code in GrimoireLab. Committers
 can be for all GrimoireLab, or for specific repositories.
 
 New committers will be proposed by committers, and accepted (granted
@@ -85,17 +85,17 @@ Developers can apporach committers to ask to be proposed as comitter.
 Main rule for acceptance of new committers will be their merits on the
 project, including past contributions and expertise.
 
-Comitters may resign, if they are no longer involved enough in the
-project. Comitters can also propose the removal of other committer
+Committers may resign if they are no longer involved enough in the
+project. Committers can also propose the removal of other committer
 rights, in case they are no longer involved in the project. For being
 removed, after the proposal there will be an action voting among
 committers, except for the one being proposed to be removed.
 
 The current list of committers is (GitHub handles):
 
-* General: sduenas, acs, dicortazar, sanacl, jgbarah, jsmanrique, valcos
-* Manuscripts: alpgarcia
-* Sigils: alpgarcia
+* General: @sduenas, @acs, @dicortazar, @sanacl, @jgbarah, @jsmanrique, @valcos
+* Manuscripts: @alpgarcia
+* Sigils: @alpgarcia
 
 ## Voting on action items (action votes)
 
@@ -200,7 +200,7 @@ In some cases, activity related to GrimoireLab may start in
 repositories outside the GrimoireLab project. In that case, if the
 developers collaborating in those repositories want, they can inform
 GrimoireLab of their progress, and propose coordianted actions (such as
-definition of APIs). However, they will be considered extenal projects
+definition of APIs). However, they will be considered external projects
 until the moment they are accepted as repositories in GrimoireLab, via
 an action vote.
 
@@ -211,6 +211,6 @@ TBD
 ## Releases
 
 GrimoireLab will deliver frequent coordinated releases of several of
-the code in its repositories. Those releases should have passed somem
+the code in its repositories. Those releases should have passed some
 testing procedures known to the project. Releases will be announced in
 the mailing list.

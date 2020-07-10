@@ -4,7 +4,7 @@
 
 GrimoireLab is a [CHAOSS](https://chaoss.community) toolset for software development analytics. It includes a coordinated set of tools
 to retrieve data from systems used to support software development (repositories), store it in databases,
-enrich it by computing relevant metrics, and making it easy to run analytics and visualizations on it.
+enrich it by computing relevant metrics and making it easy to run analytics and visualizations on it.
 
 You can learn more about GrimoireLab in the [GrimoireLab tutorial](https://chaoss.github.io/grimoirelab-tutorial/),
 or visit the [GrimoireLab website](https://chaoss.github.io/grimoirelab).
@@ -19,7 +19,7 @@ to analyze git activity for this repository. Given such set up, there are severa
 ## Using `docker-compose`
 
 Requirements: 
-* **Software**:[git](https://git-scm.com/), [docker client](https://docs.docker.com/install/), and [docker compose](https://docs.docker.com/compose/install/). As an example of working configuration:
+* **Software**: [git](https://git-scm.com/), [docker client](https://docs.docker.com/install/) and [docker compose](https://docs.docker.com/compose/install/). An example of working configuration:
 ```console
 root@test-68b8628f:~# git --version
 git version 2.17.1
@@ -31,7 +31,7 @@ docker-compose version 1.22.0, build f46880fe
 * **Hardware**: 2 CPUs, 8GB memory RAM and [enough virtual memory for Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html) 
 
 Steps:
-1. Clone this project
+1. Clone this project:
 ```console
 foo@bar:~$ git clone https://github.com/chaoss/grimoirelab
 ```
@@ -41,14 +41,14 @@ foo@bar:~$ cd grimoirelab/docker-compose
 foo@bar:~/grimoirelab/docker-compose$ docker-compose up -d
 ```
 
-Your dashboard will be ready after a while in `http://localhost:5601`. The waiting time depends on the amount of data to fetch from a repo, for small repositories you can expect your data to be visible in the dashboard after 10-15 minutes.
+Your dashboard will be ready after a while at `http://localhost:5601`. The waiting time depends on the amount of data to fetch from a repo, for small repositories you can expect your data to be visible in the dashboard after 10-15 minutes.
 
 More details in the [docker-compose folder](./docker-compose/README.md).
 
 ## Using `docker run`
 
 Requirements: 
-* **Software**: [git](https://git-scm.com/), and [docker client](https://docs.docker.com/install/). As an example of working configuration:
+* **Software**: [git](https://git-scm.com/) and [docker client](https://docs.docker.com/install/). An example of working configuration:
 ```console
 root@test-68b8628f:~# git --version
 git version 2.17.1
@@ -58,7 +58,7 @@ Docker version 19.03.1, build 74b1e89
 * **Hardware**: 2 CPUs, 8GB memory RAM and set
 
 Steps:
-1. Clone this project
+1. Clone this project:
 ```console
 $ git clone https://github.com/chaoss/grimoirelab
 ```
@@ -71,7 +71,7 @@ foo@bar:~/grimoirelab $ docker run -p 127.0.0.1:5601:5601 \
 -t grimoirelab/full
 ```
 
-Your dashboard will be ready after a while in `http://localhost:5601`. The waiting time depends on the amount of data to fetch from a repo, for small repositories you can expect your data to be visible in the dashboard after 10-15 minutes.
+Your dashboard will be ready after a while at `http://localhost:5601`. The waiting time depends on the amount of data to fetch from a repo, for small repositories you can expect your data to be visible in the dashboard after 10-15 minutes.
 
 More details in the [docker folder](./docker/README.md).
 
