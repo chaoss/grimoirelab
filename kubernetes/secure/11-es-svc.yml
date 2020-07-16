@@ -1,0 +1,27 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grimoire-es-cluster
+  namespace: grimoire
+spec:
+  clusterIP: None
+  selector:
+    app: es-cluster
+  ports:
+    - name: transport
+      port: 9300
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grimoire-es-lb
+  namespace: grimoire
+spec:
+  selector:
+    app: es-cluster
+  ports:
+    - name: http
+      port: 9200
+      targetPort: 9200
+  type: ClusterIP

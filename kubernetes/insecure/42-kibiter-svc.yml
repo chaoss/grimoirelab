@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kibiter
+  namespace: grimoire
+spec:
+  type: ClusterIP
+  ports:
+    - port: 5601
+  selector:
+    app: kibiter

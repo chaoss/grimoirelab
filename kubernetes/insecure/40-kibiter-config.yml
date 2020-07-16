@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kibiter-config
+  namespace: grimoire
+data:
+  PROJECT_NAME: Demo
+  NODE_OPTIONS: --max-old-space-size=1000
+  ELASTICSEARCH_URL: http://grimoire-es-lb:9200
+  LOGIN_SUBTITLE: If you have forgotten the username or password ...

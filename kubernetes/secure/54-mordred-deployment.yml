@@ -1,0 +1,73 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mordred
+  namespace: grimoire
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mordred
+  template:
+    metadata:
+      labels:
+        app: mordred
+    spec:
+      containers:
+        - name: mordred
+          image: bitergia/mordred:grimoirelab-0.2.42
+          resources:
+#            requests:
+#              cpu: 2000m
+#              memory: 3Gi
+            limits:
+#              cpu: 3500m
+              memory: 4Gi
+          volumeMounts:
+            - name: secret-setup
+              mountPath: /home/bitergia/conf/setup.cfg
+              subPath: setup.cfg
+            - name: config-aliases
+              mountPath: /home/bitergia/conf/aliases.json
+              subPath: aliases.json
+            - name: config-projects
+              mountPath: /home/bitergia/conf/projects.json
+              subPath: projects.json
+            - name: config-organizations
+              mountPath: /home/bitergia/conf/organizations.json
+              subPath: organizations.json
+            - name: config-identities
+              mountPath: /home/bitergia/conf/identities.yml
+              subPath: identities.yml
+      volumes:
+        - name: secret-setup
+          secret:
+            secretName: mordred-secret
+            items:
+              - key: setup.cfg
+                path: setup.cfg
+        - name: config-aliases
+          configMap:
+            name: mordred-config-aliases
+            items:
+              - key: aliases.json
+                path: aliases.json
+        - name: config-projects
+          configMap:
+            name: mordred-config
+            items:
+              - key: projects.json
+                path: projects.json
+        - name: config-organizations
+          configMap:
+            name: mordred-config-orgs
+            items:
+              - key: organizations.json
+                path: organizations.json
+        - name: config-identities
+          configMap:
+            name: mordred-config
+            items:
+              - key: identities.yml
+                path: identities.yml
