@@ -1,3 +1,36 @@
+# 0.2.43
+
+Released: 2020-07-21
+
+* Perceval
+    * [githubql] Add pull request author to ClosedEvent
+    * [slack] Use channels.history to retrieve message
+
+* ELK
+    * Update pyproject.toml with PyMySQL pinned dep
+    * [deps] Pin PyMySQL dependency
+    * [enriched-githubql] Add pull request submitter to closed events
+    * [enriched/phabricator] Fix the field `time_to_close_days`
+    * Fix Issue#907
+    * [enriched-enrich] Set user-agent for geopy
+    * Fix wrong quotation
+    * [enriched-git] Execute update_items when local repo commits are returned
+    * [enriched-githubql] Add page size param to duration study
+
+* Hatstall
+    * [readme] Fix instruction to install requirements
+
+* Mordred
+    * Save new changes made in Dashboard by mounting the volume in ES
+    * Remove inconsistency in displaying images
+    * Add info about pulling in latest data
+
+* Sigils
+    * [github-closed-events] Include submitters and reporters in dashboard
+    * [maniphest] Change `painless_delay` instead of `timeopen_days`
+    * [github-label-events] Improve dashboard
+    * Add acknowledgments section to DevRel dashboards
+
 # 0.2.42
 
 Released: 2020-06-20
