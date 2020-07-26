@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: es-config
+  namespace: grimoire
+data:
+  ES_JAVA_OPTS: -Xms2g -Xmx2g
+  ES_CLUSTER_NAME: grimoire-cluster
+  ES_NETWORK_HOST: "0.0.0.0"
+  ES_BOOTSTRAP_MEMORY_LOCK: "false"
+  ES_DISCOVERY_ZEN_PING_UNICAST_HOSTS: grimoire-es-cluster

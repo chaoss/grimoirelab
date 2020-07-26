@@ -1,0 +1,65 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hatstall
+  namespace: grimoire
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hatstall
+  template:
+    metadata:
+      labels:
+        app: hatstall
+    spec:
+      containers:
+        - name: hatstall
+#          resources:
+#            requests:
+#              cpu: 250m
+#              memory: 384Mi
+#            limits:
+#              cpu: 250m
+#              memory: 512Mi
+          image: grimoirelab/hatstall:latest
+          env:
+            - name: DATABASE_DIR
+              valueFrom:
+                configMapKeyRef:
+                  name: hatstall-config
+                  key: DATABASE_DIR
+            - name: ADMIN_USER
+              valueFrom:
+                secretKeyRef:
+                  name: hatstall-secret
+                  key: ADMIN_USER
+            - name: ADMIN_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: hatstall-secret
+                  key: ADMIN_PASS
+          ports:
+            - containerPort: 80
+              name: hatstall-http
+          volumeMounts:
+            - name: hatstall-config
+              mountPath: /home/grimoirelab/apache-hatstall.conf
+              subPath: apache-hatstall.conf
+            - name: shdb-config
+              mountPath: /home/grimoirelab/shdb.cfg
+              subPath: shdb.cfg
+      volumes:
+        - name: shdb-config
+          secret:
+            secretName: hatstall-secret
+            items:
+              - key: shdb.cfg
+                path: shdb.cfg
+        - name: hatstall-config
+          configMap:
+            name: hatstall-config
+            items:
+              - key: apache-hatstall.conf
+                path: apache-hatstall.conf

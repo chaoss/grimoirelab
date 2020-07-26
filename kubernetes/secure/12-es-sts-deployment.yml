@@ -1,0 +1,97 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: esnode
+  namespace: grimoire
+spec:
+  serviceName: elasticsearch
+  replicas: 1
+  updateStrategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: es-cluster
+  template:
+    metadata:
+      labels:
+        app: es-cluster
+    spec:
+      securityContext:
+        fsGroup: 1000
+      initContainers:
+        - name: init-sysctl
+          image: busybox
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            privileged: true
+          command: ["sysctl", "-w", "vm.max_map_count=262144"]
+      containers:
+        - name: elasticsearch
+#          resources:
+#            requests:
+#              cpu: 1500m
+#              memory: 5.5Gi
+#            limits:
+#              cpu: 2500m
+#              memory: 6.5Gi
+          securityContext:
+            privileged: true
+            runAsUser: 1000
+            capabilities:
+              add:
+                - IPC_LOCK
+                - SYS_RESOURCE
+          image: bitergia/elasticsearch:6.8.6-secured
+          env:
+            - name: ES_JAVA_OPTS
+              valueFrom:
+                configMapKeyRef:
+                  name: es-config
+                  key: ES_JAVA_OPTS
+            - name: ES_CLUSTER_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: es-config
+                  key: ES_CLUSTER_NAME
+            - name: ES_NETWORK_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: es-config
+                  key: ES_NETWORK_HOST
+            - name: ES_BOOTSTRAP_MEMORY_LOCK
+              valueFrom:
+                configMapKeyRef:
+                  name: es-config
+                  key: ES_BOOTSTRAP_MEMORY_LOCK
+            - name: ES_DISCOVERY_ZEN_PING_UNICAST_HOSTS
+              valueFrom:
+                configMapKeyRef:
+                  name: es-config
+                  key: ES_DISCOVERY_ZEN_PING_UNICAST_HOSTS
+          readinessProbe:
+            tcpSocket:
+              port: es-transport
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: es-transport
+            initialDelaySeconds: 60
+            periodSeconds: 10
+          ports:
+            - containerPort: 9200
+              name: es-http
+            - containerPort: 9300
+              name: es-transport
+          volumeMounts:
+            - name: es-data
+              mountPath: /elasticsearch/data
+  volumeClaimTemplates:
+    - metadata:
+        name: es-data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 20Gi

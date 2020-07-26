@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hatstall-config
+  namespace: grimoire
+data:
+  apache-hatstall.conf: |
+    <VirtualHost *:80>
+      # Basic Apache config
+      ServerAdmin webmaster@localhost
+      DocumentRoot /var/www/html
+
+      ErrorLog ${APACHE_LOG_DIR}/hatstall-error.log
+      CustomLog ${APACHE_LOG_DIR}/hatstall-access.log combined
+
+      Alias /static/ /home/grimoirelab/grimoirelab-hatstall/django-hatstall/static/
+
+      <Directory /home/grimoirelab/grimoirelab-hatstall/django-hatstall/static>
+        Require all granted
+      </Directory>
+
+      # WSGI specific config
+      LogLevel info
+
+      WSGIDaemonProcess hatstall python-path=/home/grimoirelab/grimoirelab-hatstall/django-hatstall/
+      WSGIProcessGroup hatstall
+
+      WSGIScriptAlias / /home/grimoirelab/grimoirelab-hatstall/django-hatstall/django_hatstall/wsgi.py process-group=hatstall
+
+      <Directory /home/grimoirelab/grimoirelab-hatstall/django-hatstall/django_hatstall/>
+        <Files wsgi*.py>
+          Require all granted
+        </Files>
+      </Directory>
+    </VirtualHost>
+  DATABASE_DIR: /db/

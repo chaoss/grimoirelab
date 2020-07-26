@@ -1,0 +1,60 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibiter
+  namespace: grimoire
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kibiter
+  template:
+    metadata:
+      labels:
+        app: kibiter
+    spec:
+      containers:
+        - name: kibiter
+#          resources:
+#            requests:
+#              cpu: 250m
+#              memory: 512Mi
+#            limits:
+#              cpu: 500m
+#              memory: 768Mi
+          image: bitergia/kibiter:secured-v6.8.6-3
+          env:
+            - name: ELASTICSEARCH_USER
+              valueFrom:
+                secretKeyRef:
+                  name: kibiter-secret
+                  key: ELASTICSEARCH_USER
+            - name: ELASTICSEARCH_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: kibiter-secret
+                  key: ELASTICSEARCH_PASSWORD
+            - name: PROJECT_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: kibiter-config
+                  key: PROJECT_NAME
+            - name: NODE_OPTIONS
+              valueFrom:
+                configMapKeyRef:
+                  name: kibiter-config
+                  key: NODE_OPTIONS
+            - name: ELASTICSEARCH_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: kibiter-config
+                  key: ELASTICSEARCH_URL
+            - name: LOGIN_SUBTITLE
+              valueFrom:
+                configMapKeyRef:
+                  name: kibiter-config
+                  key: LOGIN_SUBTITLE
+          ports:
+            - containerPort: 5601
+              name: kibiter-http
