@@ -1,3 +1,11 @@
+# 0.2.44
+
+Released: 2020-07-27
+
+* ELK
+    * [enriched/git] Study aoc support extra fields
+    * [enriched/mediawiki] Add `repository_labels` field
+
 # 0.2.43
 
 Released: 2020-07-21
