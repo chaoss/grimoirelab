@@ -63,7 +63,7 @@ For running the playbook, you will need to have Docker installed.
 ## Producing your own GrimoireLab package releases
 
 You will only need this if you want to produce your "own" release,
-for example, for internal use in your own downstram repositories.
+for example, for internal use in your own downstream repositories.
 In any case, this is also the way "official" GrimoireLab releases are produced.
 
 First of all, clone the [chaoss/grimoirelab](https://github.com/chaoss/grimoirelab) repository:
@@ -110,7 +110,7 @@ embedded in `build_grimoirelab`. This is an example of that file, `repos_local.j
 ```
 
 Then, just run `build_grimoirelab`, specifying the release file,
-the file for overriding repostory information, and the options for
+the file for overriding repository information, and the options for
 producing the `requirements.txt` file (`--dependencies` and `--depfile`):
 
 ```bash
