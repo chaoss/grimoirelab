@@ -1,3 +1,53 @@
+# 0.2.46
+
+Released: 2020-09-14
+
+* ELK
+    * [enriched/gerrit] Add new study 'enrich_demography_contribution'
+    * Check for author in comment raw data  before assigning to user object
+    * [schema] Fix slack schema CSV file
+    * [enriched/gerrit] Add new fields `open` and `wip`
+    * [enriched/jira] Add `is_closed` and `status_category_key` fields
+
+* Perceval
+    * Update dulwich package version
+    * Add support for specifying Gerrit SSH key location
+
+* Sigils
+    * [gerrit] Update index pattern
+    * Update documentation about Kidash
+    * [docker] Add links and import instructions
+    * [discourse] Add links and import instructions
+    * [gitlab] Add links and import instructions
+    * [gitter] Add links and import instructions
+    * [maniphest] Add links and import instructions
+    * [mediawiki] Add links and import instructions
+    * [slack] Add links and import instructions
+    * [global] Add links and import instructions
+    * [affiliations] Add links and import instructions
+    * [code] Add links and import instructions
+    * [demographics] Add links and import instructions
+    * [gerrit] Add links and import instructions
+    * [lifecycle] Add links and import instructions
+    * [jira] Add links and import instructions
+    * [jenkins] Add links and import instructions
+    * [chaoss] Add links and import instructions
+    * [onion] Add links and import instructions
+    * [bugzilla] Add links and import instructions
+    * [github] Add links and import instructions
+    * Add new icons license information
+    * [git] Add links and import instructions
+    * [jekyll] Update theme colors
+    * [jira] Use `painless_delay` as the time the issue stay open
+    * [jira_backlog] Use `painless_delay` as the time the issue stay open
+    * [jira_timing] Use `painless_delay` as the time the issue stay open
+
+* SirMordred
+    * Add new study "demography_contribution"
+    * Update Getting Started guide with identities management section
+    * Fix lifecycle file name
+
+
 # 0.2.45
 
 Released: 2020-07-27
