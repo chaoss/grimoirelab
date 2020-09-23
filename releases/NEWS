@@ -1,3 +1,17 @@
+# 0.2.47
+
+Released: 2020-09-23
+
+* ELK
+    * [enriched/githubql] Add new study 'enrich_reference_analysis'
+
+* Sigils
+    * [gerrit] Change `timeopen` to `painless_delay`
+
+* SirMordred
+    * [githubql] Add new study "enrich_reference_analysis"
+
+
 # 0.2.46
 
 Released: 2020-09-14
