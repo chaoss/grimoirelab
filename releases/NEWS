@@ -1,3 +1,14 @@
+# 0.2.48
+
+Released: 2020-09-28
+
+* ELK
+    * [enriched/git] `enrich_git_branches` skip --filter-no-collection repo
+    * [enriched/bugzilla] Add new field `whiteboard`
+* Sigils
+    * [bugzilla] Update index pattern with the new field `whiteboard`
+
+
 # 0.2.47
 
 Released: 2020-09-23
