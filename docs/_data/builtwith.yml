@@ -8,3 +8,6 @@
 - name: Mautic Community dashboard
   image: mautic.png
   url: https://dashboard.mautic.org/
+- name: Tell us about your use case!
+  image: emptydashboard.png
+  url: https://lists.linuxfoundation.org/mailman/listinfo/grimoirelab-discussions
