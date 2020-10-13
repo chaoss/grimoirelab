@@ -1,3 +1,27 @@
+# 0.2.49
+
+Released: 2020-10-13
+
+* ELK
+    * [schema] Add schema file for Weblate enriched data
+    * [weblate] New enricher to handle changes
+    * [enrich/discourse] Add credentials to collect category info
+    * [enriched/github] Add field issue_url for issues and pull requests
+    * [enriched/githubql] Update references in related indexes
+
+* Perceval
+    * Weblate backend
+
+* Sigils
+    * [weblate] Add Weblate demographics panel
+    * [weblate] Add Weblate overview panel and index pattern
+    * [github] Update index pattern with issue_url field
+    * Update index patterns from github-related indexes
+
+* SirMordred
+    * Add new backend weblate
+
+
 # 0.2.48
 
 Released: 2020-09-28
