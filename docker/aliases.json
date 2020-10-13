@@ -814,5 +814,23 @@
         "alias": "all_enriched"
       }
     ]
+  },
+  "weblate": {
+    "raw": [
+      {
+        "alias": "weblate-raw"
+      }
+    ],
+    "enrich": [
+      {
+        "alias": "weblate"
+      },
+      {
+        "alias": "affiliations"
+      },
+      {
+        "alias": "all_enriched"
+      }
+    ]
   }
 }
