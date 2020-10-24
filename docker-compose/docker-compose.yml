@@ -28,6 +28,10 @@ services:
       command: elasticsearch -Enetwork.bind_host=0.0.0.0 -Ehttp.max_content_length=2000mb
       ports:
         - 9200:9200
+      ulimits:
+        nofile:
+          soft: "65536"
+          hard: "65536"
       environment:
         - ES_JAVA_OPTS=-Xms2g -Xmx2g
         - ANONYMOUS_USER=true
