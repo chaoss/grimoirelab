@@ -1,3 +1,24 @@
+# 0.2.50
+
+Released: 2020-10-29
+
+* ELK
+    * [enriched/githubql] Classify merged PRs within cross-references study
+    * [enriched/githubql] Add MergedEvent info
+    * [gerrit] Add last-verified approval value field to enricher
+
+* Perceval
+    * [githubql] Fix error `Events not collected for issue...`
+    * [tests] Fix pipermail not working search_fields test
+    * [githubql] Add MergedEvent info
+
+* Sigils
+    * [github][github2] Update index patterns with new study fields
+    * [githubql] Update index pattern with MergedEvent fields
+    * [gerrit] Update index patterns with last Verified approval value
+    * [gerrit] Add Retention of Newcomers panel
+
+
 # 0.2.49
 
 Released: 2020-10-13
