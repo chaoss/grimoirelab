@@ -1,3 +1,19 @@
+# 0.2.51
+
+Released: 2020-11-23
+
+* ELK
+    * [enriched/slack] Fix enrich items without user data
+    * [raw/slack] Handle fields in 'data.files'
+
+* Perceval
+    * [slack] Fix fetch message from a private user
+    * [askbot] Add logging debug messages to Askbot
+
+* Sigils
+    * [weblate] Add organization information to overview panel
+
+
 # 0.2.50
 
 Released: 2020-10-29
