@@ -320,7 +320,7 @@
       }
     ]
   },
-  "gitlab:issue": {
+  "gitlab:issues": {
     "raw": [
       {
         "alias": "gitlab_issues-raw"
