@@ -1,3 +1,27 @@
+# 0.2.53
+
+Released: 2021-01-26
+
+* Cereslib
+    * [flake8] Fix flake8 errors
+
+* ELK
+    * [enriched/github:prs] Add fields for Pull Requests-related data
+    * [enriched-cocom] Use hashlib instead hash() to create a uniq id
+
+* Kidash
+    * [flake8] Fix flake8 errors
+
+* Perceval
+    * [supybot] Adds support for logs without timezone information
+    * [githubql] Support GitHub App to fetch data
+    * [github] Support GitHub App to fetch data
+    * [perceval] Add flag `-l/--list` to show list of available backends
+
+* Sigils
+    * [github] Update index pattern with new fields
+
+
 # 0.2.52
 
 Released: 2020-11-24
