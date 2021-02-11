@@ -1,3 +1,13 @@
+# 0.2.54
+
+Released: 2021-02-11
+
+* ELK
+    * [raw/phabricator] Fix mapping for data.fields.custom_error_stack
+* Perceval
+    * [slack] Use channels.history to retrieve message
+
+
 # 0.2.53
 
 Released: 2021-01-26
