@@ -40,14 +40,9 @@ version_py = os.path.join(here, 'grimoirelab', '_version.py')
 # we have it in Markdown. So, let's convert formats.
 # Set up thinkgs so that if pypandoc is not installed, it
 # just issues a warning.
-try:
-    import pypandoc
-    long_description = pypandoc.convert(readme_md, 'rst')
-except (IOError, ImportError):
-    print("Warning: pypandoc module not found, or pandoc not installed. "
-          + "Using md instead of rst")
-    with codecs.open(readme_md, encoding='utf-8') as f:
-        long_description = f.read()
+
+with open(readme_md, encoding='utf-8') as f:
+    long_description = f.read()
 
 with codecs.open(version_py, 'r', encoding='utf-8') as fd:
     version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
@@ -77,6 +72,7 @@ cmdclass = {'test': TestCommand}
 setup(name="grimoirelab",
       description="Tool set for software development analytics",
       long_description=long_description,
+      long_description_content_type='text/markdown',
       url="https://github.com/chaoss/grimoirelab",
       version=version,
       author="Bitergia",
