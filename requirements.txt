@@ -1,13 +1,13 @@
-grimoirelab==0.2.54
+grimoirelab==0.2.55
 grimoirelab-toolkit==0.1.12
-perceval==0.17.5
+perceval==0.17.6
 perceval-mozilla==0.2.12
 perceval-opnfv==0.1.19
 perceval-puppet==0.1.18
 perceval-weblate==0.1.0
 perceval-finos==0.1.9
 kingarthur==0.1.20
-grimoire-elk==0.85.0
+grimoire-elk==0.86.0
 sortinghat==0.7.15
 kidash==0.4.19
 grimoirelab-panels==0.0.60

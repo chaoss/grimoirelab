@@ -1,3 +1,17 @@
+# 0.2.55
+
+Released: 2021-03-15
+
+
+* ELK
+    * [stackexchange] Make author anonymization optional for stackexchange
+    * [enrich-stackexchange] Handle deleted user in stackoverflow
+    * [enriched/gitlab] Fix KeyError without `name` value
+* Perceval
+    * [stackexchange] Include access_token as optional argument
+    * [stackexchange] Change the fetch order to 'asc'
+
+
 # 0.2.54
 
 Released: 2021-02-11
