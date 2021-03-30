@@ -165,7 +165,8 @@ start the subject with a tag
 The below git commit message is a good example which follows
 the above rules.
 
-```Summarize changes in around 50 characters or less
+```
+Summarize changes in around 50 characters or less
 
 More detailed explanatory text, if necessary. Wrap it to about 72
 characters or so. In some contexts, the first line is treated as the
