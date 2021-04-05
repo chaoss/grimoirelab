@@ -85,14 +85,17 @@ Currently, GrimoireLab toolkit is organized in the following repositories:
     * [Perceval (bundle for Mozilla)](https://github.com/chaoss/grimoirelab-perceval-mozilla)
     * [Perceval (bundle for Puppet)](https://github.com/chaoss/grimoirelab-perceval-puppet)
     * [Perceval (bundle for FINOS)](https://github.com/Bitergia/grimoirelab-perceval-finos)
+    * [Perceval (bundle for Weblate)](https://github.com/chaoss/grimoirelab-perceval-weblate)
   * [Graal](https://github.com/chaoss/grimoirelab-graal): source data analysis with external tools
   * [KingArthur](https://github.com/chaoss/grimoirelab-kingarthur): batch processing for massive retrieval
 * Data enrichment related components:
   * [GrimoireElk](https://github.com/chaoss/grimoirelab-elk): storage and enrichment of data
+  * [Cereslib](https://github.com/chaoss/grimoirelab-cereslib): generic data processor
   * [SortingHat](https://github.com/chaoss/grimoirelab-sortinghat): identity management
 * Data consumption related components:
   * [Kibiter](https://github.com/chaoss/grimoirelab-kibiter): dashboard, downstream version of Kibana
   * [Sigils](https://github.com/chaoss/grimoirelab-sigils): visualizations and dashboards
+  * [Kidash](https://github.com/chaoss/grimoirelab-kidash): visualizations and dashboards manager
   * [Manuscripts](https://github.com/chaoss/grimoirelab-manuscripts): reporting
 * Platform management, orchestration, and common utils:
   * [Mordred](https://github.com/chaoss/grimoirelab-mordred): orchestration
