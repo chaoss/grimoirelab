@@ -13,7 +13,7 @@ Metrics available in GrimoireLab are, in part, developed in the CHAOSS project. 
 
 ## Community activity
 
-![Cauldron.io stats for GrimoireLab](https://cauldron.io/project/2641/stats.svg)
+<img alt="Cauldron.io stats for GrimoireLab" src="https://cauldron.io/project/2641/stats.svg" width="400" />
 
 # Getting started
 
