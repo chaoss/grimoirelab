@@ -11,6 +11,10 @@ or visit the [GrimoireLab website](https://chaoss.github.io/grimoirelab).
 
 Metrics available in GrimoireLab are, in part, developed in the CHAOSS project. For more information regarding CHAOSS metrics, see the latest release at: https://chaoss.community/metrics/
 
+## Community activity
+
+![Cauldron.io stats for GrimoireLab](https://cauldron.io/project/2641/stats.svg)
+
 # Getting started
 
 GrimoireLab is a set of tools, and to ease starting playing we are providing a [default setup](default-grimoirelab-settings)
