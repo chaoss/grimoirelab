@@ -1,3 +1,42 @@
+# 0.2.56
+
+Released: 2021-06-09
+
+
+* ELK
+    * [enriched/slack] Add stopwords in the field 'text_analyzed'
+    * [enriched/mattermost] Improve fields
+    * [enriched/github] Add demography study
+    * [enriched/github] Fix KeyError when getting user info
+    * [tests/data] Improve telegram coverage
+    * [README] Update bugzilla data sources description
+    * [schema] Fix twitter schema
+    * tests] Add test for metadata__updated_on field
+    * [tests] Add test for transactionID field
+    * [schema] Add twitter schema file
+    * [schema] Fix missing values in github event schema
+    * [enriched/twitter] Remove deprecated attributes from enriched item
+* Kidash
+    * Bump urllib3 from 1.24.3 to 1.26.5
+* Perceval
+    * [github] Fix 404 Client Error when user is not found.
+    * [github] Fix user_orgs for organizations with restricted access
+    * [CI] Use poetry for the CI github actions workflow
+    * [deps] Add flake8 and coverage to dev dependencies
+    * Create CONTRIBUTING.md
+    * [poetry] Add setuptools to the build-system
+    * [backend] Disables stack trace if debug flag is absent
+* Sigils
+    * [mattermost] Update panel and index pattern with new fields.
+    * [github_issues] Update index pattern with demography fields
+    * [json] Update Twitter index pattern
+* SirMordred
+    * [README] Add demography study for github
+    * Allowing the config files to be specified dynamically
+    * [micro-mordred] Improve error messages in micro.py
+    * [docs] Update the mariadb docker-compose configuration
+    * [tests] Fix flake8 errors
+
 # 0.2.55
 
 Released: 2021-03-15
