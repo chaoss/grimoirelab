@@ -1,3 +1,49 @@
+# 0.2.57
+
+Released: 2021-07-20
+
+
+* ELK
+    * [enriched/mattermost] Fix 'useAutomaticTimezone' TypeError
+    * [raw/mattermost] Fix mapping for 'data.props.meeting_id'
+    * [enriched/weblate] Fix KeyError for several fields
+    * [schema] Update Kafka KIP schema
+* Kidash
+    * [setup] Upgrade requests to 2.26.0
+* Perceval
+    * Bump grimoirelab-toolkit from 0.1.12 to 0.2
+    * [gha] Create release.yml
+    * [nntp] Avoid line too long error
+    * [nntp] Handle not valid date
+    * [mattermost] Change the key from 'data.metadata.images' to value
+    * [gha] Update tests workflow
+    * [perceval] Change perceval script as entrypoint
+    * [docs] Fix typos
+* Perceval-finos
+    * Bump grimoirelab-toolkit from 0.1.12 to 0.2.0
+    * [perceval-finos] Add poetry support
+    * [travis] Support for python 3.6, 3.7 and 3.8
+* Perceval-mozilla
+    * Bump grimoirelab-toolkit from 0.1.12 to 0.2.0
+    * [perceval-finos] Add poetry support
+    * [travis] Support for python 3.6, 3.7 and 3.8
+* Perceval-opnfv
+    * Bump grimoirelab-toolkit from 0.1.12 to 0.2.0
+    * [perceval-finos] Add poetry support
+    * [travis] Support for python 3.6, 3.7 and 3.8
+* Perceval-puppet
+    * Bump grimoirelab-toolkit from 0.1.12 to 0.2.0
+    * [perceval-finos] Add poetry support
+    * [travis] Support for python 3.6, 3.7 and 3.8
+* Perceval-weblate
+    * Bump grimoirelab-toolkit from 0.1.12 to 0.2.0
+    * [perceval-finos] Add poetry support
+    * [travis] Support for python 3.6, 3.7 and 3.8
+* Sortinghat
+    * [parsing/gitdm] Update VALID_LINE_REGEX expression
+    * Bump jinja2 from 2.11.1 to 2.11.3
+    * [CI] Migrate from Travis CI to GitHub Actions
+
 # 0.2.56
 
 Released: 2021-06-09
