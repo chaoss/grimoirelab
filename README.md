@@ -134,3 +134,27 @@ folder includes instrucctions and configuration files to deploy GrimoireLab usin
 `docker-compose` command.
 
 * How releases of GrimoireLab are built and tested: [Building](BUILDING.md)
+
+## Citation
+
+If you use GrimoireLab in your research papers, please refer to [GrimoireLab: A toolset for software development analytics](https://doi.org/10.7717/peerj-cs.601):
+
+APA style:
+
+```
+Dueñas S, Cosentino V, Gonzalez-Barahona JM, del Castillo San Felix A, Izquierdo-Cortazar D, Cañas-Díaz L, Pérez García-Plaza A. 2021. GrimoireLab: A toolset for software development analytics. PeerJ Computer Science 7:e601 https://doi.org/10.7717/peerj-cs.601
+```
+
+BibTeX / BibLaTeX:
+
+```
+@Article{duenas2021:grimoirelab,
+  author = 	 {Dueñas, Santiago and Cosentino, Valerio and Gonzalez-Barahona, Jesus M. and del Castillo San Felix, Alvaro and Izquierdo-Cortazar,  Daniel and Cañas-Díaz, Luis and Pérez García-Plaza, Alberto},
+  title = 	 {GrimoireLab: A toolset for software development analytics},
+  journaltitle = {PeerJ Computer Science},
+  date = 	 {2021-07-09},
+  volume = 	 7,
+  number = 	 {e601},
+  doi = 	 {10.7717/peerj-cs.601},
+  url = 	 {https://doi.org/10.7717/peerj-cs.601}}
+```
