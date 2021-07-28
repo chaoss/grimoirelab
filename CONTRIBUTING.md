@@ -9,7 +9,7 @@ GrimoireLab is a part of the [Software Technical Committee](https://wiki.linuxfo
 GrimoireLab  use the following communication channels:
 
 * Mailing list
-* IRC channel
+* Slack
 * Issues / pull requests
 
 Each of them is intended for an specific purpose. Please understand
@@ -32,11 +32,12 @@ in other communication means.
 * Questions and community support that really don't fit in other
 communication means.
 
-### IRC channel
+### Slack
 
-Channel: `#grimoirelab` at [Freenode](http://freenode.net/)
+Channel: [`#grimoirelab`](https://chaoss-workspace.slack.com/archives/C022NPTPC8Z) 
+at [CHAOSS Slack](https://join.slack.com/t/chaoss-workspace/shared_invite/zt-r65szij9-QajX59hkZUct82b0uACA6g)
 
-We use the channel for pinging people, quick and informal
+We use the channel for pinging people, sharing updates, quick and informal
 discussions, questions and answers, etc. Please, don't consider that
 developers in the channel will be always available, or always willing
 to answer questions and comments. However, anyone interested in the
