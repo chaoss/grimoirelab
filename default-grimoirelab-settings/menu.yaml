@@ -14,7 +14,7 @@
   - name: Areas of code
     panel: panels/json/git_areas_of_code.json
   - name: Lifecycle
-    panel: panels/json/lifecyle.json
+    panel: panels/json/lifecycle.json
 - name: Gerrit
   source: gerrit
   icon: default.png
