@@ -1,3 +1,26 @@
+# 0.2.58
+
+Released: 2021-08-12
+
+
+* ELK
+    * [gitlab] Autodetect gitlab enterprise-url arg
+* Perceval
+    * [mattermost] Support running with channel names
+    * [github] Handle reactions without user information
+    * [pyproject] Update python "^3.6.1"
+* Perceval-finos
+    * [pyproject] Update python "^3.6.1"
+* Perceval-mozilla
+    * [pyproject] Update python "^3.6.1"
+* Perceval-opnfv
+    * [pyproject] Update python "^3.6.1"
+* Perceval-puppet
+    * [pyproject] Update python "^3.6.1"
+* Perceval-weblate
+    * [pyproject] Update python "^3.6.1"
+
+
 # 0.2.57
 
 Released: 2021-07-20
