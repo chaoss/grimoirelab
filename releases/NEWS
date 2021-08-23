@@ -1,3 +1,19 @@
+# 0.2.59
+
+Released: 2021-08-23
+
+
+* ELK
+    * [pyproject] Update packages and python to "^3.6.1"
+    * [enriched/githubql] Add PullRequestReview field
+    * [enriched/mattermost] Fix KeyError 'parent_id'
+    * [enriched/github2] Use user_data fields to set identities values
+* Perceval
+    * [githubql] Add PullRequestReview event
+*SirMordred
+    * [mordred] Add flag/arg to filter which repos run
+
+
 # 0.2.58
 
 Released: 2021-08-12
