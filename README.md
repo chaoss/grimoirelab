@@ -158,3 +158,7 @@ BibTeX / BibLaTeX:
   doi = 	 {10.7717/peerj-cs.601},
   url = 	 {https://doi.org/10.7717/peerj-cs.601}}
 ```
+
+# Contributing
+
+Contributions are welcome, please check the [Contributing Guidelines](CONTRIBUTING.md).
