@@ -66,3 +66,8 @@ aims to enable the monitoring, in-depth analysis and evidence-based selection of
 Some of the components produced by it, notoriously [Prosoul](https://github.com/Bitergia/prosoul)
 interoperate with GrimoireLab.
 
+## Other Data Sources
+
+* [grimoirelab-gitee](https://github.com/grimoirelab-gitee) 
+by [WillemJiang](https://github.com/WillemJiang), [heming6666](https://github.com/heming6666),
+[Yehui Wang](https://github.com/eyehwan), [shanchenqi](https://github.com/shanchenqi). grimoirelab-gitee is to provide solution for Gitee as one perceval backend, also including raw-enrich data handling. For more information, you can refer to the [wiki page](https://github.com/grimoirelab-gitee/grimoirelab/wiki/How-to-run-grimoirelab-gitee%3F).
