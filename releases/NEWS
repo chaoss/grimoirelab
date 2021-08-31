@@ -1,3 +1,13 @@
+# 0.2.60
+
+Released: 2021-08-31
+
+
+* ELK
+    * [enriched/github2] Fix KeyError 'login'
+    * [enriched/github2] Add 'user_login' field
+
+
 # 0.2.59
 
 Released: 2021-08-23
