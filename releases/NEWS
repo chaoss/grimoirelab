@@ -1,3 +1,20 @@
+# 0.2.61
+
+Released: 2021-09-07
+
+
+* ELK
+    * [raw/gitlab] Handle immense term for data.head_pipeline.yaml_errors
+    * [elk] Pass 'no_update' to pereceval
+    * [enriched/github2] Fix TypeError NoneType
+    * [mattermost] Allow parsing normal mattermost urls
+* Perceval
+    * [github] Extend 'max_items' for all requests
+    * [docs] Add Gitee community backend
+* SirMordred
+    * [config]  Support inheritance in configuration
+
+
 # 0.2.60
 
 Released: 2021-08-31
