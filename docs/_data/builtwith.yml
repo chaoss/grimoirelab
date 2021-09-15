@@ -5,6 +5,9 @@
 - name: Bitergia Analytics Platform
   image: eclipse.png
   url: https://bitergia.com/bitergia-analytics/
+- name: LFX Insights
+  image: lfx-insights.png
+  url: https://lfx.linuxfoundation.org/tools/insights/
 - name: Mautic Community dashboard
   image: mautic.png
   url: https://dashboard.mautic.org/
