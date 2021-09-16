@@ -1,3 +1,19 @@
+# 0.2.62
+
+Released: 2021-09-16
+
+
+* ELK
+    * [enriched/github2] Add demography study
+    * [enriched/github2] Add ghost user to calculate first attention
+    * [README] Update instructions for running tests
+* Perceval
+    * [docs] Add Airtable and Bitbucket backends
+    * [git] Add argument base-path for the git backend
+    * Update README.md
+    * [docs] Update configurations for readthedocs
+
+
 # 0.2.61
 
 Released: 2021-09-07
