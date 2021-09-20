@@ -3,12 +3,12 @@
   image: three_images_cauldron.png
   url: https://cauldron.io
 - name: Bitergia Analytics Platform
-  image: eclipse.png
+  image: bitergia-analytics.png
   url: https://bitergia.com/bitergia-analytics/
 - name: LFX Insights
   image: lfx-insights.png
   url: https://lfx.linuxfoundation.org/tools/insights/
-- name: Mautic Community dashboard
+- name: Mautic Community Dashboard
   image: mautic.png
   url: https://dashboard.mautic.org/
 - name: Tell us about your use case!
