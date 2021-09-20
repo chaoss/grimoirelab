@@ -5,6 +5,9 @@
 - name: Bitergia Analytics Platform
   image: eclipse.png
   url: https://bitergia.com/bitergia-analytics/
+- name: The Document Foundation Dashboard
+  image: tdf.png
+  url: https://dashboard.documentfoundation.org/
 - name: LFX Insights
   image: lfx-insights.png
   url: https://lfx.linuxfoundation.org/tools/insights/
