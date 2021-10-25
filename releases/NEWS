@@ -1,3 +1,29 @@
+# 0.2.63
+
+Released: 2021-10-25
+
+
+* Grimoirelab
+    * Add Mystic project
+    * Add TDF dashboard
+    * Fix typos and update screenshots
+    * Update events.html with hacktoberfest-21 details
+    * [docs] Update Built with GrimoireLab section
+* ELK
+    * [.github] Install setuptools==57.5.0
+    * [enriched/git] Add commit meta fields
+* Perceval
+    * [docs] Add information for using perceval against private git repos
+    * [docs] Add perceval documentation content
+* Sigils
+    * Fix typos in my name
+    * [git] Update index pattern to include commit author meta fields
+    * [github2] Limit visualizations to fix low performance.
+* SirMordred
+    * [task_enrich] Support multi author fields in refresh identities
+    * [docs] Add information for using sirmodred against private git repos
+
+
 # 0.2.62
 
 Released: 2021-09-16
