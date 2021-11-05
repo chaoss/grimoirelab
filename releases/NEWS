@@ -1,3 +1,14 @@
+# 0.2.64
+
+Released: 2021-11-05
+
+
+* ELK
+    * [setup/requirements] Upgrade requests==2.26.0 and urllib3==1.26.5
+* SirMordred
+    * [task_manager] Add `update_hour` in the general section
+
+
 # 0.2.63
 
 Released: 2021-10-25
