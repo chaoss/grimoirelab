@@ -1,3 +1,20 @@
+# 0.2.65
+
+Released: 2021-11-19
+
+
+* ELK
+    * [elk] Update 'non_authored_*' fields on 'refresh_identities'
+    * [enriched/git] Add 'non_authored_*' commit meta fields
+* Perceval
+    * [git] Add --no-ssl-verify parameter
+* Sigils
+    * [git] Update index pattern to include 'non_authored_*'
+    * [affiliations] Authors/Contributions by Organization and Domains
+* Sortinghat
+    * [sortinghat/utils] Fix merge_date_ranges
+
+
 # 0.2.64
 
 Released: 2021-11-05
