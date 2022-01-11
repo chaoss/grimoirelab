@@ -1,3 +1,19 @@
+# 0.2.66
+
+Released: 2022-01-11
+
+
+* Grimoirelab
+    * Update events.html with MSR 2022 Hackathon details
+* ELK
+    * [enrich] Fix refresh_identities for '*_multi_org_names' fields
+    * [.github] Update elasticsearch to 6.8.6
+    * [enrich] Get main enrollments for *_org_name field
+* Sortinghat
+    * [.github] Use ubuntu-18.04 instead of ubuntu-latest
+    * [sortinghat/utils] Fix merge_date_ranges returns an extra date
+
+
 # 0.2.65
 
 Released: 2021-11-19
