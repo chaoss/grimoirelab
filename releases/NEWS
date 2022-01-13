@@ -1,3 +1,17 @@
+# 0.2.67
+
+Released: 2022-01-13
+
+
+* ELK
+    * [enrich] Fix IndexError when getting main organization
+* Perceval
+    * [gha] Check if a changelog was included in every Pull request
+* SirMordred
+    * [.github] Use ubuntu-18.04 instead of ubuntu-latest
+    * [.github] Update elasticsearch to 6.8.6
+
+
 # 0.2.66
 
 Released: 2022-01-11
