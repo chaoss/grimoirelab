@@ -1,3 +1,21 @@
+# 0.2.68
+
+Released: 2022-01-27
+
+
+* ELK
+    * [enrich] Fix empty value of 'author_domain' field
+    * [git] Add schema column for raw/calculated
+    * [enrich] Fix urllib3.exceptions.SSLError for 'enrich_feelings'.
+    * [github2] Add comments from "Approval" and "Change requests"
+* Perceval
+    * Bump cryptography from 3.3.1 to 3.3.2
+    * Bump urllib3 from 1.26.3 to 1.26.5
+* Sigils
+    * [github2_pull_requests] Add new fields to the index pattern
+    * [gitlab_issues] Add painless_time_open to the index pattern
+
+
 # 0.2.67
 
 Released: 2022-01-13
