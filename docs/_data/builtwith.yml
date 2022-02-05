@@ -11,9 +11,6 @@
 - name: LFX Insights
   image: lfx-insights.png
   url: https://lfx.linuxfoundation.org/tools/insights/
-- name: Mautic Community Dashboard
-  image: mautic.png
-  url: https://dashboard.mautic.org/
 - name: Mystic
   image: mystic.png
   url: https://opensource.ieee.org/rit/mystic/
