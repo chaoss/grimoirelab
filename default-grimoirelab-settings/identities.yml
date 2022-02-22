@@ -1,5 +1,5 @@
 - profile:
-    name: GitHub No Replay
+    name: GitHub No Reply
     is_bot: true
   email:
     - noreply@github.com
