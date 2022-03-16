@@ -320,6 +320,18 @@
       }
     ]
   },
+  "githubql": {
+    "raw": [
+      {
+        "alias": "github_events-raw"
+      }
+    ],
+    "enrich": [
+      {
+        "alias": "github_events"
+      }
+    ]
+  },
   "gitlab:issues": {
     "raw": [
       {
