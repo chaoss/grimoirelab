@@ -1,3 +1,76 @@
+# 0.2.69
+
+Released: 2022-03-18
+
+
+* Grimoirelab
+    * feat: add github event alias
+    * Changing `GitHub No Replay` to `GitHub No Reply`
+* Cereslib
+    * [gha] Update tests workflow
+    * Remove Python 3.6 support
+    * [poetry] Add Poetry support
+* ELK
+    * Support OpenSearch 1.x
+    * [enrich] Remove the prefix '::' of the enrollments.
+    * [enrich] Bugfix for hyperkitty. EnrichBackend can not get raw data.
+    * [poetry] Include sortinghat as extra dependency
+    * Remove Python 3.6 support
+* Kidash
+    * [gha] Add workflow to automate the release process
+    * [gha] Add workflow to check if a changelog was included
+    * [gha] Update CI github action workflow
+    * Add flake8 and coverage as dev-dependencies
+    * [poetry] Add Poetry support
+    * Remove the support for Python 3.6 and add new versions
+    * [scripts] Change kidash scripts as entrypoints
+* Perceval
+    * Add configurations of the metadata files to pyproject.toml
+    * [gha] Update release action using grimoirelab-github-actions
+* Perceval-Mozilla
+    * Add configurations of the metadata files to pyproject.toml
+    * [gha] Update release action using grimoirelab-github-actions
+* Perceval-OPNFV
+    * [gha] Use poetry for tests in GitHub Actions workflow
+    * Remove Python 3.6 support
+    * Support package namespaces with Poetry
+    * [gha] Add workflow to check if a changelog was included
+* Perceval-Puppet
+    * [gha] Use poetry for tests in GitHub Actions workflow
+    * Remove Python 3.6 support
+    * Support package namespaces with Poetry
+    * [gha] Add workflow to check if a changelog was included
+* Perceval-Weblate
+    * [gha] Use poetry for tests in GitHub Actions workflow
+    * Remove Python 3.6 support
+    * Support package namespaces with Poetry
+    * [gha] Add workflow to check if a changelog was included
+* Sigils
+    * Support newer versions of Python apart from 3.7
+    * [poetry] Add Poetry support
+    * [json] Move visualizations inside panels
+    * [gerrit] Replace name field to author_name in Submitters table
+* SirMordred
+    * [gha] Use poetry for tests in GitHub Actions workflow
+    * [poetry] Add poetry support
+    * [deps] Fix dependecies in requirements
+    * [utils] Change sirmordred scripts as entrypoints
+    * Refactoring link to new tutorial page. Currently it links to a page not found and I'm pretty sure this is a better place for the reader to be sent.
+    * Clarify README
+* Sortinghat
+    * Include Sortinghat command in wheel
+    * [gha] Update tests workflow
+    * Fix flake8 code style warnings
+    * [setup.py] Add missing commas in entry_points
+    * Bump numpy to 1.21.0 in requirements.txt and setup.py
+    * Bump numpy from 1.18.3 to 1.21.0
+    * Remove Python 3.6 support
+    * [gha] Add workflow to check if a changelog was included
+    * [poetry] Add Poetry support
+    * [sh] Change SortingHat scripts as entrypoints
+    * [deps] Update Jinja version
+
+
 # 0.2.68
 
 Released: 2022-01-27
