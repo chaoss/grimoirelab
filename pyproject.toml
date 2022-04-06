@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "grimoirelab"
+version = "0.2.69"
+description = "Tool set for software development analytics"
+authors = [
+    "GrimoireLab Developers"
+]
+license = "GPL-3.0+"
+
+readme = "README.md"
+
+homepage = "https://chaoss.github.io/grimoirelab/"
+repository = "https://github.com/chaoss/grimoirelab"
+
+keywords = [
+    "development",
+    "grimoirelab"
+]
+
+packages = [
+    { include = "grimoirelab" }
+]
+
+classifiers = [
+   "Development Status :: 5 - Production/Stable",
+   "Intended Audience :: Developers",
+   "Topic :: Software Development",
+   "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+   "Programming Language :: Python :: 3"
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/chaoss/grimoirelab/issues"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+grimoirelab-toolkit = {git = "https://github.com/chaoss/grimoirelab-toolkit"}
+perceval = {git = "https://github.com/chaoss/grimoirelab-perceval"}
+perceval-mozilla = {git = "https://github.com/chaoss/grimoirelab-perceval-mozilla"}
+perceval-opnfv = {git = "https://github.com/chaoss/grimoirelab-perceval-opnfv"}
+perceval-puppet = {git = "https://github.com/chaoss/grimoirelab-perceval-puppet"}
+perceval-weblate = {git = "https://github.com/chaoss/grimoirelab-perceval-weblate"}
+perceval-finos = {git = "https://github.com/Bitergia/grimoirelab-perceval-finos"}
+kingarthur = {git = "https://github.com/chaoss/grimoirelab-kingarthur"}
+sortinghat = {git = "https://github.com/chaoss/grimoirelab-sortinghat"}
+kidash = {git = "https://github.com/chaoss/grimoirelab-kidash"}
+grimoirelab-panels = {git = "https://github.com/chaoss/grimoirelab-sigils"}
+grimoireelk = {git = "https://github.com/chaoss/grimoirelab-elk"}
+sirmordred = {git = "https://github.com/chaoss/grimoirelab-sirmordred"}
+cereslib = {git = "https://github.com/chaoss/grimoirelab-cereslib"}
+graal = {git = "https://github.com/chaoss/grimoirelab-graal"}
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
