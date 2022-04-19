@@ -32,6 +32,9 @@ classifiers = [
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/chaoss/grimoirelab/issues"
 
+[tool.poetry.scripts]
+'grimoirelab' = 'grimoirelab.grimoirelab:main'
+
 [tool.poetry.dependencies]
 python = "^3.7"
 
