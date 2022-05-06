@@ -18,7 +18,7 @@ to analyze git activity for this repository. Given such set up, there are severa
 
 ## Using `docker-compose`
 
-Requirements: 
+Requirements:
 * **Software**: [git](https://git-scm.com/), [docker client](https://docs.docker.com/install/) and [docker compose](https://docs.docker.com/compose/install/). An example of working configuration:
 ```console
 root@test-68b8628f:~# git --version
@@ -131,6 +131,14 @@ deployments. See more information in the [docker README.md file](docker/README.m
 * If you feel more comfortable with `docker-compose`, the [docker-compose](docker-compose)
 folder includes instrucctions and configuration files to deploy GrimoireLab using
 `docker-compose` command.
+
+* Source code of the GrimoireLab components is available in `src`. Each directory is a
+Git submodule, so its contents will not be available after cloning the repository. To
+fetch all the data, you can run the following commands:
+```console
+$ git submodule init
+$ git submodule update
+```
 
 * How releases of GrimoireLab are built and tested: [Building](BUILDING.md)
 
