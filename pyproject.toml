@@ -44,7 +44,6 @@ perceval-mozilla = {git = "https://github.com/chaoss/grimoirelab-perceval-mozill
 perceval-opnfv = {git = "https://github.com/chaoss/grimoirelab-perceval-opnfv"}
 perceval-puppet = {git = "https://github.com/chaoss/grimoirelab-perceval-puppet"}
 perceval-weblate = {git = "https://github.com/chaoss/grimoirelab-perceval-weblate"}
-perceval-finos = {git = "https://github.com/Bitergia/grimoirelab-perceval-finos"}
 kingarthur = {git = "https://github.com/chaoss/grimoirelab-kingarthur"}
 sortinghat = {git = "https://github.com/chaoss/grimoirelab-sortinghat"}
 kidash = {git = "https://github.com/chaoss/grimoirelab-kidash"}
@@ -53,6 +52,7 @@ grimoireelk = {git = "https://github.com/chaoss/grimoirelab-elk"}
 sirmordred = {git = "https://github.com/chaoss/grimoirelab-sirmordred"}
 cereslib = {git = "https://github.com/chaoss/grimoirelab-cereslib"}
 graal = {git = "https://github.com/chaoss/grimoirelab-graal"}
+statsmodels = "^0.13.2"
 
 [tool.poetry.dev-dependencies]
 

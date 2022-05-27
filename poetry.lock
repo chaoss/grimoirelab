@@ -48,7 +48,7 @@ lxml = ["lxml"]
 
 [[package]]
 name = "cereslib"
-version = "0.1.15"
+version = "0.1.17"
 description = "GrimoireLab: Unify, eventize and enrich information from Perceval"
 category = "main"
 optional = false
@@ -56,8 +56,9 @@ python-versions = "^3.7"
 develop = false
 
 [package.dependencies]
-grimoireelk = {git = "https://github.com/chaoss/grimoirelab-elk", branch = "master", extras = ["sortinghat"]}
+grimoirelab-toolkit = "^0.2.0"
 numpy = "<=1.18.3"
+pandas = ">=0.22.0,<=0.25.3"
 scipy = "^1.5"
 six = "^1.16.0"
 
@@ -65,7 +66,7 @@ six = "^1.16.0"
 type = "git"
 url = "https://github.com/chaoss/grimoirelab-cereslib"
 reference = "master"
-resolved_reference = "98b9d8bfa82a572ddb6c4abb8850d3423ba4a99a"
+resolved_reference = "8b932b159b14e7a1f7cc23c5f496532312bb71b3"
 
 [[package]]
 name = "certifi"
@@ -408,25 +409,21 @@ graal = {git = "https://github.com/chaoss/grimoirelab-graal", branch = "master"}
 grimoirelab-toolkit = {git = "https://github.com/chaoss/grimoirelab-toolkit", branch = "master"}
 pandas = ">=0.22.0,<=0.25.3"
 perceval = {git = "https://github.com/chaoss/grimoirelab-perceval", branch = "master"}
-perceval-finos = {git = "https://github.com/Bitergia/grimoirelab-perceval-finos", branch = "master"}
 perceval-mozilla = {git = "https://github.com/chaoss/grimoirelab-perceval-mozilla", branch = "master"}
 perceval-opnfv = {git = "https://github.com/chaoss/grimoirelab-perceval-opnfv", branch = "master"}
 perceval-puppet = {git = "https://github.com/chaoss/grimoirelab-perceval-puppet", branch = "master"}
 perceval-weblate = {git = "https://github.com/chaoss/grimoirelab-perceval-weblate", branch = "master"}
+PyMySQL = "0.9.3"
 requests = "2.26.0"
-sortinghat = {git = "https://github.com/chaoss/grimoirelab-sortinghat", branch = "master", optional = true}
-statsmodels = "^0.9.0"
+sortinghat = {git = "https://github.com/chaoss/grimoirelab-sortinghat", branch = "master"}
+statsmodels = ">=0.9.0"
 urllib3 = "1.26.5"
-
-[package.extras]
-mysql = ["PyMySQL (==0.9.3)"]
-sortinghat = ["sortinghat"]
 
 [package.source]
 type = "git"
 url = "https://github.com/chaoss/grimoirelab-elk"
 reference = "master"
-resolved_reference = "d07b5408d00c5a0be17b8405938c9fa93767bcff"
+resolved_reference = "badd7d59c2465133149c7f0f18cdb6476f5d2bbe"
 
 [[package]]
 name = "grimoirelab-panels"
@@ -711,6 +708,17 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "packaging"
+version = "21.3"
+description = "Core utilities for Python packages"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+pyparsing = ">=2.0.2,<3.0.5 || >3.0.5"
+
+[[package]]
 name = "pandas"
 version = "0.25.3"
 description = "Powerful data structures for data analysis, time series, and statistics"
@@ -725,6 +733,21 @@ pytz = ">=2017.2"
 
 [package.extras]
 test = ["pytest (>=4.0.2)", "pytest-xdist", "hypothesis (>=3.58)"]
+
+[[package]]
+name = "patsy"
+version = "0.5.2"
+description = "A Python package for describing statistical models and for building design matrices."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+numpy = ">=1.4"
+six = "*"
+
+[package.extras]
+test = ["pytest", "pytest-cov", "scipy"]
 
 [[package]]
 name = "pbr"
@@ -762,26 +785,6 @@ type = "git"
 url = "https://github.com/chaoss/grimoirelab-perceval"
 reference = "master"
 resolved_reference = "6aa6c65923837f8fb1e3036e5ec2673145295a38"
-
-[[package]]
-name = "perceval-finos"
-version = "0.1.10"
-description = "Bundle of Perceval backends for FINOS ecosystem."
-category = "main"
-optional = false
-python-versions = "^3.6.1"
-develop = false
-
-[package.dependencies]
-grimoirelab-toolkit = "^0.2"
-perceval = "^0.17.4"
-requests = "^2.7.0"
-
-[package.source]
-type = "git"
-url = "https://github.com/Bitergia/grimoirelab-perceval-finos"
-reference = "master"
-resolved_reference = "3199e698aedf68b8c8bdb3825a86e1b559256013"
 
 [[package]]
 name = "perceval-mozilla"
@@ -961,14 +964,13 @@ testutil = ["gitpython (>3)"]
 
 [[package]]
 name = "pymysql"
-version = "1.0.2"
+version = "0.9.3"
 description = "Pure Python MySQL Driver"
 category = "main"
 optional = false
-python-versions = ">=3.6"
+python-versions = "*"
 
 [package.extras]
-ed25519 = ["PyNaCl (>=1.4.0)"]
 rsa = ["cryptography"]
 
 [[package]]
@@ -1096,7 +1098,6 @@ grimoirelab-panels = {git = "https://github.com/chaoss/grimoirelab-sigils", bran
 grimoirelab-toolkit = {git = "https://github.com/chaoss/grimoirelab-toolkit", branch = "master"}
 kidash = {git = "https://github.com/chaoss/grimoirelab-kidash", branch = "master"}
 perceval = {git = "https://github.com/chaoss/grimoirelab-perceval", branch = "master"}
-perceval-finos = {git = "https://github.com/Bitergia/grimoirelab-perceval-finos", branch = "master"}
 perceval-mozilla = {git = "https://github.com/chaoss/grimoirelab-perceval-mozilla", branch = "master"}
 perceval-opnfv = {git = "https://github.com/chaoss/grimoirelab-perceval-opnfv", branch = "master"}
 perceval-puppet = {git = "https://github.com/chaoss/grimoirelab-perceval-puppet", branch = "master"}
@@ -1107,7 +1108,7 @@ sortinghat = {git = "https://github.com/chaoss/grimoirelab-sortinghat", branch =
 type = "git"
 url = "https://github.com/chaoss/grimoirelab-sirmordred"
 reference = "master"
-resolved_reference = "8a8bb8de7e914b60bdfcbf0c074fda345236c7b2"
+resolved_reference = "26ae7c9085c82cf12aa6465a1155d5ac8e0ce663"
 
 [[package]]
 name = "six"
@@ -1149,7 +1150,7 @@ urllib3 = "^1.22"
 type = "git"
 url = "https://github.com/chaoss/grimoirelab-sortinghat"
 reference = "master"
-resolved_reference = "1d72d7f3907815ac0b08f31959de6d925dff69f4"
+resolved_reference = "9775a54f1a539d05c15ed254082d4ef0019da508"
 
 [[package]]
 name = "soupsieve"
@@ -1181,13 +1182,22 @@ pymysql = ["pymysql (<1)", "pymysql"]
 
 [[package]]
 name = "statsmodels"
-version = "0.9.0"
+version = "0.13.2"
 description = "Statistical computations and models for Python"
 category = "main"
 optional = false
-python-versions = "*"
+python-versions = ">=3.7"
+
+[package.dependencies]
+numpy = ">=1.17"
+packaging = ">=21.3"
+pandas = ">=0.25"
+patsy = ">=0.5.2"
+scipy = ">=1.3"
 
 [package.extras]
+build = ["cython (>=0.29.26)"]
+develop = ["cython (>=0.29.26)"]
 docs = ["sphinx", "nbconvert", "jupyter-client", "ipykernel", "matplotlib", "nbformat", "numpydoc", "pandas-datareader"]
 
 [[package]]
@@ -1289,7 +1299,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "919f17ae86a9d891c5bf8b16b360c75177c783e42070c01b95385b6f82df8060"
+content-hash = "875820d71e66cb5364562525b3898e80a20935eda8ec7764c77a7003cf97c4d5"
 
 [metadata.files]
 astroid = [
@@ -1645,6 +1655,10 @@ numpy = [
     {file = "numpy-1.18.3-cp38-cp38-win_amd64.whl", hash = "sha256:c60175d011a2e551a2f74c84e21e7c982489b96b6a5e4b030ecdeacf2914da68"},
     {file = "numpy-1.18.3.zip", hash = "sha256:e46e2384209c91996d5ec16744234d1c906ab79a701ce1a26155c9ec890b8dc8"},
 ]
+packaging = [
+    {file = "packaging-21.3-py3-none-any.whl", hash = "sha256:ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522"},
+    {file = "packaging-21.3.tar.gz", hash = "sha256:dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"},
+]
 pandas = [
     {file = "pandas-0.25.3-cp35-cp35m-macosx_10_6_intel.whl", hash = "sha256:df8864824b1fe488cf778c3650ee59c3a0d8f42e53707de167ba6b4f7d35f133"},
     {file = "pandas-0.25.3-cp35-cp35m-manylinux1_i686.whl", hash = "sha256:7458c48e3d15b8aaa7d575be60e1e4dd70348efcd9376656b72fecd55c59a4c3"},
@@ -1666,12 +1680,15 @@ pandas = [
     {file = "pandas-0.25.3-cp38-cp38-win_amd64.whl", hash = "sha256:33970f4cacdd9a0ddb8f21e151bfb9f178afb7c36eb7c25b9094c02876f385c2"},
     {file = "pandas-0.25.3.tar.gz", hash = "sha256:52da74df8a9c9a103af0a72c9d5fdc8e0183a90884278db7f386b5692a2220a4"},
 ]
+patsy = [
+    {file = "patsy-0.5.2-py2.py3-none-any.whl", hash = "sha256:cc80955ae8c13a7e7c4051eda7b277c8f909f50bc7d73e124bc38e2ee3d95041"},
+    {file = "patsy-0.5.2.tar.gz", hash = "sha256:5053de7804676aba62783dbb0f23a2b3d74e35e5bfa238b88b7cbf148a38b69d"},
+]
 pbr = [
     {file = "pbr-5.8.1-py2.py3-none-any.whl", hash = "sha256:27108648368782d07bbf1cb468ad2e2eeef29086affd14087a6d04b7de8af4ec"},
     {file = "pbr-5.8.1.tar.gz", hash = "sha256:66bc5a34912f408bb3925bf21231cb6f59206267b7f63f3503ef865c1a292e25"},
 ]
 perceval = []
-perceval-finos = []
 perceval-mozilla = []
 perceval-opnfv = []
 perceval-puppet = []
@@ -1709,8 +1726,8 @@ pylint = [
     {file = "pylint-2.13.4.tar.gz", hash = "sha256:7cc6d0c4f61dff440f9ed8b657f4ecd615dcfe35345953eb7b1dc74afe901d7a"},
 ]
 pymysql = [
-    {file = "PyMySQL-1.0.2-py3-none-any.whl", hash = "sha256:41fc3a0c5013d5f039639442321185532e3e2c8924687abe6537de157d403641"},
-    {file = "PyMySQL-1.0.2.tar.gz", hash = "sha256:816927a350f38d56072aeca5dfb10221fe1dc653745853d30a216637f5d7ad36"},
+    {file = "PyMySQL-0.9.3-py2.py3-none-any.whl", hash = "sha256:3943fbbbc1e902f41daf7f9165519f140c4451c179380677e6a848587042561a"},
+    {file = "PyMySQL-0.9.3.tar.gz", hash = "sha256:d8c059dcd81dedb85a9f034d5e22dcb4442c0b201908bede99e306d65ea7c8e7"},
 ]
 pyparsing = [
     {file = "pyparsing-3.0.7-py3-none-any.whl", hash = "sha256:a6c06a88f252e6c322f65faf8f418b16213b51bdfaece0524c1c1bc30c63c484"},
@@ -1859,28 +1876,29 @@ sqlalchemy = [
     {file = "SQLAlchemy-1.3.24.tar.gz", hash = "sha256:ebbb777cbf9312359b897bf81ba00dae0f5cb69fba2a18265dcc18a6f5ef7519"},
 ]
 statsmodels = [
-    {file = "statsmodels-0.9.0-cp27-cp27m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl", hash = "sha256:0fd6af8db18b776c81c8fba54de20e9ec2f11b9310871b6b666d8805e3cf5ece"},
-    {file = "statsmodels-0.9.0-cp27-cp27m-win_amd64.whl", hash = "sha256:d7182803cdb09f1f17a335c0eae71d84905da9b0bc35c3d2c2379745f33096d9"},
-    {file = "statsmodels-0.9.0-cp27-cp27mu-manylinux1_i686.whl", hash = "sha256:fbf789cc6d3fadca4350fa87e5f710ad2628e1fdff71bf8f853ecd49599ebe23"},
-    {file = "statsmodels-0.9.0-cp27-cp27mu-manylinux1_x86_64.whl", hash = "sha256:b48e283ba171698dca3989c0c03e6f25d3f431640383d926235d26ce48f3891c"},
-    {file = "statsmodels-0.9.0-cp27-none-win32.whl", hash = "sha256:d2003c70c854f35a6446a465c61c994486039feb2fd47345a1e9984e95d55878"},
-    {file = "statsmodels-0.9.0-cp34-cp34m-win_amd64.whl", hash = "sha256:e2d9fd696e2d1523386d0f64f115352acbfaf59d5ca4c681c23ea064393a2ac4"},
-    {file = "statsmodels-0.9.0-cp35-cp35m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl", hash = "sha256:8532885c5778f94dae7ad83c4ac3f6916d4c8eb294f47ecefe2f0d3b967e6a16"},
-    {file = "statsmodels-0.9.0-cp35-cp35m-manylinux1_i686.whl", hash = "sha256:7c1a7cf557139f4bcbf97172268a8001156e42a7eeccca04d15c0cb7c3491ada"},
-    {file = "statsmodels-0.9.0-cp35-cp35m-manylinux1_x86_64.whl", hash = "sha256:c06fd4af98f4c7ab61c9a79fd051ad4d7247991a691c3b4883c611029bac30a2"},
-    {file = "statsmodels-0.9.0-cp35-cp35m-win_amd64.whl", hash = "sha256:27e87cc6cd390fce8f44df225dadf589e1df6272f36b267ccdece2a9c4f52938"},
-    {file = "statsmodels-0.9.0-cp35-none-win32.whl", hash = "sha256:95d35b33a301ded560662c733780ce58b37e218d122bb1b9c14e216aa9d42a2a"},
-    {file = "statsmodels-0.9.0-cp36-cp36m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl", hash = "sha256:18844bbd95fcf62885d195571334762533ae16de182e1032ccc1595a98ffffb4"},
-    {file = "statsmodels-0.9.0-cp36-cp36m-manylinux1_i686.whl", hash = "sha256:ede078fdc9af857ed454d1e9e51831b2d577255c794d4044ecc332d40f3e3b36"},
-    {file = "statsmodels-0.9.0-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:5d91ad30b8e20a45f583077ffeb4352be01955033f3dcd09bc06c30be1d29e8f"},
-    {file = "statsmodels-0.9.0-cp36-cp36m-win_amd64.whl", hash = "sha256:5de3d525b9a8679cd6c0f7f7c8cb8508275ab86cc3c1a140b2dc6b6390adb943"},
-    {file = "statsmodels-0.9.0-cp36-none-win32.whl", hash = "sha256:2902f5eef49fc38c112ffd8168dd76f7ae27f6cb5aa735cf55bc887b49aaec6e"},
-    {file = "statsmodels-0.9.0-cp37-cp37m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl", hash = "sha256:78d1b40c18d41f6c683c1c184be146264a782d409a89d8ed6c78acd1e1c11659"},
-    {file = "statsmodels-0.9.0-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:b4b4b25c0e4228b1d33098894c3b29f4546e45afb29b333582cbaa5e16f38f3c"},
-    {file = "statsmodels-0.9.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:f512afa7bc10b848aaacab5dfff6f61255142dd3a5581f82980c12745b0b6cd3"},
-    {file = "statsmodels-0.9.0-cp37-none-win32.whl", hash = "sha256:d9b85bd98e90a02f2192084a85c857465e40e508629ac922242dba70731d0449"},
-    {file = "statsmodels-0.9.0-cp37-none-win_amd64.whl", hash = "sha256:31c2e26436a992e66355c0b3ef4b7c9714a0aa8375952d24f0593ac7c417b1e9"},
-    {file = "statsmodels-0.9.0.tar.gz", hash = "sha256:6461f93a842c649922c2c9a9bc9d9c4834110b89de8c4af196a791ab8f42ba3b"},
+    {file = "statsmodels-0.13.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:3e7ca5b7e678c0bb7a24f5c735d58ac104a50eb61b17c484cce0e221a095560f"},
+    {file = "statsmodels-0.13.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:066a75d5585378b2df972f81a90b9a3da5e567b7d4833300c1597438c1a35e29"},
+    {file = "statsmodels-0.13.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:f15f38dfc9c5c091662cb619e12322047368c67aef449c7554d9b324a15f7a94"},
+    {file = "statsmodels-0.13.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:5c4ccc6b4744613367e8a233bd952c8a838db8f528f9fe033bda25aa13fc7d08"},
+    {file = "statsmodels-0.13.2-cp310-cp310-win_amd64.whl", hash = "sha256:855b1cc2a91ab140b9bcf304b1731705805ce73223bf500b988804968554c0ed"},
+    {file = "statsmodels-0.13.2-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:b69c9af7606325095f7c40c581957bad9f28775653d41537c1ec4cd1b185ff5b"},
+    {file = "statsmodels-0.13.2-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ab31bac0f72b83bca1f217a12ec6f309a56485a50c4a705fbdd63112213d4da4"},
+    {file = "statsmodels-0.13.2-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:5d680b910b57fc0aa87472662cdfe09aae0e21db4bdf19ccd6420fd4dffda892"},
+    {file = "statsmodels-0.13.2-cp37-cp37m-win32.whl", hash = "sha256:9e9a3f661d372431850d55157d049e079493c97fc06f550d23d8c8c70805cc48"},
+    {file = "statsmodels-0.13.2-cp37-cp37m-win_amd64.whl", hash = "sha256:c9f6326870c095ef688f072cd476b932aff0906d60193eaa08e93ec23b29ca83"},
+    {file = "statsmodels-0.13.2-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:5bc050f25f1ba1221efef9ea01b751c60935ad787fcd4259f4ece986f2da9141"},
+    {file = "statsmodels-0.13.2-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:426b1c8ea3918d3d27dbfa38f2bee36cabf41d32163e2cbb3adfb0178b24626a"},
+    {file = "statsmodels-0.13.2-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:45b80fac4a63308b1e93fa9dc27a8598930fd5dfd77c850ca077bb850254c6d7"},
+    {file = "statsmodels-0.13.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:78ee69ec0e0f79f627245c65f8a495b8581c2ea19084aac63941815feb15dcf3"},
+    {file = "statsmodels-0.13.2-cp38-cp38-win32.whl", hash = "sha256:20483cc30e11aa072b30d307bb80470f86a23ae8fffa51439ca54509d7aa9b05"},
+    {file = "statsmodels-0.13.2-cp38-cp38-win_amd64.whl", hash = "sha256:bf43051a92231ccb9de95e4b6d22d3b15e499ee5ee9bff0a20e6b6ad293e34cb"},
+    {file = "statsmodels-0.13.2-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:6bf0dfed5f5edb59b5922b295392cd276463b10a5e730f7e57ee4ff2d8e9a87e"},
+    {file = "statsmodels-0.13.2-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:a403b559c5586dab7ac0fc9e754c737b017c96cce0ddd66ff9094764cdaf293d"},
+    {file = "statsmodels-0.13.2-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:9f23554dd025ea354ce072ba32bfaa840d2b856372e5734290e181d27a1f9e0c"},
+    {file = "statsmodels-0.13.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:815f4df713e3eb6f40ae175c71f2a70d32f9219b5b4d23d4e0faab1171ba93ba"},
+    {file = "statsmodels-0.13.2-cp39-cp39-win32.whl", hash = "sha256:461c82ab2265fa8457b96afc23ef3ca19f42eb070436e0241b57e58a38863901"},
+    {file = "statsmodels-0.13.2-cp39-cp39-win_amd64.whl", hash = "sha256:39daab5a8a9332c8ea83d6464d065080c9ba65f236daf6a64aa18f64ef776fad"},
+    {file = "statsmodels-0.13.2.tar.gz", hash = "sha256:77dc292c9939c036a476f1770f9d08976b05437daa229928da73231147cde7d4"},
 ]
 stevedore = [
     {file = "stevedore-3.5.0-py3-none-any.whl", hash = "sha256:a547de73308fd7e90075bb4d301405bebf705292fa90a90fc3bcf9133f58616c"},
