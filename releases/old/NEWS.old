@@ -1,0 +1,3058 @@
+## 18.11-01
+
+Released: 2018-11-06
+
+* Perceval
+** [jenkins] Update message level when handling blacklisted jobs
+** [gitlab] Allow to blacklist merge/issue ids
+** Ignore W504 flake8 error code
+** [backends] Fix flake8 errors
+
+* grimoirelab-elk
+** [enrich-redmine] Add ELK metadata
+** [enrich-mozillaclub] Add ELK metadata
+** [enrich-mediawiki] Add ELK metadata
+** [elastic_items] Handle pagination over none index
+** [enrich] Handle insertion of empty identities
+** [elk] Avoid processing None identities
+** [enrich-meetup] Prevent insert enrich items with no time
+** [enrich-discourse] Refactor logic to enrich items
+** [ELK] Fix flake8 errors
+** [utils] goodbye google-hits script
+** [utils] Goodbye rest script
+** [enrich-gitlab] Handle missing milestone attribute in raw items
+** [elastic_items] Refactor `fetch` method
+** [enrich-google_hits] Redifine has_identities method
+** [enrich-functest] Redifine has_identities method
+** [enrich-dockerhub] Redifine has_identities method
+** [enrich-jenkins] Redifine has_identities method
+** [elk] Add condition to skip loading identites
+** [enrich] Add has_identities method
+** [enrich-askbot] Replace list with yield
+** [enrich-bugzillarest] Replace list with yield
+** [enrich-confluence] Replace list with yield
+** [enrich-discourse] Replace list with yield
+** [enrich-gitlab] Replace list with yield
+** [enrich-jira] Replace list with yield
+** [enrich-kitsune] Replace list with yield
+** [enrich-mattermost] Replace list with yield
+** [enrich-mediawiki] Replace list with yield
+** [enrich-phabricator] Replace list with yield
+** [enrich-mozillaclub] Replace list with yield
+** [enrich-puppetforge] Replace list with yield
+** [enrich-redmine] Replace list with yield
+** [enrich-remo] Replace list with yield
+** [enrich-rss] Replace list with yield
+** [enrich-stackexchange] Replace list with yield
+** [enrich-slack] Replace list with yield
+** [enrich-supybot] Replace list with yield
+** [enrich-telegram] Replace list with yield
+** [jenkins] Add node name cleaning based on RE
+** [enrich-twitter] Replace list with yield
+
+* SirMordred
+** Add demographics index pattern
+** [menu] Add index pattern for attraction/retention
+** [tests] Fix flake8 errors after upgrade
+** [sirmordred] Set elasticsearch logging level to INFO
+** [jira] Add index pattern for closed issues
+** Add documentation for jenkins `node_regex` param
+** [jenkins] Add support for node name cleaning
+
+* Sigils
+** [git] Update demographics panel to use new fields
+** [gitlab] Fix latest items tables to size 100
+** [gitlab] Add missing fields in issues index pattern
+** [jira] Add closed issues by project table
+
+
+## 18.10-03
+
+Released: 2018-10-21
+
+* GrimoireLab
+** Fixes dependencies problems found in GrimoireLab package
+
+## 18.10-02
+
+Released: 2018-10-18
+
+* Perceval
+** [groupsio] Make api token a required param
+** [groupsio] Fetch archives from group-specific domains
+** Adding academic reference
+
+* grimoirelab-elk
+** [enrich_mattermost] Fix error setting empty emails for identities
+** [enrich_mattermost] Fix error setting blank names on identities
+** [enrich-github] Include label lists in enriched items
+** [enrich-git] Replace list with yield
+** [enrich-github] Replace list with yield
+** [enrich-gerrit] Replace list with yield
+** [enrich-bugzilla] Replace list with yield
+** [tests] Extend tests for demography study
+** [enrich] Add method to include aliases in enriched index
+** [enrich-gerrit] Add demography study to gerrit
+** [install] Update dependencies
+** [tests] Update .travis.yml
+** [tests] Align tests for git demography study
+** [enrich] Add generic demography study
+** [enrich-git] Replace ad-hoc git demography
+** [enrich-gitlab] Include labels list in enriched items
+** [onion] Fix `all_onion` alias creation
+** [onion] Add refresh interval
+** [enrich] Check presence of input index onion
+** [gitlab-enrich] Add onion study
+** [schema] Add schema for gitlab issues
+** [schema] Add schema for gitlab merges
+** [aoc] Add a constant for out_index default value
+** [tests] Extend tests data for Gitlab milestone attribute
+** [enrich-gitlab] Add milestone attribute for gitlab items
+
+* SirMordred
+** [onion] Add documentation for 'seconds' parameter
+** [setup] Update dependencies
+** [menu] Remove onion index pattern from Git panel
+** [panels] Add demographics panel in community section
+** [tests] Fix tests for task panels
+** [tests] Fix tests for config
+** [tests] Update mediawiki 1.28 archive
+** [tests] Update .travis.yml
+** [cfg] Update config files
+** [doc] Update documentation with gitlab info
+** [micro] Handle raw and enrich tasks exceptions
+** [doc] Include doc for gitlab onion studies
+** [doc] Add autorefresh_interval description
+** [autorefresh] Add autorefresh identities in AOC
+
+* Sigils
+** [data_status] Update google_hits data status entry
+** [demographics] Add known limitations and issues
+** [demographics] Add panel for multiple sources
+** Update info about index patterns and panel ids
+** [gitlab] Increase the number of issues shown in timing panels
+** [gitlab] Remove invalid search object for MRs backlog
+** [gitlab] Adjust "Avg. Time Open" column in Backlog Submitters table
+** [gitlab] Show full list of participants in GitLab panels
+** [gitlab] Add milestone visualizations to GitLab merge requests
+** [gitlab] Add milestone visualizations to GitLab issues
+** [onion] Add data source filter widget to panels
+** [gitlab] Fix typo in visualizations
+
+* Kidash
+** Add check for query key in bool filter fix
+
+## 18.10-01
+
+Released: 2018-10-03
+
+* Perceval
+** [tests] Align mediawiki after API calls optimization
+** [mediawiki] Optimize number of calls to API
+** [tests] Use output method in assertLogs for mbox test
+** [tests] Use output method in assertLogs for gitlab test
+** [tests] Add test to handle mediawiki version exception
+** [mediawiki] Fix error in client `get_version` method
+** [gitlab] Fix typo initiazaling common MRs fields
+
+* grimoirelab-elk
+** [enrich-stackexchange] Handle KeyError exception
+** [aoc] Add support for autorfresh in sirmordred
+** [demography] Catch conn exceptions when fetching author commits
+** [enrich] Set identities fields to UNDEFINED for null values
+
+* SirMordred
+** [tasks_panels] Fix initialization of .kibana index in Kibana 6.x
+
+** Sigils
+** [data_status] Fix error showing GitLab issues retrieval dates
+** [twitter] Replaces Latest tweets widget at the bottom
+** Update documentation about contributing to be updated with Kibiter 6.1.0 release
+** Fix hidden legends in bar charts
+** Fix title of organizations pie chart
+** Fix badly stacked bar bug
+
+* SortingHat
+** Support UTF-8 fully in MySQL/MariaDB
+
+* Hatstall
+** Register new template filter when a name is blank but isn't None
+
+* Kidash
+* [kidash] Enable Kibiter 6 configuration
+
+## 18.09-03
+
+Released: 2018-09-24
+
+* GrimoireLab
+** [doc] Added file for community components.
+** [docker] Clarify variable names in ansible file for building release.
+
+* Perceval
+** [tests] Add tests for GitLab merge request data
+** [gitlab] Add merge_request category
+** [github] Fix doc in fetch method
+** [args] Add new argument --json-line
+
+* grimoirelab-elk
+** [tests] Include tests data for GitLab merge requests
+** [enrich-gitlab] Add merge request enrich item
+** [enrich-mediawiki] Fix unique id for enriched items
+** [tests] Include tests data for GitHub pull requests
+** [enrich-stackexchange] Add 'origin' and 'tag' fields to answer items
+** [raw] Improve logging message in elastic
+
+* Sigils
+** [overview] Minor change to make gitlab panels visible
+** [data_status] Minor change to make gitlab panels visible
+** [gitlab] Minor change on merge panels
+** [gitlab] Minor change on issue panels
+** [gitlab] Add Issues and MR info to Overview and Status panels
+** [adoption] Panel for Rust adoption
+** [dev] Panel for dev related sources
+** [social] Panel for Social sources
+** [mediawiki] Use 'edits' instead of 'editions'
+** [gitlab mr] Update URL links and fix a couple of titles
+** Add GitLab Merge Request panels
+** [jenkins] Add panel to track nodes
+** [jenkins] Add panel for tracking jobs
+** [gitlab] Fix issue with URLs in the repositories table
+** [gitlab] Update GitLab panels based on the review. Minor fixes.
+** [gitlab] Add GitLab panels focused just on issues
+** [github] Fix acc time widget in PRs backlog
+
+* SirMordred 
+** [utils] Update setup.cfg micro-mordred
+** [config] Change gitlab param names
+** [task_panels] Change gitlab data source names
+** [tasks_panels] Disable kibiter 6 configuration
+** [utils] Add gitlab entries in setup.cfg and .json
+** [task_panels] Add aliases to gitlab indexes
+** [utils] Update setup.cfg and .json micromordred
+** [utils] Update menu.yml
+** [menu.yml] Adding nodes and jobs panels
+** [tests] Include strict param in mock tests task panels
+** [task_panels] Handle strict mode loading panels via setup.cfg
+** [config] Handle strict loading of panels
+** [tests] Update number of loaded panels
+** [utils] Align menu.yml micro-mordred with upstream one
+** [menu.yml] Remove mattermost from menu.yml
+** [tasks_panels] Handle mattermost panels via setup.cfg
+** [config] Load mattermost panels by the setup.cfg
+** [tasks_panels] Handle gitlab panels via setup.cfg
+** [config] Load gitlab panels by the setup.cfg
+** [tests] Include archives for gitlab merges and github pulls 
+** [task_panels] Align task panels with kidash
+** [tests] Align configuration files with new changes
+** [tests] Align tests with new changes in task_panels
+** [doc] Update config.md
+** [README.md] Update readme
+** [config] Make kibiter url mandatory for panels section
+** [task_panels] Set kibana settings programmatically
+** [task-collection] Improve logging message
+
+* Hatstall
+** Fix url redirection to /identities/hatstall
+** Change absolute urls in href and actions to the Django right ones
+
+* Kidash
+** Revert previous commit
+** [import] Create the Kibana index if not exists before importing anything
+
+
+
+## 18.09-02
+
+Released: 2018-09-07
+
+* Perceval
+** Remove unused and not working config_file option
+
+* grimoirelab-elk
+** [tests] Fix load identities test
+** [tests] Add tests for googlehits connectors
+** [utils] Add googlehits connectors
+** [enrich] Add support to enrich googlehits raw data
+** [raw] Add support for googlehits data
+
+* Sigils
+** [irc] Fix orgs table participants count
+** [KIP] Restore search viz
+
+* SirMordred
+** [utils] Update micro-mordred menu.yml
+** [task_panels] Modify alias for google hits
+** [config] Remove google_hits from extra backends
+** [archives] Update slack archive
+** [archives] Update github archive
+** [tests] Add tests for googlehits
+
+* Hatstall
+** Add new index that show just an form in order to search identities
+** Delete the first and last " with strip()
+** Add CSRF_TRUSTED_ORIGINS as a docker env variable
+
+
+## 18.09-01
+
+Released: 2018-09-04
+
+* Perceval
+** [googlehits] Modify item id generation
+** [github] Increase number of items retrieved per page
+** type fix on tests requirements file
+
+* Sirmordred
+** [menu.yml] Fix typo in googlehits data source
+** [task_panels] Include phabricator panels in overview and data status
+** [task_panels] Enable kafka studies
+** [config] Include option to visualize kafka studies
+** [tests] Align tests for new panels
+** [utils] Align micro-morded menu.yml with mordred one
+** [task_panels] Include mbox-type panels
+** [menu.yml] Include mbox-type entries
+** [task_panels] Do not import panels that don't have the release field
+** [task_panels] Replace google_hits backend name
+** [menu.yml] Modify google hits source name
+** [tests] Fix tests for task_panels
+** [tests] Fix tests for task_enrich
+** [tests] Fix tests for test_task
+** [collection] Add support for mediawiki tag
+** [utils] Add mattermost panels to menu.yml micro-mordred
+** [menu] Add mattermost entry
+** [menu.yaml] Remove duplicated community info in git menu
+** [utils] Fix setup.cfg for micro-mordred
+** [menu] Add index pattern for remo-activities
+** [menu] Fix remo-activities index-patterns entry
+
+* grimoirelab-elk
+** [enrich-meetup] Fix error printing the number of comments and RSVPs
+** [tests] Update Git test data
+** [tests] Update Slack test data
+** [tests] Update Jira test data
+** [enrich-jira] Remove unknown user data logic
+** [enrich-git] Remove unknown user data logic
+** Set Unknown to null user data (org, name and username)
+** [elk] Modify logic to load new identities to SH
+** [enrich-mbox] Replace lists with yields
+** [enrich-meetup] Replace lists with yields
+** [enriched] Update mediawiki project json params
+** [enriched-jira] Set Unassigned to null assignee orgs and usernames
+** [enrich-jira] Improve jira enricher
+** [enrich-git] Handle commits with missing user info
+** [tests] Enable tests from no-localhost ES
+
+* Sigils
+** [kip] Disable search panel
+** [overview] Add mattermost widgets
+** [data status] Add mattermost widgets
+** [overview] Fix missing widget panels
+** [data_status] Fix visualization ids
+** [meetup] Fix visualization id for `meetups_main_numbers`
+** [overview] Replace dockerhub viz by current ones
+** [kip] Migrate panel to Kibana 6
+** [data status] Add remo activities index pattern
+** [about] Update panel to include release date
+** [data status] Fix dockerhub index pattern name
+** [data status] Fix google hits widgets
+** [overview] Fix index name for Dockerhub viz
+** [overview] Update google hits widgets
+** [google-hits] Panel updated to support new backend
+
+
+## 18.08-01
+
+Released: 2018-08-23
+
+* SortingHat
+** [api] Fix lost enrollments error merging identities
+** [db] Handle disconnection using pessimistic mode
+
+* Perceval
+** [doc] Include doc to execute the googlehits backend
+** [backends] Add backend for GoogleHits
+** [slack] Fix flake8 error
+** [slack] Include num members in channel info
+** [doc] Update install from source code section in README.md
+** Mozilla
+**     [doc] Update install from source code section in README.md
+** OPNFV
+**     [doc] Update install from source code section in README.md
+** Puppet
+**     [doc] Update install from source code section in README.md
+
+* Sirmordred
+** Fix typos in menu.yaml for 6.x panels and index patterns
+** [task_panels] Update index pattern files for Onion panels
+** [utils] Add conf files for micro-mordred
+** [utils] Add micro-mordred
+** [test_task_panels] Update tests for community section menu
+** [task_panels] Add community structure menu
+** [config] Add time interval for autorefresh
+** [panels] Remove unused panels
+** Fix weird warning
+** [tests] Update test_config.py
+** [tests] Add example of enrich_pull_requests study in test_studies.cfg
+** [config] Add `enrich_pull_requests` to the tuple of studies
+
+* grimoirelab-elk
+** [enrich-mediawiki] Change way url is created
+** [aoc] Replace message commit with first 80 chars
+** [enrich-slack] Use `num_members` attribute to count channel members
+** [studies] Add enrich_pull_requests study
+** [aoc] Fix study to do nothing if no events
+
+* Sigils
+** Merge branch 'kibana6-migration'
+** Use 'edits' instead of 'editions' for MediaWiki
+** [mattermost] Add Kibana 6 panel and index pattern
+** [reps activities] Add panel migrated to Kibana 6
+** [reps events] add panel fro Kibana 6
+** [about] Add about.json from master
+** [dockerhub] Fix legend title for Stars and Pulls
+** [dockerhub] Update evolutionary charts to use Timelion and use Deltas
+** [dockerhub] Add DockerHub panel and index pattern
+** [functest] Add panel for functest project
+** [functest] Add testing overview panel
+** [mediawiki] Use 'edits' instead of 'editions'
+** [mozilla-club] Increase size of pie charts
+** Add Mozilla Club panels and index patterns
+** [google-hits] Add Google Hits panel and index pattern
+** [twitter] Migrate panel to Kibana 6
+
+* Manuscripts
+** [Notebooks] Update README with instructions to run the notebooks
+** Add Notebooks for GMD metrics and sample visualisations
+** Some (hopefully minor) changes
+** [MS2/report/tests] Add basic tests for manuscripts2 reports
+** [MS2/tests] Set up module level test fixtures
+** [MS2/README] Update README with instructions to generate the report
+** [MS2/manuscripts2] Update bin/manuscripts2 to take cmd inputs
+** [MS2/latex] Separate github_issues and github_prs data for Overview
+** [MS2/reports] Add functions to generate the PDF reports
+** [MS2/reports] Add latex template folder from the old manuscripts
+** [MS2/reports] Remove "_"  from strings and update create_csv_fig_from_df
+** [MS2/reports] Fix minor errors and change folder names
+** [MS2/Reports] Add the project process section of the report
+** [tests] Add tests for Metrics under project process in github_prs
+** [MS2/metrics] Add project_process Metrics & function for github_prs
+** [tests] Add tests for Metrics under project process in github_issues
+** [MS2/metrics] Add project_process Metrics & function for github_issues
+** [MS2/elasticsearch] Update calculate_bmi function
+** [MS2/metrics] Change field for timeseries aggregations in ClosedIssues
+** [MS2/reports] Add PROJECT_COMMUNITY section of the report
+** [manuscripts2/metrics] Rename NAME variable to DS_NAMES In all the data source files
+** [tests] Add tests for aggregations() in Authors and Organizations classes
+** [MS2/metrics] Add capability to calculate project_community metrics
+** [tests] Clean up code. Add tests/utils.py
+** [manuscripts2/elasticsearch] Add get_list method for Query class
+** [config] Add studies params
+** [tests] Add tests for timeseries metrics generated in github_prs
+** [github_prs] Add project_activity function
+** [tests] Add tests for timeseries metrics generated in github_issues
+** [github_issues] Add project_activity function
+** [tests] Add tests for timeseries metrics generated in git
+** [git] Add project_activity function
+** [report] Add functionality to calculate PROJECT ACTIVITY section
+** [tests] Rearrange the test data into specific folders
+** [tests] Add tests for github_issues data source
+** [manuscripts2] Add OVERVIEW section for github_issues data source
+** [tests] Update test_elasticsearch.py to use test base class
+** [tests] Update tests/data/git_commit.json file
+** [tests] Update git_commit.json data
+** [tests] Update test base class
+** Rename manuscripts2/Readme.md to manuscripts2/README.md
+** [tests] Add example to use the test base class
+** [tests] Add test base class
+** [manuscripts2] Add tests for OVERVIEW section of 'git' data source
+** [manuscripts2] Add code to calculate OVERVIEW section for 'git' data source
+
+* Kidash
+
+* GrimoireLab Toolkit
+
+* King Arthur
+
+* Bestiary
+
+* Hatstall
+** [docker] Update password of admin user when container restart
+** Change href of Profiles item to "list" instead of "/"
+** Update href in order to avoid absolute/relative problems
+** Allow None country in the profile form
+** [docker] Modify path of sqlite file when env variable exists
+** [docker] Default admin account can be now set via docker environment variables
+** [urls] Add support for using /identities as the base path for accessing Hatstall
+** [docker] Remove gunicorn and use stage from Docker image
+** [docker] Modify apache config to serve static files and generate the static files during deployment
+** [static] Reorganize static contents for the base template in the django-hatstall project
+** [urls] Remove gunicorn suport for static contents
+** [docker] Add in stage the activation of ssl module in Apache
+** [docker] Support https for accessing the Django Hatstall application
+** [docker] Convert Django Hatstall deployment to Apache2 + mod_wsgi
+
+* Ceres
+** Fix filter method when a column has no values
+
+
+## 18.07-11
+
+Released: 2018-07-25
+
+## Release details
+
+* SortingHat
+** [tests] Add tests for recovery mode in unify command
+** [unify] Add resume method to unify command
+
+* Perceval
+**    [askbot] Handle upstream internal server
+**    [gitlab] Sanitize requests before archiving
+**    [gitlab] Fix signature backend
+**   [travis] Change how perceval is installed
+**    [mbox] Fix test `test_mboxes_error`
+**   [github] Fix position GitHub client args
+**    [phabricator] Handle 429 HTTP errors
+**   [mbox] Increase test coverage
+**    [pipermail] Remove duplicated test
+**    [utils] Add checks to zip compressed type
+**    [mbox] Add checks to zip compressed type
+**    [doc] Include doc to execute the groups.io backend
+**    [backends] Add backend for groups.io
+**    [mbox] Allow support for zip file in MboxArchive
+**    [utils] Add support for zip compressed file type
+** Mozilla
+**    [setup] Align setup to perceval one
+**    [travis] Change how perceval-mozilla is installed
+** OPNFV
+**    [setup] Align setup to perceval one
+**    [travis] Change how perceval-opnfv is installed
+** Puppet
+**    [setup] Align setup to perceval one
+**    [travis] Change how perceval-puppet is installed
+
+* Sirmordred
+**    [tests] Add tests for sirmordred
+**    [tests] Update test data
+**    [sirmordred]  Load repos for a tagged backend sections
+**    [task_projects] Load repos for a tagged backend section
+**    [tests] Add archive for GitLab
+**    [utils] Goodbye cfg_generator
+**    [doc] Include example for GitLab
+**    [tests] Relax number of index-patterns in tests for panels
+**    [docs] Add coveralls badge
+**    [tests] Add perceval-* dependencies to requirements.txt
+**    [tests] Add grimoirelab-toolkit dependency to requirements.txt
+**    [config] Redirect autogenerated doc to README.md
+**    [config] Extend `write_doc` method
+**    [tests] Extend test for config file
+
+* grimoirelab-elk
+**    Change shebang line
+**    [elastic_items] Remove condition for old twitter items
+**    Add support for Groupsio
+**    [travis] Fix coverage execution
+**    [utils] Goodbye twitter scripts
+**    [README.md] Fix travis badge
+**    [travis] Execute coveralls after tests
+**    [README.md] Add coveralls badge
+**    Add support for GitLab
+
+* Sigils
+
+* Manuscripts
+**   Update failing tests because of change in perceval git data
+**   Rename manuscripts2 branch files
+**   [travis] Narrow coveralls execution
+**    Update tests for manuscripts2
+**    Update Query class: set start and end date filters directly into search object
+**    [tests] Fix travis.yml
+**    [travis] Add coveralls
+**    [doc] Fix badges in README.md
+**    Add initial infrastructure to generate the reports
+
+* Kidash
+
+* GrimoireLab Toolkit
+
+* King Arthur
+
+* Bestiary
+
+* Hatstall
+
+* Ceres
+
+
+## 18.07-10
+
+Released: 2018-07-17
+
+## Release details
+
+* grimoirelab-elk
+** [studies] Use hash instead of plain text as id
+** [enriched] Use metadata__update_on to index tweets
+
+
+## 18.07-09
+
+Released: 2018-07-15
+
+## Release details
+
+* Sigils
+** Use kibana6-migration branch
+
+
+## 18.07-08
+
+Released: 2018-07-13
+
+## Release details
+
+* Sirmordred
+** [menu.yaml] Add panels and index patterns for Areas of Code and Community Structure
+
+
+## 18.07-07
+
+Released: 2018-07-12
+
+## Release details
+
+* SortingHat
+
+* Perceval
+** Changes to work with grimoirelab_toolkit.
+** Mozilla
+*** Changes to work with grimoirelab_toolkit.
+** OPNFV
+*** Changes to work with grimoirelab_toolkit.
+** Puppet
+*** Changes to work with grimoirelab_toolkit.
+
+* Sirmordred
+** [config] Add tag to backend sections
+
+* grimoirelab-elk
+** [raw] Fix mapping Twitter
+** [enriched] Add code to calculate github pull requests enriched data
+** [enriched] Change toolkit import in git enricher
+** [enriched] Change toolkit import in ceres_base
+** [p2o] Add support for execution a list of studies
+** [enrich][git][demography] Add doc and fix the incremental support
+
+* Sigils
+
+* Manuscripts
+
+* Kidash
+
+* GrimoireLab Toolkit
+** Change module name to grimoirelab_toolkit.
+
+* King Arthur
+** [arthur] Change toolkit import
+
+* Bestiary
+
+* Hatstall
+
+* Ceres
+
+## 18.07-06
+
+Released: 2018-07-10
+
+## Release details
+
+* SortingHat
+** [travis] Include cryptography package
+** [tests] Align tests to logging support
+** [sortinghat] Add logging support
+
+* Perceval
+** [twitter] Change metadata_id attribute
+** Mozilla
+** OPNFV
+** Puppet
+
+* Sirmordred
+** [tests] Add twitter archive
+** [dashboard title] Fix typo in project name extraction
+** [tests] Add arthur and perceval eggs to requirements.txt
+** [studies] Include raw backend to studies
+
+* grimoirelab-elk
+** [enriched] Add support for github pull request data
+** [raw] Add support for github pull request data
+** [tests] Add test for kafka kip study, git studies and SSL support
+** [enriched] Improve logging for studies
+** [enriched] Include ocean backend in studies
+** [elk] Add raw backend to studies params
+** [raw] Add parser params for perceval mattermost backend
+** [studies] Fix ES conns to use insecure parameter
+** [enrich][mattermost] Fix project mapping support
+** [enrich][slack] Fix slack project mapping to use just the channel id in the projects mapping file
+** [tests] Use the projects mapping json file for testing
+
+* Sigils
+** [telegram] Add Telegram panels migrated to Kibana 6
+** [apache] Add Apache panels
+** Updated panels for askbot, discourse, stackoverflow, rss, bugzilla timing, redmine, maniphest, bugzilla, onion, overview, git, data status, mediawiki, jenkins, stackoverflow, confluence, slack, maniphest, github, irc, mbox, jira, bugzilla, gerrit,
+* Manuscripts
+** Add manuscripts2 containing new functions to calculate the metrics
+** Closes #48: start date not provided use case
+
+* Kidash
+
+* GrimoireLab Toolkit
+
+* King Arthur
+
+* Bestiary
+
+* Hatstall
+** [urls] Add support for using /identities as the base path for accessing Hatstall
+** [docker] Default admin account can be now set via docker environment variables
+** [docker] Modify path of sqlite file when env variable exists
+
+* Ceres
+
+## 18.07-05
+
+Released: 2018-07-04
+
+* Sirmordred
+** Update menu.yaml to kibana 6 panel and index names
+** [task_panels] Add support for loading several index patterns per data source
+
+
+## 18.07-04
+
+Released: 2018-07-04
+
+* Kidash
+** Don't sys.exit from kidash.py library (raise exceptions)
+
+* Mordred
+** [task_panels] Manage the error loading panels, log it and continue execution
+
+
+## 18.07-03
+
+Released: 2018-07-03
+
+* Sirmordred
+** [task_panels] Add support for loading index patterns
+
+
+## 18.07-02
+
+Released: 2018-07-03
+
+* Kidash
+** Add release date support for Index Patterns
+
+* Sigils
+** Add panels for kibiter 6.1.0 migration
+
+
+## 18.07-01
+
+Released: 2018-07-02
+
+* Kidash
+** [tests] Add test for split-index-patterns new param
+** [kidash] Add support for importing and exporting only index patterns
+** Update mapping in Kibana6 if needed
+** Add constant for release date field name
+** Add try/except to show content of error responses
+** Add release_date to panel json
+
+
+## 18.06-03
+
+Released: 2018-06-28
+
+* SortingHat
+** [tests] Adapt tests to run with setup.py test
+** [all] Remove support for Python 2.7
+** [db:api] Add functions for all the low level operations on SortingHat
+** [api] Improve output messages for enrollment commands
+** [exceptions] Rename WrappedValueError to InvalidValueError
+
+* Perceval
+** [tests] Replace datetime function with equivalent toolkit one
+** [meetup] Pythonicize `calculate_time_to_reset`
+** [backends] Add backend for Twitter
+** Mozilla
+** OPNFV
+** Puppet
+
+* Mordred
+** Change name from mordred to sirmordred
+
+* grimoirelab-elk
+** [mattermost] Add mattermost support for gelk (raw + enrich)
+** [tests] Modify tests for Twitter backend
+** [utils] Modify connector information for twitter
+** [twitter] Modify enrich connector
+** [twitter] Modify raw connector
+** [tests] Allow testing with latest grimoirelab component versions
+** [enrich] Align ELK with changes in SortingHat
+** [enriched][github] Add code to calculate the first reaction duration to an issue
+** [enrich][redmine] Add `assigned_to` fields
+** [jira] Fix mapping to avoid limit number of fields exception
+** [bugzilla] Fix immense term exception for activity attribute
+** [elastic] Add template to force date format
+** [raw] Update mappings for jenkins to ES 5.x
+** [enrich] Handle deleted user in stackoverflow
+** [enriched] Add `latest_date` method to connector
+
+* Sigils
+** [owlwatch] Move owlwatch to its own repo
+** [GitHub] Revamp timing panels
+** [GitHub ]Update PRs overview panel
+** [demographics] Fix y-axis label for leaving devs
+** [slack] Add projects table
+
+* Manuscripts
+** Updated comments in esquery.py
+
+* Kidash
+
+* GrimoireLab Toolkit
+
+* King Arthur
+
+* Bestiary
+
+* Hatstall
+
+* Ceres
+
+## 18.06-02
+
+Released: 2018-06-08
+
+* Mordred
+** [studies] Handle empty list of studies in backends
+
+## 18.06-01
+
+Released: 2018-06-07
+
+* SortingHat
+** [parsing:sh] Make gender profile info not required
+
+* Perceval
+** [backend] Include category in backend params
+** [github] Add list of commits hashed included in pull requests
+** [pipermail] Fix command line parameters
+** OPNFV
+** Puppet
+
+* Mordred
+
+* grimoirelab-elk
+** [stackexchage] Fix fields for questions having an accepted answer
+** [jira] Fix typo in enriched jira fields
+** [studies][demography] Use author_uuid field to aggregate the authors instead of author_id
+** [enrich] Modify max length for keyword fields
+
+* Sigils
+** [discourse] Add % of questions answered
+** [stackoverflow] Fix % of questions answered
+** [askbot] Add % of questions with accepted answer
+** [panels] Add community structure panels & documentation
+** [panels] Add accepted answers and project support
+** [panels] Fixed links to issues and revamp (jira)
+** [panels] Refurbish Jira panel
+** [panels] Fix typo in Jira panels
+** [panels] Modify answers table for consistency
+** [Panels] Rearrange project and authors widgets
+** [panels] Add project support to Askbot
+** [panels] Add crates to Data Status
+
+* Manuscripts
+** Updated esquery.py and created tests/test_esquery.py
+** Updated esquery.py to use elasticsearch_dsl in all places
+
+* Kidash
+** [kidash] Preserve uiStateJSON dict when cleaning a dashboard from not needed data sources
+** [kidash] Use #!/usr/bin/env python3 to work inside venvs correctly
+
+* GrimoireLab Toolkit
+
+* King Arthur
+** [tests] Align tests with arthur tasks validation
+** [arthur] Add validation for tasks
+** [tests] Fix tests for server
+** [jobs] Add category to backend arguments
+** [scheduler] Fix wrong date conversion
+** [server] Allow to add tasks without archiving/scheduling options
+
+* Bestiary
+
+* Hatstall
+
+* Ceres
+
+## 18.05-03
+
+Released: 2018-05-31
+
+* SortingHat
+
+* Perceval
+** [tests] Increase coverage pipermail
+** [pipermail] Disable SSL verification
+** Mozilla
+** OPNFV
+** Puppet
+
+* Mordred
+** [studies] Allow setting up kafka_kip via cfg
+** [task_projects] Add new eclipse_projects_lib.py
+** [tests] Add tests for task_manager
+** [config] Include sections for studies
+** [tests] Align tests for studies with new functionalities
+** [task_enrich] Forward study params to ELK
+** [tests] Enable tests with latest versions of grimoirelab components
+** [task] Improve parsing parameters for perceval
+
+* grimoirelab-elk
+** [twitter] Set field_date for twitter enricher to created_at
+** [enrich][bugzilla] Remove emails from enriched index
+** [enrich][meetup] Change log from error to warning when the date are incorrect from upstream data
+** [gelk-mapping] Add the script to setup.py so it is installed with the pip package
+** [gelk_mapping] Generate files with the JSON mappings to be used by elasticdump to create the indexes
+** [elk] Propagate study params from mordred to elk
+** [enrich] Create all_onion alias if not exist
+** [git] Generalize areas of code study
+** [gelk_mapping.py] Script to show the mappings for a data source
+** [raw] Reduce the number of fields indexed for jenkins items
+** [elk] Fix enrichment of stackexchage answers
+
+* Sigils
+** [panels] Add accepted answers to Discourse panel
+** [panels] Add areas of code panel
+** [confluence] Increase rows and sort by page edits
+** [confluence] Use `content_url` for page links
+
+* Manuscripts
+** [metrics][gerrit] Use closed date field for computing the TTM (time to merge) metric
+
+* Kidash
+
+* GrimoireLab Toolkit
+
+* King Arthur
+** [setup] Update Perceval version
+** [jobs] Modify imports of perceval functions
+
+* Bestiary
+
+* Hatstall
+
+* Ceres
+
+
+## 18.05-02
+
+Released: 2018-05-17
+
+* SortingHat
+
+* Perceval
+** [setup] Fix to let setup.py test run
+** Add readthedocs badge
+** [backend] Replace datetime import with grimoirelab-toolkit
+** Mozilla
+*** Fix support for package namespaces
+** OPNFV
+*** Fix support for package namespaces
+** Puppet
+*** Fix support for package namespaces
+
+* Mordred
+
+* grimoirelab-elk
+** [enrich][twitter] Use case insesitive tags for doing the projects mapping
+** [studies][demography] Add tests for the study
+** [studies][demography] Use author_id field to aggregate the authors instead of Author
+
+* Sigils
+
+* Manuscripts
+** [docstrings] Complete docstrings for manuscripts
+
+* Kidash
+
+* GrimoireLab Toolkit
+
+* King Arthur
+
+* Bestiary
+
+* Hatstall
+
+* Ceres
+
+
+## 18.05-01
+
+Released: 2018-05-10
+
+* SortingHat
+** [readme] Include troubleshooting section
+
+* Perceval
+** [mattermost] Add Mattermost backend
+** Fix support for package namespaces
+** Mozilla
+** OPNFV
+** Puppet
+
+* Mordred
+** [task_enrich] Ensure number of enrich tasks decreases upon failure
+** [TaskManager] Fix unreachable code
+
+* grimoirelab-elk
+** [elk] raise exception in do_studies
+** [stackexchange] Add fields to csv to track accepted answers
+** [discourse] Add fields to csv to track accepted answers
+** [stackexchange] Add info to get the percentage of accepted answers
+** [discourse] Add info to get the percentage of accepted answers
+** [onion] Check author bucket to make sure it exists
+** [twitter] Change date value to index tweets
+** [enriched][bugzillarest] Fix comment and remove unneeded variable
+** [twitter] Limit number of indexed fields
+** [stackexchange] Handle deleted users
+** [discourse] Add information to track accepted answers
+** [stackexchange] Add information to track accepted answers
+** [elastic] Remove not used global_mapping method
+
+* Sigils
+
+* Manuscripts
+
+* Kidash
+
+* GrimoireLab Toolkit
+
+* King Arthur
+
+* Bestiary
+
+* Hatstall
+
+* Ceres
+
+
+## 18.04-04
+
+Released: 2018-04-26
+
+* SortingHat
+* Perceval
+** Mozilla
+** OPNFV
+** Puppet
+* Mordred
+** [setup] Fix dependency on manuscripts
+* grimoirelab-elk
+** [jira] Disable dynamic mappings for data.changelog.histories
+** Remove ES 2.x mappings for all data sources (alexandria is now in ES 5.1)
+** [enrich] Remove emails from all enriched indexes
+** [tests] Add tests using csv mappings (disabled until the results of the tests are fixed)
+** [tests] Add owlwatch model to test mappings
+** [phabricator] Handle long description.raw value in raw items
+** [setup] Add dependency on SortingHat
+* Sigils (old panels)
+* Manuscripts (old reports)
+** [its] Use closed_at as FIELD_DATE for closed issues metrics
+** [metrics][gerrit] Use as date field closed in merged and abandoned reviews
+* Kidash
+* GrimoireLab Toolkit
+* King Arthur
+** [docker] Build various docker images
+* Bestiary
+* Hatstall
+* Ceres
+
+
+## 18.04-03
+
+Released: 2018-04-18
+
+* SortingHat
+* Perceval
+** Mozilla
+** OPNFV
+** Puppet
+* Mordred
+* grimoirelab-elk
+** [jenkins] Update raw mappings to deal with large comments
+** [jira] Handle data.changelog.histories fields
+** [tests] Update test load identites
+** [elk] load identities by bulks to sortinghat
+** [sortinghat_gelk] Handle possible exeception when adding identities
+* Sigils (old panels)
+* Manuscripts (old reports)
+** [report] Show the perdiod names always as YY-Q[1-4] (16-Q4)
+* Kidash
+* GrimoireLab Toolkit
+* King Arthur
+* Bestiary
+* Hatstall
+** [mod_wsgi] Fix settings so Hatstall works inside Apache mod_wsgi
+* Ceres
+
+
+## 18.04-02
+
+Released: 2018-04-14
+
+* SortingHat
+
+* Perceval
+** [phabricator] Handle project info in core:edge transactions
+** Update copyright information
+** [phabricator] Include project/user information in task transactions
+** [jenkins] Control detail level of Jenkins data
+** [gerrit] Rename parameter 'url' to 'hostname'
+** Mozilla
+*** [mozillaclub] Change log level message when missing event data
+** OPNFV
+** Puppet
+
+* Mordred
+** [task] Include projects data when creating the enrich backend for studies
+** [[task_report] Fix import from report.report to manuscripts.report
+** [Improve documentation about "bulk_size" and "scroll_size"
+** [[tests] Update archives after sanitizing archived data
+
+* grimoirelab-elk
+** [enrich][jira] Check that main_description field is not None before trunctating it
+** [doc] Add information about alias to studies doc
+** [studies] Add alias management to onion study
+** [studies] Add alias management for areas of code
+** [studies] Add methods to manage aliases
+** [enrich] Add meta fields only if the meta field is a dict
+** [tests] Add test for load identities in sortinghat
+** [schema] Add Gerrit CSV aggregatable and description fields
+** [phabricator] Handle dots in JSON attribute names
+** [nntp] Remove X-fields in raw data
+** [mbox] Remove X-fields in raw data
+** [tests] Include _fix_item method in tests
+** [nntp] Use mbox mappings for NNTP items
+** [enrich] Handle case sensitive attributes in mbox items
+** [enrich][metadata] Add project metadata fields to the enriched items
+** [schema] Update git schema
+** [schema] Fix `grimoire_creation_date` description
+** [schema] Update areas of code schema
+** [enrich] Handle long text values in  mozillaclub
+** [enrich] Handle different formats for failures in functest
+** [travis] Add perceval-puppet dependency
+** [enrich] Handle revisions without comment in mediawiki
+** [tests] Update tests data for Slack
+** [tests] Update test data for Jira
+** [doc][studies] Improve studies doc for executing them in mordred
+** [doc] Add CSV for areas of code and update doc
+** [enrich] Limit size of fields.description in Jira
+** [raw] Handle long description in jira fields
+** [setup] Add dependency with perceval-puppet
+** [raw] Filter attachment-related data of slack messages
+
+* Sigils (old panels)
+** [panels] Update git index pattern
+** [askbot] Add accepted answer info
+
+* Manuscripts (old reports)
+** [tests] Added tests for the function replace_text_dir in report.py
+** [report] Remove dependency on GREP and SED
+** Update requirements for sortinghat
+
+* Kidash
+
+* GrimoireLab Toolkit
+** [introspect] Add function to find the properties in a class
+
+* King Arthur
+** [scheduler] Rename 'max_retries_job' to 'max_retries'
+** [jobs] Replace scheduler arguments by 'max_retries'
+
+* Bestiary
+
+* Hatstall
+** [deployment] Config the Django settings for deployment in production
+** [docker] Improve how gunicorn is started increasing the number of workers and the timeout
+** [docker][travis] Fill the Django SECRET_KEY during deployment
+** [docker] Add file based config sample for Hatstall
+** [django] Remove SECRET_KEY to avoid its use in a production system
+** [urls] Add urls to static contents so gunicorn can use them
+** [docker] Use the CHAOSS URL to clone Hatstall
+** [pip] Add all the files needed to create the django-hatstall pip package
+** [hatstall app] Refactor all code to have a "hatstall" app that can be reused
+** [docker] Leave alone hatstall in the docker-compose file
+** [docker] Use the grimoirelab/hatstall docker image and remove link to mariadb
+
+* Ceres
+
+
+## 18.04-01-a
+
+Released: 2018-04-10
+
+* Mordred
+** [task] Include projects data when creating the enrich backend for studies
+** [task_report] Fix import from report.report to manuscripts.report
+** Improve documentation about "bulk_size" and "scroll_size"
+** [tests] Update archives after sanitizing archived data
+
+
+## 18.04-01
+
+Released: 2018-04-04
+
+* SortingHat
+
+* Perceval
+** Fix the error "Not a gzipped file (b'00')"
+** [client] Sanitize url, payload and headers when archiving data
+** [all backends Remove credentials when archiving data
+** [jira] Avoid init HTTP session when fetching data from archive
+** [tests] Fix fetch_from_archive test
+** Mozilla
+** OPNFV
+** Puppet
+
+* Mordred
+** [panels] Add hyperkitty panel (the same than mbox)
+** [task_collection] Support that the name of a backend section could include a suffix
+** [task_panels] Filter with data sources active only multi data source visualizations
+** [tests] Add archive for testing remo
+
+* grimoirelab-elk
+** [utils] Add PuppetForge support once perceval pip package is available
+** [raw] Update mappings to filter body information in confluence items
+** [enrich] Limit size of summary and main_description in bugzillarest
+** [enrich] Limit size of value attribute summary in bugzilla
+** [raw] Change discourse mapping for data.post_stream.posts.cooked
+** [enrich] Fix mapping for attribute question_title in discourse
+** [enrich] Handle missing accepted_answer_id attribute
+** Added support for co-author
+** Fix flake8 issues
+** [schema] Update askbot.csv
+** [studies] Add timeout to ES connections
+** [tests] Remove old test data
+
+* Sigils (old panels)
+
+* Manuscripts (old reports)
+** Remove recursive copying of report directory
+** Add user defined logo option
+
+* Kidash
+
+* GrimoireLab Toolkit
+** [tests] Increase test coverage
+** [datetime] Handle wrong timezone offset
+
+* King Arthur
+** Fix Travis CI badge
+** Update required version of Perceval
+** Rename GrimoireLab references to CHAOSS
+** [jobs] Fix 'from_date' and 'offset' reset error
+
+* Bestiary
+
+* Hatstall
+** [conf] Configure Hatstall using the setup file if exists first and then the web form
+
+* Ceres
+
+
+## 18.03-05
+
+Released: 2018-03-27
+
+* SortingHat
+
+* Perceval
+** Handle negative sleep time for rate limit reset: meetup, gitlab, github, client
+** [git] Add --to-date to git backend to pull data upto a given time
+** [github] Add  pull request data
+** [pipermail] Increase test coverage
+** Mozilla
+** [remo] Add params to fetch events from older to newer
+** OPNFV
+** Puppet
+
+* Mordred
+** [task_panels] Don't use anymore the kibiter version from general config in mordred
+** [config] Fix howto import the version from mordred
+** [doc] Add first version of the mordred params documented generated automatically
+** [config] Add description to all params and remove the params not used anymore
+** [doc] Initial version of setup automatic doc generation
+** Update import sections to follow grimoire-elk changes
+** Fix flake8 errors
+** [task_identities] Fix the call to get gender data (hotfix commit)
+
+* grimoirelab-elk (old GrimoireELK)
+** [utils] Remove puppetforge support until there is a pip package and it is supported in grimoirelab_build script
+** [elk] Fix mapping path for areas of code index
+** [elk] Add onion study to GitHub
+** [enriched] Handle wrong time offset in Git enrichment
+** [p2o] Use directly the params definition from utils.py
+** [enrich] Add doc for enrich_items method and remove not needed code
+** [enrich][phabricator] Add enrich metadata to enriched items
+** [puppetforge] Implement the enrich spec for PuppetForge
+** [enrich] Add `answer_status` field to askbot
+** [raw] Fix typos in ES 2.2 mappings for gerrit
+** [enrich] Fix limit comment message in gerrit, git
+** [enriched] Set not accepted answer flag to askbot unanswered question
+** [all] Replace arthur with with elk in import sections
+** [all] Replace elk with enriched in import sections
+** [all] Replace ocean with raw in import sections
+** [arthur] Rename the file name arthur.py to elk.py
+** [ocean/elk] Change packages names: This code renames the packages ocean and elk to raw and enriched
+** [ocean][hyperkitty] Create specific HyperKittyOcean class
+** [utils] Support that the name of a connector could include a suffix
+** [elk] Fix params parsing for arthur tasks
+** Move CSVs schema definition from Sigils to GrimoireELK
+** [Askbot] Add fields to askbot.csv to track accepted answers
+** [doc] Add documentation for Areas of Code study
+** [elk] Include mappings to discourse backend
+** [ocean] Add ES 2.x mappings for askbot backend
+** [elk] Create areas of code output index if needed
+** [doc] Add documentation on Onion study
+** [elk] Add onion study
+
+* Sigils (old panels)
+* [csv] Remove CSVs moved to grimoirelab-elk
+
+* Manuscripts (old reports)
+
+* Kidash
+** [kidash] Update elk import
+
+* GrimoireLab Toolkit
+
+* King Arthur
+
+* Bestiary
+
+* Hatstall
+
+* Ceres
+** [examples] Update elk import
+** [events] Update elk import
+
+
+## 18.03-04
+
+Released: 2018-03-21
+
+* SortingHat
+
+* Perceval
+** [pipermail] Handle inaccessible archive URLs
+** Mozilla
+** OPNFV
+** Puppet
+
+* Mordred
+** [task_enrich] Replace bulk_upload_sync with bulk_upload
+** [mordred] Remove param studies en enrich section which does not exists anymore
+
+* GrimoireELK
+** [ocean] Fix mappings with jenkins to avoid regression errors
+** [enrich][mbox] Return an empty SH identity if the identity provided is None
+
+* Sigils (old panels)
+
+* Manuscripts (old reports)
+** Default name of manuscripts added
+** Added -v argument to show version of manuscripts
+
+* Kidash
+
+* GrimoireLab Toolkit
+
+* King Arthur
+
+* Bestiary
+
+* Hatstall
+** Add paginated table in proifle page with 3 columns instead of 2
+** Add more info of uidentity when click on 'view' in profile page
+** Change behaviour of the columns when open/close columns
+** Add button in the card info of unique identity to merge it
+** Fix table size joining columns
+
+* Ceres
+
+## 18.03-03
+
+Released: 2018-03-20
+
+* Mordred
+** [mordred] Remove param studies en enrich section which does not exists anymore
+
+
+## 18.03-02
+
+Released: 2018-03-20
+
+* SortingHat
+**    [cmd:autogender] Check well-formed names only and Retry and skip connection errors
+
+* Perceval
+** [backend] Remove empty category from parsed arguments
+** Mozilla
+*** Add tests requirements pip file
+*** Add support to run tests using setup.py file
+
+** OPNFV
+*** Add tests requirements pip file
+*** Add support to run tests using setup.py file
+** Puppet
+*** Add tests requirements pip file
+*** Add support to run tests using setup.py file
+
+* Mordred
+** [task_projects][eclipse] Add support for extracting the github repositories
+** [clean] Remove legacy testing grimoire_elk symlink
+** [task_identities] Add gender support
+** [task_panels] Add as data source stackoverflow if stackexchange is included
+** [tests] Fix tests including the gender fields in SH identities files
+
+* GrimoireELK
+** [elk] Fix check condition ES version for rss, meetup, nntp
+** [elk] Limit size of attributes for several data sources to avoid keyword max length issues
+** [elk] Fix mappings ES 5.1.x for all backends
+** [ocean] Prevent Slack attachment info to be indexed
+** [ocean/elasttic] Replace bulk_upload_sync with bulk_upload
+** [elastic] Delete bulk_upload_sync method
+** [askbot] Refine information to track accepted answers
+** [tests] Modify test data for askbot
+** [elk] Enrich item to track accepted answers
+** [ocean] Add mappings for Askbot ocean
+** [enrich][bugzillarest] Change " " with "+" in product and component names to follow Mozilla projects mapping
+** [elk] Add gender info from SortingHat
+** [ocean][conf] Remove legacy conf index not used anymore
+** [utils] Remove not used scripts o2s.py and ocean.py
+** [utils] Remove symlink grimoire_elk to avoid hacks in modules import
+** [utils] Remove not needed old symlink
+
+* Sigils (old panels)
+** [Askbot] Add fields to askbot.csv to track accepted answers
+** [schema] Update Meetup schema to deal with aggregatable fields in Kibana
+** [panels] Fix Gerrit panel to use author name field
+** Added schema for time_to_commit
+
+* Manuscripts (old reports)
+** Select by user for custom indices for each data
+** Create default indices if no custom index is provided
+** Change the default name for the enriched git index from 'git_enrich' to 'git'
+
+* Kidash
+
+* GrimoireLab Toolkit
+
+* King Arthur
+
+* Bestiary
+** Add new features: edit and remove ecosystems and projects
+** Add information messages to web UI related to important actions
+** Change position of ecosystem-related buttons
+
+* Hatstall
+** Add custom pagination in order to retrieve the data paginated
+** Add search box that searchs directly to the sh database
+** Fix last_modified field show in unique identities
+** Add 'show' custom in order to get length of the table paginated
+** Change button show entries for 'onchange' event in the select
+
+* Cereslib
+** [events] Add Git author domain from email
+
+
+## 18.03-01-a
+
+Released: 2018-03-14
+
+* GrimoireELK
+** [ocean] Add ES 2.x mappings for all ocean backends
+** [git] Add a new time_to_commit field to enriched index
+
+## 18.03-01
+
+Released: 2018-03-13
+
+* SortingHat
+** [model] Fix wrong __repr__ in Profile
+** [api] Add search_unique_identities_slice() function
+** [cmd:autogender] Fix typo in help output
+** Release 0.6.0
+** Rename GrimoireLab references to CHAOSS
+** [sortinghat] Add autogender command
+** [api] Add function for searching profiles
+** [tests] Fix non-deterministic tests
+** Add --version command line option
+** [tests] Fix so that tests pass when db not in localhost
+** [init] Remove annoying error
+** [setup] Update pandas
+** [gitdm2sh] Set option to ignore invalid email addresses
+
+* Perceval
+** [all backends] Set category when calling fetch and fetch_from_archive
+** [meetup][gitlab] Ignore sleep for rate when reading from archive
+** [tests] Modify backends tests when fetching from archive
+** [tests] Add mock http answers to tests launchpad
+** [gerrit] Add tests for gerrit backend
+** [mediawiki] Sort request payload parameters for versions >= 1.27
+** [mediawiki][phabricator] Force sort request payload parameters
+** [tests][askbot] Format html content file
+** [all backends] Add default parameters when init the Client
+** [slack] Move parameter latest to the archived args
+** [all backends] Add valid categories
+** [all backends] Align fetch signature to the backend generic one
+** [all backends] Add archive support
+** Update CI config to run tests using Python 3.5 and 3.6
+** Update coverage call to remove 'omit' parameter
+** [askbot] Add data about accepted answers
+** [mbox] Define 'tmp_path' variable before copying mboxes
+** [backend] Ignore errors produced while fetching from archives
+** [backend] Fix 'Namespace' object has no attribute 'fetch_archive'
+** Rename GrimoireLab references to CHAOSS
+** [backend] Remove metadata() decorator
+** [cache] Remove cache mode
+** [backends] Replace cache by archive mode
+** Add tests requirements pip-file
+** Fix tests to support their execution in two different modes
+** Add support to run tests using setup.py file
+** [gmane] Remove Gmane backend
+** [jenkins] Update perceval sample in README
+** [backend] Use the archive manager within BackendCommand
+** [backend] Add shortcut functions to fetch items
+** [backend] Add 'archived-since' to the argument parser
+** [backend] Add 'category' to the general arguments parser
+** [backend] Define archive arguments for the argument parser
+** [archive] Add class to manage a set of archives
+** [archive] Replace 'item_category' by 'category'
+** [errors] Add class for raising archive manager exceptions
+** [pipermail, bugzilla] Avoid warning by BeautifulSoup
+** [perceval] Add GitLab backend
+** [all backends] Apply archive to backend
+** [client] Replace type() with isinstance()
+** [backend] Change method signature of _test_fetch_from_archive
+** [backend] Fix backend name in fetch method
+** [backend] Add fetch, fetch_from_archive and fetch_items
+** [nntp] Fix KeyError 'Date' in metadata_updated_on field
+** [backend] Integrate archive with generic backend
+** [client] Integrate archive with generic HTTP client
+** [archive] Add Archive class
+** [tests] Add tests for NotImplemented method errors in backend
+** [http-client] Fix rate limit reset log message
+** [git] Parse additional pattern for moved files
+** [all backends] Modify variable name default_sleep_time
+** [client] Modify variable name default_sleep_time
+
+** Perceval Mozilla
+*** [tests] Modify tests when fetching from archive
+*** Set category when calling fetch and fetch_from_archive
+*** Add valid categories
+*** Align fetch signature to the backend generic one
+*** Update Perceval dependency version
+*** Rename GrimoireLab references to CHAOSS
+*** Apply archive to all backends
+*** [crates] Fix None sleep_time when using CratesCmd
+*** Import perceval modules using relative paths
+*** [setup] Update minimum version of perceval required
+*** [crates] Change HttpClient method call
+
+** Perceval OPNFV
+*** [functest] Set category when calling fetch and fetch_from_archive
+*** [tests] Modify functest tests when fetching from archive
+*** [functest] Add valid categories
+*** [functest] Align fetch signature to the backend generic one
+*** Update Perceval dependency version
+*** Rename GrimoireLab references to CHAOSS
+*** [FuncTest] Apply archive to FuncTest backend
+
+** Perceval Puppet
+*** [puppetforge] Set category when calling fetch and fetch_from_archive
+*** [tests] Modify puppetforge tests when fetching from archive
+*** [puppetforge] Add valid categories
+*** [puppetforge] Align fetch signature to the backend generic one
+*** Update Perceval dependency version
+*** Rename GrimoireLab references to CHAOSS
+*** [puppetforge] Apply archive to PuppetForge backend
+
+* Mordred
+** [tests] Add tests for the studies configuration per backend
+** [task_enrich] Configure and execute studies per backend after enrichment
+** [config] Remove 'studies' param from enrich section
+** [tests] Add archive for all backends
+** [tests] Add tests to fetch data from archives
+** [mordred] Updates to use the new location for elastic module in grimoire_elk
+** [task_panels] Fix support for Kibana 6 when uploading menus
+** [tasks] Make use of grimoire-elk connections
+** [task_enrich] Use new param pair_programming to activate this enrich feature
+
+* GrimoireELK
+** [studies] Add support for git_author_domain field
+** [setup] Fixed conflict with urllib3 version
+** [elk] Fix access to mappings directory
+** [utils] Use the 1st interpreter on $PATH
+** [tests] Break done tests for all backends
+** [elk] Fix enrich_items method
+** Update elastic import to the new module path in grimoire_elk.elastic
+** [elastic] Refactor elastic class
+** [travis] Update travis to add new dependencies
+** [elk] Add areas of code study
+** [elk] Add basic structure for cereslib studies
+** [elk] Refactor sortinghat module name
+** [enrich][git] Fix incremental demography update for already existing authors
+** [archive] Allow handling perceval archive
+** [ocean] Fix mappings to index data in several data sources
+** [tests] Refactor tests for backends/connectors
+** [remo] Rename filenames of ocean and elk remo connectors
+** [ocean] Remove ES 2.x mappings to index git data
+** [ocean] Modify Pipermail input data for test
+** [ocean] Add Launchpad backend
+** [ocean] Add PuppetForge backend
+** [ocean] Add GitLab backend
+** [tests] Update tests data
+** [elk] Update enrich_items method of several data sources  for new tests
+** [elk] Handle NNTP uppercase Date field
+** [ocean] Add warning when json items are not inserted to ES
+** [enrich] Track storage exceptions when uploading enriched data to ES
+** [travis] Add delay to make ES start
+
+* Sigils (old Panels)
+** Update documentation on process related panels
+
+* Manuscripts (old reports)
+** added Content-Type information in function: get_metrics_data
+
+* Kidash
+** [kidash] Update elastic import from grimoire_elk
+** [import] Don't modify the height of visualizatons in dashboards from Kibana >= 6
+
+* GrimoireLab Toolkit
+** Add support to run tests using setup.py file
+** Update coverage call to remove 'omit' parameter
+** Rename GrimoireLab references to CHAOSS
+** Update CI config to run tests using Python 3.5 and 3.6
+
+* King Arthur (old Arthur):
+** Add support to run tests using setup.py file
+** Fix tests to support their execution in two different modes
+** Modify tests requirements pip-file and Travis config. file
+** Update documentation with a section for the arthurd config. file
+** [worker] Add documentation to perform_job method
+** [arthurd] Replace cache support with archive support
+** [server] Enable server to handle archives
+** [jobs] Enable jobs to handle archives
+** [tasks] Enable tasks to deal with archive
+** [scheduler] Enable scheduler to deal with archive tasks
+** [arthur] Enable Arthur to fetch data from archives
+
+## elasticgirl.30.4
+
+Released: 2018-02-12
+
+* GrimoireELK
+** [enrich][crates] Return always a correct SH identity
+
+
+## elasticgirl.30.3
+
+Released: 2018-02-11
+
+* GrimoireELK
+** [enrich][git] Add a new param pair_programming to activate this enrich feature
+* Mordred
+** [task_enrich] Use new param pair_programming to activate this enrich feature
+
+
+## elasticgirl.30.2
+
+Released: 2018-02-08
+
+* GrimoireELK
+** [enrich][jira] Include release field in enriched index
+** [enrich][git] Add git_uuid field which is unique id in pair programming
+
+
+## elasticgirl.30.1
+
+Released: 2018-02-01
+
+* GrimoireELK
+** [enrich][git][demography] Fix the demography study logic so it works in incremental mode always
+** [enrich][slack] Don't convert boolean fields to int in SortingHat fields
+** [elastic] Track exceptions when uploading data to ES
+** [enrich][git] Add a new field git_author_domain with the email domain for the Author of the commit
+
+* Kidash
+** [import] Don't modify the height of visualizatons in dashboards from Kibana >= 6
+
+## elasticgirl.30
+
+Released: 2018-01-31
+
+* SortingHat
+** [load] Avoid some messages when not in verbose mode
+** [init] Add option for reusing database
+
+* Perceval: frozen in 0.9.10 until Archive cache refactoring is complete
+** Mozilla: frozen in 0.1.5 to be compatible with perceval 0.9.10
+** OPNFV
+** Puppet
+
+* Mordred
+** [panels] Kibiter now supports that the title for the dashboard is in a JSON inside .kibiter index. New method for uploading it.
+** setup and configure RotatingFileHandler for file logging
+** [mordred] Check if Bestiary projects can be read before executing mordred
+** [task_panels] Add params with kibana url and version to create the .kibana
+** [mordred] Retry connection with Elasticsearch and Kibiter to wait for their starting time
+** [task_identities] Execute unify just after the load of identities in the same task
+** [task_panels] Add mbox as data source to be shown if pipermail exists
+** [autorefresh] Refactor autorefresh code thanks to the last_update field in Sortinghat
+** [task_panels] Force the creation of .kibana index in Kibiter6
+** [docker] Don't download the menu.yaml file if it has not changed from our local copy
+
+* GrimoireELK
+** [enrich][phabricator] Fix enricher when an item has an array with None as first item of projects
+** [enrich] Add missing headers in PUT queries to support ES6
+** [ocean][pipermail] Define the url and dirpath params needed by arthur when using pipermail
+** [elastic_items] Remove log error when there are no items or the items index does not exists yet
+** [utils] Retry by default total times = connect error times
+** [ocean/confluence] Filter out body.storage.value from index
+** [enriched] Ensure that we have a method for refreshing whole indexes
+
+* Panels
+** [overview] Include for studies vis a "_studies_" in the id and title
+
+* Manuscripts (old reports)
+
+* Kidash
+** [kidash] Remove by default from dashboards the study related visualizations
+** [visualization] Include the style needed in Kibiana6 to show metrics vis correctly
+** [dashboard] Fix the bool filters for the dashboard
+** [layout] Increase 1 height the panels of height 1 for kibana6
+
+* GrimoireLab Toolkit
+** [introspect] Ignore * and ** parameters in method signatures
+
+* Arthur
+
+
+## elasticgirl.29.4
+
+Released: 2018-01-29
+
+* GrimoireELK
+** [utils] Retry by default total times = connect error times
+
+* Mordred
+** [arthur] Catch exception when the arthur items dict changes during its measure
+
+
+## elasticgirl.29.3
+
+Released: 2018-01-29
+
+* Mordred
+** [task_panels] Add mbox as data source to be shown if pipermail exists
+** [task_identities] Execute unify just after the load of identities in the same task
+** [mordred] Retry connection with Elasticsearch and Kibiter to wait for their starting time
+
+* Kidash
+** [layout] Increase 1 height the panels of height 1 for kibana6
+** [dashboard] Fix the bool filters for the dashboard
+** [visualization] Include the style needed in Kibiana6 to show metrics vis correctly
+
+
+## elasticgirl.29.2
+
+Released: 2018-01-25
+
+* Mordred
+** [autorefresh] Refactor autorefresh code thanks to the last_update field in Sortinghat
+
+* GrimoireELK
+** [elastic_items] Remove log error when there are no items or the items index does not exists yet
+
+
+## elasticgirl.29.1
+
+Released: 2018-01-24
+
+* Mordred
+** [task_panels] Force the creation of .kibana index in Kibiter6
+
+* GrimoireELK
+** [ocean][pipermail] Define the url and dirpath params needed by arthur when using pipermail
+** [enrich] Add missing headers in PUT queries to support ES6
+
+
+## elasticgirl.29.0
+
+Released: 2018-01-23
+
+* SortingHat
+** [model][tests] Define an order for domains and adapt tests to MariaDB
+** [tests] Change configuration to a config file
+
+* Perceval: frozen in 0.9.10 until Archive transition from cache is complete
+** Mozilla: frozen in 0.1.5 to be compatible with perceval 0.9.10
+** OPNFV
+*** [functest] Apply generic HTTP client to FuncTest
+** Puppet
+*** [puppetforge] Apply generic HTTP client to PuppetForge
+
+* Mordred
+** [task_panlels] Support for Kibiter/Kibana 6.x
+** [task_projects] Add a new param projects_url to download the projects data from a URL
+** [task_identities] Use the last datetime for autorefresh to find the changes in SortingHat
+** [task_identities] Don't load identities if autorefresh is pending
+** [docker] Update docker mordred image to use a install based on pip packages
+** [unified_releases] Remove 'unified_releases' directory which is now in GrimoireLab
+** [task] Fix composition perceval params
+
+* GrimoireELK
+** [ocean][confluence] Avoid creating the mapping of data.extensions.position which mutates
+** [git] Add Elasticsearch 6.x support for study in git
+** [kidash] Remove kidash (moved to a new repo as chaoss/grimoirelab-kidash)
+** [elasticsearch] Support Elasticsearch 6
+
+* Panels
+
+* Manuscripts (old reports)
+** [setup] Modifications due to change in name (manuscripts)
+
+* Kidash
+** [kidash] Unbundle kidash completely from GrimoireELK
+** [kidash] Fix error getting the title of an index pattern
+** [setup] Change to the new chaoss organization in GitHub
+
+* GrimoireLab Toolkit
+** [datetime] Add timezone data to datetime_utcnow()
+
+* Arthur
+** [tests] Add tests for add, remove, tasks paths of arthur server
+
+
+## elasticgirl.28.3
+
+Released: 2018-01-21
+
+* GrimoireELK
+** [kidash] Remove kidash (moved to a new repo as chaoss/grimoirelab-kidash)
+** [elasticsearch] Support Elasticsearch 6
+
+
+## elasticgirl.28.2
+
+Released: 2018-01-18
+
+* Mordred
+** [task] Fix composition perceval params
+** [docker] Update docker mordred image to use a install based on pip packages
+** [task_identities] Don't load identities if autorefresh is pending
+** [task_identities] Use the new API SH call search_last_modified_identities to refresh identities
+** [task_projects] Add a new param projects_url to download the projects data from a URL
+
+
+## elasticgirl.28.1
+
+Released: 2018-01-09
+
+* Mordred
+** [docker] Add symlink to kidash so mordred finds it
+
+
+## elasticgirl.28
+
+Released: 2018-01-09
+
+* SortingHat
+
+* Perceval
+** [git] Send in fetch-pack local heads refs only
+** [meetup] Handle processing deleted groups
+** [git] Fix cloned directory of local repository
+** Mozilla
+*** Apply generic HTTP client to all backends
+** OPNFV: no changes
+** Puppet: no changes
+
+* Mordred
+** [panels] Use the new kidash module, instead of grimoire-kidash
+** [task_collection][arthur] Limit the total number of items collected from redis
+** [task_collection][arthur] Set to 200MB the max memory for the arthur python dict
+** [task_collection][arthur] Limit the max size of the python memory with raw items from redis
+** [tasks_panels] Add support for data sources when uploading panels
+** [docker] Use the new grimoirelab github repository location to download the releases
+
+* GrimoireELK
+** [kidash] Unbundle kidash completely
+** [Jira] Extract timing for a sprint
+** [Jira] Move enrichement of fields property to a classmethod
+** [setup] Add kingarthur as a dependency
+
+* Panels
+
+* Reports
+
+* GrimoireLab Toolkit
+
+* Arthur
+** Add support for configuration file
+** [writers] Update writer to support ElasticSearch >= 5.x
+** Update requirements
+
+
+## elasticgirl.27.1
+
+Released: 2017-12-28
+Warning: Change in SortingHat database. You need to either create
+a new database from scratch, or convert your old SortingHat database.
+See details in the main README.md in the SortingHat git repository
+(section "Compatibility between versions)").
+
+* SortingHat
+** Release 0.5.0
+** [api] Add function to search last modified identities
+** [api] Update 'last_modified' attribute when needed
+** [model] Add 'last_modified' attribute to unique identities and identities
+** [grimoirelab2sh] Add '--no-email-validation' option
+** parsing:grimoirelab] Set option to ignore invalid email addresses
+
+
+## elasticgirl.27
+
+Released: 2017-12-28
+Warning: skip_initial_load no longer supported in Mordred.
+
+* SortingHat (stalled to pre 0.5.0 due to change in db schema)
+
+* Perceval
+** [meetup] Remove 'draft' status due to a bug in Meetup API
+** [git] Request in fetch-pack the outdated refs only
+** [git] Fix error discovering refs in repos which don't have any
+** [git] Ignore error codes when executing a command
+** Mozilla: no changes
+** OPNFV: no changes
+** Puppet: no changes
+
+* Mordred
+** [task_collection] Configure bulk and scroll size in arthur collection
+** [tasks_project] Load projects in the initial tasks in mordred
+** [task_collection] Create task in arthur only the first time
+** [task_identities] Add support for '--no-email-validation' option in grimoirelab2sh
+
+* GrimoireELK
+** [ocean][git] Map data.message to string so it is not a keyword because it is large field (>32K) in some cases
+** [panels] Change the API so dashboards can be listed, imported and exported with a JSON in memory
+** [enrich][meetup] Fix to support empty events during comments extraction
+** [enrich][jira] Check that labels are defined in issue['fields'] before using it
+
+* Panels
+** [Panels] Fix Twitter username field in tables
+** [Panels] Add projects and orgs support for Meetup
+
+* Reports
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+## elasticgirl.26.2
+
+Released: 2017-12-22
+
+* GrimoireELK
+** [enrich][meetup] Fix to support empty events during comments extraction
+
+
+## elasticgirl.26.1
+
+Released: 2017-12-21
+
+* SortingHat
+** [grimoirelab2sh] Add '--no-email-validation' option
+
+* Mordred
+** [task_identities] Add support for '--no-email-validation' option in grimoirelab2sh
+
+
+## elasticgirl.26
+
+Released: 2017-12-20
+
+* SortingHat
+
+* Perceval
+** Mozilla: no changes
+** OPNFV: no changes
+** Puppet: no changes
+
+* Mordred
+** [docker] Add link to arthur library so it can be used in mordred
+**  [task_identities] Don't load identities if autorefresh is pending
+**  [docker] arthur is not used with Elasticsearch anymore
+**  [task_collection][arthur] Compute the memory usage in intervals
+
+* GrimoireELK
+**  [mappings] If a mapping can not be created just log the issue
+**  [autorefresh] Group the number of identities to be refreshed
+**  [utils] Support enrich all items for all groups in a raw meetup index
+**  [enrich][meetup] Fix to support empty events during ersvp extraction
+
+* Panels
+** [Panels] Add projects to IRC panel
+** [Panels] Remove old unused panel directories
+** [Panels] Add project support to Twitter panel
+
+* Reports
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+
+## elasticgirl.25.1
+
+Released: 2017-12-19
+
+* Mordred
+** [mordred] Fix symbolic links to grimoire_elk and report changed by error
+
+## elasticgirl.25
+
+Released: 2017-12-18
+
+* SortingHat
+** [db] Fix tables created with invalid collation
+** [model] Coerce boolean type
+**  [travis] Update before_install package versions
+**  [setup] Upgrade dependencies
+**  [cmd:export] Remove trailing whitespaces in JSON files
+
+* Perceval
+** [backend] Fix 'find_backends' to get all backend descendants
+** [launchpad] Handle 404 HTTP error
+** Update generic http-client parameters for phabricator, meetup, jenkins, github
+** [client] Fix init headers and status codes
+** [docker] Add build-essential/gcc for dulwich
+** [meetup] Adapt tests to assess the sleep for rate
+** [github] Adapt tests to assess the sleep for rate
+** [client] Add function to calculate the time to reset for tokens
+** Apply generic HTTP client to all backends
+** [http-client] Add parameter "verify" to fetch method
+** Mozilla: no changes
+** OPNFV: no changes
+** Puppet: no changes
+
+* Mordred
+** Add Arthur support to mordred
+** [mordred] Simplify how mordred is started
+** [doc] Basic description of mordred
+** [tests] Remove load_orgs testing because it fails in Travis
+** [requirements] Reuse the deps in setup.py in requirements.txt
+** [travis] Add travis support and execute all testing for PRs
+** Fix all PEP-8 issues
+
+* GrimoireELK
+** Arr arthur support
+** [ocean] Simplify feed logic when getting the items from perceval cache or arthur redis
+** Add travis support with test execution. Improvements in the tests.
+** Fix PEP-8 issues
+** [gelk] Remove ocean-unique-id unique identifier and use always the uuid from perceval.
+** [enrich][sortinghat] Add identity domain using the profile information
+** [enrich][phabricator] Check in p is defined before using it
+** [enrich][meetup] Don't create comments and rsvps events for empty meetup items
+** [kidash] Export the index patterns in searches
+** [enrich][bugzillarest] Add comments field with the number of comments
+
+* Panels
+** [tests] Remove from test checking the ocean-unique-id field
+** Add Crates CSV schema definition
+** Bugzilla panels updated for bugzillarest compatibility
+
+* Reports
+** [metrics][issue] Remove Closers metric and Fix BMI implementation
+** [github_issues] Removed Closers metric which is not implemented
+** [tests] Fix pep8 issues in the tests
+** [travis] Install deps using the requirements.txt file in Travis
+** [tests] Activate the execution of the tests during CI
+** [tests] Initial version of the tests
+** Modify code to be PEP8 compliant
+** [travis] Add initial travis file
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+## elasticgirl.24
+
+Released: 2017-11-30
+
+* SortingHat
+** [parsing:grimoirelab] Remove `Unknown` enrollments while parsing
+
+* Perceval
+** [client] Add generic HTTP client
+** [jenkins] Fix HTTP error handling
+** [gerrit] Fix no route to host error
+** [github] Init rate limit info (requests left and reset time)
+
+* Mordred
+
+* GrimoireELK
+** [travis] First version for CI with Travis, including pep8 and integration tests
+** Fixed all PEP-8 issues
+** [p2o] Remove code not needed detected during pep8 cleaning
+** [tests][crates] Add testing for crates data source
+** [enrich][functest] Implement get_field_author and return None
+** [enrich][twitter] Check that twitter is in projects map before using it
+** [enrich][bugzillarest] Change fields to use the same names than in bugzilla
+** [enrich][bugzilla] Remove project_name field to avoid confussions with dashboard projects
+** [ocean][phabricator] Fix to float the subpriority field
+** [enrich] Check if an identity exists before trying to get her profile
+** [index_mapping] Support sort-after scrolling. Use sync uploading of bulk data
+** [index_mapping] Add an option so the elasticsearch for read and write could be different
+** [elastic] Log the items already uploaded with the bulk API
+** [elastic] Fix how the number of duplicates/lost items is tracked in bulk operations
+** [elastic] Pack the items in bulk sync before uploading
+** [elastic] Raise exception if there is a problem putting the data in Elasticsearch
+** [ocean][crates] Remove all params to be passed to the perceval backend
+** [enrich][crates] Remove project support from crates (not needed)
+
+* Panels
+
+* Reports
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+
+## elasticgirl.23.2
+
+Released: 2017-11-28
+
+* SortingHat
+
+* Perceval
+
+* Perceval-OPNFV
+
+* Perceval-Mozilla
+
+* Mordred
+
+* GrimoireELK
+** Updated version which fixes: Enrich bugzilla rest 4611 #136
+
+* Panels
+
+* Reports
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+## elasticgirl.23.1
+
+Released: 2017-11-26
+
+* SortingHat
+
+* Perceval
+
+* Perceval-OPNFV
+
+* Perceval-Mozilla
+** Updated version
+
+* Mordred
+
+* GrimoireELK
+
+* Panels
+
+* Reports
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+## elasticgirl.23
+
+Released: 2017-11-23
+
+* SortingHat
+** Add no-strict-matching option
+** [setup] Add code for setup.py test to work
+
+* Perceval
+** [git] Fix invalid URL when TCPGitClient is initialized
+
+* Mordred
+** [task_identities] Add reset_on_load param to activate the reset of identities on load
+** [task_identities] Add new option strict-mapping to sortinghat config
+** [threads] Get the two thread locks needed for enrich and identities in the same order
+
+* GrimoireELK
+** [enrich][meetup] Support that `time` field does not exists in meetup raw item
+** [docker] Add docker compose for Elastic 6 version using Bitergia images
+** [elastic] Create new method global_mapping to get the mapping added always
+** [index_mapping] Remove debug code line which makes mappings to be always None
+** [panels] Fix library to work with Elasticsearch6
+** [panels] Add support for listing/importing/exporting panels in ES6
+** [kidash] Add option to clean all items not included in data sources provided
+
+* Panels
+** Add initial version of contribution guidelines
+** [owlwatch] Fix path of test data files
+** [owlwatch] Add init to test dir to fix test runner
+** [owlwatch] Add CSV support
+** [owlwatch] Add documentation for CSV comparisons
+
+* Reports
+** [jira] Add jira data source to reports
+** [stackexchange] Add new data source stackexchange to reports
+
+* GrimoireLab Toolkit
+** [datetime] Fix to handle dates with invalid time offset
+
+* Arthur
+
+
+## elasticgirl.22
+
+Released: 2017-11-14
+
+* SortingHat
+
+* Perceval
+** [git] Change 'mirror' to 'bare' repositories
+** [git] Limit the number of 'have' commits sent by fetch-pack
+** [git] Fix error fetching latest items from empty repositories
+
+* Mordred
+** [docker] Use the new URL for downloading releases specification
+
+* GrimoireELK
+** [utils] Add index_mapping.py script
+** [enrich] Fix log message about the size in MB of the bulk packet sent to ES
+
+* Panels
+** Fix header row in CSV files
+** [setup] Add panels/__init__.py
+** Several improvements in testing
+
+* Reports
+
+* GrimoireLab Toolkit
+
+* Arthur
+** [setup] Set cheerypy version to cherrypy>=8.1 <=11.0.0
+** [setup] Improve generation of package and running tests
+
+## elasticgirl.21
+
+Released: 2017-11-13
+
+* SortingHat
+
+* Perceval
+** [meetup] Fix too many requests error
+** [jenkins] Fix connection timed out exception
+** [git] Fix fetch-pack for HTTPs connections
+** [git] Work with bared repositories only
+** [crates.io] Add crates backend
+
+* Mordred
+** [task_identities] Fix downloading of identities file from GitHub
+** [task_enrich] Wait 5 seconds before executing the studies (demography fix)
+** [panels] Fix all panels issues
+** [exceptions] Print RuntimeError in an appropriate way
+** [menu] Add Functest panel to menu.yaml
+
+* GrimoireELK
+** [enrich] Use _version.py to get GELK version
+** Add badges for pypi packages
+** [enrich][jira] Support that reporter does not exists in jira raw data
+** [kidash] Add support for using panels in the panels module
+** [jira] Add story points to enriched index, when they are available
+** [setup] Improve setup.py
+
+* Panels
+** [pkg] Add files for first Python package
+
+* Reports
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+
+## elasticgirl.20
+
+Released: 2017-11-02
+
+* SortingHat
+
+* Perceval
+
+* Mordred
+** [task_identities] Don't use the orgs file when converting from yaml identities to JSON identities
+** [mordred] Clean the threads shared queues once the execution is finished
+
+* GrimoireELK
+** [enrich] Refactor (simplify and improve) the logic to get the SH fields from an identity
+
+* Panels
+
+* Reports
+**  [report] Use command line param title if provided instead of mordred short name
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+
+## elasticgirl.19.1
+
+Released: 2017-10-26
+
+* SortingHat
+
+* Perceval
+
+* Mordred
+
+* GrimoireELK
+
+* Panels
+
+* Reports
+** Updated version
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+
+## elasticgirl.19
+
+Released: 2017-10-26
+
+* SortingHat
+** [matching] Substitute sort for sort_values (pandas in unify)
+** [cmd:unify] Change unicode to str
+
+* Perceval
+** [tests] General reorganization
+** [askbot] Handle TooManyRedirects error when question title is empty
+** [github] Enable fetch reactions without token
+
+* Mordred
+** [task_identities] Include for identities refresh also uuid in which other uuids are merged.
+** [task_manager] Add sync logic between threads so the load of identities and the merge of identities tasks are not done during enrichment tasks execution.
+** [task_identities] Add support for loading identities in GrimoireLab yaml format from files stored in GitLab and locally.
+** [task_identities] Add support for not executing unify and affiliate.
+** [task_manager] Execute the tasks and then wait for the interval.
+
+* GrimoireELK
+** [enrich] Get Kibiter version during enrichment process.
+
+* Panels
+** Migrate Reps Events panel to Kibana 5
+** Migrate reps activities panel to Kibana 5
+** Use shaded circle markers in maps
+** Migrate Reps Events panel to Kibana 5
+** Migrate Functest panels to Kibana 5
+** Migrate Apache panel to Kibana 5
+** Migrate Functest panels to Kibana 5
+** Migrate MozillaClub panel to Kibana5
+** Migrate Google Hits panel to Kibana 5
+** Migrate Jira Effort Panel to Kibana 5
+
+* Reports
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+
+## elasticgirl.18.1
+
+Released: 2017-10-20
+
+* SortingHat
+
+* Perceval
+** Updated version
+
+* Mordred
+** First pip package: updated version
+
+* GrimoireELK
+** Updated version
+
+* Panels
+
+* Reports
+** First pip package: updated version
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+
+## elasticgirl.18
+
+Released: 2017-10-20
+
+* SortingHat
+
+* Perceval
+** [github] Fix abuse rate limit error (#173)
+** [phabricator] Fix restricted access to projects data
+** [mbox] Fix UnicodeDecodeError when parsing email addresses (#176)
+** [launchpad] Add instructions to README.md and bin/perceval
+** [launchpad] Add Launchpad backend
+
+* Mordred
+** Add identification for threads
+** [task_panels] Fix mapping problem with ElasticSearch/Kibana 5.6
+** [task_identities] Set TaskInitSortingHat as a global task not related to a data source
+** [task_panel][aliases] Add functest aliases
+** [tasks] Readd support to execute one time all tasks and exit.
+** [task_panels] Add missing aliases: apache, google-hits, remo-events
+** Adapt to produce a pipy package (remove VIzGrimoireUtils dependency)
+
+* GrimoireELK
+** [enrich][functest] Fixes all issues and delivered to the customer
+** [enrich] Several fixes in different backends to sync with panels
+
+* Panels
+** [owlwatch] Added tool for testing enriched indexes and panels definitions.
+  Used now in grimoirelab release cycle.
+** Migrate Redmine panels to Kibana5
+** Migrate GitHub Backlog to Kibana 5
+** Migrate mediawiki panel to Kibana5
+
+* Reports
+** Add support for building pip packages.
+** Add LaTeX templates to the package.
+
+* VIzGrimoireUtils
+** Not used any more
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+
+## elasticgirl.17
+
+Released: 2017-10-06
+
+* SortingHat
+** Install misc scripts like grimoire2sh
+** [cmd:load] Add option to clear ids relationships and enrollments
+** [cmd:load] Update profile information when loading identities
+** [parsing:grimoirelab] Fix style errors in the parser
+
+* Perceval
+** [github] Reduce requests to collect reactions on issues and comments and fix formatting issues
+** [git] Redefine default storing repositories path
+
+* Mordred
+
+* GrimoireELK
+** [docker][kibana] Add docker compose file for Kibana 5.6.0 with X-Pack disabled
+** [docker] Don't use a specific elastic config file by default. Use the one
+    included in the docker image (Elasticsearch). Fix permissions sample file.
+** [enrich] Add support for enriching all items from a github raw index with different repositories.
+** [requests] Increase the connection retry time from 10 min to 2.5d in HTTP connections
+** [enrich][discourse] Fix discourse case in which there is no categories tree
+** [enrich][slack] Support that message['attachments'] could be None
+
+* Panels T3411
+** Add CSV files as the data model schema
+** Migrate Discourse to Kibana 5
+
+* Reports
+
+* VIzGrimoireUtils
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+
+## elasticgirl.16
+
+Released: 2017-09-25
+
+* SortingHat
+
+* Perceval
+** [github] Fix GitHub Enterprise support
+** [git] Run Git commands setting HOME environment variable
+** [github] Include reaction information for issues
+** [github] Fetch multiple assignees from issues
+** [github] Fetch GitHub issue comments
+** [discourse] Do not process topics without posts in them
+
+* Mordred
+** Add support for DockerHub (#29)
+
+* GrimoireELK
+** [enrich][github] Support that the user data dict is empty
+** [utils] Support https insecure when getting the kibiter version
+** [enrich][confluence] Use the space field for project grouping in wiki pages
+** [enrich][discourse] Support that a discourse site does not use subcategories
+** [enrich][phabricator] Check that item['fields']['ownerData'] is not None before using it
+** [enrich][functest] Check that func_test['details'] is not None before using it
+** [ocean] Add support in perceval fetch call to the param latest_items
+** [enrich][studies] Fix how the date is computed for the last execution of a study. Implemented for the demography study
+** [enrich][mediawiki] Add to url field "view" between wiki origin and the page title
+
+* Panels
+** Add Kafka Improvement Proposals panel
+
+* Reports
+** [offset] Include the offset in the start and end dates.
+** [projects] Add a new flag --projects to generate the projects data or not.
+** [offset] Fix quarter report name when using the offset param.
+** [LaTeX] Add report date frame to the summary
+
+* VIzGrimoireUtils
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+## elasticgirl.15
+
+Released: 2017-08-08
+
+* SortingHat
+
+* Perceval
+** [slack] Fix precision problems in 'oldest' parameter
+** Add badge for pypi version
+
+* Mordred
+** [task_collection] Print the full stack trace when there is an exception collecting the data
+** [task_projects] Add discourse to the data sources that are always downloaded globally
+** [menu] Add Maniphest panels to menu
+** [menu] Fix name of Bugzilla panels
+** Change schedule to upload panels + menu in the initial phase
+** Fix wrong URL when trying to set up defaul time frame and index pattern
+** Update menu according to latest 5.1.1 GrimoireLab panels
+
+* GrimoireELK
+** Fix string to integer concatenation error.
+** [enrich][discourse] Support that some categories ids don't appear in categories names list
+** [enrich][discourse] The category_id must be a string in the projects mapping
+** [mbox][kip] Return None if the subject is None when trying to extract the KIP from the subject
+** [enrich][confluence] Add confluence space field to the enriched index
+** [enrich][askbot] Support that the author_askbot_user_name does not exist.
+
+* Panels
+** Migrate affiliations panel to Kibana 5
+** Add Overview, Data Status and Last Month Contributors panels
+** Add GitHub Backlog panel
+** Add About panel with some help about the general use of Kibana
+** Update About section
+** Remove "highlightAll":true string to downgrade panels to 5.1.1
+** Add maniphest panels for 5.1.1
+** Add Mediawiki panel for 5.1.1
+
+* Reports
+
+* VIzGrimoireUtils
+
+* GrimoireLab Toolkit
+
+* Arthur
+
+## elasticgirl.14
+
+Released: 2017-08-04
+
+* SortingHat
+
+* Perceval
+
+* Mordred
+** Use branch master and the json directory for panels loading. Fix panels names.
+** [identities] Create the SortingHat database in mordred initial step
+
+* GrimoireELK
+** Support projects in all data sources
+** Fix mappings for stackexchange and twitter for ES5 aggregatable strings fields
+** Fix tests adding dockerhub and functest data sources
+** [enrich][phabricator] Use directly the list of tags instead of a comma separated string with the tags.
+
+* Panels
+** Migrate discourse, twitter, confluence, RSS, stackooverflow, git,  Jenkins, gerrit, bugzilla, mailing list, jira, aaskbot, dockerhub, irc, slack, meetup, github panels to Kibana 5
+
+* Reports
+
+* VIzGrimoireUtils
+
+* GrimoireLab Toolkit
+** Avoid problems for building the package when no pandoc is installed.
+
+* Arthur
+
+## elasticgirl.13
+
+Released: 2017-07-20
+
+* SortingHat: Updated to the last version. **Don't use it without upgrading the SH database following the procedure below**
+
+mysqldump --no-create-info db > db.sql
+mysqladmin drop db
+sortinghat init db
+mysql db < db.sql
+
+** Release 0.4.0
+** [cmd:unify] Print which unique identities were merged
+** [api] Add source filter to search_unique_identities()
+
+* Perceval
+** Release 0.9.0
+
+* Mordred
+** Improve in mordred and enrichment logs about autorefresh
+** [docker] Use in default mordred docker image the stage that starts arthur env
+
+* GrimoireELK
+** [enrich][askbot] Fix identities extraction for "bot" like answered_by.
+** [ocean][functest] Avoid mapping the field details which changes now between a dict, a list and a string.
+**  [enrich][mbox] Update the eclipse archives location so the project of a mailing lists can be found in projects.json
+** [enrich][git] Use grimoire_creation_date as the date field for git.
+** [enrich][meetup] Catch eitem['time_date'] exception when the timedate in the item is wrong.
+** Add files needed for building clean pip packages.
+** Move kidash to a new directory.
+** [enrich][meetup] Catch eitem['time_date'] exception when the timedate in the item is wrong.
+** [dashboards] Add KIP draft panel (Kafka Improvement Process)
+** [gelk] Get Kibiter version and share it as a global variable of grimoire_elk.utils.
+** [enrich][supybot] Add grimoire_creation_date and is_supybot_message standard fields
+** [gelk] Remove urljoin to combine the base URL with the kibana config path because it removes the /data path.
+** [enrich][askbot] Add author_url field to questions, answers and comments.
+** [enrich][askbot][meetup] Copy list of items directly to enriched index. Kibana supports aggregating them directly.
+** [enrich][slack] Use fielddata=True for text_analyzed in Kibiter 5. Fix also the enrichment of user_data when it does not include some fields
+**  [enrich][dockerhub] Implement the enrichment process according to panels team specification.
+**  [enrich][dockerhub] Enrich events and also create a image enriched item with the data from the last event.
+** Avoid adding '//' to URL to be used with Elasticsearch API REST because the API REST petition will fail if '//' are in the URL path.
+
+* Panels
+
+* Reports
+
+* VIzGrimoireUtils
+
+* GrimoireLab Toolkit
+
+* Arthur: First time arthur is included
+
+## elasticgirl.12
+
+Released: 2017-07-13
+
+* SortingHat: not upgraded because it needs a migration script
+
+* Perceval
+** [slack] Fix error processing comment messages
+** [OPNFV] [functest] Fix 'pagination' key not found error
+
+* Mordred
+** Upload Sortinghat identities to a GitHub repository
+**  [task_track] Get upstream files contribs from all git repositories for OPNFV following the pattern: https://git.opnfv.org/<project>/plain/UPSTREAM
+** [mordred] Remove the general load of identities used during the initial step.
+
+* GrimoireELK
+** [track_items] Check that upstream contributors file exists.
+
+* Panels
+** Added Confluence panel
+
+* Reports
+
+* VIzGrimoireUtils
+
+* GrimoireLab Toolkit
+
+## elasticgirl.11
+
+Released: 2017-07-06
+
+* SortingHat: not upgraded because it needs a migration script
+
+* Perceval
+** New git backend which syncs a repository using low-level commands
+
+* Mordred
+** [docker] Add certificate for some mailing lists
+** [autorefresh] Autorefresh will be done after enrichment if there are new data in Sorting Hat identities database.
+** [task_panels] Move aliases logic to a new task TaskPanelsAliases so it can be called isolated from the loading of panels.
+** [mordred] Use the new task TaskPanelsAliases to create the aliases during enrichment so the aliases are created once the enriched indexes are available.
+** [task_identites] Extract Sortinghat unique identities modified in unify and affiliate commands.
+** [identities] Add support for getting the uuids that have changed during Sortinghat unify and affiliate and refreshing them during next enrichment execution for all data sources.
+
+* GrimoireELK
+** [enrich][functest] Add support for enriching FuncTest data source coming from OPNFV
+** Change TZ so that it comes from author_date
+** [enrich][sortinghat] Suppport the autorefresh of identities using a list of ids or uuids in an enriched index
+** [enrich] Use always metadata__timestamp for detecting thew new items that must be enriched in incremental mode. Also do it for demography study.
+** [panels] Add new method exists_dashboard to check if a dashboard already exists.
+** [enrich][meetup] Use time_date as the grimoire_creation_date
+** Merge branch 'master' into kafka-kip
+** [enrich][mbox] Extract only the needed lines from the boyd of the message  to avoid having huge body messages in the enriched index.
+** [enrich][slack] Support that from_['real_name'] does no always exists
+** [enrich][confluence] Add grimoire_creation_date
+** [ocean] Avoid getting the mapping for some raw fields with problems in askbot, bugzilla, bugzillarest, jira and redmine
+
+* Panels
+
+* Reports
+** [report] Improve log messages
+
+* VIzGrimoireUtils
+
+* GrimoireLab Toolkit
+
+
+## elasticgirl.10
+
+Released: 2017-06-09
+
+* SortingHat: not upgraded because it needs a migration script
+
+* Perceval
+** [perceval] Add Docker Hub backend
+
+* Mordred
+** [doc] Update the mordred docker sample doc with last features and config params added to mordred.
+** [task_identities] Don't try to load empty identities files
+** [task_panels] Add support for defining the time frame and default index in an empty Kibiter.
+
+* GrimoireELK
+** [enrich][git][demography] Fill author_min_date also if its value is None no matter it exists
+** [enrich][github] Use grimoire_creation_date for getting the affiliation of authors
+
+* Panels
+** Fixed issue with bold texts
+
+* Reports
+
+* VIzGrimoireUtils
+
+* GrimoireLab Toolkit
+
+
+
+## elasticgirl.9
+
+Released: 2017-05-24
+
+* SortingHat: not upgraded because it needs a migration script
+
+* Perceval
+** Release 0.8.0
+** Remove deprecated functions from utils module. This functions are now part of GrimoireLab toolkit package.
+** [backends] Use GrimoireLab toolkit. Datetime handling and introspection has been delegate to GrimoireLab toolkit.
+
+* Mordred
+** [task_identities] Support filter raw in TaskIdentitiesCollection when we have one repository.
+
+* GrimoireELK
+** [enrich][discourse] Add categories support to the enriched posts
+** [errors][network] Retry in networking errors for connections and reads using the  requests.packages.urllib3.util.retry.Retry
+** [enrich][slack] Don't try to find the email in the user profile when it is not available.
+** [enrich][stackexchange] Use arrays for tags in enriched index
+** [docker] Add compose and elasticsearch config for kibiter 5.4.0 and ElasticSearch 5.4.0
+
+* Panels
+
+* Reports
+
+* VIzGrimoireUtils
+
+* GrimoireLab Toolkit
+
+## elasticgirl.8
+
+Released: 2017-05-17
+
+Note: In this release we can not include perceval 0.8 because perceval-mozilla and perceval-puppet are not updated.
+
+* SortingHat: not upgraded because it needs a migration script
+
+* Perceval
+**  [bugzilla] Set User-Agent header on Bugzilla clients
+**  [askbot] Support old URLs schema
+
+* Mordred
+** [task] Fix error configuring unaffiliated_group during enrichment in identities refresh
+** [task_identities] Add support for downloading identities file from remote locations
+** [task_identities] Don't load orgs if load_orgs is false
+** [task_collection][task_enrich] Add support for config the bulk_size and scroll_size params
+
+* GrimoireELK
+** Add the size of the JSON document to be indexed to the logs
+** [ocean] Avoid showing the commits when analyzing git repositories in debug mode. It is too verbose in large repositories.
+** [p2o][gelk] Add support for changing the number of items in ES bulk operations and ES scrolling searches.
+
+* Panels
+** Add Lag info and performance KPIs
+** Add Lag Solving Issues help
+** Add section for the last 7 days of activity
+** Add timeframe 7 days selection
+** Update summary links in frequently asked metrics
+** Add documentation about newcomers in the community as use case
+** Add Frequent Asked Metrics section
+
+* Reports
+
+* VIzGrimoireUtils
+
+* GrimoireLab Toolkit
+** [uris] Add module for handling URIs
+** [datetime] Add module for managing datatime objects
+** [introspect] Add module for handling instrospection
+** Release 0.1.0
+
+## elasticgirl.7
+
+Released: 2017-05-04
+
+* SortingHat: not upgraded because it needs a migration script
+
+* Perceval
+
+* Mordred
+** [task_identities] Execute affiliate, autoprofile and unify in subprocesses to avoid memory issues.
+** [config] Add additional data sources that are loaded globally: confluece, jenkins, jira
+** [task_collection] Do not use project field in data collection. (github project and project_1 issue)
+
+* GrimoireELK
+** [enrich][sortinghat] Improve logs when error appears during SH activity in arthur.py.
+** [enrich][meetup] Add a new field time_date with the date in which the event is planned
+** [enrich][jira] Add projects support to JIRA.
+
+* Panels
+
+* Reports
+
+* VIzGrimoireUtils
+
+
+## elasticgirl.6
+
+Released: 2017-04-28
+
+* SortingHat: not upgraded because it needs a migration script
+
+* Perceval
+
+* Mordred
+** Add the new TaskProjects task which manages the projects data for a dashboard
+** Implement mordred projects creation and update from Eclipse projects
+** Recover the project enrichment support for bugzilla and gerrit
+** Add  VIzGrimoireUtils dependency for Eclipse projects parsing
+
+* GrimoireELK
+** [enrich] Show enrich exception call trace in logs
+** [enrich][twitter] Don't try to configure perceval backend in non perceval data sources
+** [enrich][logs] Show datasource in loading identities logs
+** [enrich][twitter] Fix identities extraction in twitter
+** [enrich][askbot] Fix SortingHat identities find in answers and comments.
+** [enrich][git][p2p] Activate pair programming if origin url includes https://github.com/cloudfoundry-incubator
+** [enrich][meetup] Define venue_geolocation field as a geolocation type value in the mapping.
+
+* Panels
+** Add missing search widgets
+** Update overview to include mediawiki
+
+* Reports
+** [report] Get the active data sources in the mordred config file
+** [report] Fix community section, GitHub metrics in overview, template string replacing in subdirs and quarter name.
+
+* VIzGrimoireUtils: added to the relase as mordred dependency
+** [eclipse_projects] Break down eclipse_projects.py script in a library to be used for managing eclipse projects info and the script which uses it. The library is compatible with python2 and python3.
+
+## elasticgirl.5.1
+
+Released: 2017-04-21
+
+* SortingHat
+
+* Perceval
+
+* Mordred
+** [config] Add new method get_data_sources to get the active data sources in a mordred config file.
+
+* GrimoireELK
+** Fixes related to the change from iterator to generator of ocean API affecting askbot, discourse, mbox and meetup and track_items in elasticgirl.4
+** Fixes in pair programming logic
+
+* Panels
+
+* Reports
+** Create a unified template and supporting code for generating the reports
+
+## elasticgirl.4
+
+Released: 2017-04-10
+
+* SortingHat
+** [utils] Fix encoding error generting UUIDs in Python 3
+** [mailmap2sh] Add tool to convert mailmap files to a Sorting Hat JSON
+
+* Perceval
+**  [supybot] Include filepath data on ParseError exception
+**  [gerrit] Add option to disable SSH host keys checks
+**  [confluence] Add content URL to each item
+
+* Mordred
+** [config] Add type checking for all config params
+** Several improvements in tests so all of them work now
+** Added track_items task
+** Add report task
+** [mordred] Add a new option -p to execute the a list of phases different from config file.
+
+* GrimoireELK
+** [enrich][mediawiki] Fix extraction of identities from mediawiki reviews
+** [enrich][confluence] Add the new field content_url to the enrich index
+** [enrich][askbot] Add filter-raw support for askbot
+** [ocean] Use a generator to access the items in ocean.
+** [enrich] Get enriched items using the same logic than getting items from ocean
+** [enrich][git] Fix demography study so it works with pair programming
+** [ocean][meetup] Add the group meetup as tag so the raw index can store several groups in the same index
+** [enrich][slack] Add missing field text_analyzed
+
+* Panels
+** Add metrics.md file to the general README
+
+* Reports
+
+
+## elasticgirl.3
+
+Released: 2017-03-30
+
+* Perceval
+** Add agent header so rss from wordpress could be retrieved
+
+* Mordred
+** Clean docker image and add support for reports (prettyplotlib and elasticsearch_dsl)
+** Fixes in config params
+** Check that there are tasks to execute in update mode before executing them to avoid infinite loop in update
+** Add new Task to track items upstream, including config and task implemetation.
+** Add new Task to generate reports including config and task implemetation.
+** Add unaffiliated_group to configure the name of the unaffiliated org name
+
+* GrimoireELK
+** [enrich][demography] Fix author_min_date when executing in incremental mode
+** [track_items] Add library and sample script using it
+** Add Slack support
+
+* Panels
+** Update mailing lists file name
+
+* Reports
+** First version integrated
+
+
+## elasticgirl.2
+
+Released: 2017-03-23
+
+* SortingHat
+**  Release 0.3.0: https://github.com/grimoirelab/sortinghat/releases/tag/0.3.0
+
+* Perceval
+** Release 0.7.0: https://github.com/grimoirelab/perceval/releases/tag/0.7.0
+
+* Mordred
+** Support several entries in menu.yaml for the same data source, fixed menu creation and add one level menus for Overview,  Data Status, About
+** Improved config management: check config, create config and overall params management
+** Added new aliases to remo indexes to fix data freshness issue
+** Improvements in logs to find errors in threads
+** The initial load step could be skipped using the skip_initial_load config param
+
+* GrimoireELK
+** [enrich][git] Add effort pair programming metrics
+** [enrich][phabricator] Add missing fields assigned_to and timeopen_days (T2305 )
+** [ocean][twitter] Order raw items using @timestamp during enrichment (T2367)
+** [enrich][hyperkitty] Support
+** [enrich][jenkins] Add "main" as built_on when built_on field is empty (thanks @lcanas and @jgb)
+** [track_items] Upload first complete version with gerrit contributions support
+
+* Panels
+** doc fixes and typo fixes
+
+## elasticgirl.1
+
+Released: 2017-03-09
+
+* Perceval
+** Automatic checking of code style using flake8 using Travis. Fixed codying style in all perceval.
+** Slack backend improvements
+** Logs improvements in gerrit
+** [backend] Escape invalid chars when UUIDs are generated
+
+* GrimoireELK
+** Logging now includes the correct modules. Several logging fixes.
+** [ocean] Fix mappings for gerrit and mbox to avoid immense term issue.
+** [ocean][jenkins] Add support for jenkins-rename-file param in mordred
+
+* Mordred
+** Add support for jenkins-rename-file param in mordred
+** Add g++ to docker image to compile pandas
+** [tests] Add more tests, including a test for testing the full stack and check the number of items generated
+
+* Panels
+** Add first version of general panel description
+
+## dagger
+
+Released: 2017-02-23
+
+** Support for nntp, puppetforge and hyperkitty (perceval + gelk). slack supported in perceval.
+** Support for --filters-raw-prefix (gelk)
+** Support remo and remo:activities as data sources in mordred (pending merge branch in mordred)
+** Twitter enrichment does not support from_date parameter (gelk)
+
+## catwoman
+
+Released: 2017-02-02
+
+## batgirl
+
+Released: 2016-12-23
+
+## atom_girl
+
+Released: 2016-12-14
