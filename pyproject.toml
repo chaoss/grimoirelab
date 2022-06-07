@@ -38,20 +38,20 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.7"
 
-grimoirelab-toolkit = {git = "https://github.com/chaoss/grimoirelab-toolkit"}
-perceval = {git = "https://github.com/chaoss/grimoirelab-perceval"}
-perceval-mozilla = {git = "https://github.com/chaoss/grimoirelab-perceval-mozilla"}
-perceval-opnfv = {git = "https://github.com/chaoss/grimoirelab-perceval-opnfv"}
-perceval-puppet = {git = "https://github.com/chaoss/grimoirelab-perceval-puppet"}
-perceval-weblate = {git = "https://github.com/chaoss/grimoirelab-perceval-weblate"}
-kingarthur = {git = "https://github.com/chaoss/grimoirelab-kingarthur"}
-sortinghat = {git = "https://github.com/chaoss/grimoirelab-sortinghat"}
-kidash = {git = "https://github.com/chaoss/grimoirelab-kidash"}
-grimoirelab-panels = {git = "https://github.com/chaoss/grimoirelab-sigils"}
-grimoireelk = {git = "https://github.com/chaoss/grimoirelab-elk"}
-sirmordred = {git = "https://github.com/chaoss/grimoirelab-sirmordred"}
-cereslib = {git = "https://github.com/chaoss/grimoirelab-cereslib"}
-graal = {git = "https://github.com/chaoss/grimoirelab-graal"}
+grimoirelab-toolkit = "^0.3.0"
+perceval = "^0.18.0"
+perceval-mozilla = "^0.3.0"
+perceval-opnfv = "^0.2.0"
+perceval-puppet = "^0.2.0"
+perceval-weblate = "^0.2.0"
+kingarthur = "^0.2.0"
+sortinghat = "^0.7.20"
+kidash = "^0.5.0"
+grimoirelab-panels = "^0.1.0"
+grimoire-elk = "^0.101.1"
+sirmordred = "^0.3.0"
+cereslib = "^0.3.0"
+graal = "^0.3.0"
 statsmodels = "^0.13.2"
 
 [tool.poetry.dev-dependencies]
