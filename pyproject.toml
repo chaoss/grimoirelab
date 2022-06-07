@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "grimoirelab"
-version = "0.2.69"
+version = "0.3.0"
 description = "Tool set for software development analytics"
 authors = [
     "GrimoireLab Developers"
