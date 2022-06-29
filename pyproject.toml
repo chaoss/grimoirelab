@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "grimoirelab"
-version = "0.3.0"
+version = "0.4.0"
 description = "Tool set for software development analytics"
 authors = [
     "GrimoireLab Developers"
@@ -38,21 +38,21 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.7"
 
-grimoirelab-toolkit = "^0.3.0"
-perceval = "^0.18.0"
-perceval-mozilla = "^0.3.0"
-perceval-opnfv = "^0.2.0"
-perceval-puppet = "^0.2.0"
-perceval-weblate = "^0.2.0"
-kingarthur = "^0.2.0"
-sortinghat = "^0.7.20"
-kidash = "^0.5.0"
-grimoirelab-panels = "^0.1.0"
-grimoire-elk = "^0.101.1"
-sirmordred = "^0.3.0"
-cereslib = "^0.3.0"
-graal = "^0.3.0"
+grimoirelab-toolkit = ">=0.3"
+perceval-mozilla = ">=0.3"
+perceval-opnfv = ">=0.2"
+perceval-puppet = ">=0.2"
+perceval-weblate = ">=0.2"
+kingarthur = ">=0.2"
+sortinghat = ">=0.7"
+kidash = ">=0.5"
+grimoirelab-panels = ">=0.1"
+grimoire-elk = ">=0.102"
+sirmordred = ">=0.3"
+cereslib = ">=0.3"
+graal = ">=0.3"
 statsmodels = "^0.13.2"
+perceval = ">=0.19"
 
 [tool.poetry.dev-dependencies]
 
