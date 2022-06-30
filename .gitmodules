@@ -1,42 +1,42 @@
 [submodule "src/grimoirelab-elk"]
 	path = src/grimoirelab-elk
-	url = git@github.com:chaoss/grimoirelab-elk.git
+	url = https://github.com/chaoss/grimoirelab-elk.git
 [submodule "src/grimoirelab-sortinghat"]
 	path = src/grimoirelab-sortinghat
-	url = git@github.com:chaoss/grimoirelab-sortinghat.git
+	url = https://github.com/chaoss/grimoirelab-sortinghat.git
 [submodule "src/grimoirelab-sigils"]
 	path = src/grimoirelab-sigils
-	url = git@github.com:chaoss/grimoirelab-sigils.git
+	url = https://github.com/chaoss/grimoirelab-sigils.git
 [submodule "src/grimoirelab-perceval"]
 	path = src/grimoirelab-perceval
-	url = git@github.com:chaoss/grimoirelab-perceval.git
+	url = https://github.com/chaoss/grimoirelab-perceval.git
 [submodule "src/grimoirelab-cereslib"]
 	path = src/grimoirelab-cereslib
-	url = git@github.com:chaoss/grimoirelab-cereslib.git
+	url = https://github.com/chaoss/grimoirelab-cereslib.git
 [submodule "src/grimoirelab-graal"]
 	path = src/grimoirelab-graal
-	url = git@github.com:chaoss/grimoirelab-graal.git
+	url = https://github.com/chaoss/grimoirelab-graal.git
 [submodule "src/grimoirelab-sirmordred"]
 	path = src/grimoirelab-sirmordred
-	url = git@github.com:chaoss/grimoirelab-sirmordred.git
+	url = https://github.com/chaoss/grimoirelab-sirmordred.git
 [submodule "src/grimoirelab-perceval-mozilla"]
 	path = src/grimoirelab-perceval-mozilla
-	url = git@github.com:chaoss/grimoirelab-perceval-mozilla.git
+	url = https://github.com/chaoss/grimoirelab-perceval-mozilla.git
 [submodule "src/grimoirelab-perceval-weblate"]
 	path = src/grimoirelab-perceval-weblate
-	url = git@github.com:chaoss/grimoirelab-perceval-weblate.git
+	url = https://github.com/chaoss/grimoirelab-perceval-weblate.git
 [submodule "src/grimoirelab-perceval-puppet"]
 	path = src/grimoirelab-perceval-puppet
-	url = git@github.com:chaoss/grimoirelab-perceval-puppet.git
+	url = https://github.com/chaoss/grimoirelab-perceval-puppet.git
 [submodule "src/grimoirelab-perceval-opnfv"]
 	path = src/grimoirelab-perceval-opnfv
-	url = git@github.com:chaoss/grimoirelab-perceval-opnfv.git
+	url = https://github.com/chaoss/grimoirelab-perceval-opnfv.git
 [submodule "src/grimoirelab-kingarthur"]
 	path = src/grimoirelab-kingarthur
-	url = git@github.com:chaoss/grimoirelab-kingarthur.git
+	url = https://github.com/chaoss/grimoirelab-kingarthur.git
 [submodule "src/grimoirelab-kidash"]
 	path = src/grimoirelab-kidash
-	url = git@github.com:chaoss/grimoirelab-kidash.git
+	url = https://github.com/chaoss/grimoirelab-kidash.git
 [submodule "src/grimoirelab-toolkit"]
 	path = src/grimoirelab-toolkit
-	url = git@github.com:chaoss/grimoirelab-toolkit.git
+	url = https://github.com/chaoss/grimoirelab-toolkit.git
