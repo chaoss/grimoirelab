@@ -99,6 +99,7 @@ jobs:
           version=${{ steps.version.outputs.version }}
           notes "${{ inputs.module_name }}" $version --news --authors
           version_notes="$(cat releases/$version.md)"
+          version_notes="${version_notes//$'\n'/'%0A'}"
           echo "::set-output name=notes::$version_notes"
         working-directory: ${{ inputs.module_directory }}
 
