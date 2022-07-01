@@ -134,10 +134,9 @@ folder includes instrucctions and configuration files to deploy GrimoireLab usin
 
 * Source code of the GrimoireLab components is available in `src`. Each directory is a
 Git submodule, so its contents will not be available after cloning the repository. To
-fetch all the data, you can run the following commands:
+fetch all the data, and get the latest version, you can run the following command:
 ```console
-$ git submodule init
-$ git submodule update
+$ git submodule update --init --remote
 ```
 
 * How releases of GrimoireLab are built and tested: [Building](BUILDING.md)
