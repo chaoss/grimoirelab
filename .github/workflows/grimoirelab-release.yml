@@ -274,101 +274,103 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-#      - name: Set up Python 3.8
-#        uses: actions/setup-python@v2
-#        with:
-#          python-version: 3.8
-#
-#      - name: Set up Git config
-#        run: |
-#          git config --global user.email "${{ inputs.git_email }}"
-#          git config --global user.name "${{ inputs.git_name }}"
-#
-#      - name: Configure repository credentials
-#        run: |
-#          git remote set-url origin https://${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}@github.com/chaoss/grimoirelab.git
-#
-#      - name: Install poetry
-#        run: |
-#          curl -sSL https://install.python-poetry.org | python3 -
-#          echo "PATH=$HOME/.poetry/bin:$PATH" >> $GITHUB_ENV
-#        shell: bash
-#
-#      - name: Install release-tools
-#        #TODO: Change to the latest version once the new release is created
-#        run: pip install git+https://github.com/Bitergia/release-tools.git#egg=release-tools
-#
-#      - name: Update dependencies files
-#        run: |
-#          poetry add --lock ${{ needs.grimoirelab-toolkit.outputs.package_version }} \
-#                            ${{ needs.grimoirelab-kidash.outputs.package_version }} \
-#                            ${{ needs.grimoirelab-sortinghat.outputs.package_version }} \
-#                            ${{ needs.grimoirelab-cereslib.outputs.package_version }} \
-#                            ${{ needs.grimoirelab-sigils.outputs.package_version }} \
-#                            ${{ needs.grimoirelab-perceval.outputs.package_version }} \
-#                            ${{ needs.grimoirelab-perceval-mozilla.outputs.package_version }} \
-#                            ${{ needs.grimoirelab-perceval-opnfv.outputs.package_version }} \
-#                            ${{ needs.grimoirelab-perceval-puppet.outputs.package_version }} \
-#                            ${{ needs.grimoirelab-perceval-weblate.outputs.package_version }} \
-#                            ${{ needs.grimoirelab-kingarthur.outputs.package_version }} \
-#                            ${{ needs.grimoirelab-graal.outputs.package_version }} \
-#                            ${{ needs.grimoirelab-elk.outputs.package_version }} \
-#                            ${{ needs.grimoirelab-sirmordred.outputs.package_version }}
-#
-#          printf "grimoirelab-toolkit==${{ needs.grimoirelab-toolkit.outputs.version }}
-#          perceval==${{ needs.grimoirelab-perceval.outputs.version }}
-#          perceval-mozilla==${{ needs.grimoirelab-perceval-mozilla.outputs.version }}
-#          perceval-opnfv==${{ needs.grimoirelab-perceval-opnfv.outputs.version }}
-#          perceval-puppet==${{ needs.grimoirelab-perceval-puppet.outputs.version }}
-#          perceval-weblate==${{ needs.grimoirelab-perceval-weblate.outputs.version }}
-#          kingarthur==${{ needs.grimoirelab-kingarthur.outputs.version }}
-#          grimoire-elk==${{ needs.grimoirelab-elk.outputs.version }}
-#          sortinghat==${{ needs.grimoirelab-sortinghat.outputs.version }}
-#          kidash==${{ needs.grimoirelab-kidash.outputs.version }}
-#          grimoirelab-panels==${{ needs.grimoirelab-sigils.outputs.version }}
-#          sirmordred==${{ needs.grimoirelab-sirmordred.outputs.version }}
-#          cereslib==${{ needs.grimoirelab-cereslib.outputs.version }}
-#          graal==${{ needs.grimoirelab-graal.outputs.version }}\n" > requirements.txt
-#
-#          git add pyproject.toml
-#          git add poetry.lock
-#          git add requirements.txt
-#          git commit -s -m "Bump GrimoireLab packages to the latest version"
-#
-#      - id: semverup
-#        name: Update version number
-#        run: |
-#          version=$(semverup --bump-version=patch)
-#          echo $version
-#          git add pyproject.toml grimoirelab/_version.py
-#          echo "::set-output name=version::$version"
-#
-#      - name: Generate release notes from packages
-#        run: |
-#          release_file=releases/${{ steps.semverup.outputs.version }}.md
-#          touch $release_file
-#          echo "# GrimoireLab ${{ steps.semverup.outputs.version }}" >> $release_file
-#          echo "The following list describes the changes by component:" >> $release_file
-#          echo -n "${{ needs.grimoirelab-toolkit.outputs.notes }}" >> $release_file
-#          echo -n "${{ needs.grimoirelab-kidash.outputs.notes }}" >> $release_file
-#          echo -n "${{ needs.grimoirelab-sortinghat.outputs.notes }}" >> $release_file
-#          echo -n "${{ needs.grimoirelab-cereslib.outputs.notes }}" >> $release_file
-#          echo -n "${{ needs.grimoirelab-sigils.outputs.notes }}" >> $release_file
-#          echo -n "${{ needs.grimoirelab-perceval.outputs.notes }}" >> $release_file
-#          echo -n "${{ needs.grimoirelab-perceval-mozilla.outputs.notes }}" >> $release_file
-#          echo -n "${{ needs.grimoirelab-perceval-opnfv.outputs.notes }}" >> $release_file
-#          echo -n "${{ needs.grimoirelab-perceval-puppet.outputs.notes }}" >> $release_file
-#          echo -n "${{ needs.grimoirelab-perceval-weblate.outputs.notes }}" >> $release_file
-#          echo -n "${{ needs.grimoirelab-kingarthur.outputs.notes }}" >> $release_file
-#          echo -n "${{ needs.grimoirelab-graal.outputs.notes }}" >> $release_file
-#          echo -n "${{ needs.grimoirelab-elk.outputs.notes }}" >> $release_file
-#          echo -n "${{ needs.grimoirelab-sirmordred.outputs.notes }}" >> $release_file
-#
-#          cat $release_file
-#
-#          git add $release_file
-#          git commit -s -m "Release ${{ steps.semverup.outputs.version }}"
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
 
-#      - name: Push changes
-#        run: |
-#          git push origin master
+      - name: Set up Git config
+        run: |
+          git config --global user.email "${{ inputs.git_email }}"
+          git config --global user.name "${{ inputs.git_name }}"
+
+      - name: Configure repository credentials
+        run: |
+          git remote set-url origin https://${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}@github.com/chaoss/grimoirelab.git
+
+      - name: Install poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "PATH=$HOME/.poetry/bin:$PATH" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Install release-tools
+        #TODO: Change to the latest version once the new release is created
+        run: pip install git+https://github.com/Bitergia/release-tools.git#egg=release-tools
+
+      - name: Update dependencies files
+        run: |
+          poetry add --lock ${{ needs.grimoirelab-toolkit.outputs.package_version }} \
+                            ${{ needs.grimoirelab-kidash.outputs.package_version }} \
+                            ${{ needs.grimoirelab-sortinghat.outputs.package_version }} \
+                            ${{ needs.grimoirelab-cereslib.outputs.package_version }} \
+                            ${{ needs.grimoirelab-sigils.outputs.package_version }} \
+                            ${{ needs.grimoirelab-perceval.outputs.package_version }} \
+                            ${{ needs.grimoirelab-perceval-mozilla.outputs.package_version }} \
+                            ${{ needs.grimoirelab-perceval-opnfv.outputs.package_version }} \
+                            ${{ needs.grimoirelab-perceval-puppet.outputs.package_version }} \
+                            ${{ needs.grimoirelab-perceval-weblate.outputs.package_version }} \
+                            ${{ needs.grimoirelab-kingarthur.outputs.package_version }} \
+                            ${{ needs.grimoirelab-graal.outputs.package_version }} \
+                            ${{ needs.grimoirelab-elk.outputs.package_version }} \
+                            ${{ needs.grimoirelab-sirmordred.outputs.package_version }}
+
+          printf "grimoirelab-toolkit==${{ needs.grimoirelab-toolkit.outputs.version }}
+          perceval==${{ needs.grimoirelab-perceval.outputs.version }}
+          perceval-mozilla==${{ needs.grimoirelab-perceval-mozilla.outputs.version }}
+          perceval-opnfv==${{ needs.grimoirelab-perceval-opnfv.outputs.version }}
+          perceval-puppet==${{ needs.grimoirelab-perceval-puppet.outputs.version }}
+          perceval-weblate==${{ needs.grimoirelab-perceval-weblate.outputs.version }}
+          kingarthur==${{ needs.grimoirelab-kingarthur.outputs.version }}
+          grimoire-elk==${{ needs.grimoirelab-elk.outputs.version }}
+          sortinghat==${{ needs.grimoirelab-sortinghat.outputs.version }}
+          kidash==${{ needs.grimoirelab-kidash.outputs.version }}
+          grimoirelab-panels==${{ needs.grimoirelab-sigils.outputs.version }}
+          sirmordred==${{ needs.grimoirelab-sirmordred.outputs.version }}
+          cereslib==${{ needs.grimoirelab-cereslib.outputs.version }}
+          graal==${{ needs.grimoirelab-graal.outputs.version }}\n" > requirements.txt
+
+          cat requirements.txt
+
+          git add pyproject.toml
+          git add poetry.lock
+          git add requirements.txt
+          git commit -s -m "Bump GrimoireLab packages to the latest version"
+
+      # TODO: Update version depending on components
+      - id: semverup
+        name: Update version number
+        run: |
+          version=$(semverup --bump-version=patch)
+          echo $version
+          git add pyproject.toml grimoirelab/_version.py
+          echo "::set-output name=version::$version"
+
+      - name: Generate release notes from packages
+        run: |
+          release_file=releases/${{ steps.semverup.outputs.version }}.md
+          touch $release_file
+          echo "# GrimoireLab ${{ steps.semverup.outputs.version }}" >> $release_file
+          echo "The following list describes the changes by component:" >> $release_file
+          echo -n "${{ needs.grimoirelab-toolkit.outputs.notes }}" >> $release_file
+          echo -n "${{ needs.grimoirelab-kidash.outputs.notes }}" >> $release_file
+          echo -n "${{ needs.grimoirelab-sortinghat.outputs.notes }}" >> $release_file
+          echo -n "${{ needs.grimoirelab-cereslib.outputs.notes }}" >> $release_file
+          echo -n "${{ needs.grimoirelab-sigils.outputs.notes }}" >> $release_file
+          echo -n "${{ needs.grimoirelab-perceval.outputs.notes }}" >> $release_file
+          echo -n "${{ needs.grimoirelab-perceval-mozilla.outputs.notes }}" >> $release_file
+          echo -n "${{ needs.grimoirelab-perceval-opnfv.outputs.notes }}" >> $release_file
+          echo -n "${{ needs.grimoirelab-perceval-puppet.outputs.notes }}" >> $release_file
+          echo -n "${{ needs.grimoirelab-perceval-weblate.outputs.notes }}" >> $release_file
+          echo -n "${{ needs.grimoirelab-kingarthur.outputs.notes }}" >> $release_file
+          echo -n "${{ needs.grimoirelab-graal.outputs.notes }}" >> $release_file
+          echo -n "${{ needs.grimoirelab-elk.outputs.notes }}" >> $release_file
+          echo "${{ needs.grimoirelab-sirmordred.outputs.notes }}" >> $release_file
+          echo ""
+
+          cat $release_file
+
+          git add $release_file
+          git commit -s -m "Release ${{ steps.semverup.outputs.version }}"
+
+      # TODO: Add publish command and wait for release
