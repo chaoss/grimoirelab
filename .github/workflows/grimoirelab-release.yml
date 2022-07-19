@@ -31,13 +31,14 @@ jobs:
     name: grimoirelab-toolkit
     needs:
       - variables-job
-    uses: ./.github/workflows/reusable-module-release.yml
+    uses: ./.github/workflows/release-grimoirelab-component.yml
     with:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       module_name: 'grimoirelab-toolkit'
       module_repository: 'chaoss/grimoirelab-toolkit'
       module_directory: 'src/grimoirelab-toolkit'
+      dependencies_update: ''
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -45,13 +46,14 @@ jobs:
     name: Kidash
     needs:
       - variables-job
-    uses: ./.github/workflows/reusable-module-release.yml
+    uses: ./.github/workflows/release-grimoirelab-component.yml
     with:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       module_name: 'kidash'
       module_repository: 'chaoss/grimoirelab-kidash'
       module_directory: 'src/grimoirelab-kidash'
+      dependencies_update: ''
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -59,13 +61,14 @@ jobs:
     name: Sortinghat
     needs:
       - variables-job
-    uses: ./.github/workflows/reusable-module-release.yml
+    uses: ./.github/workflows/release-grimoirelab-component.yml
     with:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       module_name: 'sortinghat'
       module_repository: 'chaoss/grimoirelab-sortinghat'
       module_directory: 'src/grimoirelab-sortinghat'
+      dependencies_update: ''
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -74,13 +77,15 @@ jobs:
     needs:
       - variables-job
       - grimoirelab-toolkit
-    uses: ./.github/workflows/reusable-module-release.yml
+    uses: ./.github/workflows/release-grimoirelab-component.yml
     with:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       module_name: 'cereslib'
       module_repository: 'chaoss/grimoirelab-cereslib'
       module_directory: 'src/grimoirelab-cereslib'
+      dependencies_update: >
+        grimoirelab-toolkit
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -89,13 +94,15 @@ jobs:
     needs:
       - variables-job
       - grimoirelab-toolkit
-    uses: ./.github/workflows/reusable-module-release.yml
+    uses: ./.github/workflows/release-grimoirelab-component.yml
     with:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       module_name: 'grimoirelab-panels'
       module_repository: 'chaoss/grimoirelab-sigils'
       module_directory: 'src/grimoirelab-sigils'
+      dependencies_update: >
+        grimoirelab-toolkit
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -104,13 +111,15 @@ jobs:
     needs:
       - variables-job
       - grimoirelab-toolkit
-    uses: ./.github/workflows/reusable-module-release.yml
+    uses: ./.github/workflows/release-grimoirelab-component.yml
     with:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       module_name: 'perceval'
       module_repository: 'chaoss/grimoirelab-perceval'
       module_directory: 'src/grimoirelab-perceval'
+      dependencies_update: >
+        grimoirelab-toolkit
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -120,13 +129,16 @@ jobs:
       - variables-job
       - grimoirelab-toolkit
       - grimoirelab-perceval
-    uses: ./.github/workflows/reusable-module-release.yml
+    uses: ./.github/workflows/release-grimoirelab-component.yml
     with:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       module_name: 'perceval-mozilla'
       module_repository: 'chaoss/grimoirelab-perceval-mozilla'
       module_directory: 'src/grimoirelab-perceval-mozilla'
+      dependencies_update: >
+        grimoirelab-toolkit
+        perceval
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -136,13 +148,16 @@ jobs:
       - variables-job
       - grimoirelab-toolkit
       - grimoirelab-perceval
-    uses: ./.github/workflows/reusable-module-release.yml
+    uses: ./.github/workflows/release-grimoirelab-component.yml
     with:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       module_name: 'perceval-opnfv'
       module_repository: 'chaoss/grimoirelab-perceval-opnfv'
       module_directory: 'src/grimoirelab-perceval-opnfv'
+      dependencies_update: >
+        grimoirelab-toolkit
+        perceval
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -152,13 +167,16 @@ jobs:
       - variables-job
       - grimoirelab-toolkit
       - grimoirelab-perceval
-    uses: ./.github/workflows/reusable-module-release.yml
+    uses: ./.github/workflows/release-grimoirelab-component.yml
     with:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       module_name: 'perceval-puppet'
       module_repository: 'chaoss/grimoirelab-perceval-puppet'
       module_directory: 'src/grimoirelab-perceval-puppet'
+      dependencies_update: >
+        grimoirelab-toolkit
+        perceval
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -168,13 +186,16 @@ jobs:
       - variables-job
       - grimoirelab-toolkit
       - grimoirelab-perceval
-    uses: ./.github/workflows/reusable-module-release.yml
+    uses: ./.github/workflows/release-grimoirelab-component.yml
     with:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       module_name: 'perceval-weblate'
       module_repository: 'chaoss/grimoirelab-perceval-weblate'
       module_directory: 'src/grimoirelab-perceval-weblate'
+      dependencies_update: >
+        grimoirelab-toolkit
+        perceval
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -184,13 +205,16 @@ jobs:
       - variables-job
       - grimoirelab-toolkit
       - grimoirelab-perceval
-    uses: ./.github/workflows/reusable-module-release.yml
+    uses: ./.github/workflows/release-grimoirelab-component.yml
     with:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       module_name: 'kingarthur'
       module_repository: 'chaoss/grimoirelab-kingarthur'
       module_directory: 'src/grimoirelab-kingarthur'
+      dependencies_update: >
+        grimoirelab-toolkit
+        perceval
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -200,13 +224,16 @@ jobs:
       - variables-job
       - grimoirelab-toolkit
       - grimoirelab-perceval
-    uses: ./.github/workflows/reusable-module-release.yml
+    uses: ./.github/workflows/release-grimoirelab-component.yml
     with:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       module_name: 'graal'
       module_repository: 'chaoss/grimoirelab-graal'
       module_directory: 'src/grimoirelab-graal'
+      dependencies_update: >
+        grimoirelab-toolkit
+        perceval
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -223,13 +250,23 @@ jobs:
       - grimoirelab-perceval-weblate
       - grimoirelab-graal
       - grimoirelab-sortinghat
-    uses: ./.github/workflows/reusable-module-release.yml
+    uses: ./.github/workflows/release-grimoirelab-component.yml
     with:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       module_name: 'grimoire-elk'
       module_repository: 'chaoss/grimoirelab-elk'
       module_directory: 'src/grimoirelab-elk'
+      dependencies_update: >
+        grimoirelab-toolkit
+        cereslib
+        perceval
+        perceval-mozilla
+        perceval-opnfv
+        perceval-puppet
+        perceval-weblate
+        graal
+        sortinghat
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -242,13 +279,19 @@ jobs:
       - grimoirelab-elk
       - grimoirelab-kidash
       - grimoirelab-sigils
-    uses: ./.github/workflows/reusable-module-release.yml
+    uses: ./.github/workflows/release-grimoirelab-component.yml
     with:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       module_name: 'sirmordred'
       module_repository: 'chaoss/grimoirelab-sirmordred'
       module_directory: 'src/grimoirelab-sirmordred'
+      dependencies_update: >
+        grimoirelab-toolkit
+        sortinghat
+        grimoire-elk
+        kidash
+        grimoirelab-panels
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -298,6 +341,41 @@ jobs:
         #TODO: Change to the latest version once the new release is created
         run: pip install git+https://github.com/Bitergia/release-tools.git#egg=release-tools
 
+      - id: semverup
+        name: Update version number
+        run: |
+          # Check what version to update: patch, minor or major
+          BUMP_MAJOR=4
+          BUMP_MINOR=2
+          versionUpdated=$((
+          ${{ needs.grimoirelab-toolkit.outputs.changed_version }} |
+          ${{ needs.grimoirelab-perceval.outputs.changed_version }} |
+          ${{ needs.grimoirelab-perceval-mozilla.outputs.changed_version }} |
+          ${{ needs.grimoirelab-perceval-opnfv.outputs.changed_version }} |
+          ${{ needs.grimoirelab-perceval-puppet.outputs.changed_version }} |
+          ${{ needs.grimoirelab-perceval-weblate.outputs.changed_version }} |
+          ${{ needs.grimoirelab-kingarthur.outputs.changed_version }} |
+          ${{ needs.grimoirelab-elk.outputs.changed_version }} |
+          ${{ needs.grimoirelab-sortinghat.outputs.changed_version }} |
+          ${{ needs.grimoirelab-kidash.outputs.changed_version }} |
+          ${{ needs.grimoirelab-sigils.outputs.changed_version }} |
+          ${{ needs.grimoirelab-sirmordred.outputs.changed_version }} |
+          ${{ needs.grimoirelab-cereslib.outputs.changed_version }} |
+          ${{ needs.grimoirelab-graal.outputs.changed_version }}))
+
+          if [ $((versionUpdated & $BUMP_MAJOR )) -ne 0 ]
+          then
+            version=$(semverup --bump-version=major)
+          elif [ $((versionUpdated & $BUMP_MINOR )) -ne 0 ]
+          then
+            version=$(semverup --bump-version=minor)
+          else
+            version=$(semverup --bump-version=patch)
+          fi
+          echo $version
+          git add pyproject.toml grimoirelab/_version.py
+          echo "::set-output name=version::$version"
+
       - name: Update dependencies files
         run: |
           poetry add --lock ${{ needs.grimoirelab-toolkit.outputs.package_version }} \
@@ -315,7 +393,9 @@ jobs:
                             ${{ needs.grimoirelab-elk.outputs.package_version }} \
                             ${{ needs.grimoirelab-sirmordred.outputs.package_version }}
 
-          printf "grimoirelab-toolkit==${{ needs.grimoirelab-toolkit.outputs.version }}
+          cat << EOF > requirements.txt
+          grimoirelab=${{ steps.semverup.outputs.version }}
+          grimoirelab-toolkit==${{ needs.grimoirelab-toolkit.outputs.version }}
           perceval==${{ needs.grimoirelab-perceval.outputs.version }}
           perceval-mozilla==${{ needs.grimoirelab-perceval-mozilla.outputs.version }}
           perceval-opnfv==${{ needs.grimoirelab-perceval-opnfv.outputs.version }}
@@ -328,49 +408,112 @@ jobs:
           grimoirelab-panels==${{ needs.grimoirelab-sigils.outputs.version }}
           sirmordred==${{ needs.grimoirelab-sirmordred.outputs.version }}
           cereslib==${{ needs.grimoirelab-cereslib.outputs.version }}
-          graal==${{ needs.grimoirelab-graal.outputs.version }}\n" > requirements.txt
+          graal==${{ needs.grimoirelab-graal.outputs.version }}
+          EOF
 
           cat requirements.txt
 
           git add pyproject.toml
           git add poetry.lock
           git add requirements.txt
-          git commit -s -m "Bump GrimoireLab packages to the latest version"
-
-      # TODO: Update version depending on components
-      - id: semverup
-        name: Update version number
-        run: |
-          version=$(semverup --bump-version=patch)
-          echo $version
-          git add pyproject.toml grimoirelab/_version.py
-          echo "::set-output name=version::$version"
 
       - name: Generate release notes from packages
+        env:
+          grimoirelab_toolkit_notes: "${{ needs.grimoirelab-toolkit.outputs.notes}}"
+          grimoirelab_kidash_notes: "${{ needs.grimoirelab-kidash.outputs.notes}}"
+          grimoirelab_sortinghat_notes: "${{ needs.grimoirelab-sortinghat.outputs.notes}}"
+          grimoirelab_cereslib_notes: "${{ needs.grimoirelab-cereslib.outputs.notes}}"
+          grimoirelab_sigils_notes: "${{ needs.grimoirelab-sigils.outputs.notes}}"
+          grimoirelab_perceval_notes: "${{ needs.grimoirelab-perceval.outputs.notes}}"
+          grimoirelab_perceval_mozilla_notes: "${{ needs.grimoirelab-perceval-mozilla.outputs.notes}}"
+          grimoirelab_perceval_opnfv_notes: "${{ needs.grimoirelab-perceval-opnfv.outputs.notes}}"
+          grimoirelab_perceval_puppet_notes: "${{ needs.grimoirelab-perceval-puppet.outputs.notes}}"
+          grimoirelab_perceval_weblate_notes: "${{ needs.grimoirelab-perceval-weblate.outputs.notes}}"
+          grimoirelab_kingarthur_notes: "${{ needs.grimoirelab-kingarthur.outputs.notes}}"
+          grimoirelab_graal_notes: "${{ needs.grimoirelab-graal.outputs.notes}}"
+          grimoirelab_elk_notes: "${{ needs.grimoirelab-elk.outputs.notes}}"
+          grimoirelab_sirmordred_notes: "${{ needs.grimoirelab-sirmordred.outputs.notes}}"
         run: |
-          release_file=releases/${{ steps.semverup.outputs.version }}.md
+          version=${{ steps.semverup.outputs.version }}
+          release_file=releases/$version.md
           touch $release_file
-          echo "# GrimoireLab ${{ steps.semverup.outputs.version }}" >> $release_file
-          echo "The following list describes the changes by component:" >> $release_file
-          echo -n "${{ needs.grimoirelab-toolkit.outputs.notes }}" >> $release_file
-          echo -n "${{ needs.grimoirelab-kidash.outputs.notes }}" >> $release_file
-          echo -n "${{ needs.grimoirelab-sortinghat.outputs.notes }}" >> $release_file
-          echo -n "${{ needs.grimoirelab-cereslib.outputs.notes }}" >> $release_file
-          echo -n "${{ needs.grimoirelab-sigils.outputs.notes }}" >> $release_file
-          echo -n "${{ needs.grimoirelab-perceval.outputs.notes }}" >> $release_file
-          echo -n "${{ needs.grimoirelab-perceval-mozilla.outputs.notes }}" >> $release_file
-          echo -n "${{ needs.grimoirelab-perceval-opnfv.outputs.notes }}" >> $release_file
-          echo -n "${{ needs.grimoirelab-perceval-puppet.outputs.notes }}" >> $release_file
-          echo -n "${{ needs.grimoirelab-perceval-weblate.outputs.notes }}" >> $release_file
-          echo -n "${{ needs.grimoirelab-kingarthur.outputs.notes }}" >> $release_file
-          echo -n "${{ needs.grimoirelab-graal.outputs.notes }}" >> $release_file
-          echo -n "${{ needs.grimoirelab-elk.outputs.notes }}" >> $release_file
-          echo "${{ needs.grimoirelab-sirmordred.outputs.notes }}" >> $release_file
-          echo ""
+          cat << EOF > $release_file
+          # GrimoireLab $version
+          The following list describes the changes by component:
+
+          $grimoirelab_toolkit_notes
+          $grimoirelab_kidash_notes
+          $grimoirelab_sortinghat_notes
+          $grimoirelab_cereslib_notes
+          $grimoirelab_sigils_notes
+          $grimoirelab_perceval_notes
+          $grimoirelab_perceval_mozilla_notes
+          $grimoirelab_perceval_opnfv_notes
+          $grimoirelab_perceval_puppet_notes
+          $grimoirelab_perceval_weblate_notes
+          $grimoirelab_kingarthur_notes
+          $grimoirelab_graal_notes
+          $grimoirelab_elk_notes
+          $grimoirelab_sirmordred_notes
+          EOF
 
           cat $release_file
 
-          git add $release_file
-          git commit -s -m "Release ${{ steps.semverup.outputs.version }}"
+      - id: current_time
+        name: Store current time to get the release workflow
+        if: steps.semverup.outcome == 'success'
+        run: |
+          datetime=$(date +"%Y-%m-%dT%H:%M:%S%z")
+          echo "::set-output name=datetime::$datetime"
+          echo $datetime
 
-      # TODO: Add publish command and wait for release
+      - id: publish
+        name: Publish new version.
+        if: steps.semverup.outcome == 'success'
+        run: |
+          publish ${{ steps.semverup.outputs.version }} "${{ inputs.git_name }} <${{ inputs.git_email }}>" --push origin
+
+      - id: wait-for-release
+        name: Wait for release to finish.
+        if: steps.publish.outcome == 'success'
+        run: |
+          url="https://api.github.com/repos/chaoss/grimoirelab/actions/workflows/release.yml/runs?created=>${{ steps.current_time.outputs.datetime }}"
+          while true
+          do
+            workflows=$(curl -sS -H "Authorization: token ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}" $url)
+            if [ $(echo $workflows | jq '.total_count') -eq 0 ]
+            then
+              echo "Release workflow did not start"
+              sleep 60
+              continue
+            fi
+
+            release_conclusion=$(echo $workflows | jq '.workflow_runs[0].conclusion')
+            release_status=$(echo $workflows | jq '.workflow_runs[0].status')
+            if [ $release_status = \"completed\" -a $release_conclusion = \"success\" ]
+            then
+              echo "Release completed!";
+              break;
+            elif [ $release_status = \"completed\" -a $release_conclusion != \"success\" ]
+            then
+              echo "Release failed!";
+              exit 1;
+            else
+              echo $release_conclusion $release_status
+              echo "Waiting for release..."
+              sleep 60
+            fi
+          done
+
+      - id: rollback
+        name: Rollback last commits and remove tag
+        if: steps.wait-for-release.outcome == 'failure'
+        run: |
+          git reset --hard HEAD~1
+          git push -f origin master
+          git tag -d ${{ steps.version.outputs.version }}
+          git push --delete origin ${{ steps.version.outputs.version }}
+
+          # Force to fail
+          exit 1
+        working-directory: ${{ inputs.module_directory }}
