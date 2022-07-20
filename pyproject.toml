@@ -38,21 +38,21 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.7"
 
-grimoirelab-toolkit = ">=0.3"
-perceval-mozilla = ">=0.3"
-perceval-opnfv = ">=0.2"
-perceval-puppet = ">=0.2"
-perceval-weblate = ">=0.2"
-kingarthur = ">=0.2"
-sortinghat = ">=0.7"
-kidash = ">=0.5"
-grimoirelab-panels = ">=0.1"
-grimoire-elk = ">=0.102"
-sirmordred = ">=0.3"
-cereslib = ">=0.3"
-graal = ">=0.3"
+grimoirelab-toolkit = { version = ">=0.3", allow-prereleases = true}
+perceval-mozilla = { version = ">=0.3", allow-prereleases = true }
+perceval-opnfv = { version = ">=0.2", allow-prereleases = true }
+perceval-puppet = { version = ">=0.2", allow-prereleases = true }
+perceval-weblate = { version = ">=0.2", allow-prereleases = true }
+kingarthur = { version = ">=0.2", allow-prereleases = true }
+sortinghat = { version = ">=0.7", allow-prereleases = true }
+kidash = { version = ">=0.5", allow-prereleases = true }
+grimoirelab-panels = { version = ">=0.1", allow-prereleases = true }
+grimoire-elk = { version = ">=0.102", allow-prereleases = true }
+sirmordred = { version = ">=0.3", allow-prereleases = true }
+cereslib = { version = ">=0.3", allow-prereleases = true }
+graal = { version = ">=0.3", allow-prereleases = true }
 statsmodels = "^0.13.2"
-perceval = ">=0.19"
+perceval = { version = ">=0.19", allow-prereleases = true }
 
 [tool.poetry.dev-dependencies]
 
