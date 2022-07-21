@@ -496,7 +496,12 @@ jobs:
         name: Publish new version.
         if: steps.semverup.outcome == 'success'
         run: |
-          publish ${{ steps.semverup.outputs.version }} "${{ inputs.git_name }} <${{ inputs.git_email }}>" --push origin
+          if [ ${{ inputs.release_candidate }} == 'true' ]
+          then
+            publish ${{ steps.semverup.outputs.version }} "${{ inputs.git_name }} <${{ inputs.git_email }}>" --push origin --no-cleanup
+          else
+            publish ${{ steps.semverup.outputs.version }} "${{ inputs.git_name }} <${{ inputs.git_email }}>" --push origin
+          fi
 
       - id: wait-for-release
         name: Wait for release to finish.

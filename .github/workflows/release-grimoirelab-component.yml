@@ -103,7 +103,7 @@ jobs:
         name: Update package dependencies
         run: |
           dependencies="${{ inputs.dependencies_update }}"
-          if [ $dependencies ]
+          if [ "$dependencies" ]
           then
             poetry update --lock $dependencies
           fi
@@ -221,7 +221,12 @@ jobs:
         name: Publish new version.
         if: steps.semverup.outcome == 'success'
         run: |
-          publish ${{ steps.version.outputs.version }} "${{ inputs.git_name }} <${{ inputs.git_email }}>" --push origin
+          if [ ${{ inputs.release_candidate }} == 'true' ]
+          then
+            publish ${{ steps.version.outputs.version }} "${{ inputs.git_name }} <${{ inputs.git_email }}>" --push origin --no-cleanup
+          else
+            publish ${{ steps.version.outputs.version }} "${{ inputs.git_name }} <${{ inputs.git_email }}>" --push origin
+          fi
         working-directory: ${{ inputs.module_directory }}
 
       - id: wait-for-release
@@ -261,6 +266,7 @@ jobs:
         name: Rollback last commit and remove tag
         if: steps.wait-for-release.outcome == 'failure'
         run: |
+          dep_updated=${{ steps.update-dependencies.outputs.dep_updated }}
           if [ $dep_updated -gt 0 ]
           then
             git reset --hard HEAD~2
