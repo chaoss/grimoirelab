@@ -11,6 +11,10 @@ on:
         description: 'Git config name'
         type: string
         required: true
+      release_candidate:
+        description: 'Create a release candidate version'
+        type: string
+        required: true
       module_name:
         description: 'Name of the module'
         type: string
@@ -98,7 +102,11 @@ jobs:
       - id: update-dependencies
         name: Update package dependencies
         run: |
-          poetry update --lock ${{ inputs.dependencies_update }}
+          dependencies="${{ inputs.dependencies_update }}"
+          if [ $dependencies ]
+          then
+            poetry update --lock $dependencies
+          fi
           dep_updated=$(git diff poetry.lock | wc -l)
           echo "::set-output name=dep_updated::$dep_updated"
           if [ $dep_updated -gt 0 ]
@@ -114,12 +122,18 @@ jobs:
         continue-on-error: true
         shell: bash {0}
         run: |
-          version=$(semverup)
+          if [ ${{ inputs.release_candidate }} == 'true' ]
+          then
+            rcArg='--pre-release'
+          else
+            rcArg=''
+          fi
+          version=$(semverup $rcArg)
           dep_updated=${{ steps.update-dependencies.outputs.dep_updated }}
           if [ -z $version ] && [ $dep_updated -gt 0 ]
           then
             echo "Dependencies updated, force new version"
-            version=$(semverup --bump-version patch)
+            version=$(semverup --bump-version patch $rcArg)
             echo "::set-output name=forced_version::true"
           fi
           echo $version
@@ -130,7 +144,7 @@ jobs:
         name: Get current version
         run: |
           version=$(poetry version -s)
-          package_version="${{ inputs.module_name }}@^$version"
+          package_version="${{ inputs.module_name }}@>=$version"
           echo "::set-output name=package_version::$package_version"
           echo "::set-output name=version::$version"
           echo $package_version
@@ -144,6 +158,9 @@ jobs:
           BUMP_PATCH=1
           current=${{ steps.version.outputs.version }}
           old=${{ steps.old-version.outputs.version }}
+          # Remove rc part
+          current=${current%-*}
+          old=${old%-*}
           currentArr=(${current//./ })
           oldArr=(${old//./ })
           if [ ${currentArr[0]} -gt ${oldArr[0]} ]
