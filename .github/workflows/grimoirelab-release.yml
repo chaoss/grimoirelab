@@ -296,6 +296,13 @@ jobs:
       - grimoirelab-elk
       - grimoirelab-kidash
       - grimoirelab-sigils
+      - grimoirelab-perceval
+      - grimoirelab-perceval-mozilla
+      - grimoirelab-perceval-opnfv
+      - grimoirelab-perceval-puppet
+      - grimoirelab-perceval-weblate
+      - grimoirelab-graal
+      - grimoirelab-cereslib
     uses: ./.github/workflows/release-grimoirelab-component.yml
     with:
       git_email: ${{ needs.variables-job.outputs.git_email }}
@@ -310,6 +317,13 @@ jobs:
         grimoire-elk
         kidash
         grimoirelab-panels
+        perceval
+        perceval-mozilla
+        perceval-opnfv
+        perceval-puppet
+        perceval-weblate
+        graal
+        cereslib
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
