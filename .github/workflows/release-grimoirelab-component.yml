@@ -254,6 +254,20 @@ jobs:
             fi
           done
 
+      - id: check-package-ready
+        name: Wait for package ready in PyPI
+        shell: bash
+        if: steps.wait-for-release.outcome == 'success'
+        run: |
+          package="${{ inputs.module_name }}==${{ steps.version.outputs.version }}"
+
+          while true
+          do
+            pip install $package && break
+            sleep 10
+            echo "Wait..."
+          done
+
       - id: rollback
         name: Rollback last commit and remove tag
         if: steps.wait-for-release.outcome == 'failure'
