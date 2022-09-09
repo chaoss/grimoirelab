@@ -259,14 +259,29 @@ jobs:
         shell: bash
         if: steps.wait-for-release.outcome == 'success'
         run: |
-          package="${{ inputs.module_name }}==${{ steps.version.outputs.version }}"
+          package="${{ inputs.module_name }}"
+          version="${{ steps.version.outputs.version }}"
+          # Format version 1.2.3-rc.1 to 1.2.3rc1
+          versionNum=${version%-*}
+          versionRC=${version#$versionNum}
+          versionRC=${versionRC//[-.]/}
+          currentVersion="${versionNum}${versionRC}"
 
-          while true
+          pip install --upgrade pip
+          for i in $(seq 20)
           do
-            pip install $package && break
+            pipVersion=$(pip index versions --pre $package 2>/dev/null | head -n 1 | cut -f2 -d '(' | cut -f1 -d ')')
+            echo "$currentVersion $pipVersion"
+            if [ "$pipVersion" = "$currentVersion" ]
+            then
+              echo "Same version"
+              exit 0
+            fi
+            echo "Wait for PyPI..."
             sleep 10
-            echo "Wait..."
           done
+          echo "Latest version doesn't match after several retries"
+          exit 1
 
       - id: rollback
         name: Rollback last commit and remove tag
