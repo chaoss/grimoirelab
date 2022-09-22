@@ -27,6 +27,10 @@ on:
         description: 'Location of the module in Grimoirelab'
         type: string
         required: true
+      dependencies:
+        description: 'Package dependencies and their version'
+        type: string
+        required: true
     secrets:
       access_token:
         description: 'Token for updating repositories'
@@ -93,6 +97,21 @@ jobs:
         run: |
           version=$(poetry version -s)
           echo "::set-output name=version::$version"
+        working-directory: ${{ inputs.module_directory }}
+
+      - id: check-dependencies
+        name: Check if package dependencies exist
+        run: |
+          dependencies="${{ inputs.dependencies }}"
+          if [ ! -z "$dependencies" ]
+          then
+            for i in $(seq 10)
+            do
+              poetry add --lock --dry-run $dependencies && exit 0
+              sleep 10
+            done
+            exit 1
+          fi
         working-directory: ${{ inputs.module_directory }}
 
       - id: update-dependencies

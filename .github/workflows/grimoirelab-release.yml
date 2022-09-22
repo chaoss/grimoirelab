@@ -45,6 +45,7 @@ jobs:
       module_name: 'grimoirelab-toolkit'
       module_repository: 'chaoss/grimoirelab-toolkit'
       module_directory: 'src/grimoirelab-toolkit'
+      dependencies: ''
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -60,6 +61,7 @@ jobs:
       module_name: 'kidash'
       module_repository: 'chaoss/grimoirelab-kidash'
       module_directory: 'src/grimoirelab-kidash'
+      dependencies: ''
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -75,6 +77,7 @@ jobs:
       module_name: 'sortinghat'
       module_repository: 'chaoss/grimoirelab-sortinghat'
       module_directory: 'src/grimoirelab-sortinghat'
+      dependencies: ''
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -91,6 +94,7 @@ jobs:
       module_name: 'cereslib'
       module_repository: 'chaoss/grimoirelab-cereslib'
       module_directory: 'src/grimoirelab-cereslib'
+      dependencies: '${{ needs.grimoirelab-toolkit.outputs.package_version }}'
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -106,6 +110,7 @@ jobs:
       module_name: 'grimoirelab-panels'
       module_repository: 'chaoss/grimoirelab-sigils'
       module_directory: 'src/grimoirelab-sigils'
+      dependencies: ''
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -122,6 +127,7 @@ jobs:
       module_name: 'perceval'
       module_repository: 'chaoss/grimoirelab-perceval'
       module_directory: 'src/grimoirelab-perceval'
+      dependencies: "${{ needs.grimoirelab-toolkit.outputs.package_version }}"
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -139,6 +145,8 @@ jobs:
       module_name: 'perceval-mozilla'
       module_repository: 'chaoss/grimoirelab-perceval-mozilla'
       module_directory: 'src/grimoirelab-perceval-mozilla'
+      dependencies: "${{ needs.grimoirelab-toolkit.outputs.package_version }} \
+      ${{ needs.grimoirelab-perceval.outputs.package_version }}"
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -156,6 +164,8 @@ jobs:
       module_name: 'perceval-opnfv'
       module_repository: 'chaoss/grimoirelab-perceval-opnfv'
       module_directory: 'src/grimoirelab-perceval-opnfv'
+      dependencies: "${{ needs.grimoirelab-toolkit.outputs.package_version }} \
+      ${{ needs.grimoirelab-perceval.outputs.package_version }}"
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -173,6 +183,8 @@ jobs:
       module_name: 'perceval-puppet'
       module_repository: 'chaoss/grimoirelab-perceval-puppet'
       module_directory: 'src/grimoirelab-perceval-puppet'
+      dependencies: "${{ needs.grimoirelab-toolkit.outputs.package_version }} \
+      ${{ needs.grimoirelab-perceval.outputs.package_version }}"
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -190,6 +202,8 @@ jobs:
       module_name: 'perceval-weblate'
       module_repository: 'chaoss/grimoirelab-perceval-weblate'
       module_directory: 'src/grimoirelab-perceval-weblate'
+      dependencies: "${{ needs.grimoirelab-toolkit.outputs.package_version }} \
+      ${{ needs.grimoirelab-perceval.outputs.package_version }}"
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -207,6 +221,8 @@ jobs:
       module_name: 'kingarthur'
       module_repository: 'chaoss/grimoirelab-kingarthur'
       module_directory: 'src/grimoirelab-kingarthur'
+      dependencies: "${{ needs.grimoirelab-toolkit.outputs.package_version }} \
+      ${{ needs.grimoirelab-perceval.outputs.package_version }}"
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -224,6 +240,8 @@ jobs:
       module_name: 'graal'
       module_repository: 'chaoss/grimoirelab-graal'
       module_directory: 'src/grimoirelab-graal'
+      dependencies: "${{ needs.grimoirelab-toolkit.outputs.package_version }} \
+      ${{ needs.grimoirelab-perceval.outputs.package_version }}"
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -248,6 +266,15 @@ jobs:
       module_name: 'grimoire-elk'
       module_repository: 'chaoss/grimoirelab-elk'
       module_directory: 'src/grimoirelab-elk'
+      dependencies: "${{ needs.grimoirelab-toolkit.outputs.package_version }} \
+      ${{ needs.grimoirelab-cereslib.outputs.package_version }} \
+      ${{ needs.grimoirelab-perceval.outputs.package_version }} \
+      ${{ needs.grimoirelab-perceval-mozilla.outputs.package_version }} \
+      ${{ needs.grimoirelab-perceval-opnfv.outputs.package_version }} \
+      ${{ needs.grimoirelab-perceval-puppet.outputs.package_version }} \
+      ${{ needs.grimoirelab-perceval-weblate.outputs.package_version }} \
+      ${{ needs.grimoirelab-graal.outputs.package_version }} \
+      ${{ needs.grimoirelab-sortinghat.outputs.package_version }}"
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -275,6 +302,18 @@ jobs:
       module_name: 'sirmordred'
       module_repository: 'chaoss/grimoirelab-sirmordred'
       module_directory: 'src/grimoirelab-sirmordred'
+      dependencies: "${{ needs.grimoirelab-toolkit.outputs.package_version }} \
+      ${{ needs.grimoirelab-sortinghat.outputs.package_version }} \
+      ${{ needs.grimoirelab-elk.outputs.package_version }} \
+      ${{ needs.grimoirelab-kidash.outputs.package_version }} \
+      ${{ needs.grimoirelab-sigils.outputs.package_version }} \
+      ${{ needs.grimoirelab-perceval.outputs.package_version }} \
+      ${{ needs.grimoirelab-perceval-mozilla.outputs.package_version }} \
+      ${{ needs.grimoirelab-perceval-opnfv.outputs.package_version }} \
+      ${{ needs.grimoirelab-perceval-puppet.outputs.package_version }} \
+      ${{ needs.grimoirelab-perceval-weblate.outputs.package_version }} \
+      ${{ needs.grimoirelab-graal.outputs.package_version }} \
+      ${{ needs.grimoirelab-cereslib.outputs.package_version }}"
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
