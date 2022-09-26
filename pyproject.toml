@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "grimoirelab"
-version = "0.4.0"
+version = "0.5.0-rc.1"
 description = "Tool set for software development analytics"
 authors = [
     "GrimoireLab Developers"
@@ -38,21 +38,21 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.7"
 
-grimoirelab-toolkit = { version = ">=0.3", allow-prereleases = true}
-perceval-mozilla = { version = ">=0.3", allow-prereleases = true }
-perceval-opnfv = { version = ">=0.2", allow-prereleases = true }
-perceval-puppet = { version = ">=0.2", allow-prereleases = true }
-perceval-weblate = { version = ">=0.2", allow-prereleases = true }
-kingarthur = { version = ">=0.2", allow-prereleases = true }
-sortinghat = { version = ">=0.7", allow-prereleases = true }
-kidash = { version = ">=0.5", allow-prereleases = true }
-grimoirelab-panels = { version = ">=0.1", allow-prereleases = true }
-grimoire-elk = { version = ">=0.102", allow-prereleases = true }
-sirmordred = { version = ">=0.3", allow-prereleases = true }
-cereslib = { version = ">=0.3", allow-prereleases = true }
-graal = { version = ">=0.3", allow-prereleases = true }
+grimoirelab-toolkit = {version = "^0.3.1rc1", allow-prereleases = true}
+perceval-mozilla = {version = "^0.3.2rc11", allow-prereleases = true}
+perceval-opnfv = {version = "^0.2.2rc12", allow-prereleases = true}
+perceval-puppet = {version = "^0.2.2rc11", allow-prereleases = true}
+perceval-weblate = {version = "^0.2.2rc13", allow-prereleases = true}
+kingarthur = {version = "^0.2.2rc10", allow-prereleases = true}
+sortinghat = {version = "^0.7.21rc6", allow-prereleases = true}
+kidash = {version = "^0.5.1rc7", allow-prereleases = true}
+grimoirelab-panels = {version = "^0.1.1rc1", allow-prereleases = true}
+grimoire-elk = {version = "^0.103.0rc10", allow-prereleases = true}
+sirmordred = {version = "^0.4.0rc1", allow-prereleases = true}
+cereslib = {version = "^0.3.2rc4", allow-prereleases = true}
+graal = {version = "^0.3.2rc9", allow-prereleases = true}
 statsmodels = "^0.13.2"
-perceval = { version = ">=0.19", allow-prereleases = true }
+perceval = {version = "^0.20.0rc15", allow-prereleases = true}
 
 [tool.poetry.dev-dependencies]
 
