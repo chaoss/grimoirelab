@@ -150,7 +150,7 @@ jobs:
             echo "Dependencies updated, force new version"
             version=$(semverup --bump-version patch $rcArg)
             echo "::set-output name=forced_version::true"
-          elif [ -z $version ] && [ ${{ inputs.release_candidate }} != 'true' ] && [[ "$old_version" =~ ".*rc.*" ]]
+          elif [ -z $version ] && [ ${{ inputs.release_candidate }} != 'true' ] && [[ "$old_version" =~ .*rc.* ]]
           then
             echo "Create final version from rc"
             version=$(semverup --bump-version patch)
