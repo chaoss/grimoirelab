@@ -141,12 +141,19 @@ jobs:
           else
             rcArg=''
           fi
-          version=$(semverup $rcArg)
+          old_version=${{ steps.old-version.outputs.version }}
           dep_updated=${{ steps.update-dependencies.outputs.dep_updated }}
+
+          version=$(semverup $rcArg)
           if [ -z $version ] && [ $dep_updated -gt 0 ]
           then
             echo "Dependencies updated, force new version"
             version=$(semverup --bump-version patch $rcArg)
+            echo "::set-output name=forced_version::true"
+          elif [ -z $version ] && [ ${{ inputs.release_candidate }} != 'true' ] && [[ "$old_version" =~ ".*rc.*" ]]
+          then
+            echo "Create final version from rc"
+            version=$(semverup --bump-version patch)
             echo "::set-output name=forced_version::true"
           fi
           echo $version
