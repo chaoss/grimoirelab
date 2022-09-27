@@ -423,7 +423,7 @@ jobs:
               ${{ needs.grimoirelab-sirmordred.outputs.package_version }}
 
           cat << EOF > requirements.txt
-          grimoirelab=${{ steps.semverup.outputs.version }}
+          grimoirelab==${{ steps.semverup.outputs.version }}
           grimoirelab-toolkit==${{ needs.grimoirelab-toolkit.outputs.version }}
           perceval==${{ needs.grimoirelab-perceval.outputs.version }}
           perceval-mozilla==${{ needs.grimoirelab-perceval-mozilla.outputs.version }}
