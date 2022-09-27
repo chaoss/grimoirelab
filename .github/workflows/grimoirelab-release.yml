@@ -407,20 +407,20 @@ jobs:
       - name: Update dependencies files
         run: |
           poetry add --lock --allow-prereleases \
-              ${{ needs.grimoirelab-toolkit.outputs.package_version }} \
-              ${{ needs.grimoirelab-kidash.outputs.package_version }} \
-              ${{ needs.grimoirelab-sortinghat.outputs.package_version }} \
-              ${{ needs.grimoirelab-cereslib.outputs.package_version }} \
-              ${{ needs.grimoirelab-sigils.outputs.package_version }} \
-              ${{ needs.grimoirelab-perceval.outputs.package_version }} \
-              ${{ needs.grimoirelab-perceval-mozilla.outputs.package_version }} \
-              ${{ needs.grimoirelab-perceval-opnfv.outputs.package_version }} \
-              ${{ needs.grimoirelab-perceval-puppet.outputs.package_version }} \
-              ${{ needs.grimoirelab-perceval-weblate.outputs.package_version }} \
-              ${{ needs.grimoirelab-kingarthur.outputs.package_version }} \
-              ${{ needs.grimoirelab-graal.outputs.package_version }} \
-              ${{ needs.grimoirelab-elk.outputs.package_version }} \
-              ${{ needs.grimoirelab-sirmordred.outputs.package_version }}
+              "${{ needs.grimoirelab-toolkit.outputs.package_version }}" \
+              "${{ needs.grimoirelab-kidash.outputs.package_version }}" \
+              "${{ needs.grimoirelab-sortinghat.outputs.package_version }}" \
+              "${{ needs.grimoirelab-cereslib.outputs.package_version }}" \
+              "${{ needs.grimoirelab-sigils.outputs.package_version }}" \
+              "${{ needs.grimoirelab-perceval.outputs.package_version }}" \
+              "${{ needs.grimoirelab-perceval-mozilla.outputs.package_version }}" \
+              "${{ needs.grimoirelab-perceval-opnfv.outputs.package_version }}" \
+              "${{ needs.grimoirelab-perceval-puppet.outputs.package_version }}" \
+              "${{ needs.grimoirelab-perceval-weblate.outputs.package_version }}" \
+              "${{ needs.grimoirelab-kingarthur.outputs.package_version }}" \
+              "${{ needs.grimoirelab-graal.outputs.package_version }}" \
+              "${{ needs.grimoirelab-elk.outputs.package_version }}" \
+              "${{ needs.grimoirelab-sirmordred.outputs.package_version }}"
 
           cat << EOF > requirements.txt
           grimoirelab==${{ steps.semverup.outputs.version }}
