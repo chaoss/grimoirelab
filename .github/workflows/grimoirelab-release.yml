@@ -363,6 +363,35 @@ jobs:
         #TODO: Change to the latest version once the new release is created
         run: pip install git+https://github.com/Bitergia/release-tools.git#egg=release-tools
 
+      - id: check-dependencies
+        name: Check if package dependencies exist
+        run: |
+          dependencies="${{ needs.grimoirelab-toolkit.outputs.package_version }} \
+          ${{ needs.grimoirelab-sortinghat.outputs.package_version }} \
+          ${{ needs.grimoirelab-elk.outputs.package_version }} \
+          ${{ needs.grimoirelab-kidash.outputs.package_version }} \
+          ${{ needs.grimoirelab-sigils.outputs.package_version }} \
+          ${{ needs.grimoirelab-perceval.outputs.package_version }} \
+          ${{ needs.grimoirelab-perceval-mozilla.outputs.package_version }} \
+          ${{ needs.grimoirelab-perceval-opnfv.outputs.package_version }} \
+          ${{ needs.grimoirelab-perceval-puppet.outputs.package_version }} \
+          ${{ needs.grimoirelab-perceval-weblate.outputs.package_version }} \
+          ${{ needs.grimoirelab-graal.outputs.package_version }} \
+          ${{ needs.grimoirelab-cereslib.outputs.package_version }} \
+          ${{ needs.grimoirelab-kingarthur.outputs.package_version }} \
+          ${{ needs.grimoirelab-sirmordred.outputs.package_version }}"
+          if [ ! -z "$dependencies" ]
+          then
+            timeout=5
+            for i in $(seq 5)
+            do
+              poetry add --lock --no-cache --dry-run $dependencies && exit 0
+              sleep $timeout
+              timeout=$(( timeout * 2 ))
+            done
+            exit 1
+          fi
+
       - id: semverup
         name: Update version number
         run: |
