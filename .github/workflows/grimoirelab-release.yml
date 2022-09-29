@@ -338,6 +338,8 @@ jobs:
       - grimoirelab-sirmordred
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: '${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}'
 
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
@@ -348,10 +350,6 @@ jobs:
         run: |
           git config --global user.email "${{ inputs.git_email }}"
           git config --global user.name "${{ inputs.git_name }}"
-
-      - name: Configure repository credentials
-        run: |
-          git remote set-url origin https://${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}@github.com/chaoss/grimoirelab.git
 
       - name: Install poetry
         run: |
