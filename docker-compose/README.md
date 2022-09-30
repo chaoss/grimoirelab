@@ -100,6 +100,30 @@ asked to login.
 
 To change them, you need to enter in `elasticsearch` container and change [SearchGuard plugin](https://search-guard.com/) parameters.
 
+## Opensearch
+
+OpenSearch is an Open Source fork of Elasticsearch that includes additional
+features and plugins. It has its own security plugin for authentication and
+access control.
+
+GrimoireLab works with OpenSearch, but panels are not automatically created,
+but they can be manually imported.
+
+If you want to deploy this infrastructure with minimal security, use the
+`docker-compose-opensearch.yml` file:
+
+```
+docker-compose -f docker-compose-opensearch.yml up -d
+```
+
+To access to the dashboard would be the same as previously, but you would be
+asked to log in:
+* User: `admin`
+* Password: `admin`
+
+For more information related with OpenSearch: https://opensearch.org/docs/latest/
+
+
 # More information
 
 * [The `projects.json` file format](https://github.com/chaoss/grimoirelab-sirmordred#projectsjson-)
