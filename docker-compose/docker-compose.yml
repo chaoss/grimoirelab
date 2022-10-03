@@ -2,7 +2,7 @@ version: '2.2'
 
 services:
     mariadb:
-      image: mariadb:10.0
+      image: mariadb:10.6
       expose:
         - "3306"
       environment:
@@ -46,14 +46,13 @@ services:
 
     mordred:
       restart: on-failure:5
-      image: bitergia/mordred:latest
+      image: grimoirelab/grimoirelab:latest
       volumes:
-        - ../default-grimoirelab-settings/setup.cfg:/home/bitergia/conf/setup.cfg
-        - ../default-grimoirelab-settings/aliases.json:/home/bitergia/conf/aliases.json
-        - ../default-grimoirelab-settings/projects.json:/home/bitergia/conf/projects.json
-        - ../default-grimoirelab-settings/organizations.json:/home/bitergia/conf/organizations.json
-        - ../default-grimoirelab-settings/identities.yml:/home/bitergia/conf/identities.yml
-        - /tmp/:/home/bitergia/logs
+        - ../default-grimoirelab-settings/setup.cfg:/home/grimoire/conf/setup.cfg
+        - ../default-grimoirelab-settings/projects.json:/home/grimoire/conf/projects.json
+        - ../default-grimoirelab-settings/organizations.json:/home/grimoire/organizations.json
+        - ../default-grimoirelab-settings/identities.yml:/home/grimoire/conf/identities.yml
+        - /tmp/:/home/grimoire/logs
       depends_on:
         - mariadb
         - elasticsearch
