@@ -1,45 +1,7 @@
 #!/bin/bash
 
-echo "Installing and checking GrimoireLab"
-sudo grimoirelab/utils/build_grimoirelab --build --install --check --install_system
+CONF_LIST="${MORDRED_CONF_FILES:-$CONF_DIR/setup.cfg}"
 
-# This could be an ENV var probably
-#REDIS="redis"
+rm -f /tmp/.mordred_healthcheck
 
-# arthur on
-#arthurd -g -d redis://$REDIS/8 --es-index $ARTHUR_ELASTICSEARCH_INDEX --log-path /home/bitergia/logs/arthurd --no-cache
-# Give time to arthur to create the raw index
-#echo "Waiting for arthur startup completion ..."
-#sleep 5
-#echo "Starting two workers: collect and update tasks"
-# Two workers
-#(arthurw -g -d redis://$REDIS/8 > /home/bitergia/logs/worker-collect.log 2>&1) &
-#(arthurw -g -d redis://$REDIS/8 update > /home/bitergia/logs/worker-update.log 2>&1) &
-
-mkdir /home/grimoirelab/mordred
-ln -s /home/grimoirelab/panels /home/grimoirelab/mordred/panels
-#ln -s /home/bitergia/reports /home/bitergia/mordred/reports
-
-# Extracting the perceval cache
-echo "Extracting the perceval cache data ..."
-cd /home/grimoirelab/conf && tar xfz cache-test.tgz
-ln -s /home/grimoirelab/conf/perceval-cache /home/grimoirelab/.perceval
-
-# Wait for Elasticsearch
-echo "Waiting for elasticsearch startup completion ..."
-until $(curl --output /dev/null --silent --head --fail http://172.17.0.1:9200); do
-    printf '.'
-    sleep 5
-done
-echo "Elasticsearch OK"
-# Load raw data
-echo "Loading initial raw data ..."
-cd /home/grimoirelab/conf && ./init-raw.sh
-# We need to wait also for Kibiter so the version can be collected
-echo "Waiting for kibiter startup completion ..."
-until $(curl --output /dev/null --silent --head --fail http://172.17.0.1:5601); do
-    printf '.'
-    sleep 5
-done
-echo "Kibiter OK"
-cd /home/grimoirelab/conf && mordred -c setup.cfg
+sirmordred -c ${CONF_LIST}

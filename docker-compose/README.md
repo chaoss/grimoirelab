@@ -102,12 +102,11 @@ To change them, you need to enter in `elasticsearch` container and change [Searc
 
 # More information
 
-* [The `projects.json` file format](https://github.com/chaoss/grimoirelab-sirmordred#projectsjson)
-* [The `setup.cfg` file format](https://github.com/chaoss/grimoirelab-sirmordred#setupcfg)
+* [The `projects.json` file format](https://github.com/chaoss/grimoirelab-sirmordred#projectsjson-)
+* [The `setup.cfg` file format](https://github.com/chaoss/grimoirelab-sirmordred#setupcfg-)
 * Getting API tokens for different services:
   * [GitHub](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line)
   * [GitLab](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html)
-  * [Meetup](https://secure.meetup.com/es-ES/meetup_api/oauth_consumers/)
   * [Slack](https://get.slack.help/hc/en-us/articles/215770388-Create-and-regenerate-API-tokens)
 
 ## Common questions
