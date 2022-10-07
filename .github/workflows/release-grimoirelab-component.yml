@@ -202,28 +202,22 @@ jobs:
 
       - id: notes
         name: Generate release notes.
-        if: steps.semverup.outcome == 'success' && steps.semverup.outputs.forced_version != 'true'
+        if: steps.semverup.outcome == 'success'
         run: |
           version=${{ steps.version.outputs.version }}
-          notes "${{ inputs.module_name }}" $version --news --authors
-          version_notes="$(cat releases/$version.md)"
-          version_notes="${version_notes//$'\n'/'%0A'}"
-          echo "::set-output name=notes::$version_notes"
-        working-directory: ${{ inputs.module_directory }}
-
-      - id: notes-forced-version
-        name: Generate release notes for updated dependencies
-        if: steps.semverup.outcome == 'success' && steps.semverup.outputs.forced_version == 'true'
-        run: |
-          version=${{ steps.version.outputs.version }}
-          module_name=${{ inputs.module_name }}
-          today=$(date -u "+%Y-%m-%d")
-          cat << EOF > releases/$version.md
-          ## $module_name $version - ($today)
-
-          * Update Poetry's package dependencies
+          
+          if [ ${{ steps.semverup.outputs.forced_version }} != 'true' ]
+          then
+            notes "${{ inputs.module_name }}" $version --news --authors   
+          else
+            module_name=${{ inputs.module_name }}
+            today=$(date -u "+%Y-%m-%d")
+            cat << EOF > releases/$version.md
+            ## $module_name $version - ($today)
+            
+            * Update Poetry's package dependencies
           EOF
-
+          fi
           version_notes="$(cat releases/$version.md)"
           version_notes="${version_notes//$'\n'/'%0A'}"
           echo "::set-output name=notes::$version_notes"
