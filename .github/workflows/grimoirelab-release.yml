@@ -515,6 +515,12 @@ jobs:
 
           cat $release_file
 
+      - id: update_submodules
+        name: Update Git submodule repositories
+        run: |
+          git submodule update --init --remote
+          git add src/
+
       - id: current_time
         name: Store current time to get the release workflow
         if: steps.semverup.outcome == 'success'
