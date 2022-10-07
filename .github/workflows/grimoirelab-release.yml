@@ -515,6 +515,99 @@ jobs:
 
           cat $release_file
 
+      - name: Generate NEWS from packages
+        if: inputs.release_candidate == false
+        env:
+          notes_grimoirelab_toolkit: "${{ needs.grimoirelab-toolkit.outputs.notes}}"
+          notes_kidash: "${{ needs.grimoirelab-kidash.outputs.notes}}"
+          notes_sortinghat: "${{ needs.grimoirelab-sortinghat.outputs.notes}}"
+          notes_cereslib: "${{ needs.grimoirelab-cereslib.outputs.notes}}"
+          notes_sigils: "${{ needs.grimoirelab-sigils.outputs.notes}}"
+          notes_perceval: "${{ needs.grimoirelab-perceval.outputs.notes}}"
+          notes_perceval_mozilla: "${{ needs.grimoirelab-perceval-mozilla.outputs.notes}}"
+          notes_perceval_opnfv: "${{ needs.grimoirelab-perceval-opnfv.outputs.notes}}"
+          notes_perceval_puppet: "${{ needs.grimoirelab-perceval-puppet.outputs.notes}}"
+          notes_perceval_weblate: "${{ needs.grimoirelab-perceval-weblate.outputs.notes}}"
+          notes_kingarthur: "${{ needs.grimoirelab-kingarthur.outputs.notes}}"
+          notes_graal: "${{ needs.grimoirelab-graal.outputs.notes}}"
+          notes_grimoire_elk: "${{ needs.grimoirelab-elk.outputs.notes}}"
+          notes_sirmordred: "${{ needs.grimoirelab-sirmordred.outputs.notes}}"
+          version_grimoirelab_toolkit: "${{ needs.grimoirelab-toolkit.outputs.version }}"
+          version_kidash: "${{ needs.grimoirelab-kidash.outputs.version }}"
+          version_sortinghat: "${{ needs.grimoirelab-sortinghat.outputs.version }}"
+          version_cereslib: "${{ needs.grimoirelab-cereslib.outputs.version }}"
+          version_sigils: "${{ needs.grimoirelab-sigils.outputs.version }}"
+          version_perceval: "${{ needs.grimoirelab-perceval.outputs.version }}"
+          version_perceval_mozilla: "${{ needs.grimoirelab-perceval-mozilla.outputs.version }}"
+          version_perceval_opnfv: "${{ needs.grimoirelab-perceval-opnfv.outputs.version }}"
+          version_perceval_puppet: "${{ needs.grimoirelab-perceval-puppet.outputs.version }}"
+          version_perceval_weblate: "${{ needs.grimoirelab-perceval-weblate.outputs.version }}"
+          version_kingarthur: "${{ needs.grimoirelab-kingarthur.outputs.version }}"
+          version_graal: "${{ needs.grimoirelab-graal.outputs.version }}"
+          version_grimoire_elk: "${{ needs.grimoirelab-elk.outputs.version }}"
+          version_sirmordred: "${{ needs.grimoirelab-sirmordred.outputs.version }}"
+        run: |
+          version=${{ steps.semverup.outputs.version }}
+          news_file="NEWS"
+          old_news="NEWS_old"
+          new_notes="tmp_new_notes"
+          today=$(date -u "+%Y-%m-%d")
+          
+          packages=(
+          grimoirelab_toolkit
+          kidash
+          sortinghat
+          cereslib
+          sigils
+          perceval
+          perceval_mozilla
+          perceval_opnfv
+          perceval_puppet
+          perceval_weblate
+          kingarthur
+          graal
+          grimoire_elk
+          sirmordred)
+          
+          mv $news_file $old_news
+          touch $news_file $new_notes
+
+          echo "# Releases" >> $news_file
+          echo "" >> $news_file
+          echo "## GrimoireLab $version - ($today)" >> $news_file
+          echo "" >> $news_file
+          echo "**New components:**" >> $news_file
+          echo "" >> $news_file
+          for package in "${packages[@]}"
+          do
+              package_name=$(echo $package | tr '_' '-')
+              package_version_var="version_$package"
+              package_notes_var="notes_$package"
+              package_version="${!package_version_var}"
+              package_notes="${!package_notes_var}"
+              contents="$(echo "$package_notes" | tail -n +2)"
+              if [ ! -z "$contents" ]
+              then
+                  echo "* $package_name $package_version" >> $news_file
+          
+                  echo "### $package_name" >> $new_notes
+                  echo "$contents" >> $new_notes
+                  echo "" >> $new_notes
+              fi
+          done
+          
+          echo "" >> $news_file
+          echo "The following list describes the changes by component:" >> $news_file
+          echo "" >> $news_file
+          cat $new_notes >> $news_file
+          
+          cat $old_news | tail -n +2 >> $news_file
+          
+          rm $old_news $new_notes
+          git add $news_file 
+          
+          cat $news_file
+
       - id: update_submodules
         name: Update Git submodule repositories
         run: |
