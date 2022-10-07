@@ -1,0 +1,68 @@
+version: '2.2'
+
+services:
+    mariadb:
+      image: mariadb:10.6
+      expose:
+        - "3306"
+      environment:
+        - MYSQL_ROOT_PASSWORD=
+        - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+
+    hatstall:
+      image: grimoirelab/hatstall:latest
+      environment:
+        - DATABASE_DIR=/db/
+        - ADMIN_USER=admin
+        - ADMIN_PASS=admin
+      ports:
+        - 8000:80
+      links:
+        - mariadb
+      volumes:
+        - ../default-grimoirelab-settings/apache-hatstall.conf:/home/grimoirelab/apache-hatstall.conf
+        - ../default-grimoirelab-settings/shdb.cfg:/home/grimoirelab/shdb.cfg
+
+    opensearch-node1:
+      image: opensearchproject/opensearch:1.3.6
+      container_name: opensearch-node1
+      environment:
+        - cluster.name=opensearch-cluster
+        - node.name=opensearch-node1
+        - discovery.type=single-node
+        - bootstrap.memory_lock=true # along with the memlock settings below, disables swapping
+        - "OPENSEARCH_JAVA_OPTS=-Xms2g -Xmx2g" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
+      ulimits:
+        memlock:
+          soft: -1
+          hard: -1
+        nofile:
+          soft: 65536 # maximum number of open files for the OpenSearch user, set to at least 65536 on modern systems
+          hard: 65536
+      ports:
+        - 9200:9200
+        - 9600:9600 # required for Performance Analyzer
+
+    opensearch-dashboards:
+      image: opensearchproject/opensearch-dashboards:1.3.6
+      container_name: opensearch-dashboards
+      ports:
+        - 5601:5601
+      expose:
+        - "5601"
+      environment:
+        OPENSEARCH_HOSTS: '["https://opensearch-node1:9200"]'
+
+    mordred:
+      restart: on-failure:5
+      image: grimoirelab/grimoirelab:latest
+      volumes:
+        - ../default-grimoirelab-settings/setup-opensearch.cfg:/home/grimoire/conf/setup.cfg
+        - ../default-grimoirelab-settings/projects.json:/home/grimoire/conf/projects.json
+        - ../default-grimoirelab-settings/organizations.json:/home/grimoire/organizations.json
+        - ../default-grimoirelab-settings/identities.yml:/home/grimoire/conf/identities.yml
+        - /tmp/:/home/grimoire/logs
+      depends_on:
+        - mariadb
+        - opensearch-node1
+      mem_limit: 4g
