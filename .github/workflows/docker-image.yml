@@ -1,0 +1,74 @@
+name: Publish Docker image
+
+on:
+  release:
+    types: [published]
+
+env:
+  DOCKER_IMAGE_NAME: "grimoirelab/grimoirelab"
+
+jobs:
+  package-ready:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python 3.8
+        uses: actions/setup-python@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3.1.0
+        with:
+          python-version: 3.8
+
+      - name: Wait for GrimoireLab package ready in PyPI
+        run: |
+          package="grimoirelab"
+          version="${{github.ref_name}}"
+          # Format version 1.2.3-rc.1 to 1.2.3rc1
+          versionNum=${version%-*}
+          versionRC=${version#$versionNum}
+          versionRC=${versionRC//[-.]/}
+          currentVersion="${versionNum}${versionRC}"
+
+          pip install --upgrade pip
+          for i in $(seq 20)
+          do
+            pip index versions --pre $package > pip_versions.txt
+            pipVersion=$(cat pip_versions.txt | head -n 1 | cut -f2 -d '(' | cut -f1 -d ')')
+            echo "$currentVersion $pipVersion"
+            if [ "$pipVersion" = "$currentVersion" ]
+            then
+              echo "Same version"
+              exit 0
+            fi
+            echo "Wait for PyPI..."
+            sleep 10
+          done
+          echo "Latest version doesn't match after several retries"
+          exit 1
+
+  build-image:
+    runs-on: ubuntu-latest
+    needs: [package-ready]
+    environment: docker-release
+    steps:
+      - name: Docker metadata
+        id: meta
+        uses: docker/metadata-action@69f6fc9d46f2f8bf0d5491e4aabe0bb8c6a4678a # v4.0.1
+        with:
+          images: |
+            ${{ env.DOCKER_IMAGE_NAME }}
+          tags: |
+            type=semver,pattern={{version}}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@dc7b9719a96d48369863986a06765841d7ea23f6 # v2.0.0
+
+      - name: Login to DockerHub
+        uses: docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b # v2.0.0
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@c84f38281176d4c9cdb1626ffafcd6b3911b5d94 # v3.1.1
+        with:
+          context: "{{defaultContext}}:docker"
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
