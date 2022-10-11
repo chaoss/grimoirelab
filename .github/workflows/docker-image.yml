@@ -48,6 +48,9 @@ jobs:
     needs: [package-ready]
     environment: docker-release
     steps:
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@7cc35d7fdbe70d4278a0c96779081e6fac665f88 # v2.8.0
+
       - name: Docker metadata
         id: meta
         uses: docker/metadata-action@69f6fc9d46f2f8bf0d5491e4aabe0bb8c6a4678a # v4.0.1
@@ -72,3 +75,11 @@ jobs:
           context: "{{defaultContext}}:docker"
           push: true
           tags: ${{ steps.meta.outputs.tags }}
+
+      - name: Sign image with a key
+        run: |
+          cosign sign --key env://COSIGN_PRIVATE_KEY ${TAGS}
+        env:
+          TAGS: ${{ steps.meta.outputs.tags }}
+          COSIGN_PRIVATE_KEY: ${{secrets.COSIGN_PRIVATE_KEY}}
+          COSIGN_PASSWORD: ${{secrets.COSIGN_PASSWORD}}
