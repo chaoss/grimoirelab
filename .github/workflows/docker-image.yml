@@ -4,6 +4,13 @@ on:
   release:
     types: [published]
 
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Docker image version"
+        type: string
+        required: true
+
 env:
   DOCKER_IMAGE_NAME: "grimoirelab/grimoirelab"
 
@@ -19,7 +26,9 @@ jobs:
       - name: Wait for GrimoireLab package ready in PyPI
         run: |
           package="grimoirelab"
-          version="${{github.ref_name}}"
+          ref_name="${{github.ref_name}}"
+          input_version="${{inputs.version}}"
+          version="${input_version:-$ref_name}"
           # Format version 1.2.3-rc.1 to 1.2.3rc1
           versionNum=${version%-*}
           versionRC=${version#$versionNum}
@@ -58,7 +67,7 @@ jobs:
           images: |
             ${{ env.DOCKER_IMAGE_NAME }}
           tags: |
-            type=semver,pattern={{version}}
+            type=semver,pattern={{version}},value=${{ inputs.version }}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@dc7b9719a96d48369863986a06765841d7ea23f6 # v2.0.0
