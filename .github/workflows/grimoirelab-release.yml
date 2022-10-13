@@ -608,6 +608,17 @@ jobs:
           
           cat $news_file
 
+      - name: Update Dockerfile version
+        if: inputs.release_candidate == false
+        run: |
+          version=${{ steps.semverup.outputs.version }}
+          dockerfile="docker/Dockerfile"
+
+          sed -i "s/ENV GRIMOIRELAB_RELEASE .*/ENV GRIMOIRELAB_RELEASE \"$version\"/" $dockerfile
+          git add $dockerfile
+
+          cat $dockerfile
+
       - id: update_submodules
         name: Update Git submodule repositories
         run: |
