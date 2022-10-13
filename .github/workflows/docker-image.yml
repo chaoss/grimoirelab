@@ -4,6 +4,13 @@ on:
   release:
     types: [published]
 
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Docker image version"
+        type: string
+        required: true
+
 env:
   DOCKER_IMAGE_NAME: "grimoirelab/grimoirelab"
 
@@ -19,7 +26,9 @@ jobs:
       - name: Wait for GrimoireLab package ready in PyPI
         run: |
           package="grimoirelab"
-          version="${{github.ref_name}}"
+          ref_name="${{github.ref_name}}"
+          input_version="${{inputs.version}}"
+          version="${input_version:-$ref_name}"
           # Format version 1.2.3-rc.1 to 1.2.3rc1
           versionNum=${version%-*}
           versionRC=${version#$versionNum}
@@ -58,19 +67,19 @@ jobs:
           images: |
             ${{ env.DOCKER_IMAGE_NAME }}
           tags: |
-            type=semver,pattern={{version}}
+            type=semver,pattern={{version}},value=${{ inputs.version }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@dc7b9719a96d48369863986a06765841d7ea23f6 # v2.0.0
+        uses: docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70 # v2.1.0
 
       - name: Login to DockerHub
-        uses: docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b # v2.0.0
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # v2.1.0
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push
-        uses: docker/build-push-action@c84f38281176d4c9cdb1626ffafcd6b3911b5d94 # v3.1.1
+        uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5 # v3.2.0
         with:
           context: "{{defaultContext}}:docker"
           push: true
