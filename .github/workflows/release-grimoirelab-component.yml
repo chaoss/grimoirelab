@@ -53,6 +53,7 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    environment: grimoire-release
     outputs:
       version: ${{ steps.version.outputs.version }}
       package_version: ${{ steps.version.outputs.package_version }}

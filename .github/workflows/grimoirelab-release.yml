@@ -1,4 +1,4 @@
-name: grimoirelab-release
+name: GrimoireLab release
 
 on:
   workflow_dispatch:
@@ -320,6 +320,7 @@ jobs:
   grimoirelab:
     name: Grimoirelab
     runs-on: ubuntu-latest
+    environment: grimoire-release
     needs:
       - variables-job
       - grimoirelab-toolkit
