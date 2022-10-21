@@ -97,7 +97,7 @@ jobs:
         name: Get old version
         run: |
           version=$(poetry version -s)
-          echo "::set-output name=version::$version"
+          echo "version=$version" >> $GITHUB_OUTPUT
         working-directory: ${{ inputs.module_directory }}
 
       - id: check-dependencies
@@ -122,7 +122,7 @@ jobs:
         run: |
           poetry update --lock
           dep_updated=$(git diff poetry.lock | wc -l)
-          echo "::set-output name=dep_updated::$dep_updated"
+          echo "dep_updated=$dep_updated" >> $GITHUB_OUTPUT
           if [ $dep_updated -gt 0 ]
           then
             git diff
@@ -150,12 +150,14 @@ jobs:
           then
             echo "Dependencies updated, force new version"
             version=$(semverup --bump-version patch $rcArg)
-            echo "::set-output name=forced_version::true"
+            echo "forced_version=true" >> $GITHUB_OUTPUT
           elif [ -z $version ] && [ ${{ inputs.release_candidate }} != 'true' ] && [[ "$old_version" =~ .*rc.* ]]
           then
             echo "Create final version from rc"
             version=$(semverup --bump-version patch)
-            echo "::set-output name=forced_version::true"
+            echo "forced_version=true" >> $GITHUB_OUTPUT
+          else
+            echo "forced_version=false" >> $GITHUB_OUTPUT
           fi
           echo $version
           if [ -z $version ]; then exit 1; fi
@@ -166,8 +168,8 @@ jobs:
         run: |
           version=$(poetry version -s)
           package_version="${{ inputs.module_name }}@>=$version"
-          echo "::set-output name=package_version::$package_version"
-          echo "::set-output name=version::$version"
+          echo "package_version=$package_version" >> $GITHUB_OUTPUT
+          echo "version=$version" >> $GITHUB_OUTPUT
           echo $package_version
         working-directory: ${{ inputs.module_directory }}
 
@@ -186,18 +188,18 @@ jobs:
           oldArr=(${old//./ })
           if [ ${currentArr[0]} -gt ${oldArr[0]} ]
           then
-            echo "::set-output name=changed::$BUMP_MAJOR"
+            echo "changed=$BUMP_MAJOR" >> $GITHUB_OUTPUT
             echo "Major"
           elif [ ${currentArr[1]} -gt ${oldArr[1]} ]
           then
-            echo "::set-output name=changed::$BUMP_MINOR"
+            echo "changed=$BUMP_MINOR" >> $GITHUB_OUTPUT
             echo "Minor"
           elif [ ${currentArr[2]} -gt ${oldArr[2]} ]
           then
-            echo "::set-output name=changed::$BUMP_PATCH"
+            echo "changed=$BUMP_PATCH" >> $GITHUB_OUTPUT
             echo "Patch"
           else
-            echo "::set-output name=changed::0"
+            echo "changed=0" >> $GITHUB_OUTPUT
             echo "Not changed"
           fi
 
@@ -206,10 +208,17 @@ jobs:
         if: steps.semverup.outcome == 'success'
         run: |
           version=${{ steps.version.outputs.version }}
+          eof="EOF$(date +%s)"
+          if [ ${{ inputs.release_candidate }} == 'true' ]
+          then
+            newsArg=''
+          else
+            newsArg='--news'
+          fi
           
           if [ ${{ steps.semverup.outputs.forced_version }} != 'true' ]
           then
-            notes "${{ inputs.module_name }}" $version --news --authors   
+            notes "${{ inputs.module_name }}" $version $newsArg --authors   
           else
             module_name=${{ inputs.module_name }}
             today=$(date -u "+%Y-%m-%d")
@@ -219,9 +228,9 @@ jobs:
             * Update Poetry's package dependencies
           EOF
           fi
-          version_notes="$(cat releases/$version.md)"
-          version_notes="${version_notes//$'\n'/'%0A'}"
-          echo "::set-output name=notes::$version_notes"
+          echo 'notes<<$eof' >> $GITHUB_OUTPUT
+          cat releases/$version.md >> $GITHUB_OUTPUT
+          echo '$eof' >> $GITHUB_OUTPUT
         working-directory: ${{ inputs.module_directory }}
 
       - id: current_time
@@ -229,7 +238,7 @@ jobs:
         if: steps.semverup.outcome == 'success'
         run: |
           datetime=$(date +"%Y-%m-%dT%H:%M:%S%z")
-          echo "::set-output name=datetime::$datetime"
+          echo "datetime=$datetime" >> $GITHUB_OUTPUT
           echo $datetime
 
       - id: publish
