@@ -98,7 +98,7 @@ optional = false
 python-versions = ">=3.6.0"
 
 [package.extras]
-unicode_backport = ["unicodedata2"]
+unicode-backport = ["unicodedata2"]
 
 [[package]]
 name = "cheroot"
@@ -117,7 +117,7 @@ six = ">=1.11.0"
 docs = ["furo", "jaraco.packaging (>=3.2)", "python-dateutil", "sphinx (>=1.8.2)", "sphinx-tabs (>=1.1.0)", "sphinxcontrib-apidoc (>=0.3.0)"]
 
 [[package]]
-name = "CherryPy"
+name = "cherrypy"
 version = "18.8.0"
 description = "Object-Oriented HTTP framework"
 category = "main"
@@ -135,8 +135,8 @@ pywin32 = {version = ">=227", markers = "sys_platform == \"win32\" and implement
 [package.extras]
 docs = ["alabaster", "docutils", "jaraco.packaging (>=3.2)", "rst.linker (>=1.11)", "setuptools", "sphinx", "sphinxcontrib-apidoc (>=0.3.0)"]
 json = ["simplejson"]
-memcached_session = ["python-memcached (>=1.58)"]
-routes_dispatcher = ["routes (>=2.3.1)"]
+memcached-session = ["python-memcached (>=1.58)"]
+routes-dispatcher = ["routes (>=2.3.1)"]
 ssl = ["pyOpenSSL"]
 testing = ["codecov", "coverage", "objgraph", "path.py", "pytest (>=5.3.5)", "pytest-cov", "pytest-forked", "pytest-services (>=2)", "pytest-sugar", "requests-toolbelt", "setuptools"]
 xcgi = ["flup"]
@@ -167,11 +167,11 @@ requests = "*"
 
 [[package]]
 name = "colorama"
-version = "0.4.5"
+version = "0.4.6"
 description = "Cross-platform colored terminal text."
 category = "main"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
 
 [[package]]
 name = "colored"
@@ -213,11 +213,11 @@ test = ["hypothesis (>=1.11.4,!=3.79.2)", "iso8601", "pretend", "pytest (>=6.0)"
 
 [[package]]
 name = "dill"
-version = "0.3.5.1"
+version = "0.3.6"
 description = "serialize all of python"
 category = "main"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, !=3.6.*"
+python-versions = ">=3.7"
 
 [package.extras]
 graph = ["objgraph (>=1.7.2)"]
@@ -354,8 +354,8 @@ python-versions = ">=3.6"
 smmap = ">=3.0.1,<6"
 
 [[package]]
-name = "GitPython"
-version = "3.1.27"
+name = "gitpython"
+version = "3.1.29"
 description = "GitPython is a python library used to interact with Git repositories"
 category = "main"
 optional = false
@@ -422,7 +422,7 @@ python-versions = ">=3.7,<4.0"
 
 [[package]]
 name = "grimoirelab-toolkit"
-version = "0.3.1"
+version = "0.3.2rc1"
 description = "Toolkit of common functions used across GrimoireLab"
 category = "main"
 optional = false
@@ -457,7 +457,7 @@ testing = ["flufl.flake8", "importlib-resources (>=1.3)", "packaging", "pep517",
 
 [[package]]
 name = "importlib-resources"
-version = "5.9.0"
+version = "5.10.0"
 description = "Read resources from Python packages"
 category = "main"
 optional = false
@@ -467,23 +467,23 @@ python-versions = ">=3.7"
 zipp = {version = ">=3.1.0", markers = "python_version < \"3.10\""}
 
 [package.extras]
-docs = ["jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx"]
-testing = ["pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)"]
+docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)"]
+testing = ["flake8 (<5)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)"]
 
 [[package]]
 name = "inflect"
-version = "6.0.0"
+version = "6.0.2"
 description = "Correctly generate plurals, singular nouns, ordinals, indefinite articles; convert numbers to words"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 
 [package.dependencies]
-pydantic = "*"
+pydantic = ">=1.9.1"
 
 [package.extras]
-docs = ["jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx"]
-testing = ["pygments", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)"]
+docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)"]
+testing = ["flake8 (<5)", "pygments", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)"]
 
 [[package]]
 name = "isort"
@@ -495,12 +495,12 @@ python-versions = ">=3.6.1,<4.0"
 
 [package.extras]
 colors = ["colorama (>=0.4.3,<0.5.0)"]
-pipfile_deprecated_finder = ["pipreqs", "requirementslib"]
+pipfile-deprecated-finder = ["pipreqs", "requirementslib"]
 plugins = ["setuptools"]
-requirements_deprecated_finder = ["pip-api", "pipreqs"]
+requirements-deprecated-finder = ["pip-api", "pipreqs"]
 
 [[package]]
-name = "jaraco.classes"
+name = "jaraco-classes"
 version = "3.2.3"
 description = "Utility functions for Python class constructs"
 category = "main"
@@ -515,8 +515,8 @@ docs = ["jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)
 testing = ["flake8 (<5)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)"]
 
 [[package]]
-name = "jaraco.collections"
-version = "3.5.2"
+name = "jaraco-collections"
+version = "3.6.0"
 description = "Collection objects similar to those in stdlib by jaraco"
 category = "main"
 optional = false
@@ -527,11 +527,11 @@ python-versions = ">=3.7"
 "jaraco.text" = "*"
 
 [package.extras]
-docs = ["jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx"]
-testing = ["pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)"]
+docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)"]
+testing = ["flake8 (<5)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)"]
 
 [[package]]
-name = "jaraco.context"
+name = "jaraco-context"
 version = "4.1.2"
 description = "Context managers by jaraco"
 category = "main"
@@ -543,7 +543,7 @@ docs = ["jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)
 testing = ["pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)"]
 
 [[package]]
-name = "jaraco.functools"
+name = "jaraco-functools"
 version = "3.5.2"
 description = "Functools like those found in stdlib"
 category = "main"
@@ -558,8 +558,8 @@ docs = ["jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)
 testing = ["flake8 (<5)", "jaraco.classes", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)"]
 
 [[package]]
-name = "jaraco.text"
-version = "3.9.1"
+name = "jaraco-text"
+version = "3.10.0"
 description = "Module for text manipulation"
 category = "main"
 optional = false
@@ -574,11 +574,11 @@ inflect = "*"
 more-itertools = "*"
 
 [package.extras]
-docs = ["jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx"]
+docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)"]
 testing = ["flake8 (<5)", "pathlib2", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)"]
 
 [[package]]
-name = "Jinja2"
+name = "jinja2"
 version = "3.1.2"
 description = "A very fast and expressive template engine."
 category = "main"
@@ -593,7 +593,7 @@ i18n = ["Babel (>=2.7)"]
 
 [[package]]
 name = "kidash"
-version = "0.5.1"
+version = "0.5.2rc1"
 description = "GrimoireLab script to manage Kibana dashboards from the command line"
 category = "main"
 optional = false
@@ -606,7 +606,7 @@ urllib3 = ">=1.26,<2.0"
 
 [[package]]
 name = "kingarthur"
-version = "0.2.3"
+version = "0.2.4rc1"
 description = "Distributed job queue platform for scheduling Perceval jobs"
 category = "main"
 optional = false
@@ -638,7 +638,7 @@ optional = false
 python-versions = "*"
 
 [[package]]
-name = "MarkupSafe"
+name = "markupsafe"
 version = "2.1.1"
 description = "Safely add untrusted strings to HTML/XML markup."
 category = "main"
@@ -655,11 +655,11 @@ python-versions = "*"
 
 [[package]]
 name = "more-itertools"
-version = "8.14.0"
+version = "9.0.0"
 description = "More routines for operating on iterables, beyond itertools"
 category = "main"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.7"
 
 [[package]]
 name = "networkx"
@@ -713,7 +713,7 @@ test = ["hypothesis (>=3.58)", "pytest (>=4.0.2)", "pytest-xdist"]
 
 [[package]]
 name = "patsy"
-version = "0.5.2"
+version = "0.5.3"
 description = "A Python package for describing statistical models and for building design matrices."
 category = "main"
 optional = false
@@ -728,7 +728,7 @@ test = ["pytest", "pytest-cov", "scipy"]
 
 [[package]]
 name = "pbr"
-version = "5.10.0"
+version = "5.11.0"
 description = "Python Build Reasonableness"
 category = "main"
 optional = false
@@ -736,7 +736,7 @@ python-versions = ">=2.6"
 
 [[package]]
 name = "perceval"
-version = "0.20.1"
+version = "0.21.0rc1"
 description = "Send Sir Perceval on a quest to fetch and gather data from software repositories."
 category = "main"
 optional = false
@@ -758,7 +758,7 @@ docs = ["furo (>=2021.8.31,<2022.0.0)", "myst-parser (>=0.15.2,<0.16.0)"]
 
 [[package]]
 name = "perceval-mozilla"
-version = "0.3.3"
+version = "0.3.4rc1"
 description = "Bundle of Perceval backends for Mozilla ecosystem."
 category = "main"
 optional = false
@@ -771,7 +771,7 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "perceval-opnfv"
-version = "0.2.3"
+version = "0.2.4rc1"
 description = "Bundle of Perceval backends for OPNFV ecosystem."
 category = "main"
 optional = false
@@ -784,7 +784,7 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "perceval-puppet"
-version = "0.2.3"
+version = "0.2.4rc1"
 description = "Bundle of Perceval backends for Puppet, Inc. ecosystem."
 category = "main"
 optional = false
@@ -797,7 +797,7 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "perceval-weblate"
-version = "0.2.3"
+version = "0.2.4rc1"
 description = "Bundle of Perceval backends for Weblate."
 category = "main"
 optional = false
@@ -886,16 +886,16 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
-name = "PyJWT"
-version = "2.5.0"
+name = "pyjwt"
+version = "2.6.0"
 description = "JSON Web Token implementation in Python"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 
 [package.extras]
-crypto = ["cryptography (>=3.3.1)", "types-cryptography (>=3.3.21)"]
-dev = ["coverage[toml] (==5.0.4)", "cryptography (>=3.3.1)", "pre-commit", "pytest (>=6.0.0,<7.0.0)", "sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "types-cryptography (>=3.3.21)", "zope.interface"]
+crypto = ["cryptography (>=3.4.0)"]
+dev = ["coverage[toml] (==5.0.4)", "cryptography (>=3.4.0)", "pre-commit", "pytest (>=6.0.0,<7.0.0)", "sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
 docs = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
 tests = ["coverage[toml] (==5.0.4)", "pytest (>=6.0.0,<7.0.0)"]
 
@@ -921,7 +921,7 @@ typing-extensions = {version = ">=3.10.0", markers = "python_version < \"3.10\""
 testutil = ["gitpython (>3)"]
 
 [[package]]
-name = "PyMySQL"
+name = "pymysql"
 version = "1.0.2"
 description = "Pure Python MySQL Driver"
 category = "main"
@@ -956,7 +956,7 @@ six = ">=1.5"
 
 [[package]]
 name = "pytz"
-version = "2022.2.1"
+version = "2022.5"
 description = "World timezone definitions, modern and historical"
 category = "main"
 optional = false
@@ -971,7 +971,7 @@ optional = false
 python-versions = "*"
 
 [[package]]
-name = "PyYAML"
+name = "pyyaml"
 version = "6.0"
 description = "YAML parser and emitter for Python"
 category = "main"
@@ -1005,7 +1005,7 @@ urllib3 = ">=1.21.1,<1.27"
 
 [package.extras]
 socks = ["PySocks (>=1.5.6,!=1.5.7)"]
-use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
+use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "rq"
@@ -1032,14 +1032,14 @@ numpy = ">=1.16.5"
 
 [[package]]
 name = "setuptools"
-version = "65.4.0"
+version = "65.5.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 
 [package.extras]
-docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx", "sphinx-favicon", "sphinx-hoverxref (<2)", "sphinx-inline-tabs", "sphinx-notfound-page (==0.8.3)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
+docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-hoverxref (<2)", "sphinx-inline-tabs", "sphinx-notfound-page (==0.8.3)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
 testing = ["build[virtualenv]", "filelock (>=3.4.0)", "flake8 (<5)", "flake8-2020", "ini2toml[lite] (>=0.9)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "mock", "pip (>=19.1)", "pip-run (>=8.8)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)", "pytest-perf", "pytest-xdist", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
 testing-integration = ["build[virtualenv]", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
 
@@ -1121,7 +1121,7 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
-name = "SQLAlchemy"
+name = "sqlalchemy"
 version = "1.3.24"
 description = "Database Abstraction Library"
 category = "main"
@@ -1130,14 +1130,14 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [package.extras]
 mssql = ["pyodbc"]
-mssql_pymssql = ["pymssql"]
-mssql_pyodbc = ["pyodbc"]
+mssql-pymssql = ["pymssql"]
+mssql-pyodbc = ["pyodbc"]
 mysql = ["mysqlclient"]
 oracle = ["cx_oracle"]
 postgresql = ["psycopg2"]
-postgresql_pg8000 = ["pg8000 (<1.16.6)"]
-postgresql_psycopg2binary = ["psycopg2-binary"]
-postgresql_psycopg2cffi = ["psycopg2cffi"]
+postgresql-pg8000 = ["pg8000 (<1.16.6)"]
+postgresql-psycopg2binary = ["psycopg2-binary"]
+postgresql-psycopg2cffi = ["psycopg2cffi"]
 pymysql = ["pymysql", "pymysql (<1)"]
 
 [[package]]
@@ -1162,7 +1162,7 @@ docs = ["ipykernel", "jupyter_client", "matplotlib", "nbconvert", "nbformat", "n
 
 [[package]]
 name = "stevedore"
-version = "3.5.0"
+version = "3.5.2"
 description = "Manage dynamic plugins for Python applications"
 category = "main"
 optional = false
@@ -1206,7 +1206,7 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "typing-extensions"
-version = "4.3.0"
+version = "4.4.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
 category = "main"
 optional = false
@@ -1234,7 +1234,7 @@ optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 
 [[package]]
-name = "zc.lockfile"
+name = "zc-lockfile"
 version = "2.0"
 description = "Basic inter-process locks"
 category = "main"
@@ -1249,20 +1249,20 @@ test = ["zope.testing"]
 
 [[package]]
 name = "zipp"
-version = "3.8.1"
+version = "3.10.0"
 description = "Backport of pathlib-compatible object wrapper for zip files"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 
 [package.extras]
-docs = ["jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx"]
-testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)"]
+docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)"]
+testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools", "more-itertools", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)"]
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.7"
-content-hash = "7a4ee775e5306086e80819697db9dfddf287f64cae5db5f5ed271845ebfd5120"
+python-versions = "^3.7.1"
+content-hash = "607e2af1f27fd86bf573266f428de0bf54a2fefc398ae5b0c73447665da18a45"
 
 [metadata.files]
 astroid = [
@@ -1363,7 +1363,7 @@ cheroot = [
     {file = "cheroot-8.6.0-py2.py3-none-any.whl", hash = "sha256:62cbced16f07e8aaf512673987cd6b1fc5ad00073345e9ed6c4e2a5cc2a3a22d"},
     {file = "cheroot-8.6.0.tar.gz", hash = "sha256:366adf6e7cac9555486c2d1be6297993022eff6f8c4655c1443268cca3f08e25"},
 ]
-CherryPy = [
+cherrypy = [
     {file = "CherryPy-18.8.0-py2.py3-none-any.whl", hash = "sha256:b56097025dc78a76a59db551b3a82871c6b3a0107b80b12ff759e4c0b3b947ce"},
     {file = "CherryPy-18.8.0.tar.gz", hash = "sha256:9b48cfba8a2f16d5b6419cc657e6d51db005ba35c5e3824e4728bb03bbc7ef9b"},
 ]
@@ -1375,8 +1375,8 @@ cloc = [
     {file = "cloc-0.2.5.tar.gz", hash = "sha256:469164d445169ef3635c5cbae21db2e6126ebc2d71f7151f482674414c0c3363"},
 ]
 colorama = [
-    {file = "colorama-0.4.5-py2.py3-none-any.whl", hash = "sha256:854bf444933e37f5824ae7bfc1e98d5bce2ebe4160d46b5edf346a89358e99da"},
-    {file = "colorama-0.4.5.tar.gz", hash = "sha256:e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"},
+    {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
+    {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
 ]
 colored = [
     {file = "colored-1.4.3.tar.gz", hash = "sha256:b7b48b9f40e8a65bbb54813d5d79dd008dc8b8c5638d5bbfd30fc5a82e6def7a"},
@@ -1407,8 +1407,8 @@ cryptography = [
     {file = "cryptography-3.4.8.tar.gz", hash = "sha256:94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2e24a1c"},
 ]
 dill = [
-    {file = "dill-0.3.5.1-py2.py3-none-any.whl", hash = "sha256:33501d03270bbe410c72639b350e941882a8b0fd55357580fbc873fba0c59302"},
-    {file = "dill-0.3.5.1.tar.gz", hash = "sha256:d75e41f3eff1eee599d738e76ba8f4ad98ea229db8b085318aa2b3333a208c86"},
+    {file = "dill-0.3.6-py3-none-any.whl", hash = "sha256:a07ffd2351b8c678dfc4a856a3005f8067aea51d6ba6c700796a4d9e280f39f0"},
+    {file = "dill-0.3.6.tar.gz", hash = "sha256:e5db55f3687856d8fbdab002ed78544e1c4559a130302693d839dfe8f93f2373"},
 ]
 dulwich = [
     {file = "dulwich-0.20.46-cp310-cp310-macosx_10_15_x86_64.whl", hash = "sha256:6676196e9cf377cde62aa2f5d741e93207437343e0c62368bd0d784c322a3c49"},
@@ -1479,9 +1479,9 @@ gitdb = [
     {file = "gitdb-4.0.9-py3-none-any.whl", hash = "sha256:8033ad4e853066ba6ca92050b9df2f89301b8fc8bf7e9324d412a63f8bf1a8fd"},
     {file = "gitdb-4.0.9.tar.gz", hash = "sha256:bac2fd45c0a1c9cf619e63a90d62bdc63892ef92387424b855792a6cabe789aa"},
 ]
-GitPython = [
-    {file = "GitPython-3.1.27-py3-none-any.whl", hash = "sha256:5b68b000463593e05ff2b261acff0ff0972df8ab1b70d3cdbd41b546c8b8fc3d"},
-    {file = "GitPython-3.1.27.tar.gz", hash = "sha256:1c885ce809e8ba2d88a29befeb385fcea06338d3640712b59ca623c220bb5704"},
+gitpython = [
+    {file = "GitPython-3.1.29-py3-none-any.whl", hash = "sha256:41eea0deec2deea139b459ac03656f0dd28fc4a3387240ec1d3c259a2c47850f"},
+    {file = "GitPython-3.1.29.tar.gz", hash = "sha256:cc36bfc4a3f913e66805a28e84703e419d9c264c1077e537b54f0e1af85dbefd"},
 ]
 graal = [
     {file = "graal-0.4.0-py3-none-any.whl", hash = "sha256:d4477bba81e6ae66bf0f1a1e0a6f60cdc40d96b0f8fbd3bd6f4403ba1d6aa4d8"},
@@ -1496,8 +1496,8 @@ grimoirelab-panels = [
     {file = "grimoirelab_panels-0.1.1-py3-none-any.whl", hash = "sha256:f61e549d1c2c30e8d2448d17af4fd91a65eb871fb6e31b86a1fd30043f0cc8c3"},
 ]
 grimoirelab-toolkit = [
-    {file = "grimoirelab-toolkit-0.3.1.tar.gz", hash = "sha256:de5fbb100cda40145e2acfca407bc872e6a6870ab2c5413504c827d926df7903"},
-    {file = "grimoirelab_toolkit-0.3.1-py3-none-any.whl", hash = "sha256:2e92b6d2ba1dc6819cb65b3b78895c2a186db275b337f1eae60ec2c573380e27"},
+    {file = "grimoirelab_toolkit-0.3.2rc1-py3-none-any.whl", hash = "sha256:e2aae33b6f4659b415e238a638eccb65bdbba298f2f95886417b63a57c8f492a"},
+    {file = "grimoirelab_toolkit-0.3.2rc1.tar.gz", hash = "sha256:316c082cd7125327d70ed3cec8b2fba1a208a3ffe1a4e1306b9024a55ae94c88"},
 ]
 idna = [
     {file = "idna-3.4-py3-none-any.whl", hash = "sha256:90b77e79eaa3eba6de819a0c442c0b4ceefc341a7a2ab77d7562bf49f425c5c2"},
@@ -1508,48 +1508,48 @@ importlib-metadata = [
     {file = "importlib_metadata-4.2.0.tar.gz", hash = "sha256:b7e52a1f8dec14a75ea73e0891f3060099ca1d8e6a462a4dff11c3e119ea1b31"},
 ]
 importlib-resources = [
-    {file = "importlib_resources-5.9.0-py3-none-any.whl", hash = "sha256:f78a8df21a79bcc30cfd400bdc38f314333de7c0fb619763f6b9dabab8268bb7"},
-    {file = "importlib_resources-5.9.0.tar.gz", hash = "sha256:5481e97fb45af8dcf2f798952625591c58fe599d0735d86b10f54de086a61681"},
+    {file = "importlib_resources-5.10.0-py3-none-any.whl", hash = "sha256:ee17ec648f85480d523596ce49eae8ead87d5631ae1551f913c0100b5edd3437"},
+    {file = "importlib_resources-5.10.0.tar.gz", hash = "sha256:c01b1b94210d9849f286b86bb51bcea7cd56dde0600d8db721d7b81330711668"},
 ]
 inflect = [
-    {file = "inflect-6.0.0-py3-none-any.whl", hash = "sha256:e3b85d65a296843268f35f4136283ad7c012a129375db1529d49b4b01ecb400b"},
-    {file = "inflect-6.0.0.tar.gz", hash = "sha256:0bc1516ec2725e2d8221707a612245093cb6f1cea209cfd8cbd4fc5e96fa6365"},
+    {file = "inflect-6.0.2-py3-none-any.whl", hash = "sha256:182741ec7e9e4c8f7f55b01fa6d80bcd3c4a183d349dfa6d9abbff0a1279e98f"},
+    {file = "inflect-6.0.2.tar.gz", hash = "sha256:f1a6bcb0105046f89619fde1a7d044c612c614c2d85ef182582d9dc9b86d309a"},
 ]
 isort = [
     {file = "isort-5.10.1-py3-none-any.whl", hash = "sha256:6f62d78e2f89b4500b080fe3a81690850cd254227f27f75c3a0c491a1f351ba7"},
     {file = "isort-5.10.1.tar.gz", hash = "sha256:e8443a5e7a020e9d7f97f1d7d9cd17c88bcb3bc7e218bf9cf5095fe550be2951"},
 ]
-"jaraco.classes" = [
+jaraco-classes = [
     {file = "jaraco.classes-3.2.3-py3-none-any.whl", hash = "sha256:2353de3288bc6b82120752201c6b1c1a14b058267fa424ed5ce5984e3b922158"},
     {file = "jaraco.classes-3.2.3.tar.gz", hash = "sha256:89559fa5c1d3c34eff6f631ad80bb21f378dbcbb35dd161fd2c6b93f5be2f98a"},
 ]
-"jaraco.collections" = [
-    {file = "jaraco.collections-3.5.2-py3-none-any.whl", hash = "sha256:1ca12fa4b7067dfc8d7f791c1a8660d970a2bf2f80536ba0aa5cbb71fe1261f1"},
-    {file = "jaraco.collections-3.5.2.tar.gz", hash = "sha256:072b93eb35f9e48508485755534e66a34ef1cc84af291fd27f39b44d4c0dd2c3"},
+jaraco-collections = [
+    {file = "jaraco.collections-3.6.0-py3-none-any.whl", hash = "sha256:2cd9fdc414d0e541bce0d4ccf2caef250f5467727bbf66207c2db15e848287f4"},
+    {file = "jaraco.collections-3.6.0.tar.gz", hash = "sha256:9e4ef23d10d0b97ffd37b1f5a65819ea691d4da8ca2190bd19d5a035d7ccd9ca"},
 ]
-"jaraco.context" = [
+jaraco-context = [
     {file = "jaraco.context-4.1.2-py3-none-any.whl", hash = "sha256:9327d3e6901923e5a7097aa2df4b9c2bc13f845c7672692e3827ebd1b3d67606"},
     {file = "jaraco.context-4.1.2.tar.gz", hash = "sha256:a58e94dd67871639abc091b57d32842449b230777570ef2bcec3dc16b912613e"},
 ]
-"jaraco.functools" = [
+jaraco-functools = [
     {file = "jaraco.functools-3.5.2-py3-none-any.whl", hash = "sha256:163d6369dd2fc6590712677cbf83b06ee0e4a1a0c720f4b377eae04175ce458e"},
     {file = "jaraco.functools-3.5.2.tar.gz", hash = "sha256:45b05c158f3ad28731075556ffd4749bd254ec67f91e1eb367dcfebff1151db4"},
 ]
-"jaraco.text" = [
-    {file = "jaraco.text-3.9.1-py3-none-any.whl", hash = "sha256:3ca615c4135e151d21206075ec4aface8a2fbc3e68437fe709a6541428a635f9"},
-    {file = "jaraco.text-3.9.1.tar.gz", hash = "sha256:d57cd4448a588020318425e04194e897f96fc23b92b82ff9308a24d5cbf2b3fb"},
+jaraco-text = [
+    {file = "jaraco.text-3.10.0-py3-none-any.whl", hash = "sha256:1c512323b78128126e3eb1343aa7294c7fcfda05634af92b0c31f808a1e71415"},
+    {file = "jaraco.text-3.10.0.tar.gz", hash = "sha256:467ae869cd24d119045593852cc2ac4e910977740162955acfa96f354c1715e9"},
 ]
-Jinja2 = [
+jinja2 = [
     {file = "Jinja2-3.1.2-py3-none-any.whl", hash = "sha256:6088930bfe239f0e6710546ab9c19c9ef35e29792895fed6e6e31a023a182a61"},
     {file = "Jinja2-3.1.2.tar.gz", hash = "sha256:31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"},
 ]
 kidash = [
-    {file = "kidash-0.5.1-py3-none-any.whl", hash = "sha256:64821f834d073f2f0fb641330438b5d15fe6c43bf57e85363348363e351149c6"},
-    {file = "kidash-0.5.1.tar.gz", hash = "sha256:0365c5aac2db701942caf464500a7036fff65e6734ef566e645e4e0a1b8988c6"},
+    {file = "kidash-0.5.2rc1-py3-none-any.whl", hash = "sha256:a22ed2256a925f35cd7a7860a6c5639c5c7e016e93be44167a13f6b764c1f4d3"},
+    {file = "kidash-0.5.2rc1.tar.gz", hash = "sha256:7a7c981151b8a3a2df2506e85421b6b3c388a3db0760cd317f49ff2eadc1546e"},
 ]
 kingarthur = [
-    {file = "kingarthur-0.2.3-py3-none-any.whl", hash = "sha256:096b2fc23924b98e45e957f2c9a5c83eadffbd3f801962ddc10018473840783c"},
-    {file = "kingarthur-0.2.3.tar.gz", hash = "sha256:54bf98ffb051f4730dce0975f649f6f0e8dddd50c3bab5540c8d9fc9e90b8f8e"},
+    {file = "kingarthur-0.2.4rc1-py3-none-any.whl", hash = "sha256:e3944fdc69eb750d9622557daeb38f56bfdaa13a9b760026f7b4104d95edc3e0"},
+    {file = "kingarthur-0.2.4rc1.tar.gz", hash = "sha256:b3a21922485a941bd35eb6842f09138fc34a358206b7e86bf29bd3f03a6d68bf"},
 ]
 lazy-object-proxy = [
     {file = "lazy-object-proxy-1.7.1.tar.gz", hash = "sha256:d609c75b986def706743cdebe5e47553f4a5a1da9c5ff66d76013ef396b5a8a4"},
@@ -1594,7 +1594,7 @@ lizard = [
     {file = "lizard-1.16.6-py2.py3-none-any.whl", hash = "sha256:77f8f17a9d42e70b22225f01ac48fea3de9ccc7d89331f7152f4a676c1c7e342"},
     {file = "lizard-1.16.6.tar.gz", hash = "sha256:9e4565c676b2d2022b77fcddba565aea44e6097c8f3889a26bb6f4aa26c1fe3e"},
 ]
-MarkupSafe = [
+markupsafe = [
     {file = "MarkupSafe-2.1.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:86b1f75c4e7c2ac2ccdaec2b9022845dbb81880ca318bb7a0a01fbf7813e3812"},
     {file = "MarkupSafe-2.1.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:f121a1420d4e173a5d96e47e9a0c0dcff965afdf1626d28de1460815f7c4ee7a"},
     {file = "MarkupSafe-2.1.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:a49907dd8420c5685cfa064a1335b6754b74541bbb3706c259c02ed65b644b3e"},
@@ -1641,8 +1641,8 @@ mccabe = [
     {file = "mccabe-0.6.1.tar.gz", hash = "sha256:dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"},
 ]
 more-itertools = [
-    {file = "more-itertools-8.14.0.tar.gz", hash = "sha256:c09443cd3d5438b8dafccd867a6bc1cb0894389e90cb53d227456b0b0bccb750"},
-    {file = "more_itertools-8.14.0-py3-none-any.whl", hash = "sha256:1bc4f91ee5b1b31ac7ceacc17c09befe6a40a503907baf9c839c229b5095cfd2"},
+    {file = "more-itertools-9.0.0.tar.gz", hash = "sha256:5a6257e40878ef0520b1803990e3e22303a41b5714006c32a3fd8304b26ea1ab"},
+    {file = "more_itertools-9.0.0-py3-none-any.whl", hash = "sha256:250e83d7e81d0c87ca6bd942e6aeab8cc9daa6096d12c5308f3f92fa5e5c1f41"},
 ]
 networkx = [
     {file = "networkx-2.6.3-py3-none-any.whl", hash = "sha256:80b6b89c77d1dfb64a4c7854981b60aeea6360ac02c6d4e4913319e0a313abef"},
@@ -1704,32 +1704,32 @@ pandas = [
     {file = "pandas-0.25.3.tar.gz", hash = "sha256:52da74df8a9c9a103af0a72c9d5fdc8e0183a90884278db7f386b5692a2220a4"},
 ]
 patsy = [
-    {file = "patsy-0.5.2-py2.py3-none-any.whl", hash = "sha256:cc80955ae8c13a7e7c4051eda7b277c8f909f50bc7d73e124bc38e2ee3d95041"},
-    {file = "patsy-0.5.2.tar.gz", hash = "sha256:5053de7804676aba62783dbb0f23a2b3d74e35e5bfa238b88b7cbf148a38b69d"},
+    {file = "patsy-0.5.3-py2.py3-none-any.whl", hash = "sha256:7eb5349754ed6aa982af81f636479b1b8db9d5b1a6e957a6016ec0534b5c86b7"},
+    {file = "patsy-0.5.3.tar.gz", hash = "sha256:bdc18001875e319bc91c812c1eb6a10be4bb13cb81eb763f466179dca3b67277"},
 ]
 pbr = [
-    {file = "pbr-5.10.0-py2.py3-none-any.whl", hash = "sha256:da3e18aac0a3c003e9eea1a81bd23e5a3a75d745670dcf736317b7d966887fdf"},
-    {file = "pbr-5.10.0.tar.gz", hash = "sha256:cfcc4ff8e698256fc17ea3ff796478b050852585aa5bae79ecd05b2ab7b39b9a"},
+    {file = "pbr-5.11.0-py2.py3-none-any.whl", hash = "sha256:db2317ff07c84c4c63648c9064a79fe9d9f5c7ce85a9099d4b6258b3db83225a"},
+    {file = "pbr-5.11.0.tar.gz", hash = "sha256:b97bc6695b2aff02144133c2e7399d5885223d42b7912ffaec2ca3898e673bfe"},
 ]
 perceval = [
-    {file = "perceval-0.20.1-py3-none-any.whl", hash = "sha256:4c96aff582864caf34b46d5c5d812b1f6e460823b29b19e4eac2c937dfd67cad"},
-    {file = "perceval-0.20.1.tar.gz", hash = "sha256:256092fc6650e5dd163461de22a4cb32d5c67803cff3fd16483d5a7c10a550ca"},
+    {file = "perceval-0.21.0rc1-py3-none-any.whl", hash = "sha256:fbf2d0fa9ecab8b4e9b1b87c2b527fd4d6face400368a8139d6c10d57d3db6b9"},
+    {file = "perceval-0.21.0rc1.tar.gz", hash = "sha256:098d2186d7433ff7558c4abb5fbcc80615379805a2d18fe9d7a02fe1f4722bd6"},
 ]
 perceval-mozilla = [
-    {file = "perceval-mozilla-0.3.3.tar.gz", hash = "sha256:b962497b740cb4c74913fdd33769b59d4712541c27a2ad9b410463359e145d93"},
-    {file = "perceval_mozilla-0.3.3-py3-none-any.whl", hash = "sha256:bdfd81fdf109215ee937dcd4b65683060efe462c26a9d410c67d2fb494412fa1"},
+    {file = "perceval_mozilla-0.3.4rc1-py3-none-any.whl", hash = "sha256:b7aff92e78008729f7c50cfe3a4d21ca5816be896b3b1c8274b41fda59aa93a8"},
+    {file = "perceval_mozilla-0.3.4rc1.tar.gz", hash = "sha256:95265d6d71778de8cf1489a3c4527934d418e965f005c017207e4c186b4dc996"},
 ]
 perceval-opnfv = [
-    {file = "perceval-opnfv-0.2.3.tar.gz", hash = "sha256:cfda769c99c90119ad1980c9e2df97ddb4c774313619bd710b293dc718969492"},
-    {file = "perceval_opnfv-0.2.3-py3-none-any.whl", hash = "sha256:6177ea3b097eac67b199963ceaf08a34ad6d3980ed5d547a8a04413d9e9cab99"},
+    {file = "perceval_opnfv-0.2.4rc1-py3-none-any.whl", hash = "sha256:c39eb8534b605005d3d868eb75284ca25fe4a471ad193e4b241d74715cac7c37"},
+    {file = "perceval_opnfv-0.2.4rc1.tar.gz", hash = "sha256:656685b33971f446ac3adbeecd66cbf1e2b92c6dcea61524f6af365bee53735b"},
 ]
 perceval-puppet = [
-    {file = "perceval-puppet-0.2.3.tar.gz", hash = "sha256:c42f203f9853de62197e97be7aa39af3eb7330edf76dfd0f5da90e7d816eb153"},
-    {file = "perceval_puppet-0.2.3-py3-none-any.whl", hash = "sha256:848b71a674787faa047fe25598386485d4ed8e8a1efe5ce128e96e799b91ce8f"},
+    {file = "perceval_puppet-0.2.4rc1-py3-none-any.whl", hash = "sha256:0ee29acddb9e30806b390b0acb468eaca6d105f6ee88856630ffce7b82ee1996"},
+    {file = "perceval_puppet-0.2.4rc1.tar.gz", hash = "sha256:5db32e8af71212016e0e1013ec13603160831df6ea56620a74089ae747753abf"},
 ]
 perceval-weblate = [
-    {file = "perceval-weblate-0.2.3.tar.gz", hash = "sha256:8a92a52341f3419499fc6ecc25aad2c1e489478a442dfbb3505de4dbe07340a8"},
-    {file = "perceval_weblate-0.2.3-py3-none-any.whl", hash = "sha256:7468ad4df5e6010ca838e6eec4fe9ef39faf1d9b568f1162d1ad2404831b2f74"},
+    {file = "perceval_weblate-0.2.4rc1-py3-none-any.whl", hash = "sha256:847d81d118cc07de412ed89fdeca80ed354bbafddd1d7f919610bc8bb8f31e25"},
+    {file = "perceval_weblate-0.2.4rc1.tar.gz", hash = "sha256:382a718f864d9fd96a1b8c4c66532873735f4ca665476bb406b6cfdc8c6a65b8"},
 ]
 platformdirs = [
     {file = "platformdirs-2.5.2-py3-none-any.whl", hash = "sha256:027d8e83a2d7de06bbac4e5ef7e023c02b863d7ea5d079477e722bb41ab25788"},
@@ -1793,15 +1793,15 @@ pyflakes = [
     {file = "pyflakes-2.4.0-py2.py3-none-any.whl", hash = "sha256:3bb3a3f256f4b7968c9c788781e4ff07dce46bdf12339dcda61053375426ee2e"},
     {file = "pyflakes-2.4.0.tar.gz", hash = "sha256:05a85c2872edf37a4ed30b0cce2f6093e1d0581f8c19d7393122da7e25b2b24c"},
 ]
-PyJWT = [
-    {file = "PyJWT-2.5.0-py3-none-any.whl", hash = "sha256:8d82e7087868e94dd8d7d418e5088ce64f7daab4b36db654cbaedb46f9d1ca80"},
-    {file = "PyJWT-2.5.0.tar.gz", hash = "sha256:e77ab89480905d86998442ac5788f35333fa85f65047a534adc38edf3c88fc3b"},
+pyjwt = [
+    {file = "PyJWT-2.6.0-py3-none-any.whl", hash = "sha256:d83c3d892a77bbb74d3e1a2cfa90afaadb60945205d1095d9221f04466f64c14"},
+    {file = "PyJWT-2.6.0.tar.gz", hash = "sha256:69285c7e31fc44f68a1feb309e948e0df53259d579295e6cfe2b1792329f05fd"},
 ]
 pylint = [
     {file = "pylint-2.13.9-py3-none-any.whl", hash = "sha256:705c620d388035bdd9ff8b44c5bcdd235bfb49d276d488dd2c8ff1736aa42526"},
     {file = "pylint-2.13.9.tar.gz", hash = "sha256:095567c96e19e6f57b5b907e67d265ff535e588fe26b12b5ebe1fc5645b2c731"},
 ]
-PyMySQL = [
+pymysql = [
     {file = "PyMySQL-1.0.2-py3-none-any.whl", hash = "sha256:41fc3a0c5013d5f039639442321185532e3e2c8924687abe6537de157d403641"},
     {file = "PyMySQL-1.0.2.tar.gz", hash = "sha256:816927a350f38d56072aeca5dfb10221fe1dc653745853d30a216637f5d7ad36"},
 ]
@@ -1814,8 +1814,8 @@ python-dateutil = [
     {file = "python_dateutil-2.8.2-py2.py3-none-any.whl", hash = "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9"},
 ]
 pytz = [
-    {file = "pytz-2022.2.1-py2.py3-none-any.whl", hash = "sha256:220f481bdafa09c3955dfbdddb7b57780e9a94f5127e35456a48589b9e0c0197"},
-    {file = "pytz-2022.2.1.tar.gz", hash = "sha256:cea221417204f2d1a2aa03ddae3e867921971d0d76f14d87abb4414415bbdcf5"},
+    {file = "pytz-2022.5-py2.py3-none-any.whl", hash = "sha256:335ab46900b1465e714b4fda4963d87363264eb662aab5e65da039c25f1f5b22"},
+    {file = "pytz-2022.5.tar.gz", hash = "sha256:c4d88f472f54d615e9cd582a5004d1e5f624854a6a27a6211591c251f22a6914"},
 ]
 pywin32 = [
     {file = "pywin32-304-cp310-cp310-win32.whl", hash = "sha256:3c7bacf5e24298c86314f03fa20e16558a4e4138fc34615d7de4070c23e65af3"},
@@ -1833,7 +1833,7 @@ pywin32 = [
     {file = "pywin32-304-cp39-cp39-win32.whl", hash = "sha256:25746d841201fd9f96b648a248f731c1dec851c9a08b8e33da8b56148e4c65cc"},
     {file = "pywin32-304-cp39-cp39-win_amd64.whl", hash = "sha256:d24a3382f013b21aa24a5cfbfad5a2cd9926610c0affde3e8ab5b3d7dbcf4ac9"},
 ]
-PyYAML = [
+pyyaml = [
     {file = "PyYAML-6.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:d4db7c7aef085872ef65a8fd7d6d09a14ae91f691dec3e87ee5ee0539d516f53"},
     {file = "PyYAML-6.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:9df7ed3b3d2e0ecfe09e14741b857df43adb5a3ddadc919a2d94fbdf78fea53c"},
     {file = "PyYAML-6.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:77f396e6ef4c73fdc33a9157446466f1cff553d979bd00ecb64385760c6babdc"},
@@ -1908,8 +1908,8 @@ scipy = [
     {file = "scipy-1.6.1.tar.gz", hash = "sha256:c4fceb864890b6168e79b0e714c585dbe2fd4222768ee90bc1aa0f8218691b11"},
 ]
 setuptools = [
-    {file = "setuptools-65.4.0-py3-none-any.whl", hash = "sha256:c2d2709550f15aab6c9110196ea312f468f41cd546bceb24127a1be6fdcaeeb1"},
-    {file = "setuptools-65.4.0.tar.gz", hash = "sha256:a8f6e213b4b0661f590ccf40de95d28a177cd747d098624ad3f69c40287297e9"},
+    {file = "setuptools-65.5.0-py3-none-any.whl", hash = "sha256:f62ea9da9ed6289bfe868cd6845968a2c854d1427f8548d52cae02a42b4f0356"},
+    {file = "setuptools-65.5.0.tar.gz", hash = "sha256:512e5536220e38146176efb833d4a62aa726b7bbff82cfbc8ba9eaa3996e0b17"},
 ]
 sgmllib3k = [
     {file = "sgmllib3k-1.0.0.tar.gz", hash = "sha256:7868fb1c8bfa764c1ac563d3cf369c381d1325d36124933a726f29fcdaa812e9"},
@@ -1934,7 +1934,7 @@ soupsieve = [
     {file = "soupsieve-2.3.2.post1-py3-none-any.whl", hash = "sha256:3b2503d3c7084a42b1ebd08116e5f81aadfaea95863628c80a3b774a11b7c759"},
     {file = "soupsieve-2.3.2.post1.tar.gz", hash = "sha256:fc53893b3da2c33de295667a0e19f078c14bf86544af307354de5fcf12a3f30d"},
 ]
-SQLAlchemy = [
+sqlalchemy = [
     {file = "SQLAlchemy-1.3.24-cp27-cp27m-macosx_10_14_x86_64.whl", hash = "sha256:87a2725ad7d41cd7376373c15fd8bf674e9c33ca56d0b8036add2d634dba372e"},
     {file = "SQLAlchemy-1.3.24-cp27-cp27m-win32.whl", hash = "sha256:f597a243b8550a3a0b15122b14e49d8a7e622ba1c9d29776af741f1845478d79"},
     {file = "SQLAlchemy-1.3.24-cp27-cp27m-win_amd64.whl", hash = "sha256:fc4cddb0b474b12ed7bdce6be1b9edc65352e8ce66bc10ff8cbbfb3d4047dbf4"},
@@ -1996,8 +1996,8 @@ statsmodels = [
     {file = "statsmodels-0.13.2.tar.gz", hash = "sha256:77dc292c9939c036a476f1770f9d08976b05437daa229928da73231147cde7d4"},
 ]
 stevedore = [
-    {file = "stevedore-3.5.0-py3-none-any.whl", hash = "sha256:a547de73308fd7e90075bb4d301405bebf705292fa90a90fc3bcf9133f58616c"},
-    {file = "stevedore-3.5.0.tar.gz", hash = "sha256:f40253887d8712eaa2bb0ea3830374416736dc8ec0e22f5a65092c1174c44335"},
+    {file = "stevedore-3.5.2-py3-none-any.whl", hash = "sha256:fa2630e3d0ad3e22d4914aff2501445815b9a4467a6edc49387c667a38faf5bf"},
+    {file = "stevedore-3.5.2.tar.gz", hash = "sha256:cf99f41fc0d5a4f185ca4d3d42b03be9011b0a1ec1a4ea1a282be1b4b306dcc2"},
 ]
 tempora = [
     {file = "tempora-5.0.2-py3-none-any.whl", hash = "sha256:e65d32ae68ad772ee738d802689f689b3f883e165e8dadd39aa89ef317b12b99"},
@@ -2034,8 +2034,8 @@ typed-ast = [
     {file = "typed_ast-1.5.4.tar.gz", hash = "sha256:39e21ceb7388e4bb37f4c679d72707ed46c2fbf2a5609b8b8ebc4b067d977df2"},
 ]
 typing-extensions = [
-    {file = "typing_extensions-4.3.0-py3-none-any.whl", hash = "sha256:25642c956049920a5aa49edcdd6ab1e06d7e5d467fc00e0506c44ac86fbfca02"},
-    {file = "typing_extensions-4.3.0.tar.gz", hash = "sha256:e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6"},
+    {file = "typing_extensions-4.4.0-py3-none-any.whl", hash = "sha256:16fa4864408f655d35ec496218b85f79b3437c829e93320c7c9215ccfd92489e"},
+    {file = "typing_extensions-4.4.0.tar.gz", hash = "sha256:1511434bb92bf8dd198c12b1cc812e800d4181cfcb867674e0f8279cc93087aa"},
 ]
 urllib3 = [
     {file = "urllib3-1.26.12-py2.py3-none-any.whl", hash = "sha256:b930dd878d5a8afb066a637fbb35144fe7901e3b209d1cd4f524bd0e9deee997"},
@@ -2107,11 +2107,11 @@ wrapt = [
     {file = "wrapt-1.14.1-cp39-cp39-win_amd64.whl", hash = "sha256:dee60e1de1898bde3b238f18340eec6148986da0455d8ba7848d50470a7a32fb"},
     {file = "wrapt-1.14.1.tar.gz", hash = "sha256:380a85cf89e0e69b7cfbe2ea9f765f004ff419f34194018a6827ac0e3edfed4d"},
 ]
-"zc.lockfile" = [
+zc-lockfile = [
     {file = "zc.lockfile-2.0-py2.py3-none-any.whl", hash = "sha256:cc33599b549f0c8a248cb72f3bf32d77712de1ff7ee8814312eb6456b42c015f"},
     {file = "zc.lockfile-2.0.tar.gz", hash = "sha256:307ad78227e48be260e64896ec8886edc7eae22d8ec53e4d528ab5537a83203b"},
 ]
 zipp = [
-    {file = "zipp-3.8.1-py3-none-any.whl", hash = "sha256:47c40d7fe183a6f21403a199b3e4192cca5774656965b0a4988ad2f8feb5f009"},
-    {file = "zipp-3.8.1.tar.gz", hash = "sha256:05b45f1ee8f807d0cc928485ca40a07cb491cf092ff587c0df9cb1fd154848d2"},
+    {file = "zipp-3.10.0-py3-none-any.whl", hash = "sha256:4fcb6f278987a6605757302a6e40e896257570d11c51628968ccb2a47e80c6c1"},
+    {file = "zipp-3.10.0.tar.gz", hash = "sha256:7a7262fd930bd3e36c50b9a64897aec3fafff3dfdeec9623ae22b40e93f99bb8"},
 ]
