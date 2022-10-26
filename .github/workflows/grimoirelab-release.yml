@@ -29,9 +29,9 @@ jobs:
       - id: variables
         name: variables
         run: |
-          echo "::set-output name=git_email::${{ inputs.git_email }}"
-          echo "::set-output name=git_name::${{ inputs.git_name}}"
-          echo "::set-output name=release_candidate::${{ inputs.release_candidate}}"
+          echo "git_email=${{ inputs.git_email }}" >> $GITHUB_OUTPUT
+          echo "git_name=${{ inputs.git_name}}" >> $GITHUB_OUTPUT
+          echo "release_candidate=${{ inputs.release_candidate}}" >> $GITHUB_OUTPUT
 
   grimoirelab-toolkit:
     name: grimoirelab-toolkit
@@ -430,7 +430,7 @@ jobs:
           fi
           echo $version
           git add pyproject.toml grimoirelab/_version.py
-          echo "::set-output name=version::$version"
+          echo "version=$version" >> $GITHUB_OUTPUT
 
       - name: Update dependencies files
         run: |
@@ -493,8 +493,9 @@ jobs:
         run: |
           version=${{ steps.semverup.outputs.version }}
           release_file=releases/$version.md
+          eof="EOF$(date +%s)"
           touch $release_file
-          cat << EOF > $release_file
+          cat << $eof > $release_file
           # GrimoireLab $version
           The following list describes the changes by component:
 
@@ -512,7 +513,7 @@ jobs:
           $grimoirelab_graal_notes
           $grimoirelab_elk_notes
           $grimoirelab_sirmordred_notes
-          EOF
+          $eof
 
           cat $release_file
 
@@ -631,7 +632,7 @@ jobs:
         if: steps.semverup.outcome == 'success'
         run: |
           datetime=$(date +"%Y-%m-%dT%H:%M:%S%z")
-          echo "::set-output name=datetime::$datetime"
+          echo "datetime=$datetime" >> $GITHUB_OUTPUT
           echo $datetime
 
       - id: publish
@@ -683,8 +684,8 @@ jobs:
         run: |
           git reset --hard HEAD~1
           git push -f origin master
-          git tag -d ${{ steps.version.outputs.version }}
-          git push --delete origin ${{ steps.version.outputs.version }}
+          git tag -d ${{ steps.semverup.outputs.version }}
+          git push --delete origin ${{ steps.semverup.outputs.version }}
 
           # Force to fail
           exit 1
