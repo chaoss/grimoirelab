@@ -209,6 +209,7 @@ jobs:
         run: |
           version=${{ steps.version.outputs.version }}
           eof="EOF$(date +%s)"
+          release_file="releases/$version.md"
           if [ ${{ inputs.release_candidate }} == 'true' ]
           then
             newsArg=''
@@ -222,14 +223,24 @@ jobs:
           else
             module_name=${{ inputs.module_name }}
             today=$(date -u "+%Y-%m-%d")
-            cat << EOF > releases/$version.md
+            cat << EOF > $release_file
             ## $module_name $version - ($today)
             
             * Update Poetry's package dependencies
           EOF
+            # Update NEWS file if it is not a release candidate
+            if [ ${{ inputs.release_candidate }} != 'true' ]
+            then
+              mv NEWS old_NEWS
+              echo -e "# Releases\n" >> NEWS
+              cat $release_file >> NEWS
+              cat old_NEWS | tail -n +2 >> NEWS
+            fi
           fi
+
+          # Save release notes in 'notes' output
           echo 'notes<<$eof' >> $GITHUB_OUTPUT
-          cat releases/$version.md >> $GITHUB_OUTPUT
+          cat $release_file >> $GITHUB_OUTPUT
           echo '$eof' >> $GITHUB_OUTPUT
         working-directory: ${{ inputs.module_directory }}
 
