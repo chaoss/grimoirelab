@@ -1,5 +1,76 @@
 # Releases
 
+## GrimoireLab 0.7.1 - (2022-11-07)
+
+**New components:**
+
+* sortinghat 0.7.23
+* cereslib 0.3.5
+* perceval 0.21.1
+* perceval-mozilla 0.3.5
+* perceval-opnfv 0.2.5
+* perceval-puppet 0.2.5
+* perceval-weblate 0.2.5
+* kingarthur 0.2.5
+* graal 0.4.2
+* grimoire-elk 0.103.3
+* sirmordred 0.5.1
+
+The following list describes the changes by component:
+
+### sortinghat
+  
+  * Update Poetry's package dependencies
+
+### cereslib
+  
+  * Update Poetry's package dependencies
+
+### perceval
+
+**Bug fixes:**
+
+ * Mbox to-date argument fixed\
+   It fixes the `--to-date` argument. This parameter was added to fetch
+   data until a specific date.
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### perceval-weblate
+  
+  * Update Poetry's package dependencies
+
+### kingarthur
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+
+**Bug fixes:**
+
+ * Demographic study on Weblate fixed\
+   Weblate demographic study is now updated to allow passing the study
+   alias name by parameter.
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 0.7.0 - (2022-10-31)
 
 **New components:**
