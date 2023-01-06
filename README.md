@@ -33,12 +33,12 @@ docker-compose version 1.22.0, build f46880fe
 Steps:
 1. Clone this project:
 ```console
-foo@bar:~$ git clone https://github.com/chaoss/grimoirelab
+git clone https://github.com/chaoss/grimoirelab
 ```
 2. Go to `docker-compose` folder and run the following command:
 ```console
-foo@bar:~$ cd grimoirelab/docker-compose
-foo@bar:~/grimoirelab/docker-compose$ docker-compose up -d
+cd grimoirelab/docker-compose
+docker-compose up -d
 ```
 
 Your dashboard will be ready after a while at `http://localhost:8000`. The waiting time depends on the amount of data to fetch from a repo, for small repositories you can expect your data to be visible in the dashboard after 10-15 minutes.
@@ -62,12 +62,12 @@ Docker version 19.03.1, build 74b1e89
 Steps:
 1. Clone this project:
 ```console
-$ git clone https://github.com/chaoss/grimoirelab
+git clone https://github.com/chaoss/grimoirelab
 ```
 2. Go to the project folder and run the following command:
 ```console
-foo@bar:~$ cd grimoirelab
-foo@bar:~/grimoirelab $ docker run --net=host \ 
+cd grimoirelab
+docker run --net=host \ 
     -v $(pwd)/default-grimoirelab-settings/projects.json:/home/grimoire/conf/projects.json \
     -v $(pwd)/default-grimoirelab-settings/setup-docker.cfg:/home/grimoire/conf/setup.cfg \
     -t grimoirelab/grimoirelab
@@ -138,7 +138,7 @@ folder includes instructions and configuration files to deploy GrimoireLab using
 Git submodule, so its contents will not be available after cloning the repository. To
 fetch all the data, and get the latest version, you can run the following command:
 ```console
-$ git submodule update --init --remote
+git submodule update --init --remote
 ```
 
 * How releases of GrimoireLab are built and tested: [Building](BUILDING.md)
