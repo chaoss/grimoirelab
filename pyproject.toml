@@ -43,7 +43,6 @@ perceval-mozilla = {version = ">=0.3.5", allow-prereleases = true}
 perceval-opnfv = {version = ">=0.2.5", allow-prereleases = true}
 perceval-puppet = {version = ">=0.2.5", allow-prereleases = true}
 perceval-weblate = {version = ">=0.2.5", allow-prereleases = true}
-kingarthur = {version = ">=0.2.5", allow-prereleases = true}
 sortinghat = {version = ">=0.7.23", allow-prereleases = true}
 kidash = {version = ">=0.5.2", allow-prereleases = true}
 grimoirelab-panels = {version = ">=0.1.1", allow-prereleases = true}

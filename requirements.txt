@@ -5,7 +5,6 @@ perceval-mozilla==0.3.5
 perceval-opnfv==0.2.5
 perceval-puppet==0.2.5
 perceval-weblate==0.2.5
-kingarthur==0.2.5
 grimoire-elk==0.103.3
 sortinghat==0.7.23
 kidash==0.5.2
