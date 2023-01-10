@@ -100,22 +100,10 @@ jobs:
           echo "version=$version" >> $GITHUB_OUTPUT
         working-directory: ${{ inputs.module_directory }}
 
-      - id: check-dependencies
-        name: Check if package dependencies exist
+      - id: wait-pypi
+        name: Wait for dependencies to be ready in PyPI
         run: |
-          dependencies="${{ inputs.dependencies }}"
-          if [ ! -z "$dependencies" ]
-          then
-            timeout=5
-            for i in $(seq 5)
-            do
-              poetry add --lock --no-cache --dry-run $dependencies && exit 0
-              sleep $timeout
-              timeout=$(( timeout * 2 ))
-            done
-            exit 1
-          fi
-        working-directory: ${{ inputs.module_directory }}
+          sleep 60
 
       - id: update-dependencies
         name: Update package dependencies
