@@ -31,6 +31,11 @@ on:
         description: 'Package dependencies and their version'
         type: string
         required: true
+      wait_dependencies:
+        description: 'Wait until packages are ready for Poetry'
+        type: boolean
+        default: true
+        required: false
     secrets:
       access_token:
         description: 'Token for updating repositories'
@@ -100,8 +105,27 @@ jobs:
           echo "version=$version" >> $GITHUB_OUTPUT
         working-directory: ${{ inputs.module_directory }}
 
+      - id: wait-dependencies
+        name: Check is package dependencies are ready
+        if: inputs.wait_dependencies == true
+        run: |
+          dependencies="${{ inputs.dependencies }}"
+          if [ ! -z "$dependencies" ]
+          then
+            timeout=5
+            for i in $(seq 5)
+            do
+              poetry add --lock --no-cache --dry-run $dependencies && exit 0
+              sleep $timeout
+              timeout=$(( timeout * 2 ))
+            done
+            exit 1
+          fi
+        working-directory: ${{ inputs.module_directory }}
+
       - id: wait-pypi
         name: Wait for dependencies to be ready in PyPI
+        if: inputs.wait_dependencies == false
         run: |
           sleep 60
 
