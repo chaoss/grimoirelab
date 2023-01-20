@@ -191,13 +191,15 @@ jobs:
           if [ ${{ inputs.release_candidate }} == 'true' ]
           then
             newsArg=''
+            rcArg='--pre-release'
           else
             newsArg='--news'
+            rcArg=''
           fi
           
           if [ ${{ steps.semverup.outputs.forced_version }} != 'true' ]
           then
-            notes "${{ inputs.module_name }}" $version $newsArg --authors   
+            notes "${{ inputs.module_name }}" $version $newsArg --authors $rcArg
           else
             module_name=${{ inputs.module_name }}
             today=$(date -u "+%Y-%m-%d")
