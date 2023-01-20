@@ -71,6 +71,7 @@ jobs:
     name: Sortinghat
     needs:
       - variables-job
+      - grimoirelab-toolkit
     uses: ./.github/workflows/release-grimoirelab-component.yml
     with:
       git_email: ${{ needs.variables-job.outputs.git_email }}
@@ -79,8 +80,8 @@ jobs:
       module_name: 'sortinghat'
       module_repository: 'chaoss/grimoirelab-sortinghat'
       module_directory: 'src/grimoirelab-sortinghat'
-      dependencies: ''
-      wait_dependencies: false
+      dependencies: '${{ needs.grimoirelab-toolkit.outputs.package_version }}'
+      wait_dependencies: true
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
