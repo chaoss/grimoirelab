@@ -31,8 +31,8 @@ on:
         description: 'Package dependencies and their version'
         type: string
         required: true
-      wait_dependencies:
-        description: 'Wait until packages are ready for Poetry'
+      check_dependencies:
+        description: 'Check dependencies are available. If false and has dependencies, wait 180 seconds'
         type: boolean
         default: true
         required: false
@@ -101,9 +101,9 @@ jobs:
           echo "version=$version" >> $GITHUB_OUTPUT
         working-directory: ${{ inputs.module_directory }}
 
-      - id: wait-dependencies
+      - id: check-dependencies
         name: Check is package dependencies are ready
-        if: inputs.wait_dependencies == true
+        if: inputs.check_dependencies == true
         run: |
           dependencies="${{ inputs.dependencies }}"
           if [ ! -z "$dependencies" ]
@@ -121,7 +121,7 @@ jobs:
 
       - id: wait-pypi
         name: Wait for dependencies to be ready in PyPI
-        if: inputs.wait_dependencies == false
+        if: (inputs.check_dependencies == false) && (inputs.dependencies != '')
         run: |
           sleep 180
 
