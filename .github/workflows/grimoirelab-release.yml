@@ -359,7 +359,7 @@ jobs:
       - id: check-dependencies
         name: Check if package dependencies exist
         run: |
-          sleep 60
+          sleep 180
 
       - id: semverup
         name: Update version number
