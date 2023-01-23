@@ -51,9 +51,6 @@ on:
       notes:
         description: "Notes content for the package"
         value: ${{ jobs.release.outputs.notes }}
-      changed_version:
-        description: "The version changed was major (4), minor (2), patch (1) or not changed (0)"
-        value: ${{ jobs.release.outputs.changed_version }}
 
 jobs:
   release:
@@ -63,7 +60,6 @@ jobs:
       version: ${{ steps.version.outputs.version }}
       package_version: ${{ steps.version.outputs.package_version }}
       notes: ${{ steps.notes.outputs.notes }}
-      changed_version: ${{ steps.changed-version.outputs.changed }}
 
     steps:
       - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # 3.1.0
@@ -127,7 +123,7 @@ jobs:
         name: Wait for dependencies to be ready in PyPI
         if: inputs.wait_dependencies == false
         run: |
-          sleep 60
+          sleep 180
 
       - id: update-dependencies
         name: Update package dependencies
@@ -185,36 +181,6 @@ jobs:
           echo $package_version
         working-directory: ${{ inputs.module_directory }}
 
-      - id: changed-version
-        name: Get the version changed
-        run: |
-          BUMP_MAJOR=4
-          BUMP_MINOR=2
-          BUMP_PATCH=1
-          current=${{ steps.version.outputs.version }}
-          old=${{ steps.old-version.outputs.version }}
-          # Remove rc part
-          current=${current%-*}
-          old=${old%-*}
-          currentArr=(${current//./ })
-          oldArr=(${old//./ })
-          if [ ${currentArr[0]} -gt ${oldArr[0]} ]
-          then
-            echo "changed=$BUMP_MAJOR" >> $GITHUB_OUTPUT
-            echo "Major"
-          elif [ ${currentArr[1]} -gt ${oldArr[1]} ]
-          then
-            echo "changed=$BUMP_MINOR" >> $GITHUB_OUTPUT
-            echo "Minor"
-          elif [ ${currentArr[2]} -gt ${oldArr[2]} ]
-          then
-            echo "changed=$BUMP_PATCH" >> $GITHUB_OUTPUT
-            echo "Patch"
-          else
-            echo "changed=0" >> $GITHUB_OUTPUT
-            echo "Not changed"
-          fi
-
       - id: notes
         name: Generate release notes.
         if: steps.semverup.outcome == 'success'
@@ -225,13 +191,15 @@ jobs:
           if [ ${{ inputs.release_candidate }} == 'true' ]
           then
             newsArg=''
+            rcArg='--pre-release'
           else
             newsArg='--news'
+            rcArg=''
           fi
           
           if [ ${{ steps.semverup.outputs.forced_version }} != 'true' ]
           then
-            notes "${{ inputs.module_name }}" $version $newsArg --authors   
+            notes "${{ inputs.module_name }}" $version $newsArg --authors $rcArg
           else
             module_name=${{ inputs.module_name }}
             today=$(date -u "+%Y-%m-%d")
