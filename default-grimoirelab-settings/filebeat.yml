@@ -1,0 +1,13 @@
+---
+
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /log/all.log
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
+  index: "mordred-logs-%{+yyyy.MM.dd}"
+
+setup.template.name: "mordred-logs"
+setup.template.pattern: "mordred-logs*"
