@@ -20,8 +20,8 @@ services:
       links:
         - mariadb
       volumes:
-        - ../default-grimoirelab-settings/apache-hatstall.conf:/home/grimoirelab/apache-hatstall.conf
-        - ../default-grimoirelab-settings/shdb.cfg:/home/grimoirelab/shdb.cfg
+        - ../default-grimoirelab-settings/apache-hatstall.conf:/home/grimoirelab/apache-hatstall.conf:z
+        - ../default-grimoirelab-settings/shdb.cfg:/home/grimoirelab/shdb.cfg:z
 
     elasticsearch:
       image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.6
