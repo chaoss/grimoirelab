@@ -39,6 +39,9 @@ repositories and data sources, you need to modify [`projects.json`](../default-g
 and [`setup.cfg`](../default-grimoirelab-settings/setup.cfg) files. See 
 [below](#more-information) more information about these files format.
 
+You also need a SortingHat server running at http://localhost:8000/identities.
+See [Sortinghat for more information](https://github.com/chaoss/grimoirelab-sortinghat)
+
 Default configuration files assumes Elasticsearch is available in port 9200, 
 and MariaDB or MySQL in their standard port (if they are not present, the 
 process will fail).
@@ -49,8 +52,6 @@ SirMordred:
 docker run --net=host \ 
     -v $(pwd)/default-grimoirelab-settings/projects.json:/home/grimoire/conf/projects.json \
     -v $(pwd)/default-grimoirelab-settings/setup-docker.cfg:/home/grimoire/conf/setup.cfg \
-    -v $(pwd)/default-grimoirelab-settings/organizations.json:/home/grimoire/organizations.json \
-    -v $(pwd)/default-grimoirelab-settings/identities.yml:/home/grimoire/conf/identities.yml \
     -t grimoirelab/grimoirelab
 ```
 
