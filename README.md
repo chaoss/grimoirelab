@@ -41,7 +41,7 @@ foo@bar:~$ cd grimoirelab/docker-compose
 foo@bar:~/grimoirelab/docker-compose$ docker-compose up -d
 ```
 
-Your dashboard will be ready after a while at `http://localhost:5601`. The waiting time depends on the amount of data to fetch from a repo, for small repositories you can expect your data to be visible in the dashboard after 10-15 minutes.
+Your dashboard will be ready after a while at `http://localhost:8000`. The waiting time depends on the amount of data to fetch from a repo, for small repositories you can expect your data to be visible in the dashboard after 10-15 minutes.
 
 More details in the [docker-compose folder](./docker-compose/README.md).
 
@@ -57,6 +57,7 @@ Docker version 19.03.1, build 74b1e89
 ```
 * **Hardware**: 2 CPU cores, 8GB memory RAM and set
 * ElasticSearch and Kibana up and running.
+* SortingHat up and running
 
 Steps:
 1. Clone this project:
@@ -69,12 +70,10 @@ foo@bar:~$ cd grimoirelab
 foo@bar:~/grimoirelab $ docker run --net=host \ 
     -v $(pwd)/default-grimoirelab-settings/projects.json:/home/grimoire/conf/projects.json \
     -v $(pwd)/default-grimoirelab-settings/setup-docker.cfg:/home/grimoire/conf/setup.cfg \
-    -v $(pwd)/default-grimoirelab-settings/organizations.json:/home/grimoire/organizations.json \
-    -v $(pwd)/default-grimoirelab-settings/identities.yml:/home/grimoire/conf/identities.yml \
     -t grimoirelab/grimoirelab
 ```
 
-Your dashboard will be ready after a while at `http://localhost:5601`. The waiting time depends on the amount of data to fetch from a repo, for small repositories you can expect your data to be visible in the dashboard after 10-15 minutes.
+Your dashboard will be ready after a while at `http://localhost:8000`. The waiting time depends on the amount of data to fetch from a repo, for small repositories you can expect your data to be visible in the dashboard after 10-15 minutes.
 
 More details in the [docker folder](./docker/README.md).
 
@@ -103,7 +102,6 @@ Currently, GrimoireLab toolkit is organized in the following repositories:
   * [Mordred](https://github.com/chaoss/grimoirelab-mordred): orchestration
   * [GrimoireLab Toolkit](https://github.com/chaoss/grimoirelab-toolkit): common utilities
   * [Bestiary](https://github.com/chaoss/grimoirelab-bestiary): web-based user interface to manage repositories and projects for Mordred
-  * [Hatstall](https://github.com/chaoss/grimoirelab-hatstall): web-based user interface to manage SortingHat identities
 
 There are also some [components built by the GrimoreLab community](community_components.md),
 which can be useful for you. Other related repositories are:
