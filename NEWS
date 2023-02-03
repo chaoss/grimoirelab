@@ -1,5 +1,58 @@
 # Releases
 
+## GrimoireLab 0.7.4 - (2023-02-03)
+
+**New components:**
+
+* sortinghat 0.8.1
+* perceval 0.21.3
+* perceval-mozilla 0.3.7
+* perceval-opnfv 0.2.7
+* perceval-puppet 0.2.7
+* perceval-weblate 0.2.7
+* graal 0.4.4
+* grimoire-elk 0.104.2
+* sirmordred 0.6.1
+
+The following list describes the changes by component:
+
+### sortinghat
+  
+  * Update Poetry's package dependencies
+
+### perceval
+  
+  * Update Poetry's package dependencies
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### perceval-weblate
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+  
+  * Update Poetry's package dependencies
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 0.7.3 - (2023-02-01)
 
 **New components:**
