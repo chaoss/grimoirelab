@@ -21,14 +21,18 @@ to analyze git activity for this repository. For this set up, there are several 
 Requirements:
 * **Software**: [git](https://git-scm.com/), [docker client](https://docs.docker.com/get-docker/) and [docker compose](https://docs.docker.com/compose/install/). An example of working configuration:
 ```console
-root@test-68b8628f:~# git --version
+foo@bar:~# git --version
 git version 2.17.1
-root@test-68b8628f:~# docker --version
+foo@bar:~# docker --version
 Docker version 19.03.1, build 74b1e89
-root@test-68b8628f:~# docker-compose --version
+foo@bar:~# docker-compose --version
 docker-compose version 1.22.0, build f46880fe
 ```
 * **Hardware**: 2 CPU cores, 8GB memory RAM and [enough virtual memory for Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html) 
+```console
+foo@bar:~# sudo sysctl -w vm.max_map_count=262144
+vm.max_map_count = 262144
+```
 
 Steps:
 1. Clone this project:
@@ -50,9 +54,9 @@ More details in the [docker-compose folder](./docker-compose/README.md).
 Requirements: 
 * **Software**: [git](https://git-scm.com/) and [docker client](https://docs.docker.com/get-docker/). An example of working configuration:
 ```console
-root@test-68b8628f:~# git --version
+foo@bar:~# git --version
 git version 2.17.1
-root@test-68b8628f:~# docker --version
+foo@bar:~# docker --version
 Docker version 19.03.1, build 74b1e89
 ```
 * **Hardware**: 2 CPU cores, 8GB memory RAM and set
