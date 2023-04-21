@@ -108,10 +108,17 @@ jobs:
           dependencies="${{ inputs.dependencies }}"
           if [ ! -z "$dependencies" ]
           then
+            clear_cache() {
+              for cache in $(poetry cache list); do
+                echo "Clear $cache"
+                poetry -n cache clear $cache --all
+              done
+            }
             timeout=5
             for i in $(seq 5)
             do
-              poetry add --lock --no-cache --dry-run $dependencies && exit 0
+              clear_cache
+              poetry add --lock --dry-run $dependencies && exit 0
               sleep $timeout
               timeout=$(( timeout * 2 ))
             done
