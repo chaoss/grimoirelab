@@ -139,14 +139,14 @@ files = [
 
 [[package]]
 name = "cereslib"
-version = "0.4.0rc1"
+version = "0.4.0"
 description = "GrimoireLab: Unify, eventize and enrich information from Perceval"
 category = "main"
 optional = false
 python-versions = ">=3.7.1,<4.0.0"
 files = [
-    {file = "cereslib-0.4.0rc1-py3-none-any.whl", hash = "sha256:00da7e87c829b5875a4c9565c5f757c044d185be85ba9b970c6a0ef54c6e6c29"},
-    {file = "cereslib-0.4.0rc1.tar.gz", hash = "sha256:42d4ed16cfb5d485b3e396dbf8646f52cc671d9dfd349d762e6a6eadc6640a13"},
+    {file = "cereslib-0.4.0-py3-none-any.whl", hash = "sha256:47704f5d78f020a16f522076b95c489c2e138b58d19eb11e4b02997c677a446c"},
+    {file = "cereslib-0.4.0.tar.gz", hash = "sha256:96bbbee13040c9975c24ac4f19f6780fda803cede89f5f77a0802cd012b2eae8"},
 ]
 
 [package.dependencies]
@@ -1042,14 +1042,14 @@ grpc = ["grpcio (>=1.44.0,<2.0.0dev)"]
 
 [[package]]
 name = "graal"
-version = "0.4.5rc2"
+version = "0.4.5"
 description = "A generic source code analyzer"
 category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "graal-0.4.5rc2-py3-none-any.whl", hash = "sha256:f4cae484eb9858ceb25acd4938a6a39b19d35fe9db4ae85d6129cee5540a58a1"},
-    {file = "graal-0.4.5rc2.tar.gz", hash = "sha256:4fcc090292dcc5a5ab5a666cb610c1f4c2bb0d7643d1f8674cf31c6154459484"},
+    {file = "graal-0.4.5-py3-none-any.whl", hash = "sha256:1365bf19c992058493ec8361979522951bffbbd68dbe11411ba4f98bc82bd40f"},
+    {file = "graal-0.4.5.tar.gz", hash = "sha256:5d0ae79b8979f7eb10e99b5f9c867e762fa36f6821391ca0241a1b49ca00166d"},
 ]
 
 [package.dependencies]
@@ -1154,14 +1154,14 @@ six = ">=1.12"
 
 [[package]]
 name = "grimoire-elk"
-version = "0.104.3rc2"
+version = "0.104.3"
 description = "GrimoireELK processes and stores software development data to ElasticSearch"
 category = "main"
 optional = false
 python-versions = ">=3.7.1,<4.0.0"
 files = [
-    {file = "grimoire_elk-0.104.3rc2-py3-none-any.whl", hash = "sha256:d31faa46f7297b5b42a93f0b27f64bfe6b5729cd561e386c7983de3f34bd7c59"},
-    {file = "grimoire_elk-0.104.3rc2.tar.gz", hash = "sha256:6527b2ef6f947ebd2a524bc546e49dcbc8ea842f288113746aa070030aad0208"},
+    {file = "grimoire_elk-0.104.3-py3-none-any.whl", hash = "sha256:8c2e32f1025aa7d325f53dcd173f949d80394c86788dd5bec95c61263c9c1c2c"},
+    {file = "grimoire_elk-0.104.3.tar.gz", hash = "sha256:60bb876ff45ca74ff88dddf4308311a192e66fbaf1619dd3028f993f565fb348"},
 ]
 
 [package.dependencies]
@@ -1198,14 +1198,14 @@ files = [
 
 [[package]]
 name = "grimoirelab-toolkit"
-version = "0.3.4rc1"
+version = "0.3.4"
 description = "Toolkit of common functions used across GrimoireLab"
 category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "grimoirelab_toolkit-0.3.4rc1-py3-none-any.whl", hash = "sha256:d814358d42bd8561eb12a84a1b710ad79a9898e991b2cd9c9556c6c115228ad3"},
-    {file = "grimoirelab_toolkit-0.3.4rc1.tar.gz", hash = "sha256:c4050e6e4f4667d3cc987e8b126b36775af646ee9d165dfe9c15ead07cd9e38e"},
+    {file = "grimoirelab_toolkit-0.3.4-py3-none-any.whl", hash = "sha256:9001ad5093904f51e8ea45e70aaf6a0480b1e4ed7036f8635f1178cb06478613"},
+    {file = "grimoirelab_toolkit-0.3.4.tar.gz", hash = "sha256:17d70cbcb5776860709f9a43e35a9f38de07174d5f19aafa8a9edb9ab142e088"},
 ]
 
 [package.dependencies]
@@ -1300,14 +1300,14 @@ i18n = ["Babel (>=2.7)"]
 
 [[package]]
 name = "kidash"
-version = "0.5.4rc1"
+version = "0.5.4"
 description = "GrimoireLab script to manage Kibana dashboards from the command line"
 category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "kidash-0.5.4rc1-py3-none-any.whl", hash = "sha256:a21f0898fd1d3ece63a041ea79559a1b29cb663d49b10a3093b93c93f0ad855a"},
-    {file = "kidash-0.5.4rc1.tar.gz", hash = "sha256:81b8a13281653ef544caf1c240fcfc898b7b93e01a6397e0bc80784db55e21a7"},
+    {file = "kidash-0.5.4-py3-none-any.whl", hash = "sha256:ca787224fe50a2bb005b3fbf8f02bf38a9d6ec3623ee4aeb5d8c20f6ed471d14"},
+    {file = "kidash-0.5.4.tar.gz", hash = "sha256:927502a59cd14c2b5c45c6191377574932d7952aa2985a8c4e4b91fa8ca5ac01"},
 ]
 
 [package.dependencies]
@@ -1634,14 +1634,14 @@ files = [
 
 [[package]]
 name = "perceval"
-version = "0.21.4rc2"
+version = "0.21.4"
 description = "Send Sir Perceval on a quest to fetch and gather data from software repositories."
 category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "perceval-0.21.4rc2-py3-none-any.whl", hash = "sha256:929552a11a304950b3448e19f107beb8c11dabfa915850d38daaffd19bc53c63"},
-    {file = "perceval-0.21.4rc2.tar.gz", hash = "sha256:d54e8e33aabceb3b2da2701996d16c10a57e3f90b757c1428d0da8a445489191"},
+    {file = "perceval-0.21.4-py3-none-any.whl", hash = "sha256:38c7cd0fb8943604dbc28b2a8af8479419fdd2ee163d678dcea2b8f0294063dc"},
+    {file = "perceval-0.21.4.tar.gz", hash = "sha256:c8079b410e36c201c2761526ce40cb49398660bfde416ac1066152b542e2e2ae"},
 ]
 
 [package.dependencies]
@@ -1660,14 +1660,14 @@ docs = ["furo (>=2021.8.31,<2022.0.0)", "myst-parser (>=0.15.2,<0.16.0)"]
 
 [[package]]
 name = "perceval-mozilla"
-version = "0.3.8rc2"
+version = "0.3.8"
 description = "Bundle of Perceval backends for Mozilla ecosystem."
 category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "perceval_mozilla-0.3.8rc2-py3-none-any.whl", hash = "sha256:10d230fe34d00d46ae761d9bb00c7dee9fe48001e348e14fb01cd1cd56c05f58"},
-    {file = "perceval_mozilla-0.3.8rc2.tar.gz", hash = "sha256:b2b56079ce993d292c1c16c22605aa29e4d1c42812bad815acf8d0115ece7a60"},
+    {file = "perceval_mozilla-0.3.8-py3-none-any.whl", hash = "sha256:381b8c6201492e9917c2e72f32392d39e4b3e403ddaf74806b375ca16804b58b"},
+    {file = "perceval_mozilla-0.3.8.tar.gz", hash = "sha256:5e7a95175e054752d36e8079f04463478f4d0d1cb6520630d8484375f9aa304d"},
 ]
 
 [package.dependencies]
@@ -1677,14 +1677,14 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "perceval-opnfv"
-version = "0.2.8rc2"
+version = "0.2.8"
 description = "Bundle of Perceval backends for OPNFV ecosystem."
 category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "perceval_opnfv-0.2.8rc2-py3-none-any.whl", hash = "sha256:a35c6c961ed3b7763d534ded713f7f4979ba5318f2a398fb10ca602c6b116820"},
-    {file = "perceval_opnfv-0.2.8rc2.tar.gz", hash = "sha256:6cbbb125e96c1bda4f1b8f9169e005dc4b0570a5aa04ae65c2925dbb2982774b"},
+    {file = "perceval_opnfv-0.2.8-py3-none-any.whl", hash = "sha256:812e1730e09d61985beacfb2eb41b539b03e42ea0c2d06c6609e13cc283a7d8d"},
+    {file = "perceval_opnfv-0.2.8.tar.gz", hash = "sha256:85dc91b72916fda422e8b04973d02f24faaec16fcc6c73500ce3bc8f6fbdd8d4"},
 ]
 
 [package.dependencies]
@@ -1694,14 +1694,14 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "perceval-puppet"
-version = "0.2.8rc2"
+version = "0.2.8"
 description = "Bundle of Perceval backends for Puppet, Inc. ecosystem."
 category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "perceval_puppet-0.2.8rc2-py3-none-any.whl", hash = "sha256:d8c6ab1e0380c0699a365a9cf0dd6ef9fd29d6a8dfe5851c8560258ea739f135"},
-    {file = "perceval_puppet-0.2.8rc2.tar.gz", hash = "sha256:bde45c7ce8bc5df8bfda12ae34ed74644232594d6a331ae4782e930be1ba36cc"},
+    {file = "perceval_puppet-0.2.8-py3-none-any.whl", hash = "sha256:5fb53990e051628c12893bb075ce7bc0aaee5611f4dc5291abe82bab353b17b1"},
+    {file = "perceval_puppet-0.2.8.tar.gz", hash = "sha256:2872ad3f29cd52aefeec1bd5222790b1edff49e345051aaf457122a5336e6f9c"},
 ]
 
 [package.dependencies]
@@ -1711,14 +1711,14 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "perceval-weblate"
-version = "0.2.8rc2"
+version = "0.2.8"
 description = "Bundle of Perceval backends for Weblate."
 category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "perceval_weblate-0.2.8rc2-py3-none-any.whl", hash = "sha256:bad1b5b86df6df6410ee1485bc588da60f0fc5580514dcb3738faca46150d58f"},
-    {file = "perceval_weblate-0.2.8rc2.tar.gz", hash = "sha256:9788830c6cbb43cd10fb832de1b1e8676bb3082a2d81a7da09625e7af80838c7"},
+    {file = "perceval_weblate-0.2.8-py3-none-any.whl", hash = "sha256:3c14e91988da199f271a761f4053d11683ad1c89539ccc48e909d9b3fc9da269"},
+    {file = "perceval_weblate-0.2.8.tar.gz", hash = "sha256:44907d827ec0679693897ea52d8cab429d9f2076e5e1a7aefa2ba6950ebc26de"},
 ]
 
 [package.dependencies]
@@ -2232,14 +2232,14 @@ testing = ["flake8 (<5)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-chec
 
 [[package]]
 name = "sirmordred"
-version = "0.7.0rc1"
+version = "0.7.0"
 description = "Drive GrimoireLab tools to produce a dashboard"
 category = "main"
 optional = false
 python-versions = ">=3.7.1,<4.0.0"
 files = [
-    {file = "sirmordred-0.7.0rc1-py3-none-any.whl", hash = "sha256:a19289e5ec558be6c1ee76d3d562db4f4a6272da90f179df8b39e204d264e5e5"},
-    {file = "sirmordred-0.7.0rc1.tar.gz", hash = "sha256:bb38e41afd7a83e173b446f46796968c5991f3b22b73816ae638a2275effb012"},
+    {file = "sirmordred-0.7.0-py3-none-any.whl", hash = "sha256:a0573d4491aad1e0165ff379cbc6f8b56b209b364be88b098c168b139df3b92d"},
+    {file = "sirmordred-0.7.0.tar.gz", hash = "sha256:abe74ce1f37abaf35394351c163a612823ad3db3d30dc053f2d32f2bef3a8aa0"},
 ]
 
 [package.dependencies]
@@ -2286,14 +2286,14 @@ files = [
 
 [[package]]
 name = "sortinghat"
-version = "0.9.0rc2"
+version = "0.9.0"
 description = "A tool to manage identities."
 category = "main"
 optional = false
 python-versions = ">=3.7.1,<4.0.0"
 files = [
-    {file = "sortinghat-0.9.0rc2-py3-none-any.whl", hash = "sha256:a60c39512a40c125f6644557f17534f7706a376a389e5e02fbcc89e0fb7eeb4d"},
-    {file = "sortinghat-0.9.0rc2.tar.gz", hash = "sha256:27fcaf6cdf90e120f12b827dcb761f6ec2134d395826027176976cc1280095b5"},
+    {file = "sortinghat-0.9.0-py3-none-any.whl", hash = "sha256:e3380c28f94d4c723db051834034f98c3cb734a3d9c387bee4e7100ba8867e28"},
+    {file = "sortinghat-0.9.0.tar.gz", hash = "sha256:4da816fde5e5e9ebf2bcf916fe7d3706a04fdb907663cc24c980af1b35f00fcd"},
 ]
 
 [package.dependencies]
@@ -2662,4 +2662,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.7.1"
-content-hash = "308b25494281ac4ecd0d234da9db31a7edaf6efba6b19d52f5184cdb7bc4bac9"
+content-hash = "1442cfa4889f4587ddfdff87c1e214ff8cceaa2fe056dba4feb1207d542b24aa"
