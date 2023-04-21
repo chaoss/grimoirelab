@@ -19,7 +19,7 @@ jobs:
 
   tests:
     needs: [build]
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     name: Python ${{ matrix.python-version }} for ES ${{ matrix.elasticsearch-version }}
     strategy:
