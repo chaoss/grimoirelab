@@ -1,5 +1,37 @@
 # Releases
 
+## GrimoireLab 0.9.2 - (2023-04-28)
+
+**New components:**
+
+* sortinghat 0.9.3
+* graal 0.4.8
+* grimoire-elk 0.104.6
+* sirmordred 0.7.2
+
+The following list describes the changes by component:
+
+### sortinghat
+
+**Bug fixes:**
+
+ * Tenant selection in job fixed\
+   Tenant selection raised an error when the job context was defined as
+   keyword argument.
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+  
+  * Update Poetry's package dependencies
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 0.9.1 - (2023-04-27)
 
 **New components:**
