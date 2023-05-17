@@ -31,11 +31,6 @@ on:
         description: 'Package dependencies and their version'
         type: string
         required: true
-      check_dependencies:
-        description: 'Check dependencies are available. If false and has dependencies, wait 180 seconds'
-        type: boolean
-        default: true
-        required: false
     secrets:
       access_token:
         description: 'Token for updating repositories'
@@ -103,7 +98,6 @@ jobs:
 
       - id: check-dependencies
         name: Check is package dependencies are ready
-        if: inputs.check_dependencies == true
         run: |
           dependencies="${{ inputs.dependencies }}"
           if [ ! -z "$dependencies" ]
@@ -125,12 +119,6 @@ jobs:
             exit 1
           fi
         working-directory: ${{ inputs.module_directory }}
-
-      - id: wait-pypi
-        name: Wait for dependencies to be ready in PyPI
-        if: (inputs.check_dependencies == false) && (inputs.dependencies != '')
-        run: |
-          sleep 180
 
       - id: update-dependencies
         name: Update package dependencies

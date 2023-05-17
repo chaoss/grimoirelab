@@ -46,7 +46,6 @@ jobs:
       module_repository: 'chaoss/grimoirelab-toolkit'
       module_directory: 'src/grimoirelab-toolkit'
       dependencies: ''
-      check_dependencies: false
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -63,7 +62,6 @@ jobs:
       module_repository: 'chaoss/grimoirelab-kidash'
       module_directory: 'src/grimoirelab-kidash'
       dependencies: ''
-      check_dependencies: false
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -81,7 +79,6 @@ jobs:
       module_repository: 'chaoss/grimoirelab-sortinghat'
       module_directory: 'src/grimoirelab-sortinghat'
       dependencies: '${{ needs.grimoirelab-toolkit.outputs.package_version }}'
-      check_dependencies: true
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -99,7 +96,6 @@ jobs:
       module_repository: 'chaoss/grimoirelab-cereslib'
       module_directory: 'src/grimoirelab-cereslib'
       dependencies: '${{ needs.grimoirelab-toolkit.outputs.package_version }}'
-      check_dependencies: true
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -116,7 +112,6 @@ jobs:
       module_repository: 'chaoss/grimoirelab-sigils'
       module_directory: 'src/grimoirelab-sigils'
       dependencies: ''
-      check_dependencies: true
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -134,7 +129,6 @@ jobs:
       module_repository: 'chaoss/grimoirelab-perceval'
       module_directory: 'src/grimoirelab-perceval'
       dependencies: "${{ needs.grimoirelab-toolkit.outputs.package_version }}"
-      check_dependencies: true
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -154,7 +148,6 @@ jobs:
       module_directory: 'src/grimoirelab-perceval-mozilla'
       dependencies: "${{ needs.grimoirelab-toolkit.outputs.package_version }} \
       ${{ needs.grimoirelab-perceval.outputs.package_version }}"
-      check_dependencies: true
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -174,7 +167,6 @@ jobs:
       module_directory: 'src/grimoirelab-perceval-opnfv'
       dependencies: "${{ needs.grimoirelab-toolkit.outputs.package_version }} \
       ${{ needs.grimoirelab-perceval.outputs.package_version }}"
-      check_dependencies: true
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -194,7 +186,6 @@ jobs:
       module_directory: 'src/grimoirelab-perceval-puppet'
       dependencies: "${{ needs.grimoirelab-toolkit.outputs.package_version }} \
       ${{ needs.grimoirelab-perceval.outputs.package_version }}"
-      check_dependencies: true
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -214,7 +205,6 @@ jobs:
       module_directory: 'src/grimoirelab-perceval-weblate'
       dependencies: "${{ needs.grimoirelab-toolkit.outputs.package_version }} \
       ${{ needs.grimoirelab-perceval.outputs.package_version }}"
-      check_dependencies: true
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -234,7 +224,6 @@ jobs:
       module_directory: 'src/grimoirelab-graal'
       dependencies: "${{ needs.grimoirelab-toolkit.outputs.package_version }} \
       ${{ needs.grimoirelab-perceval.outputs.package_version }}"
-      check_dependencies: true
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -268,7 +257,6 @@ jobs:
       ${{ needs.grimoirelab-perceval-weblate.outputs.package_version }} \
       ${{ needs.grimoirelab-graal.outputs.package_version }} \
       ${{ needs.grimoirelab-sortinghat.outputs.package_version }}"
-      check_dependencies: false
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
@@ -308,7 +296,6 @@ jobs:
       ${{ needs.grimoirelab-perceval-weblate.outputs.package_version }} \
       ${{ needs.grimoirelab-graal.outputs.package_version }} \
       ${{ needs.grimoirelab-cereslib.outputs.package_version }}"
-      check_dependencies: false
     secrets:
       access_token: ${{ secrets.GRIMOIRELAB_BUILD_TOKEN }}
 
