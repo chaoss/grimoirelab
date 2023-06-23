@@ -999,13 +999,13 @@ grpc = ["grpcio (>=1.44.0,<2.0.0dev)"]
 
 [[package]]
 name = "graal"
-version = "0.4.10rc1"
+version = "0.4.10rc2"
 description = "A generic source code analyzer"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "graal-0.4.10rc1-py3-none-any.whl", hash = "sha256:02029f90d1fb3dabc08c8508d55673061ee5a2d1840eafb740fbe62ae3588b8b"},
-    {file = "graal-0.4.10rc1.tar.gz", hash = "sha256:ed95f9df3df5ea92c673e677eea3f66f0907c0b4004cfc37716d2d87a5413f63"},
+    {file = "graal-0.4.10rc2-py3-none-any.whl", hash = "sha256:3e829846f545158073c060f1c22058ec4da7ccc5a215bf4813564a4957c709cf"},
+    {file = "graal-0.4.10rc2.tar.gz", hash = "sha256:40a3589f33291d93b89739b42477e79014f0434081b35492a23ffa4e19279edd"},
 ]
 
 [package.dependencies]
@@ -1106,13 +1106,13 @@ six = ">=1.12"
 
 [[package]]
 name = "grimoire-elk"
-version = "0.106.0rc1"
+version = "0.106.0rc2"
 description = "GrimoireELK processes and stores software development data to ElasticSearch"
 optional = false
 python-versions = ">=3.7.1,<4.0.0"
 files = [
-    {file = "grimoire_elk-0.106.0rc1-py3-none-any.whl", hash = "sha256:56e180f5bb419afa91d7ad770dbec895ce3ec918f14822b4a5f1e7dffdd64473"},
-    {file = "grimoire_elk-0.106.0rc1.tar.gz", hash = "sha256:657759caaf77ae61378897b2c93b1e02f5addd134fad2e7959007592e7760f36"},
+    {file = "grimoire_elk-0.106.0rc2-py3-none-any.whl", hash = "sha256:5769981378265d89eb54373593ed861c71b664c739973fbcf4055681f3df0986"},
+    {file = "grimoire_elk-0.106.0rc2.tar.gz", hash = "sha256:6c2158dd1caa4b97368b070f79fcf7343098deac332cd2a6ba1da4dc10853af9"},
 ]
 
 [package.dependencies]
@@ -2133,13 +2133,13 @@ testing = ["flake8 (<5)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-chec
 
 [[package]]
 name = "sirmordred"
-version = "0.9.0rc1"
+version = "0.9.0rc2"
 description = "Drive GrimoireLab tools to produce a dashboard"
 optional = false
 python-versions = ">=3.7.1,<4.0.0"
 files = [
-    {file = "sirmordred-0.9.0rc1-py3-none-any.whl", hash = "sha256:af5b3dfe64ac6d5fdca636b7f12217a15a8384927c39efadf222c966b43532ed"},
-    {file = "sirmordred-0.9.0rc1.tar.gz", hash = "sha256:1fc1971475824f14f0e4a9114cad7c391fdc35e6a17d44344baf42bad4ce80d0"},
+    {file = "sirmordred-0.9.0rc2-py3-none-any.whl", hash = "sha256:974b0be4e1d011dcff43d925ecde734b0aff4e9155e9b6420f91e74ee36f20b0"},
+    {file = "sirmordred-0.9.0rc2.tar.gz", hash = "sha256:88b44d5644ddf6d30c978572886d88b90a227d05816fbd0e98d2fe3484b33da8"},
 ]
 
 [package.dependencies]
@@ -2547,4 +2547,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.7.1"
-content-hash = "3cb25efc09c0b541593b9d2cdea10b885218804bc42c8001c7c939db38e0283c"
+content-hash = "df4f4e86b336694f36f63eeb7f2d9368f077d03566a3a65fc2a4228aa7d2980b"
