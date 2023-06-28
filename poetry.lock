@@ -131,13 +131,13 @@ files = [
 
 [[package]]
 name = "cereslib"
-version = "0.4.1rc1"
+version = "0.4.1"
 description = "GrimoireLab: Unify, eventize and enrich information from Perceval"
 optional = false
 python-versions = ">=3.7.1,<4.0.0"
 files = [
-    {file = "cereslib-0.4.1rc1-py3-none-any.whl", hash = "sha256:515ae9b5f01c23ef07d1ab0f2c18b861302aebe85258470aef4a05e457866711"},
-    {file = "cereslib-0.4.1rc1.tar.gz", hash = "sha256:273e66364cb7befbe877a79f1a77515d56faa6efa435d935fa90012f6d0aebf7"},
+    {file = "cereslib-0.4.1-py3-none-any.whl", hash = "sha256:5d1b431bd41e974e2dd2dfcea2f8c4aaad2db2471e36b9078aed4abc14f38f6c"},
+    {file = "cereslib-0.4.1.tar.gz", hash = "sha256:4516067565b2bc0631e076406418b5898ef4fda2db978bfa3615e474d35a8cc2"},
 ]
 
 [package.dependencies]
@@ -820,13 +820,13 @@ grpcio-gcp = ["grpcio-gcp (>=0.2.2,<1.0.dev0)"]
 
 [[package]]
 name = "google-auth"
-version = "2.20.0"
+version = "2.21.0"
 description = "Google Authentication Library"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "google-auth-2.20.0.tar.gz", hash = "sha256:030af34138909ccde0fbce611afc178f1d65d32fbff281f25738b1fe1c6f3eaa"},
-    {file = "google_auth-2.20.0-py2.py3-none-any.whl", hash = "sha256:23b7b0950fcda519bfb6692bf0d5289d2ea49fc143717cc7188458ec620e63fa"},
+    {file = "google-auth-2.21.0.tar.gz", hash = "sha256:b28e8048e57727e7cf0e5bd8e7276b212aef476654a09511354aa82753b45c66"},
+    {file = "google_auth-2.21.0-py2.py3-none-any.whl", hash = "sha256:da3f18d074fa0f5a7061d99b9af8cee3aa6189c987af7c1b07d94566b6b11268"},
 ]
 
 [package.dependencies]
@@ -863,13 +863,13 @@ grpc = ["grpcio (>=1.38.0,<2.0dev)"]
 
 [[package]]
 name = "google-cloud-storage"
-version = "2.9.0"
+version = "2.10.0"
 description = "Google Cloud Storage API client library"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "google-cloud-storage-2.9.0.tar.gz", hash = "sha256:9b6ae7b509fc294bdacb84d0f3ea8e20e2c54a8b4bbe39c5707635fec214eff3"},
-    {file = "google_cloud_storage-2.9.0-py2.py3-none-any.whl", hash = "sha256:83a90447f23d5edd045e0037982c270302e3aeb45fc1288d2c2ca713d27bad94"},
+    {file = "google-cloud-storage-2.10.0.tar.gz", hash = "sha256:934b31ead5f3994e5360f9ff5750982c5b6b11604dc072bc452c25965e076dc7"},
+    {file = "google_cloud_storage-2.10.0-py2.py3-none-any.whl", hash = "sha256:9433cf28801671de1c80434238fb1e7e4a1ba3087470e90f70c928ea77c2b9d7"},
 ]
 
 [package.dependencies]
@@ -999,13 +999,13 @@ grpc = ["grpcio (>=1.44.0,<2.0.0.dev0)"]
 
 [[package]]
 name = "graal"
-version = "0.4.10rc2"
+version = "0.4.10"
 description = "A generic source code analyzer"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "graal-0.4.10rc2-py3-none-any.whl", hash = "sha256:3e829846f545158073c060f1c22058ec4da7ccc5a215bf4813564a4957c709cf"},
-    {file = "graal-0.4.10rc2.tar.gz", hash = "sha256:40a3589f33291d93b89739b42477e79014f0434081b35492a23ffa4e19279edd"},
+    {file = "graal-0.4.10-py3-none-any.whl", hash = "sha256:3c7fdca9820af72b3a016309a3ee5f70c9e883584d4347132fd54b6b8c275958"},
+    {file = "graal-0.4.10.tar.gz", hash = "sha256:06d69eae3d8b619c16e287b0cec4e79a50115574cd1abaed53a92a2b645d5bec"},
 ]
 
 [package.dependencies]
@@ -1105,13 +1105,13 @@ six = ">=1.12"
 
 [[package]]
 name = "grimoire-elk"
-version = "0.106.0rc2"
+version = "0.106.0"
 description = "GrimoireELK processes and stores software development data to ElasticSearch"
 optional = false
 python-versions = ">=3.7.1,<4.0.0"
 files = [
-    {file = "grimoire_elk-0.106.0rc2-py3-none-any.whl", hash = "sha256:5769981378265d89eb54373593ed861c71b664c739973fbcf4055681f3df0986"},
-    {file = "grimoire_elk-0.106.0rc2.tar.gz", hash = "sha256:6c2158dd1caa4b97368b070f79fcf7343098deac332cd2a6ba1da4dc10853af9"},
+    {file = "grimoire_elk-0.106.0-py3-none-any.whl", hash = "sha256:b2d5130d03af8160545a376b8eee48a1caf390401fda5d268b881694ae0e4c2e"},
+    {file = "grimoire_elk-0.106.0.tar.gz", hash = "sha256:7a6dbe3316d2f11a3e508a7aa98d6fd858ceb516c199c3a8263998a0b3525526"},
 ]
 
 [package.dependencies]
@@ -1147,13 +1147,13 @@ files = [
 
 [[package]]
 name = "grimoirelab-toolkit"
-version = "0.3.5rc1"
+version = "0.3.5"
 description = "Toolkit of common functions used across GrimoireLab"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "grimoirelab_toolkit-0.3.5rc1-py3-none-any.whl", hash = "sha256:4f412d909770f7cde3ec5f1ac7619d70b3fa03788f274e509a6399d8c9bc7444"},
-    {file = "grimoirelab_toolkit-0.3.5rc1.tar.gz", hash = "sha256:bc0bae5d828011d41d48ccd67a4c35c314163d4723e59894b6f4eb286762b363"},
+    {file = "grimoirelab_toolkit-0.3.5-py3-none-any.whl", hash = "sha256:63092191c525aabfcfc1b6cbf79a591c92f464a402b6bf157672bda6d75f0b88"},
+    {file = "grimoirelab_toolkit-0.3.5.tar.gz", hash = "sha256:47034d47c608f1afae413fa1a5ec91d562f8214aff7c6f4daa41c6e64a3eba33"},
 ]
 
 [package.dependencies]
@@ -1243,13 +1243,13 @@ i18n = ["Babel (>=2.7)"]
 
 [[package]]
 name = "kidash"
-version = "0.5.7rc1"
+version = "0.5.7"
 description = "GrimoireLab script to manage Kibana dashboards from the command line"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "kidash-0.5.7rc1-py3-none-any.whl", hash = "sha256:49b5c87e592a87ad06389c5ea89aef9ceeb3a69744e3a9f03b3d1a782c5f07d5"},
-    {file = "kidash-0.5.7rc1.tar.gz", hash = "sha256:f0afe0aee8693187dfb414f3a3a477d8103e0a30246790e60fd6326d34922a0b"},
+    {file = "kidash-0.5.7-py3-none-any.whl", hash = "sha256:4cc130ee2849b2bdf1e4adeec087b597e64425853f857598a903f2afaa509299"},
+    {file = "kidash-0.5.7.tar.gz", hash = "sha256:078cfdbe94ebb4218091dff7a49b9fabb02527c7e6758cbd005c503b976f6487"},
 ]
 
 [package.dependencies]
@@ -1564,13 +1564,13 @@ files = [
 
 [[package]]
 name = "perceval"
-version = "0.22.0rc1"
+version = "0.22.0"
 description = "Send Sir Perceval on a quest to fetch and gather data from software repositories."
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "perceval-0.22.0rc1-py3-none-any.whl", hash = "sha256:6b34b3df1b2141e2e5d4c4cbf64ef06d788e503672bc8aa6ffad79617566b6fe"},
-    {file = "perceval-0.22.0rc1.tar.gz", hash = "sha256:70b46bbd3631a22734a8b6afde3ebcd9206a472b080446816c409e60c20d27b3"},
+    {file = "perceval-0.22.0-py3-none-any.whl", hash = "sha256:c8785be6f429b7a9e2807521ac7d05e42a76a17627232e0f555a1b33d1bc73ad"},
+    {file = "perceval-0.22.0.tar.gz", hash = "sha256:1c848cb7efa4c89f9e46be945cd2788dd357b2e6bf64e49c768a13904667050c"},
 ]
 
 [package.dependencies]
@@ -1589,13 +1589,13 @@ docs = ["furo (>=2021.8.31,<2022.0.0)", "myst-parser (>=0.15.2,<0.16.0)"]
 
 [[package]]
 name = "perceval-mozilla"
-version = "0.3.12rc1"
+version = "0.3.12"
 description = "Bundle of Perceval backends for Mozilla ecosystem."
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "perceval_mozilla-0.3.12rc1-py3-none-any.whl", hash = "sha256:0a68960cf5db7c82435b1e3297bee16009bf36087bfa396902c49a60663a82e0"},
-    {file = "perceval_mozilla-0.3.12rc1.tar.gz", hash = "sha256:bb7e6f22620f84d465fda00bd1d7003feacac8e46d2ca035af4d09999887a517"},
+    {file = "perceval_mozilla-0.3.12-py3-none-any.whl", hash = "sha256:6cbd7f31c68fb1c7b367551b176b65ed43cdf705d9cd40b9eaad93ff8ba86db6"},
+    {file = "perceval_mozilla-0.3.12.tar.gz", hash = "sha256:56b6238f8482dd6ccb97e6572287d8ebd3ccab853cddbe1b7de7488fb9c531c4"},
 ]
 
 [package.dependencies]
@@ -1605,13 +1605,13 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "perceval-opnfv"
-version = "0.2.12rc1"
+version = "0.2.12"
 description = "Bundle of Perceval backends for OPNFV ecosystem."
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "perceval_opnfv-0.2.12rc1-py3-none-any.whl", hash = "sha256:ef0170c59184c91abb8e24c5d0b34e2252837deb2132396b2aae80c9ec0eb283"},
-    {file = "perceval_opnfv-0.2.12rc1.tar.gz", hash = "sha256:994701205a414b00d2aed4402d35856d4dbd9c74dbf795810bd48890b1731722"},
+    {file = "perceval_opnfv-0.2.12-py3-none-any.whl", hash = "sha256:67efb6641cb793d41127a564be24acb26d0e988d74047b5ce7b4bec302a217ba"},
+    {file = "perceval_opnfv-0.2.12.tar.gz", hash = "sha256:cd7adc75ea395702e78d058e26ef93f6b8d5742e22a248f64cc369778b2c00a8"},
 ]
 
 [package.dependencies]
@@ -1621,13 +1621,13 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "perceval-puppet"
-version = "0.2.12rc1"
+version = "0.2.12"
 description = "Bundle of Perceval backends for Puppet, Inc. ecosystem."
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "perceval_puppet-0.2.12rc1-py3-none-any.whl", hash = "sha256:f420097ef87f7b80db0c7e74419ffcb875d8164f91974c152f80b8ea95b252a1"},
-    {file = "perceval_puppet-0.2.12rc1.tar.gz", hash = "sha256:6646d2659b9d918052ba7ff0e07b6b2bde3120bc24c57607ed971e0fd88bf681"},
+    {file = "perceval_puppet-0.2.12-py3-none-any.whl", hash = "sha256:6d252902a04098f7e4ec6a5232208dcffb46c695dd8fdfb5db145e99ad34729a"},
+    {file = "perceval_puppet-0.2.12.tar.gz", hash = "sha256:2545f4dce1fbe67927feeb3bf4a44f6cadf6c221aa706d3e1998818d68f853a5"},
 ]
 
 [package.dependencies]
@@ -1637,13 +1637,13 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "perceval-weblate"
-version = "0.2.12rc1"
+version = "0.2.12"
 description = "Bundle of Perceval backends for Weblate."
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "perceval_weblate-0.2.12rc1-py3-none-any.whl", hash = "sha256:a6633ab23d5e8951e4880b9ef93ac9f6509d9303e387b89bdb79f8b17691f930"},
-    {file = "perceval_weblate-0.2.12rc1.tar.gz", hash = "sha256:7083c8938e16a915ccfcfbe873e651f7f64bd85ee4fc5e1b88d5dbdbc9d075bf"},
+    {file = "perceval_weblate-0.2.12-py3-none-any.whl", hash = "sha256:213c30a2e96fad9ed3e40aa7d7aa800d8691851e3e36c5af24cd3726121b1062"},
+    {file = "perceval_weblate-0.2.12.tar.gz", hash = "sha256:450e85cded284ad9156c19cfd0ae60290c73862ec97410a2ba49674093011b14"},
 ]
 
 [package.dependencies]
@@ -1839,13 +1839,13 @@ testutil = ["gitpython (>3)"]
 
 [[package]]
 name = "pymysql"
-version = "1.0.3"
+version = "1.1.0"
 description = "Pure Python MySQL Driver"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "PyMySQL-1.0.3-py3-none-any.whl", hash = "sha256:89fc6ae41c0aeb6e1f7710cdd623702ea2c54d040565767a78b00a5ebb12f4e5"},
-    {file = "PyMySQL-1.0.3.tar.gz", hash = "sha256:3dda943ef3694068a75d69d071755dbecacee1adf9a1fc5b206830d2b67d25e8"},
+    {file = "PyMySQL-1.1.0-py3-none-any.whl", hash = "sha256:8969ec6d763c856f7073c4c64662882675702efcb114b4bcbb955aea3a069fa7"},
+    {file = "PyMySQL-1.1.0.tar.gz", hash = "sha256:4f13a7df8bf36a51e81dd9f3605fede45a4878fe02f9236349fd82a3f0612f96"},
 ]
 
 [package.extras]
@@ -1942,13 +1942,13 @@ files = [
 
 [[package]]
 name = "redis"
-version = "4.5.5"
+version = "4.6.0"
 description = "Python client for Redis database and key-value store"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "redis-4.5.5-py3-none-any.whl", hash = "sha256:77929bc7f5dab9adf3acba2d3bb7d7658f1e0c2f1cafe7eb36434e751c471119"},
-    {file = "redis-4.5.5.tar.gz", hash = "sha256:dc87a0bdef6c8bfe1ef1e1c40be7034390c2ae02d92dcd0c7ca1729443899880"},
+    {file = "redis-4.6.0-py3-none-any.whl", hash = "sha256:e2b03db868160ee4591de3cb90d40ebb50a90dd302138775937f6a42b7ed183c"},
+    {file = "redis-4.6.0.tar.gz", hash = "sha256:585dc516b9eb042a619ef0a39c3d7d55fe81bdb4df09a52c9cdde0d07bf1aa7d"},
 ]
 
 [package.dependencies]
@@ -2132,13 +2132,13 @@ testing = ["flake8 (<5)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-chec
 
 [[package]]
 name = "sirmordred"
-version = "0.9.0rc2"
+version = "0.9.0"
 description = "Drive GrimoireLab tools to produce a dashboard"
 optional = false
 python-versions = ">=3.7.1,<4.0.0"
 files = [
-    {file = "sirmordred-0.9.0rc2-py3-none-any.whl", hash = "sha256:974b0be4e1d011dcff43d925ecde734b0aff4e9155e9b6420f91e74ee36f20b0"},
-    {file = "sirmordred-0.9.0rc2.tar.gz", hash = "sha256:88b44d5644ddf6d30c978572886d88b90a227d05816fbd0e98d2fe3484b33da8"},
+    {file = "sirmordred-0.9.0-py3-none-any.whl", hash = "sha256:d499231abe4d777eae175e008875464161a6bb6eb305033a2f4fd6e78a03762b"},
+    {file = "sirmordred-0.9.0.tar.gz", hash = "sha256:c7e717203f5b9ce10d5536ca4b6bfa686c902fc68f869754a5b9378111e10799"},
 ]
 
 [package.dependencies]
@@ -2183,13 +2183,13 @@ files = [
 
 [[package]]
 name = "sortinghat"
-version = "0.11.0rc1"
+version = "0.11.0"
 description = "A tool to manage identities."
 optional = false
 python-versions = ">=3.7.1,<4.0.0"
 files = [
-    {file = "sortinghat-0.11.0rc1-py3-none-any.whl", hash = "sha256:d761b490293dbb04c70fc9f821a07ae819ed414a257bd7e051b6c4d2f9664083"},
-    {file = "sortinghat-0.11.0rc1.tar.gz", hash = "sha256:229cec856305de38130bf8a79c8f9540812ed4cb45b6961100dd98353fb70f66"},
+    {file = "sortinghat-0.11.0-py3-none-any.whl", hash = "sha256:b53a2a240823dac75112caf21bf218aaaacd131fcf01867b51bf618d01c45287"},
+    {file = "sortinghat-0.11.0.tar.gz", hash = "sha256:47cf3e25339fd7fdc16667058da8ac3b2729ab382afbab7e03d931b831180a29"},
 ]
 
 [package.dependencies]
@@ -2546,4 +2546,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.7.1"
-content-hash = "df4f4e86b336694f36f63eeb7f2d9368f077d03566a3a65fc2a4228aa7d2980b"
+content-hash = "efce0c37610ea3a931946bb80bd8239069c480e259cf4cc939dc36e103c98886"
