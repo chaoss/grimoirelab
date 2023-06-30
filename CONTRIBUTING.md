@@ -77,6 +77,9 @@ in a single line, into the commit comment field. This can be automated by using 
 
 ## Committers
 
+> Note: For the purposes of CHAOSS governance, we are using the terms 
+committers as equivalent to maintainers.
+
 Committers have the permision to merge code in GrimoireLab. Committers
 can be for all GrimoireLab, or for specific repositories.
 
@@ -92,11 +95,8 @@ rights, in case they are no longer involved in the project. For being
 removed, after the proposal there will be an action voting among
 committers, except for the one being proposed to be removed.
 
-The current list of committers is (GitHub handles):
-
-* General: @sduenas, @acs, @dicortazar, @sanacl, @jgbarah, @jsmanrique, @valcos
-* Manuscripts: @alpgarcia
-* Sigils: @alpgarcia
+Please check the [MAINTAINERS.md](MAINTAINERS.md) file for the current 
+list of committers.
 
 ## Voting on action items (action votes)
 
