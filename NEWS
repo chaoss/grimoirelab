@@ -1,5 +1,78 @@
 # Releases
 
+## GrimoireLab 0.13.0 - (2023-07-23)
+
+**New components:**
+
+* kidash 0.5.9
+* sortinghat 0.12.0
+* perceval 0.22.2
+* perceval-mozilla 0.3.14
+* perceval-opnfv 0.2.14
+* perceval-puppet 0.2.14
+* perceval-weblate 0.2.14
+* graal 0.4.12
+* grimoire-elk 0.108.0
+* sirmordred 0.9.2
+
+The following list describes the changes by component:
+
+### kidash
+  
+  * Update Poetry's package dependencies
+
+### sortinghat
+
+**New features:**
+
+ * Job scheduler\
+   This new feature allows users to schedule jobs, such as `affiliate` or
+   `unify`, to run periodically. The tasks can be configured, updated and
+   deleted using the GraphQL API.
+
+### perceval
+  
+  * Update Poetry's package dependencies
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### perceval-weblate
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+
+**Bug fixes:**
+
+ * Enrich items with multiple enrollments\
+   The `date` field must be a string since improved performance by
+   decreasing calls to the `str_to_datetime` method.
+
+**Performance improvements:**
+
+ * Load identities performance\
+   Improve the load identities process performance by reducing the number
+   of queries to SortingHat.
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 0.12.0 - (2023-07-11)
 
 **New components:**
