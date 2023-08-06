@@ -394,34 +394,34 @@ test = ["flake8 (==3.7.8)", "hypothesis (==3.55.3)"]
 
 [[package]]
 name = "cryptography"
-version = "41.0.2"
+version = "41.0.3"
 description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "cryptography-41.0.2-cp37-abi3-macosx_10_12_universal2.whl", hash = "sha256:01f1d9e537f9a15b037d5d9ee442b8c22e3ae11ce65ea1f3316a41c78756b711"},
-    {file = "cryptography-41.0.2-cp37-abi3-macosx_10_12_x86_64.whl", hash = "sha256:079347de771f9282fbfe0e0236c716686950c19dee1b76240ab09ce1624d76d7"},
-    {file = "cryptography-41.0.2-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:439c3cc4c0d42fa999b83ded80a9a1fb54d53c58d6e59234cfe97f241e6c781d"},
-    {file = "cryptography-41.0.2-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f14ad275364c8b4e525d018f6716537ae7b6d369c094805cae45300847e0894f"},
-    {file = "cryptography-41.0.2-cp37-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:84609ade00a6ec59a89729e87a503c6e36af98ddcd566d5f3be52e29ba993182"},
-    {file = "cryptography-41.0.2-cp37-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:49c3222bb8f8e800aead2e376cbef687bc9e3cb9b58b29a261210456a7783d83"},
-    {file = "cryptography-41.0.2-cp37-abi3-musllinux_1_1_aarch64.whl", hash = "sha256:d73f419a56d74fef257955f51b18d046f3506270a5fd2ac5febbfa259d6c0fa5"},
-    {file = "cryptography-41.0.2-cp37-abi3-musllinux_1_1_x86_64.whl", hash = "sha256:2a034bf7d9ca894720f2ec1d8b7b5832d7e363571828037f9e0c4f18c1b58a58"},
-    {file = "cryptography-41.0.2-cp37-abi3-win32.whl", hash = "sha256:d124682c7a23c9764e54ca9ab5b308b14b18eba02722b8659fb238546de83a76"},
-    {file = "cryptography-41.0.2-cp37-abi3-win_amd64.whl", hash = "sha256:9c3fe6534d59d071ee82081ca3d71eed3210f76ebd0361798c74abc2bcf347d4"},
-    {file = "cryptography-41.0.2-pp310-pypy310_pp73-macosx_10_12_x86_64.whl", hash = "sha256:a719399b99377b218dac6cf547b6ec54e6ef20207b6165126a280b0ce97e0d2a"},
-    {file = "cryptography-41.0.2-pp310-pypy310_pp73-manylinux_2_28_aarch64.whl", hash = "sha256:182be4171f9332b6741ee818ec27daff9fb00349f706629f5cbf417bd50e66fd"},
-    {file = "cryptography-41.0.2-pp310-pypy310_pp73-manylinux_2_28_x86_64.whl", hash = "sha256:7a9a3bced53b7f09da251685224d6a260c3cb291768f54954e28f03ef14e3766"},
-    {file = "cryptography-41.0.2-pp310-pypy310_pp73-win_amd64.whl", hash = "sha256:f0dc40e6f7aa37af01aba07277d3d64d5a03dc66d682097541ec4da03cc140ee"},
-    {file = "cryptography-41.0.2-pp38-pypy38_pp73-macosx_10_12_x86_64.whl", hash = "sha256:674b669d5daa64206c38e507808aae49904c988fa0a71c935e7006a3e1e83831"},
-    {file = "cryptography-41.0.2-pp38-pypy38_pp73-manylinux_2_28_aarch64.whl", hash = "sha256:7af244b012711a26196450d34f483357e42aeddb04128885d95a69bd8b14b69b"},
-    {file = "cryptography-41.0.2-pp38-pypy38_pp73-manylinux_2_28_x86_64.whl", hash = "sha256:9b6d717393dbae53d4e52684ef4f022444fc1cce3c48c38cb74fca29e1f08eaa"},
-    {file = "cryptography-41.0.2-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:192255f539d7a89f2102d07d7375b1e0a81f7478925b3bc2e0549ebf739dae0e"},
-    {file = "cryptography-41.0.2-pp39-pypy39_pp73-macosx_10_12_x86_64.whl", hash = "sha256:f772610fe364372de33d76edcd313636a25684edb94cee53fd790195f5989d14"},
-    {file = "cryptography-41.0.2-pp39-pypy39_pp73-manylinux_2_28_aarch64.whl", hash = "sha256:b332cba64d99a70c1e0836902720887fb4529ea49ea7f5462cf6640e095e11d2"},
-    {file = "cryptography-41.0.2-pp39-pypy39_pp73-manylinux_2_28_x86_64.whl", hash = "sha256:9a6673c1828db6270b76b22cc696f40cde9043eb90373da5c2f8f2158957f42f"},
-    {file = "cryptography-41.0.2-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:342f3767e25876751e14f8459ad85e77e660537ca0a066e10e75df9c9e9099f0"},
-    {file = "cryptography-41.0.2.tar.gz", hash = "sha256:7d230bf856164de164ecb615ccc14c7fc6de6906ddd5b491f3af90d3514c925c"},
+    {file = "cryptography-41.0.3-cp37-abi3-macosx_10_12_universal2.whl", hash = "sha256:652627a055cb52a84f8c448185922241dd5217443ca194d5739b44612c5e6507"},
+    {file = "cryptography-41.0.3-cp37-abi3-macosx_10_12_x86_64.whl", hash = "sha256:8f09daa483aedea50d249ef98ed500569841d6498aa9c9f4b0531b9964658922"},
+    {file = "cryptography-41.0.3-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4fd871184321100fb400d759ad0cddddf284c4b696568204d281c902fc7b0d81"},
+    {file = "cryptography-41.0.3-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:84537453d57f55a50a5b6835622ee405816999a7113267739a1b4581f83535bd"},
+    {file = "cryptography-41.0.3-cp37-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:3fb248989b6363906827284cd20cca63bb1a757e0a2864d4c1682a985e3dca47"},
+    {file = "cryptography-41.0.3-cp37-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:42cb413e01a5d36da9929baa9d70ca90d90b969269e5a12d39c1e0d475010116"},
+    {file = "cryptography-41.0.3-cp37-abi3-musllinux_1_1_aarch64.whl", hash = "sha256:aeb57c421b34af8f9fe830e1955bf493a86a7996cc1338fe41b30047d16e962c"},
+    {file = "cryptography-41.0.3-cp37-abi3-musllinux_1_1_x86_64.whl", hash = "sha256:6af1c6387c531cd364b72c28daa29232162010d952ceb7e5ca8e2827526aceae"},
+    {file = "cryptography-41.0.3-cp37-abi3-win32.whl", hash = "sha256:0d09fb5356f975974dbcb595ad2d178305e5050656affb7890a1583f5e02a306"},
+    {file = "cryptography-41.0.3-cp37-abi3-win_amd64.whl", hash = "sha256:a983e441a00a9d57a4d7c91b3116a37ae602907a7618b882c8013b5762e80574"},
+    {file = "cryptography-41.0.3-pp310-pypy310_pp73-macosx_10_12_x86_64.whl", hash = "sha256:5259cb659aa43005eb55a0e4ff2c825ca111a0da1814202c64d28a985d33b087"},
+    {file = "cryptography-41.0.3-pp310-pypy310_pp73-manylinux_2_28_aarch64.whl", hash = "sha256:67e120e9a577c64fe1f611e53b30b3e69744e5910ff3b6e97e935aeb96005858"},
+    {file = "cryptography-41.0.3-pp310-pypy310_pp73-manylinux_2_28_x86_64.whl", hash = "sha256:7efe8041897fe7a50863e51b77789b657a133c75c3b094e51b5e4b5cec7bf906"},
+    {file = "cryptography-41.0.3-pp310-pypy310_pp73-win_amd64.whl", hash = "sha256:ce785cf81a7bdade534297ef9e490ddff800d956625020ab2ec2780a556c313e"},
+    {file = "cryptography-41.0.3-pp38-pypy38_pp73-macosx_10_12_x86_64.whl", hash = "sha256:57a51b89f954f216a81c9d057bf1a24e2f36e764a1ca9a501a6964eb4a6800dd"},
+    {file = "cryptography-41.0.3-pp38-pypy38_pp73-manylinux_2_28_aarch64.whl", hash = "sha256:4c2f0d35703d61002a2bbdcf15548ebb701cfdd83cdc12471d2bae80878a4207"},
+    {file = "cryptography-41.0.3-pp38-pypy38_pp73-manylinux_2_28_x86_64.whl", hash = "sha256:23c2d778cf829f7d0ae180600b17e9fceea3c2ef8b31a99e3c694cbbf3a24b84"},
+    {file = "cryptography-41.0.3-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:95dd7f261bb76948b52a5330ba5202b91a26fbac13ad0e9fc8a3ac04752058c7"},
+    {file = "cryptography-41.0.3-pp39-pypy39_pp73-macosx_10_12_x86_64.whl", hash = "sha256:41d7aa7cdfded09b3d73a47f429c298e80796c8e825ddfadc84c8a7f12df212d"},
+    {file = "cryptography-41.0.3-pp39-pypy39_pp73-manylinux_2_28_aarch64.whl", hash = "sha256:d0d651aa754ef58d75cec6edfbd21259d93810b73f6ec246436a21b7841908de"},
+    {file = "cryptography-41.0.3-pp39-pypy39_pp73-manylinux_2_28_x86_64.whl", hash = "sha256:ab8de0d091acbf778f74286f4989cf3d1528336af1b59f3e5d2ebca8b5fe49e1"},
+    {file = "cryptography-41.0.3-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:a74fbcdb2a0d46fe00504f571a2a540532f4c188e6ccf26f1f178480117b33c4"},
+    {file = "cryptography-41.0.3.tar.gz", hash = "sha256:6d192741113ef5e30d89dcb5b956ef4e1578f304708701b8b73d38e3e1461f34"},
 ]
 
 [package.dependencies]
@@ -982,13 +982,13 @@ requests = ["requests (>=2.18.0,<3.0.0dev)"]
 
 [[package]]
 name = "googleapis-common-protos"
-version = "1.59.1"
+version = "1.60.0"
 description = "Common protobufs used in Google APIs"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "googleapis-common-protos-1.59.1.tar.gz", hash = "sha256:b35d530fe825fb4227857bc47ad84c33c809ac96f312e13182bdeaa2abe1178a"},
-    {file = "googleapis_common_protos-1.59.1-py2.py3-none-any.whl", hash = "sha256:0cbedb6fb68f1c07e18eb4c48256320777707e7d0c55063ae56c15db3224a61e"},
+    {file = "googleapis-common-protos-1.60.0.tar.gz", hash = "sha256:e73ebb404098db405ba95d1e1ae0aa91c3e15a71da031a2eeb6b2e23e7bc3708"},
+    {file = "googleapis_common_protos-1.60.0-py2.py3-none-any.whl", hash = "sha256:69f9bbcc6acde92cab2db95ce30a70bd2b81d20b12eff3f1aabaffcbe8a93918"},
 ]
 
 [package.dependencies]
@@ -999,13 +999,13 @@ grpc = ["grpcio (>=1.44.0,<2.0.0.dev0)"]
 
 [[package]]
 name = "graal"
-version = "0.4.12"
+version = "0.4.13rc1"
 description = "A generic source code analyzer"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "graal-0.4.12-py3-none-any.whl", hash = "sha256:019a0ac884aca06af85011a9950a9177bf693ece13a122637abfbcf55959e42d"},
-    {file = "graal-0.4.12.tar.gz", hash = "sha256:86304c10df6dd3946da8752f4a72cbed9e5f91428ae0885899a6c7238bc711ef"},
+    {file = "graal-0.4.13rc1-py3-none-any.whl", hash = "sha256:dd09e346d763ded22753b89c838ed17f6668a4f2353055b0fe4bec957052f128"},
+    {file = "graal-0.4.13rc1.tar.gz", hash = "sha256:87274850cf7aca8d0d950be00cfae575ae0e1df6b7ee54b841cce4a3a2fd7758"},
 ]
 
 [package.dependencies]
@@ -1105,13 +1105,13 @@ six = ">=1.12"
 
 [[package]]
 name = "grimoire-elk"
-version = "0.108.0"
+version = "0.108.1rc1"
 description = "GrimoireELK processes and stores software development data to ElasticSearch"
 optional = false
 python-versions = ">=3.7.1,<4.0.0"
 files = [
-    {file = "grimoire_elk-0.108.0-py3-none-any.whl", hash = "sha256:e9e87e30254e29a3c5431077b7f3894263ac68fe22324b27c250517ad213fa30"},
-    {file = "grimoire_elk-0.108.0.tar.gz", hash = "sha256:ba45125ee51082c8aff140172a176ee6809d9d0f75090956478ebe6b6b3326de"},
+    {file = "grimoire_elk-0.108.1rc1-py3-none-any.whl", hash = "sha256:d041b02f9a514f36ad8762df22101f6ef7d38e2ad7fc5a3f92eeee94103e4a17"},
+    {file = "grimoire_elk-0.108.1rc1.tar.gz", hash = "sha256:db8dcf032fe6e344f989239a26ff5802d934e7f317aefa078528402ceb609267"},
 ]
 
 [package.dependencies]
@@ -1564,13 +1564,13 @@ files = [
 
 [[package]]
 name = "perceval"
-version = "0.22.2"
+version = "0.22.3rc1"
 description = "Send Sir Perceval on a quest to fetch and gather data from software repositories."
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "perceval-0.22.2-py3-none-any.whl", hash = "sha256:7810f6503aefe326d2fdd076181bda5495a2952bac43621c8ade0c10e4334bdd"},
-    {file = "perceval-0.22.2.tar.gz", hash = "sha256:91f37902f7340e05c0a05a70c5d725b00aef72a31c3e72fe3bfb8182f1a29d8a"},
+    {file = "perceval-0.22.3rc1-py3-none-any.whl", hash = "sha256:cf49bf62009b933349fcb58a0828462102202ceaa7dd664cb9aff50e65f63fbc"},
+    {file = "perceval-0.22.3rc1.tar.gz", hash = "sha256:fb41bc43e2b58cf3db478b45644b1623c5d13afee6fce2151d38a2e5c727a080"},
 ]
 
 [package.dependencies]
@@ -1589,13 +1589,13 @@ docs = ["furo (>=2021.8.31,<2022.0.0)", "myst-parser (>=0.15.2,<0.16.0)"]
 
 [[package]]
 name = "perceval-mozilla"
-version = "0.3.14"
+version = "0.3.15rc1"
 description = "Bundle of Perceval backends for Mozilla ecosystem."
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "perceval_mozilla-0.3.14-py3-none-any.whl", hash = "sha256:635baba73d0b57ab2e26d6e68dd30d0816e43aa5fec7a1c130cea0cb830b05f2"},
-    {file = "perceval_mozilla-0.3.14.tar.gz", hash = "sha256:c9d046511ee00cce102e8f4d78b2d1ceecb5ffcdc57b0f12c13dcb09f1b34359"},
+    {file = "perceval_mozilla-0.3.15rc1-py3-none-any.whl", hash = "sha256:3b991f35c11b72cda2cd5ffaa9f48bf63ad5d8aedd6de5d88876e85c1ec18b4b"},
+    {file = "perceval_mozilla-0.3.15rc1.tar.gz", hash = "sha256:57858872f151133b33528c6b0d814aaacce3c5f1b305d9a4dff608a8bb732ef3"},
 ]
 
 [package.dependencies]
@@ -1605,13 +1605,13 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "perceval-opnfv"
-version = "0.2.14"
+version = "0.2.15rc1"
 description = "Bundle of Perceval backends for OPNFV ecosystem."
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "perceval_opnfv-0.2.14-py3-none-any.whl", hash = "sha256:a2471572d2b3aa6e62986321f5f8f1ab7ef381cbf9a47670bea234a2a0f86d52"},
-    {file = "perceval_opnfv-0.2.14.tar.gz", hash = "sha256:68f85f9b5a877d642e1bc081a18a4aaeafa61c072973bc7e15ac8e546363bb5e"},
+    {file = "perceval_opnfv-0.2.15rc1-py3-none-any.whl", hash = "sha256:e2ccfe83558aad027b0b78519201a317624bddf5e6601ea3b5cd7c955790efc9"},
+    {file = "perceval_opnfv-0.2.15rc1.tar.gz", hash = "sha256:f470945f9005e59872b89858e32278c9843948a9b1c8c9b0ac0cb271f81a2cde"},
 ]
 
 [package.dependencies]
@@ -1621,13 +1621,13 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "perceval-puppet"
-version = "0.2.14"
+version = "0.2.15rc1"
 description = "Bundle of Perceval backends for Puppet, Inc. ecosystem."
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "perceval_puppet-0.2.14-py3-none-any.whl", hash = "sha256:0990c84df11c6ca4300c51ebd39dd63438463825bb2a52a60e0e828d362952f0"},
-    {file = "perceval_puppet-0.2.14.tar.gz", hash = "sha256:31ab872958dd29282520acec328146c7a14b8bbfbe424dd3b79c936916e1ae01"},
+    {file = "perceval_puppet-0.2.15rc1-py3-none-any.whl", hash = "sha256:16bb1948499bbfce4f399b6d3ae8f627130a7d86a80493dcebc9fe3f1d78c4c0"},
+    {file = "perceval_puppet-0.2.15rc1.tar.gz", hash = "sha256:bd77b3c3e2673406f0ed367cfdfcef3ff50b67c3a4b1cbcb2a1a1239dc60d4d5"},
 ]
 
 [package.dependencies]
@@ -1637,13 +1637,13 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "perceval-weblate"
-version = "0.2.14"
+version = "0.2.15rc1"
 description = "Bundle of Perceval backends for Weblate."
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "perceval_weblate-0.2.14-py3-none-any.whl", hash = "sha256:006ed26829ef6709e29c114b9de8fd747c37efd179fb5aceb089abc90c93b9cd"},
-    {file = "perceval_weblate-0.2.14.tar.gz", hash = "sha256:9cb0359345b828d8057bf0ac15bb7d5692b3608f3cf9d17d0197c3bba1351c6f"},
+    {file = "perceval_weblate-0.2.15rc1-py3-none-any.whl", hash = "sha256:dba58a8a831a740067c0e5ca45be3acdd6c9fdb3660f0c27fe8ac47b37c59a2d"},
+    {file = "perceval_weblate-0.2.15rc1.tar.gz", hash = "sha256:706025f57078bfc464b3c7552eaf1a54c8c2ba3ba48cec6c13e51a5aa6c5c900"},
 ]
 
 [package.dependencies]
@@ -1653,21 +1653,21 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "platformdirs"
-version = "3.9.1"
+version = "3.10.0"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "platformdirs-3.9.1-py3-none-any.whl", hash = "sha256:ad8291ae0ae5072f66c16945166cb11c63394c7a3ad1b1bc9828ca3162da8c2f"},
-    {file = "platformdirs-3.9.1.tar.gz", hash = "sha256:1b42b450ad933e981d56e59f1b97495428c9bd60698baab9f3eb3d00d5822421"},
+    {file = "platformdirs-3.10.0-py3-none-any.whl", hash = "sha256:d7c24979f292f916dc9cbf8648319032f551ea8c49a4c9bf2fb556a02070ec1d"},
+    {file = "platformdirs-3.10.0.tar.gz", hash = "sha256:b45696dab2d7cc691a3226759c0d3b00c47c8b6e293d96f6436f733303f77f6d"},
 ]
 
 [package.dependencies]
-typing-extensions = {version = ">=4.6.3", markers = "python_version < \"3.8\""}
+typing-extensions = {version = ">=4.7.1", markers = "python_version < \"3.8\""}
 
 [package.extras]
-docs = ["furo (>=2023.5.20)", "proselint (>=0.13)", "sphinx (>=7.0.1)", "sphinx-autodoc-typehints (>=1.23,!=1.23.4)"]
-test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=7.3.1)", "pytest-cov (>=4.1)", "pytest-mock (>=3.10)"]
+docs = ["furo (>=2023.7.26)", "proselint (>=0.13)", "sphinx (>=7.1.1)", "sphinx-autodoc-typehints (>=1.24)"]
+test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=7.4)", "pytest-cov (>=4.1)", "pytest-mock (>=3.11.1)"]
 
 [[package]]
 name = "promise"
@@ -1781,13 +1781,13 @@ files = [
 
 [[package]]
 name = "pygments"
-version = "2.15.1"
+version = "2.16.1"
 description = "Pygments is a syntax highlighting package written in Python."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "Pygments-2.15.1-py3-none-any.whl", hash = "sha256:db2db3deb4b4179f399a09054b023b6a586b76499d36965813c71aa8ed7b5fd1"},
-    {file = "Pygments-2.15.1.tar.gz", hash = "sha256:8ace4d3c1dd481894b2005f560ead0f9f19ee64fe983366be1a21e171d12775c"},
+    {file = "Pygments-2.16.1-py3-none-any.whl", hash = "sha256:13fc09fa63bc8d8671a6d247e1eb303c4b343eaee81d861f3404db2935653692"},
+    {file = "Pygments-2.16.1.tar.gz", hash = "sha256:1daff0494820c69bc8941e407aa20f577374ee88364ee10a98fdbe0aece96e29"},
 ]
 
 [package.extras]
@@ -1854,13 +1854,13 @@ rsa = ["cryptography"]
 
 [[package]]
 name = "pyparsing"
-version = "3.1.0"
+version = "3.1.1"
 description = "pyparsing module - Classes and methods to define and execute parsing grammars"
 optional = false
 python-versions = ">=3.6.8"
 files = [
-    {file = "pyparsing-3.1.0-py3-none-any.whl", hash = "sha256:d554a96d1a7d3ddaf7183104485bc19fd80543ad6ac5bdb6426719d766fb06c1"},
-    {file = "pyparsing-3.1.0.tar.gz", hash = "sha256:edb662d6fe322d6e990b1594b5feaeadf806803359e3d4d42f11e295e588f0ea"},
+    {file = "pyparsing-3.1.1-py3-none-any.whl", hash = "sha256:32c7c0b711493c72ff18a981d24f28aaf9c1fb7ed5e9667c9e84e3db623bdbfb"},
+    {file = "pyparsing-3.1.1.tar.gz", hash = "sha256:ede28a1a32462f5a9705e07aea48001a08f7cf81a021585011deba701581a0db"},
 ]
 
 [package.extras]
@@ -2132,13 +2132,13 @@ testing = ["flake8 (<5)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-chec
 
 [[package]]
 name = "sirmordred"
-version = "0.9.2"
+version = "0.9.3rc1"
 description = "Drive GrimoireLab tools to produce a dashboard"
 optional = false
 python-versions = ">=3.7.1,<4.0.0"
 files = [
-    {file = "sirmordred-0.9.2-py3-none-any.whl", hash = "sha256:f5eea19ec00e7fbf4ac1a5fe5ef26c04f618b4f70f38ab25d48d656770adc3e6"},
-    {file = "sirmordred-0.9.2.tar.gz", hash = "sha256:f735dc2168d54b29192b4f688ff5a236a53aa92b4c880aa290f100b0b16cb2fd"},
+    {file = "sirmordred-0.9.3rc1-py3-none-any.whl", hash = "sha256:f6b6ffc2117a4cc68c908aebe79dcb48e852e2e63bfd1a083c664f6d00759f5d"},
+    {file = "sirmordred-0.9.3rc1.tar.gz", hash = "sha256:b697eb1aea946b6b66c68f7b46a54e64e8869b8ad483a0a86ddaed5393a30e9d"},
 ]
 
 [package.dependencies]
@@ -2183,13 +2183,13 @@ files = [
 
 [[package]]
 name = "sortinghat"
-version = "0.12.0"
+version = "0.13.0rc1"
 description = "A tool to manage identities."
 optional = false
 python-versions = ">=3.7.1,<4.0.0"
 files = [
-    {file = "sortinghat-0.12.0-py3-none-any.whl", hash = "sha256:b5c2b06cd49fd4f8bf975dbe1ae9694b36eb925468cefb5baabf2bf39f2a434c"},
-    {file = "sortinghat-0.12.0.tar.gz", hash = "sha256:d9f41feb1ab3d700ca179beaf74379a62d24eb7cce010d9cfa71a85e40b57262"},
+    {file = "sortinghat-0.13.0rc1-py3-none-any.whl", hash = "sha256:985238381a535734ca032d9316f309c06df3766e34bf5c5d148029334107033d"},
+    {file = "sortinghat-0.13.0rc1.tar.gz", hash = "sha256:0d99e1d6fcca0907e6c29806fc9895de3b7d76448d411797b179fbb0e7a1d524"},
 ]
 
 [package.dependencies]
@@ -2453,12 +2453,12 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
 name = "uwsgi"
-version = "2.0.21"
+version = "2.0.22"
 description = "The uWSGI server"
 optional = false
 python-versions = "*"
 files = [
-    {file = "uwsgi-2.0.21.tar.gz", hash = "sha256:35a30d83791329429bc04fe44183ce4ab512fcf6968070a7bfba42fc5a0552a9"},
+    {file = "uwsgi-2.0.22.tar.gz", hash = "sha256:4cc4727258671ac5fa17ab422155e9aaef8a2008ebb86e4404b66deaae965db2"},
 ]
 
 [[package]]
@@ -2563,4 +2563,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.7.1"
-content-hash = "e3f9d664dea532cae50b59c0b8f98e30e48daa51006973ead1ce54c36e460e29"
+content-hash = "07d33ece7f4852541bd4d8166ec08d1ce05e5727f08652c33c9ddfc5c391ea65"
