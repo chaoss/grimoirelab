@@ -1,6 +1,6 @@
 # GrimoireLab
 
-[![grimoirelab-showcase](https://user-images.githubusercontent.com/25265451/84442403-30dcce80-ac5b-11ea-9f5b-60266d875ebd.png "GrimoireLab | CHAOSS Bitergia Analytics")](https://chaoss.biterg.io/app/kibana#/dashboard/Overview)
+[![grimoirelab-showcase](https://github.com/chaoss/grimoirelab/assets/105683440/ade7c052-1fe0-4568-a005-ee3fdfe2086d) "GrimoireLab | CHAOSS Bitergia Analytics")](https://chaoss.biterg.io/app/kibana#/dashboard/Overview)
 
 GrimoireLab is a [CHAOSS](https://chaoss.community) toolset for software development analytics. It includes a coordinated set of tools
 to retrieve data from systems used to support software development (repositories), store it in databases,
