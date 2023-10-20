@@ -40,7 +40,6 @@ jobs:
 
       - name: Check package installed
         run: |
-          pip install pip==20.0.1
           PACKAGE=`(cd dist && ls *whl)` && echo $PACKAGE
           pip install --pre ./dist/$PACKAGE
           grimoirelab --version
