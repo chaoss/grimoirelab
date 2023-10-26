@@ -16,6 +16,7 @@ jobs:
         with:
           artifact-name: grimoirelab-dist
           artifact-path: dist
+          pin-dependencies: yes
 
   tests:
     needs: [build]
