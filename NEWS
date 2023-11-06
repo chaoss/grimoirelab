@@ -1,5 +1,83 @@
 # Releases
 
+## GrimoireLab 0.16.0 - (2023-11-06)
+
+**New components:**
+
+* kidash 0.6.1
+* sortinghat 0.15.0
+* perceval 0.23.1
+* perceval-mozilla 0.3.17
+* perceval-opnfv 0.2.17
+* perceval-puppet 0.2.17
+* perceval-weblate 0.2.17
+* graal 0.4.15
+* grimoire-elk 0.109.1
+* sirmordred 0.10.1
+
+The following list describes the changes by component:
+
+### kidash
+  
+  * Update Poetry's package dependencies
+
+### sortinghat
+
+**New features:**
+
+ * Recommendations for individuals modified after a given date (#813)\
+   Users can generate merge and affiliation recommendations for
+   individuals that have been created or modified after a date specified
+   with the `last_modified` parameter.
+ * Add individual to workspace from their profile page (#816)\
+   A new button on the individual's profile page allows users to save the
+   identity in the workspace to continue working with it later on the
+   dashboard.
+ * Cache individuals table data (#821)\
+   Using cached queries prevents the table from refetching all the data
+   from the server everytime any information is edited. This is
+   particularly helpful if there is a huge number of identities, where
+   reloading the table is very slow. However, there are some cases when
+   the queries need to be refetched, eg. when identities are merged or
+   split.
+
+### perceval
+  
+  * Update Poetry's package dependencies
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### perceval-weblate
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+  
+  * Update Poetry's package dependencies
+
+### sirmordred
+
+**Bug fixes:**
+
+ * Periodic autorefresh not working\
+   Periodic refresh of identities was not working for backend sections
+   that included `:` in their name.
+
+
 ## GrimoireLab 0.15.1 - (2023-10-20)
 
 **New components:**
