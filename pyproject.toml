@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "grimoirelab"
-version = "0.16.0"
+version = "0.16.1-rc.1"
 description = "Tool set for software development analytics"
 authors = [
     "GrimoireLab Developers"
@@ -39,18 +39,18 @@ classifiers = [
 python = "^3.8"
 
 grimoirelab-toolkit = {version = ">=0.4.0", allow-prereleases = true}
-perceval-mozilla = {version = ">=0.3.17", allow-prereleases = true}
-perceval-opnfv = {version = ">=0.2.17", allow-prereleases = true}
-perceval-puppet = {version = ">=0.2.17", allow-prereleases = true}
-perceval-weblate = {version = ">=0.2.17", allow-prereleases = true}
-sortinghat = {version = ">=0.15.0", allow-prereleases = true}
-kidash = {version = ">=0.6.1", allow-prereleases = true}
+perceval-mozilla = {version = ">=0.3.18-rc.1", allow-prereleases = true}
+perceval-opnfv = {version = ">=0.2.18-rc.1", allow-prereleases = true}
+perceval-puppet = {version = ">=0.2.18-rc.1", allow-prereleases = true}
+perceval-weblate = {version = ">=0.2.18-rc.1", allow-prereleases = true}
+sortinghat = {version = ">=0.15.1-rc.1", allow-prereleases = true}
+kidash = {version = ">=0.6.2-rc.1", allow-prereleases = true}
 grimoirelab-panels = {version = ">=0.3.0", allow-prereleases = true}
-grimoire-elk = {version = ">=0.109.1", allow-prereleases = true}
-sirmordred = {version = ">=0.10.1", allow-prereleases = true}
+grimoire-elk = {version = ">=0.109.2-rc.1", allow-prereleases = true}
+sirmordred = {version = ">=0.10.2-rc.1", allow-prereleases = true}
 cereslib = {version = ">=0.4.3", allow-prereleases = true}
-graal = {version = ">=0.4.15", allow-prereleases = true}
-perceval = {version = ">=0.23.1", allow-prereleases = true}
+graal = {version = ">=0.4.16-rc.1", allow-prereleases = true}
+perceval = {version = ">=0.23.2-rc.1", allow-prereleases = true}
 
 [tool.poetry.dev-dependencies]
 
