@@ -1,5 +1,44 @@
 # Releases
 
+## GrimoireLab 0.17.0 - (2023-11-17)
+
+**New components:**
+
+* sortinghat 0.16.0
+* graal 0.4.17
+* grimoire-elk 0.109.2
+* sirmordred 0.10.2
+
+The following list describes the changes by component:
+
+### sortinghat
+
+**Bug fixes:**
+
+ * Fix individual page not loading\
+   The individual's view was not loading when the workspace had not been
+   used before or the cache was cleared.
+
+**Performance improvements:**
+
+ * Recommendations performance improved\
+   Improve the recommendations performance by reducing the number of
+   queries to the database and only generating recommendations between
+   individuals that are directly related.
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+  
+  * Update Poetry's package dependencies
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 0.16.0 - (2023-11-06)
 
 **New components:**
