@@ -30,13 +30,13 @@ tests = ["mypy (>=0.800)", "pytest", "pytest-asyncio"]
 
 [[package]]
 name = "astroid"
-version = "3.0.1"
+version = "3.0.2"
 description = "An abstract syntax tree for Python with inference support."
 optional = false
 python-versions = ">=3.8.0"
 files = [
-    {file = "astroid-3.0.1-py3-none-any.whl", hash = "sha256:7d5895c9825e18079c5aeac0572bc2e4c83205c95d416e0b4fee8bc361d2d9ca"},
-    {file = "astroid-3.0.1.tar.gz", hash = "sha256:86b0bb7d7da0be1a7c4aedb7974e391b32d4ed89e33de6ed6902b4b15c97577e"},
+    {file = "astroid-3.0.2-py3-none-any.whl", hash = "sha256:d6e62862355f60e716164082d6b4b041d38e2a8cf1c7cd953ded5108bac8ff5c"},
+    {file = "astroid-3.0.2.tar.gz", hash = "sha256:4a61cf0a59097c7bb52689b0fd63717cd2a8a14dc9f1eee97b82d814881c8c91"},
 ]
 
 [package.dependencies]
@@ -55,18 +55,18 @@ files = [
 
 [[package]]
 name = "bandit"
-version = "1.7.5"
+version = "1.7.6"
 description = "Security oriented static analyser for python code."
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "bandit-1.7.5-py3-none-any.whl", hash = "sha256:75665181dc1e0096369112541a056c59d1c5f66f9bb74a8d686c3c362b83f549"},
-    {file = "bandit-1.7.5.tar.gz", hash = "sha256:bdfc739baa03b880c2d15d0431b31c658ffc348e907fe197e54e0389dd59e11e"},
+    {file = "bandit-1.7.6-py3-none-any.whl", hash = "sha256:36da17c67fc87579a5d20c323c8d0b1643a890a2b93f00b3d1229966624694ff"},
+    {file = "bandit-1.7.6.tar.gz", hash = "sha256:72ce7bc9741374d96fb2f1c9a8960829885f1243ffde743de70a19cee353e8f3"},
 ]
 
 [package.dependencies]
 colorama = {version = ">=0.3.9", markers = "platform_system == \"Windows\""}
-GitPython = ">=1.0.1"
+GitPython = ">=3.1.30"
 PyYAML = ">=5.3.1"
 rich = "*"
 stevedore = ">=1.20.0"
@@ -107,13 +107,13 @@ files = [
 
 [[package]]
 name = "cereslib"
-version = "0.5.0"
+version = "0.5.1rc1"
 description = "GrimoireLab: Unify, eventize and enrich information from Perceval"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "cereslib-0.5.0-py3-none-any.whl", hash = "sha256:797dba96806f10fa0fa999f12b2a4ff1a65fc199153320b95cd85e7ef8e9f2ff"},
-    {file = "cereslib-0.5.0.tar.gz", hash = "sha256:b62ad4ad40d12dd6ab781d8d9664c73949d36f0fcccd323bbc9710753ae45afb"},
+    {file = "cereslib-0.5.1rc1-py3-none-any.whl", hash = "sha256:899249a12ca64995a9a206adc407559463830787778b4380632cbca50ecc51e2"},
+    {file = "cereslib-0.5.1rc1.tar.gz", hash = "sha256:4807cf662ac62569773ecb154aeabe04390e2fe7d0358b70a4c15354fb3361ae"},
 ]
 
 [package.dependencies]
@@ -659,13 +659,13 @@ testing = ["pre-commit"]
 
 [[package]]
 name = "feedparser"
-version = "6.0.10"
+version = "6.0.11"
 description = "Universal feed parser, handles RSS 0.9x, RSS 1.0, RSS 2.0, CDF, Atom 0.3, and Atom 1.0 feeds"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "feedparser-6.0.10-py3-none-any.whl", hash = "sha256:79c257d526d13b944e965f6095700587f27388e50ea16fd245babe4dfae7024f"},
-    {file = "feedparser-6.0.10.tar.gz", hash = "sha256:27da485f4637ce7163cdeab13a80312b93b7d0c1b775bef4a47629a3110bca51"},
+    {file = "feedparser-6.0.11-py3-none-any.whl", hash = "sha256:0be7ee7b395572b19ebeb1d6aafb0028dee11169f1c934e0ed67d54992f4ad45"},
+    {file = "feedparser-6.0.11.tar.gz", hash = "sha256:c9d0407b64c6f2a065d0ebb292c2b35c01050cc0dc33757461aaabdc4c4184d5"},
 ]
 
 [package.dependencies]
@@ -765,13 +765,13 @@ test = ["black", "coverage[toml]", "ddt (>=1.1.1,!=1.4.3)", "mock", "mypy", "pre
 
 [[package]]
 name = "google-api-core"
-version = "2.14.0"
+version = "2.15.0"
 description = "Google API client core library"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "google-api-core-2.14.0.tar.gz", hash = "sha256:5368a4502b793d9bbf812a5912e13e4e69f9bd87f6efb508460c43f5bbd1ce41"},
-    {file = "google_api_core-2.14.0-py3-none-any.whl", hash = "sha256:de2fb50ed34d47ddbb2bd2dcf680ee8fead46279f4ed6b16de362aca23a18952"},
+    {file = "google-api-core-2.15.0.tar.gz", hash = "sha256:abc978a72658f14a2df1e5e12532effe40f94f868f6e23d95133bd6abcca35ca"},
+    {file = "google_api_core-2.15.0-py3-none-any.whl", hash = "sha256:2aa56d2be495551e66bbff7f729b790546f87d5c90e74781aa77233bcb395a8a"},
 ]
 
 [package.dependencies]
@@ -787,13 +787,13 @@ grpcio-gcp = ["grpcio-gcp (>=0.2.2,<1.0.dev0)"]
 
 [[package]]
 name = "google-auth"
-version = "2.23.4"
+version = "2.25.2"
 description = "Google Authentication Library"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "google-auth-2.23.4.tar.gz", hash = "sha256:79905d6b1652187def79d491d6e23d0cbb3a21d3c7ba0dbaa9c8a01906b13ff3"},
-    {file = "google_auth-2.23.4-py2.py3-none-any.whl", hash = "sha256:d4bbc92fe4b8bfd2f3e8d88e5ba7085935da208ee38a134fc280e7ce682a05f2"},
+    {file = "google-auth-2.25.2.tar.gz", hash = "sha256:42f707937feb4f5e5a39e6c4f343a17300a459aaf03141457ba505812841cc40"},
+    {file = "google_auth-2.25.2-py2.py3-none-any.whl", hash = "sha256:473a8dfd0135f75bb79d878436e568f2695dce456764bf3a02b6f8c540b1d256"},
 ]
 
 [package.dependencies]
@@ -810,13 +810,13 @@ requests = ["requests (>=2.20.0,<3.0.0.dev0)"]
 
 [[package]]
 name = "google-cloud-core"
-version = "2.3.3"
+version = "2.4.1"
 description = "Google Cloud API client core library"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "google-cloud-core-2.3.3.tar.gz", hash = "sha256:37b80273c8d7eee1ae816b3a20ae43585ea50506cb0e60f3cf5be5f87f1373cb"},
-    {file = "google_cloud_core-2.3.3-py2.py3-none-any.whl", hash = "sha256:fbd11cad3e98a7e5b0343dc07cb1039a5ffd7a5bb96e1f1e27cee4bda4a90863"},
+    {file = "google-cloud-core-2.4.1.tar.gz", hash = "sha256:9b7749272a812bde58fff28868d0c5e2f585b82f37e09a1f6ed2d4d10f134073"},
+    {file = "google_cloud_core-2.4.1-py2.py3-none-any.whl", hash = "sha256:a9e6a4422b9ac5c29f79a0ede9485473338e2ce78d91f2370c01e730eab22e61"},
 ]
 
 [package.dependencies]
@@ -824,17 +824,17 @@ google-api-core = ">=1.31.6,<2.0.dev0 || >2.3.0,<3.0.0dev"
 google-auth = ">=1.25.0,<3.0dev"
 
 [package.extras]
-grpc = ["grpcio (>=1.38.0,<2.0dev)"]
+grpc = ["grpcio (>=1.38.0,<2.0dev)", "grpcio-status (>=1.38.0,<2.0.dev0)"]
 
 [[package]]
 name = "google-cloud-storage"
-version = "2.13.0"
+version = "2.14.0"
 description = "Google Cloud Storage API client library"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "google-cloud-storage-2.13.0.tar.gz", hash = "sha256:f62dc4c7b6cd4360d072e3deb28035fbdad491ac3d9b0b1815a12daea10f37c7"},
-    {file = "google_cloud_storage-2.13.0-py2.py3-none-any.whl", hash = "sha256:ab0bf2e1780a1b74cf17fccb13788070b729f50c252f0c94ada2aae0ca95437d"},
+    {file = "google-cloud-storage-2.14.0.tar.gz", hash = "sha256:2d23fcf59b55e7b45336729c148bb1c464468c69d5efbaee30f7201dd90eb97e"},
+    {file = "google_cloud_storage-2.14.0-py2.py3-none-any.whl", hash = "sha256:8641243bbf2a2042c16a6399551fbb13f062cbc9a2de38d6c0bb5426962e9dbd"},
 ]
 
 [package.dependencies]
@@ -930,13 +930,13 @@ testing = ["pytest"]
 
 [[package]]
 name = "google-resumable-media"
-version = "2.6.0"
+version = "2.7.0"
 description = "Utilities for Google Media Downloads and Resumable Uploads"
 optional = false
 python-versions = ">= 3.7"
 files = [
-    {file = "google-resumable-media-2.6.0.tar.gz", hash = "sha256:972852f6c65f933e15a4a210c2b96930763b47197cdf4aa5f5bea435efb626e7"},
-    {file = "google_resumable_media-2.6.0-py2.py3-none-any.whl", hash = "sha256:fc03d344381970f79eebb632a3c18bb1828593a2dc5572b5f90115ef7d11e81b"},
+    {file = "google-resumable-media-2.7.0.tar.gz", hash = "sha256:5f18f5fa9836f4b083162064a1c2c98c17239bfda9ca50ad970ccf905f3e625b"},
+    {file = "google_resumable_media-2.7.0-py2.py3-none-any.whl", hash = "sha256:79543cfe433b63fd81c0844b7803aba1bb8950b47bedf7d980c38fa123937e08"},
 ]
 
 [package.dependencies]
@@ -948,13 +948,13 @@ requests = ["requests (>=2.18.0,<3.0.0dev)"]
 
 [[package]]
 name = "googleapis-common-protos"
-version = "1.61.0"
+version = "1.62.0"
 description = "Common protobufs used in Google APIs"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "googleapis-common-protos-1.61.0.tar.gz", hash = "sha256:8a64866a97f6304a7179873a465d6eee97b7a24ec6cfd78e0f575e96b821240b"},
-    {file = "googleapis_common_protos-1.61.0-py2.py3-none-any.whl", hash = "sha256:22f1915393bb3245343f6efe87f6fe868532efc12aa26b391b15132e1279f1c0"},
+    {file = "googleapis-common-protos-1.62.0.tar.gz", hash = "sha256:83f0ece9f94e5672cced82f592d2a5edf527a96ed1794f0bab36d5735c996277"},
+    {file = "googleapis_common_protos-1.62.0-py2.py3-none-any.whl", hash = "sha256:4750113612205514f9f6aa4cb00d523a94f3e8c06c5ad2fee466387dc4875f07"},
 ]
 
 [package.dependencies]
@@ -965,13 +965,13 @@ grpc = ["grpcio (>=1.44.0,<2.0.0.dev0)"]
 
 [[package]]
 name = "graal"
-version = "0.4.18"
+version = "0.4.19rc1"
 description = "A generic source code analyzer"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "graal-0.4.18-py3-none-any.whl", hash = "sha256:d581cd25f5f97200b738d6a842e2f7aa53ef71a1fb81540b45e2175ce2e0d18c"},
-    {file = "graal-0.4.18.tar.gz", hash = "sha256:5409fc583ec80a14a9facf9ce4d73f150fa037c321b4e50fbe52d494349d9604"},
+    {file = "graal-0.4.19rc1-py3-none-any.whl", hash = "sha256:6abb4113b88741f6348a15ce7ad64a492784efbbca40dd696b5d4978fa161b53"},
+    {file = "graal-0.4.19rc1.tar.gz", hash = "sha256:1a556e067caa10ed6197c6ad3133d62e664efa737ebca367e0f7bb3adb1a8e73"},
 ]
 
 [package.dependencies]
@@ -1071,13 +1071,13 @@ six = ">=1.12"
 
 [[package]]
 name = "grimoire-elk"
-version = "0.109.3"
+version = "0.109.4rc1"
 description = "GrimoireELK processes and stores software development data to ElasticSearch"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "grimoire_elk-0.109.3-py3-none-any.whl", hash = "sha256:e375aae4219f89fe62ec7cc36cf3e30358bb9067968a5e4d7948599bce026b6e"},
-    {file = "grimoire_elk-0.109.3.tar.gz", hash = "sha256:8de83f1df7d301a84425ac9bc51707c27f9dcb418be1d5ba45ee436f3dc972d0"},
+    {file = "grimoire_elk-0.109.4rc1-py3-none-any.whl", hash = "sha256:b59ecddef315a8aa87b63c3c8952303bb15ce55b0418c3a7f99a6c8e032386c7"},
+    {file = "grimoire_elk-0.109.4rc1.tar.gz", hash = "sha256:0da158005d426548aeb49af46718f1b25e3a481b2a0b1172ef8efe953c838844"},
 ]
 
 [package.dependencies]
@@ -1098,7 +1098,7 @@ requests = ">=2.7.0,<3.0.0"
 scipy = ">=1.7.0"
 sortinghat = ">=0.7.20"
 statsmodels = ">=0.9.0"
-urllib3 = ">=2.0.7,<3.0.0"
+urllib3 = ">=1.26,<2.0"
 
 [[package]]
 name = "grimoirelab-panels"
@@ -1113,13 +1113,13 @@ files = [
 
 [[package]]
 name = "grimoirelab-toolkit"
-version = "0.4.0"
+version = "0.4.1rc1"
 description = "Toolkit of common functions used across GrimoireLab"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "grimoirelab_toolkit-0.4.0-py3-none-any.whl", hash = "sha256:3a144646d08aed5c311f4ecbe41585852314bd841fe7801e7a53d4615a020c4f"},
-    {file = "grimoirelab_toolkit-0.4.0.tar.gz", hash = "sha256:506f24db39927c4c0173d26d00997873a40418b0f2eb84946e202a8fc1e427f0"},
+    {file = "grimoirelab_toolkit-0.4.1rc1-py3-none-any.whl", hash = "sha256:385acad5ad4a082af77eb6c2cb9555f3422d73119865e5215882769e00e57b25"},
+    {file = "grimoirelab_toolkit-0.4.1rc1.tar.gz", hash = "sha256:1fee1c86ce86f022c2de53eadc4842c1baf15893d4a63799fb4e5e37a8c48fd7"},
 ]
 
 [package.dependencies]
@@ -1156,20 +1156,17 @@ testing = ["pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)",
 
 [[package]]
 name = "isort"
-version = "5.12.0"
+version = "5.13.2"
 description = "A Python utility / library to sort Python imports."
 optional = false
 python-versions = ">=3.8.0"
 files = [
-    {file = "isort-5.12.0-py3-none-any.whl", hash = "sha256:f84c2818376e66cf843d497486ea8fed8700b340f308f076c6fb1229dff318b6"},
-    {file = "isort-5.12.0.tar.gz", hash = "sha256:8bef7dde241278824a6d83f44a544709b065191b95b6e50894bdc722fcba0504"},
+    {file = "isort-5.13.2-py3-none-any.whl", hash = "sha256:8ca5e72a8d85860d5a3fa69b8745237f2939afe12dbf656afbcb47fe72d947a6"},
+    {file = "isort-5.13.2.tar.gz", hash = "sha256:48fdfcb9face5d58a4f6dde2e72a1fb8dcaf8ab26f95ab49fab84c2ddefb0109"},
 ]
 
 [package.extras]
-colors = ["colorama (>=0.4.3)"]
-pipfile-deprecated-finder = ["pip-shims (>=0.5.2)", "pipreqs", "requirementslib"]
-plugins = ["setuptools"]
-requirements-deprecated-finder = ["pip-api", "pipreqs"]
+colors = ["colorama (>=0.4.6)"]
 
 [[package]]
 name = "jinja2"
@@ -1190,19 +1187,19 @@ i18n = ["Babel (>=2.7)"]
 
 [[package]]
 name = "kidash"
-version = "0.6.3"
+version = "0.6.4rc2"
 description = "GrimoireLab script to manage Kibana dashboards from the command line"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "kidash-0.6.3-py3-none-any.whl", hash = "sha256:7ae618636f31196b469481fcf4a586e628207a0ba5812bcdbb2ac0067db80ddf"},
-    {file = "kidash-0.6.3.tar.gz", hash = "sha256:ff54b46c4aea099e9355a0e90f8b95806511f65ef42d521925151f3ee1c5e069"},
+    {file = "kidash-0.6.4rc2-py3-none-any.whl", hash = "sha256:a57302161b0830434e5581ed3092d036336ee01708092f06f2997bae1062efd5"},
+    {file = "kidash-0.6.4rc2.tar.gz", hash = "sha256:fd8df51027793d94d6230aee3709a9492a64e56b9754821b7057d83fd4c3e3f8"},
 ]
 
 [package.dependencies]
 python-dateutil = ">=2.8.2,<3.0.0"
 requests = ">=2.7.0,<3.0.0"
-urllib3 = ">=2.0.7,<3.0.0"
+urllib3 = ">=1.26,<2.0"
 
 [[package]]
 name = "lizard"
@@ -1497,13 +1494,13 @@ test = ["hypothesis (>=5.5.3)", "pytest (>=6.0)", "pytest-xdist (>=1.31)"]
 
 [[package]]
 name = "patsy"
-version = "0.5.3"
+version = "0.5.4"
 description = "A Python package for describing statistical models and for building design matrices."
 optional = false
 python-versions = "*"
 files = [
-    {file = "patsy-0.5.3-py2.py3-none-any.whl", hash = "sha256:7eb5349754ed6aa982af81f636479b1b8db9d5b1a6e957a6016ec0534b5c86b7"},
-    {file = "patsy-0.5.3.tar.gz", hash = "sha256:bdc18001875e319bc91c812c1eb6a10be4bb13cb81eb763f466179dca3b67277"},
+    {file = "patsy-0.5.4-py2.py3-none-any.whl", hash = "sha256:0486413077a527db51ddea8fa94a5234d0feb17a4f4dc01b59b6086c58a70f80"},
+    {file = "patsy-0.5.4.tar.gz", hash = "sha256:7dabc527597308de0e8f188faa20af7e06a89bdaa306756dfc7783693ea16af4"},
 ]
 
 [package.dependencies]
@@ -1526,13 +1523,13 @@ files = [
 
 [[package]]
 name = "perceval"
-version = "0.23.3"
+version = "0.23.4rc1"
 description = "Send Sir Perceval on a quest to fetch and gather data from software repositories."
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "perceval-0.23.3-py3-none-any.whl", hash = "sha256:e06c6eeb058ea63684c981a1eae0cb077696d0df9975db8c708580998b8cd4e1"},
-    {file = "perceval-0.23.3.tar.gz", hash = "sha256:bcce9f5bbc176621447e1ad4f19314c44b8ea5be9b7b6e2a3f3197c37c69f744"},
+    {file = "perceval-0.23.4rc1-py3-none-any.whl", hash = "sha256:a5ed6911aaeff1973bd20ba782935c84be9043dad1a604af9011ae3904a1d7ab"},
+    {file = "perceval-0.23.4rc1.tar.gz", hash = "sha256:3ff1b24bf2e6229e468347729b20841f6aafa2583afc1082dca837eca9d3cd9c"},
 ]
 
 [package.dependencies]
@@ -1544,20 +1541,20 @@ grimoirelab-toolkit = ">=0.3"
 PyJWT = ">=2.4.0,<3.0.0"
 python-dateutil = ">=2.6.0,<3.0.0"
 requests = ">=2.7.0,<3.0.0"
-urllib3 = ">=2.0.7,<3.0.0"
+urllib3 = ">=1.26,<2.0"
 
 [package.extras]
 docs = ["furo (>=2023.03.27,<2024.0.0)", "myst-parser (>=1.0.0,<2.0.0)"]
 
 [[package]]
 name = "perceval-mozilla"
-version = "0.3.19"
+version = "0.3.20rc1"
 description = "Bundle of Perceval backends for Mozilla ecosystem."
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "perceval_mozilla-0.3.19-py3-none-any.whl", hash = "sha256:f64843a7230a8f786cdd27638aee95384993c3fc96aa910ea3e179fa64365db6"},
-    {file = "perceval_mozilla-0.3.19.tar.gz", hash = "sha256:20badda4d658b31ec698ce941043791ca961f2b939e9b10679ebf1120d5fbd56"},
+    {file = "perceval_mozilla-0.3.20rc1-py3-none-any.whl", hash = "sha256:d110e418e8cbb8c5125aa55e10f48ac72b893b88a66b9ab594cb4e84f8b18792"},
+    {file = "perceval_mozilla-0.3.20rc1.tar.gz", hash = "sha256:d5b7af5eece67d1630d86271b8471cc8e28846886d1087a135eeb0ba86246989"},
 ]
 
 [package.dependencies]
@@ -1567,13 +1564,13 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "perceval-opnfv"
-version = "0.2.19"
+version = "0.2.20rc1"
 description = "Bundle of Perceval backends for OPNFV ecosystem."
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "perceval_opnfv-0.2.19-py3-none-any.whl", hash = "sha256:df61b096bbe0712832d4a81bc64c83873e68e0aad4666dc0d5e92409e091791d"},
-    {file = "perceval_opnfv-0.2.19.tar.gz", hash = "sha256:8dfa58db1bba6a966e1e3e5de6cc3a78d03c7a36bf913acc33c91572145a7bb0"},
+    {file = "perceval_opnfv-0.2.20rc1-py3-none-any.whl", hash = "sha256:e7e109a60317abfa90bcd6821214461e479b3d7ad28acb51522f26b4f109551a"},
+    {file = "perceval_opnfv-0.2.20rc1.tar.gz", hash = "sha256:fd62a9e49a211c15016f1c93a53c784e6902401f8aaa2b1f999e73a3eeb843b3"},
 ]
 
 [package.dependencies]
@@ -1583,13 +1580,13 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "perceval-puppet"
-version = "0.2.19"
+version = "0.2.20rc1"
 description = "Bundle of Perceval backends for Puppet, Inc. ecosystem."
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "perceval_puppet-0.2.19-py3-none-any.whl", hash = "sha256:5be070024066dbe43687c26bd86199d1af10cc8f5fd92394cb2ee33d0f21014f"},
-    {file = "perceval_puppet-0.2.19.tar.gz", hash = "sha256:71e3b5129145ca66f07d021dd8b07e92d08e4a3baa94b77713e22a5fd43bf8b1"},
+    {file = "perceval_puppet-0.2.20rc1-py3-none-any.whl", hash = "sha256:5ecc378e843a8dc8df5217516e90dda6b4ac508bbcf2d6e3558e24b122209fab"},
+    {file = "perceval_puppet-0.2.20rc1.tar.gz", hash = "sha256:1f464872c6c0b1d8348c6771b911c2bef3e288f2e8bdf957f3954816bc513646"},
 ]
 
 [package.dependencies]
@@ -1599,13 +1596,13 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "perceval-weblate"
-version = "0.2.19"
+version = "0.2.20rc1"
 description = "Bundle of Perceval backends for Weblate."
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "perceval_weblate-0.2.19-py3-none-any.whl", hash = "sha256:24414576cc0afad78e7334826f262e7cc1bb2a993e38d1f9ac3a4ed74cff7041"},
-    {file = "perceval_weblate-0.2.19.tar.gz", hash = "sha256:48aee860c1b1ea820af97267f3876b09fc368c9a4a443a5e5c8ef8b2a09dbc3f"},
+    {file = "perceval_weblate-0.2.20rc1-py3-none-any.whl", hash = "sha256:ea263fce4bbac1d8e05901d432762ef7821b0af898b5e037e7f3b206bfe6c3cb"},
+    {file = "perceval_weblate-0.2.20rc1.tar.gz", hash = "sha256:e32665ca91a160143d06c1481251a646e66973fdfd1d57d0acc7584a8160eb92"},
 ]
 
 [package.dependencies]
@@ -1615,13 +1612,13 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "platformdirs"
-version = "4.0.0"
+version = "4.1.0"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "platformdirs-4.0.0-py3-none-any.whl", hash = "sha256:118c954d7e949b35437270383a3f2531e99dd93cf7ce4dc8340d3356d30f173b"},
-    {file = "platformdirs-4.0.0.tar.gz", hash = "sha256:cb633b2bcf10c51af60beb0ab06d2f1d69064b43abf4c185ca6b28865f3f9731"},
+    {file = "platformdirs-4.1.0-py3-none-any.whl", hash = "sha256:11c8f37bcca40db96d8144522d925583bdb7a31f7b0e37e3ed4318400a8e2380"},
+    {file = "platformdirs-4.1.0.tar.gz", hash = "sha256:906d548203468492d432bcb294d4bc2fff751bf84971fbb2c10918cc206ee420"},
 ]
 
 [package.extras]
@@ -1770,13 +1767,13 @@ tests = ["coverage[toml] (==5.0.4)", "pytest (>=6.0.0,<7.0.0)"]
 
 [[package]]
 name = "pylint"
-version = "3.0.2"
+version = "3.0.3"
 description = "python code static checker"
 optional = false
 python-versions = ">=3.8.0"
 files = [
-    {file = "pylint-3.0.2-py3-none-any.whl", hash = "sha256:60ed5f3a9ff8b61839ff0348b3624ceeb9e6c2a92c514d81c9cc273da3b6bcda"},
-    {file = "pylint-3.0.2.tar.gz", hash = "sha256:0d4c286ef6d2f66c8bfb527a7f8a629009e42c99707dec821a03e1b51a4c1496"},
+    {file = "pylint-3.0.3-py3-none-any.whl", hash = "sha256:7a1585285aefc5165db81083c3e06363a27448f6b467b3b0f30dbd0ac1f73810"},
+    {file = "pylint-3.0.3.tar.gz", hash = "sha256:58c2398b0301e049609a8429789ec6edf3aabe9b6c5fec916acd18639c16de8b"},
 ]
 
 [package.dependencies]
@@ -1787,7 +1784,7 @@ dill = [
     {version = ">=0.3.7", markers = "python_version >= \"3.12\""},
     {version = ">=0.3.6", markers = "python_version >= \"3.11\" and python_version < \"3.12\""},
 ]
-isort = ">=4.2.5,<6"
+isort = ">=4.2.5,<5.13.0 || >5.13.0,<6"
 mccabe = ">=0.6,<0.8"
 platformdirs = ">=2.2.0"
 tomli = {version = ">=1.1.0", markers = "python_version < \"3.11\""}
@@ -2093,13 +2090,13 @@ testing = ["pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)",
 
 [[package]]
 name = "sirmordred"
-version = "0.10.3"
+version = "0.10.4rc1"
 description = "Drive GrimoireLab tools to produce a dashboard"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "sirmordred-0.10.3-py3-none-any.whl", hash = "sha256:c1773b81a8de1f6799cf98de54aa0769e2791863a325134b9271dd2f2da1ddd8"},
-    {file = "sirmordred-0.10.3.tar.gz", hash = "sha256:ab324be4ee654e6aea94447089c6f097c50274aa59c6ee3e104bbee8e1b5d5d4"},
+    {file = "sirmordred-0.10.4rc1-py3-none-any.whl", hash = "sha256:2915d4cb03d7667be310fe70e3d089139b054b1f0af379633e9f5f9f3e17a1f0"},
+    {file = "sirmordred-0.10.4rc1.tar.gz", hash = "sha256:ee4b0683cf36afcc958e9d21cd176c802c74eea686c6cdba79ba82daec9a3ed3"},
 ]
 
 [package.dependencies]
@@ -2144,13 +2141,13 @@ files = [
 
 [[package]]
 name = "sortinghat"
-version = "0.17.0"
+version = "0.18.0rc1"
 description = "A tool to manage identities."
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "sortinghat-0.17.0-py3-none-any.whl", hash = "sha256:cc762de8dfd881374b51e230f70f82f426800469b7947545150d92a71d0e9498"},
-    {file = "sortinghat-0.17.0.tar.gz", hash = "sha256:dcf550f1e2296e06b805015249e09d0a00d14dde3e4eeccbd38b514cfa2327ff"},
+    {file = "sortinghat-0.18.0rc1-py3-none-any.whl", hash = "sha256:84827eabebb1c35ba3d9130a2020f2a8dcf58d8433f0dd8b0733418476610128"},
+    {file = "sortinghat-0.18.0rc1.tar.gz", hash = "sha256:b7b4bb51a5d4338cc2180153f3f46027ea7c3de96c19275e373ae9faa5297e9c"},
 ]
 
 [package.dependencies]
@@ -2175,6 +2172,7 @@ requests = ">=2.7.0,<3.0.0"
 rq = "<1.12.0"
 setuptools = ">65.5.0"
 sgqlc = ">=16.1,<17.0"
+urllib3 = ">=1.26,<2.0"
 uWSGI = ">=2.0,<3.0"
 
 [[package]]
@@ -2250,52 +2248,52 @@ docs = ["ipykernel", "jupyter-client", "matplotlib", "nbconvert", "nbformat", "n
 
 [[package]]
 name = "statsmodels"
-version = "0.14.0"
+version = "0.14.1"
 description = "Statistical computations and models for Python"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "statsmodels-0.14.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:16bfe0c96a53b20fa19067e3b6bd2f1d39e30d4891ea0d7bc20734a0ae95942d"},
-    {file = "statsmodels-0.14.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:5a6a0a1a06ff79be8aa89c8494b33903442859add133f0dda1daf37c3c71682e"},
-    {file = "statsmodels-0.14.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:77b3cd3a5268ef966a0a08582c591bd29c09c88b4566c892a7c087935234f285"},
-    {file = "statsmodels-0.14.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9c64ebe9cf376cba0c31aed138e15ed179a1d128612dd241cdf299d159e5e882"},
-    {file = "statsmodels-0.14.0-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:229b2f676b4a45cb62d132a105c9c06ca8a09ffba060abe34935391eb5d9ba87"},
-    {file = "statsmodels-0.14.0-cp310-cp310-win_amd64.whl", hash = "sha256:fb471f757fc45102a87e5d86e87dc2c8c78b34ad4f203679a46520f1d863b9da"},
-    {file = "statsmodels-0.14.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:582f9e41092e342aaa04920d17cc3f97240e3ee198672f194719b5a3d08657d6"},
-    {file = "statsmodels-0.14.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:7ebe885ccaa64b4bc5ad49ac781c246e7a594b491f08ab4cfd5aa456c363a6f6"},
-    {file = "statsmodels-0.14.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b587ee5d23369a0e881da6e37f78371dce4238cf7638a455db4b633a1a1c62d6"},
-    {file = "statsmodels-0.14.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0ef7fa4813c7a73b0d8a0c830250f021c102c71c95e9fe0d6877bcfb56d38b8c"},
-    {file = "statsmodels-0.14.0-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:afe80544ef46730ea1b11cc655da27038bbaa7159dc5af4bc35bbc32982262f2"},
-    {file = "statsmodels-0.14.0-cp311-cp311-win_amd64.whl", hash = "sha256:a6ad7b8aadccd4e4dd7f315a07bef1bca41d194eeaf4ec600d20dea02d242fce"},
-    {file = "statsmodels-0.14.0-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:0eea4a0b761aebf0c355b726ac5616b9a8b618bd6e81a96b9f998a61f4fd7484"},
-    {file = "statsmodels-0.14.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:4c815ce7a699047727c65a7c179bff4031cff9ae90c78ca730cfd5200eb025dd"},
-    {file = "statsmodels-0.14.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:575f61337c8e406ae5fa074d34bc6eb77b5a57c544b2d4ee9bc3da6a0a084cf1"},
-    {file = "statsmodels-0.14.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8be53cdeb82f49c4cb0fda6d7eeeb2d67dbd50179b3e1033510e061863720d93"},
-    {file = "statsmodels-0.14.0-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:6f7d762df4e04d1dde8127d07e91aff230eae643aa7078543e60e83e7d5b40db"},
-    {file = "statsmodels-0.14.0-cp312-cp312-win_amd64.whl", hash = "sha256:fc2c7931008a911e3060c77ea8933f63f7367c0f3af04f82db3a04808ad2cd2c"},
-    {file = "statsmodels-0.14.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:3757542c95247e4ab025291a740efa5da91dc11a05990c033d40fce31c450dc9"},
-    {file = "statsmodels-0.14.0-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:de489e3ed315bdba55c9d1554a2e89faa65d212e365ab81bc323fa52681fc60e"},
-    {file = "statsmodels-0.14.0-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:76e290f4718177bffa8823a780f3b882d56dd64ad1c18cfb4bc8b5558f3f5757"},
-    {file = "statsmodels-0.14.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:71054f9dbcead56def14e3c9db6f66f943110fdfb19713caf0eb0f08c1ec03fd"},
-    {file = "statsmodels-0.14.0-cp38-cp38-win_amd64.whl", hash = "sha256:d7fda067837df94e0a614d93d3a38fb6868958d37f7f50afe2a534524f2660cb"},
-    {file = "statsmodels-0.14.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:1c7724ad573af26139a98393ae64bc318d1b19762b13442d96c7a3e793f495c3"},
-    {file = "statsmodels-0.14.0-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:3b0a135f3bfdeec987e36e3b3b4c53e0bb87a8d91464d2fcc4d169d176f46fdb"},
-    {file = "statsmodels-0.14.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ce28eb1c397dba437ec39b9ab18f2101806f388c7a0cf9cdfd8f09294ad1c799"},
-    {file = "statsmodels-0.14.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:68b1c768dd94cc5ba8398121a632b673c625491aa7ed627b82cb4c880a25563f"},
-    {file = "statsmodels-0.14.0-cp39-cp39-win_amd64.whl", hash = "sha256:8d1e3e10dfbfcd58119ba5a4d3c7d519182b970a2aebaf0b6f539f55ae16058d"},
-    {file = "statsmodels-0.14.0.tar.gz", hash = "sha256:6875c7d689e966d948f15eb816ab5616f4928706b180cf470fd5907ab6f647a4"},
+    {file = "statsmodels-0.14.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:43af9c0b07c9d72f275cf14ea54a481a3f20911f0b443181be4769def258fdeb"},
+    {file = "statsmodels-0.14.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:a16975ab6ad505d837ba9aee11f92a8c5b49c4fa1ff45b60fe23780b19e5705e"},
+    {file = "statsmodels-0.14.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e278fe74da5ed5e06c11a30851eda1af08ef5af6be8507c2c45d2e08f7550dde"},
+    {file = "statsmodels-0.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:c0564d92cb05b219b4538ed09e77d96658a924a691255e1f7dd23ee338df441b"},
+    {file = "statsmodels-0.14.1-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:5385e22e72159a09c099c4fb975f350a9f3afeb57c1efce273b89dcf1fe44c0f"},
+    {file = "statsmodels-0.14.1-cp310-cp310-win_amd64.whl", hash = "sha256:0a8aae75a2e08ebd990e5fa394f8e32738b55785cb70798449a3f4207085e667"},
+    {file = "statsmodels-0.14.1-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:b69a63ad6c979a6e4cde11870ffa727c76a318c225a7e509f031fbbdfb4e416a"},
+    {file = "statsmodels-0.14.1-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:7562cb18a90a114f39fab6f1c25b9c7b39d9cd5f433d0044b430ca9d44a8b52c"},
+    {file = "statsmodels-0.14.1-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b3abaca4b963259a2bf349c7609cfbb0ce64ad5fb3d92d6f08e21453e4890248"},
+    {file = "statsmodels-0.14.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:b0f727fe697f6406d5f677b67211abe5a55101896abdfacdb3f38410405f6ad8"},
+    {file = "statsmodels-0.14.1-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:b6838ac6bdb286daabb5e91af90fd4258f09d0cec9aace78cc441cb2b17df428"},
+    {file = "statsmodels-0.14.1-cp311-cp311-win_amd64.whl", hash = "sha256:709bfcef2dbe66f705b17e56d1021abad02243ee1a5d1efdb90f9bad8b06a329"},
+    {file = "statsmodels-0.14.1-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:f32a7cd424cf33304a54daee39d32cccf1d0265e652c920adeaeedff6d576457"},
+    {file = "statsmodels-0.14.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:f8c30181c084173d662aaf0531867667be2ff1bee103b84feb64f149f792dbd2"},
+    {file = "statsmodels-0.14.1-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:2de2b97413913d52ad6342dece2d653e77f78620013b7705fad291d4e4266ccb"},
+    {file = "statsmodels-0.14.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:c3420f88289c593ba2bca33619023059c476674c160733bd7d858564787c83d3"},
+    {file = "statsmodels-0.14.1-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:c008e16096f24f0514e53907890ccac6589a16ad6c81c218f2ee6752fdada555"},
+    {file = "statsmodels-0.14.1-cp312-cp312-win_amd64.whl", hash = "sha256:bc0351d279c4e080f0ce638a3d886d312aa29eade96042e3ba0a73771b1abdfb"},
+    {file = "statsmodels-0.14.1-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:bf293ada63b2859d95210165ad1dfcd97bd7b994a5266d6fbeb23659d8f0bf68"},
+    {file = "statsmodels-0.14.1-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:44ca8cb88fa3d3a4ffaff1fb8eb0e98bbf83fc936fcd9b9eedee258ecc76696a"},
+    {file = "statsmodels-0.14.1-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0d5373d176239993c095b00d06036690a50309a4e00c2da553b65b840f956ae6"},
+    {file = "statsmodels-0.14.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a532dfe899f8b6632cd8caa0b089b403415618f51e840d1817a1e4b97e200c73"},
+    {file = "statsmodels-0.14.1-cp38-cp38-win_amd64.whl", hash = "sha256:4fe0a60695952b82139ae8750952786a700292f9e0551d572d7685070944487b"},
+    {file = "statsmodels-0.14.1-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:04293890f153ffe577e60a227bd43babd5f6c1fc50ea56a3ab1862ae85247a95"},
+    {file = "statsmodels-0.14.1-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:3e70a2e93d54d40b2cb6426072acbc04f35501b1ea2569f6786964adde6ca572"},
+    {file = "statsmodels-0.14.1-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ab3a73d16c0569adbba181ebb967e5baaa74935f6d2efe86ac6fc5857449b07d"},
+    {file = "statsmodels-0.14.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:eefa5bcff335440ee93e28745eab63559a20cd34eea0375c66d96b016de909b3"},
+    {file = "statsmodels-0.14.1-cp39-cp39-win_amd64.whl", hash = "sha256:bc43765710099ca6a942b5ffa1bac7668965052542ba793dd072d26c83453572"},
+    {file = "statsmodels-0.14.1.tar.gz", hash = "sha256:2260efdc1ef89f39c670a0bd8151b1d0843567781bcafec6cda0534eb47a94f6"},
 ]
 
 [package.dependencies]
-numpy = {version = ">=1.18", markers = "python_version != \"3.10\" or platform_system != \"Windows\" or platform_python_implementation == \"PyPy\""}
+numpy = {version = ">=1.18,<2", markers = "python_version != \"3.10\" or platform_system != \"Windows\" or platform_python_implementation == \"PyPy\""}
 packaging = ">=21.3"
-pandas = ">=1.0"
-patsy = ">=0.5.2"
+pandas = ">=1.0,<2.1.0 || >2.1.0"
+patsy = ">=0.5.4"
 scipy = ">=1.4,<1.9.2 || >1.9.2"
 
 [package.extras]
-build = ["cython (>=0.29.26)"]
-develop = ["colorama", "cython (>=0.29.26)", "cython (>=0.29.28,<3.0.0)", "flake8", "isort", "joblib", "matplotlib (>=3)", "oldest-supported-numpy (>=2022.4.18)", "pytest (>=7.0.1,<7.1.0)", "pytest-randomly", "pytest-xdist", "pywinpty", "setuptools-scm[toml] (>=7.0.0,<7.1.0)"]
+build = ["cython (>=0.29.33)"]
+develop = ["colorama", "cython (>=0.29.33)", "cython (>=0.29.33,<4.0.0)", "flake8", "isort", "joblib", "matplotlib (>=3)", "oldest-supported-numpy (>=2022.4.18)", "pytest (>=7.3.0)", "pytest-cov", "pytest-randomly", "pytest-xdist", "pywinpty", "setuptools-scm[toml] (>=8.0,<9.0)"]
 docs = ["ipykernel", "jupyter-client", "matplotlib", "nbconvert", "nbformat", "numpydoc", "pandas-datareader", "sphinx"]
 
 [[package]]
@@ -2347,30 +2345,30 @@ files = [
 
 [[package]]
 name = "typing-extensions"
-version = "4.8.0"
+version = "4.9.0"
 description = "Backported and Experimental Type Hints for Python 3.8+"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "typing_extensions-4.8.0-py3-none-any.whl", hash = "sha256:8f92fc8806f9a6b641eaa5318da32b44d401efaac0f6678c9bc448ba3605faa0"},
-    {file = "typing_extensions-4.8.0.tar.gz", hash = "sha256:df8e4339e9cb77357558cbdbceca33c303714cf861d1eef15e1070055ae8b7ef"},
+    {file = "typing_extensions-4.9.0-py3-none-any.whl", hash = "sha256:af72aea155e91adfc61c3ae9e0e342dbc0cba726d6cba4b6c72c1f34e47291cd"},
+    {file = "typing_extensions-4.9.0.tar.gz", hash = "sha256:23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"},
 ]
 
 [[package]]
 name = "urllib3"
-version = "2.1.0"
+version = "1.26.18"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 files = [
-    {file = "urllib3-2.1.0-py3-none-any.whl", hash = "sha256:55901e917a5896a349ff771be919f8bd99aff50b79fe58fec595eb37bbc56bb3"},
-    {file = "urllib3-2.1.0.tar.gz", hash = "sha256:df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"},
+    {file = "urllib3-1.26.18-py2.py3-none-any.whl", hash = "sha256:34b97092d7e0a3a8cf7cd10e386f401b3737364026c45e622aa02903dffe0f07"},
+    {file = "urllib3-1.26.18.tar.gz", hash = "sha256:f8ecc1bba5667413457c529ab955bf8c67b45db799d159066261719e328580a0"},
 ]
 
 [package.extras]
-brotli = ["brotli (>=1.0.9)", "brotlicffi (>=0.8.0)"]
-socks = ["pysocks (>=1.5.6,!=1.5.7,<2.0)"]
-zstd = ["zstandard (>=0.18.0)"]
+brotli = ["brotli (==1.0.9)", "brotli (>=1.0.9)", "brotlicffi (>=0.8.0)", "brotlipy (>=0.6.0)"]
+secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "ipaddress", "pyOpenSSL (>=0.14)", "urllib3-secure-extra"]
+socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
 name = "uwsgi"
@@ -2400,4 +2398,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "a785847f44eecb12587593cbf35b7337f7d57366a1a0568895eb38653db54763"
+content-hash = "0120ac045b6c5758cb9b9ea6b8c0e6ae0b8edf49e59cda795cb948e7ebe77e25"
