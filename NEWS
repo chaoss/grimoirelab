@@ -1,5 +1,95 @@
 # Releases
 
+## GrimoireLab 0.19.0 - (2023-12-19)
+
+**New components:**
+
+* grimoirelab-toolkit 0.4.1
+* kidash 0.6.4
+* sortinghat 0.18.0
+* cereslib 0.5.1
+* perceval 0.23.4
+* perceval-mozilla 0.3.20
+* perceval-opnfv 0.2.20
+* perceval-puppet 0.2.20
+* perceval-weblate 0.2.20
+* graal 0.4.19
+* grimoire-elk 0.109.4
+* sirmordred 0.10.4
+
+The following list describes the changes by component:
+
+### grimoirelab-toolkit
+  
+  * Update Poetry's package dependencies
+
+### kidash
+
+**Dependencies updateds:**
+
+ * Downgrade urllib3 from ^2.0.7 to ^1.26\
+   Downgrade the version of urllib3 to match Perceval version.
+
+### sortinghat
+
+**New features:**
+
+ * Link to profile in individual cards (#837)\
+   The name on the individuals cards now links to the member's profile.
+ * Open calendar to the side of the date input (#838)\
+   The date picker calendar that is used to edit affiliation dates now
+   opens to the right side of the text field to avoid covering it.
+ * Improved readability of job settings\
+   The options for the "unify" and "recommend matches" jobs are now
+   displayed in a clearer way.
+ * Improved loading time when looking for organizations\
+   The autocomplete field that is used to affiliate individuals to
+   organizations now makes fewer and lighter requests to find them,
+   resulting in faster loading times.
+
+**Performance improvements:**
+
+ * Performance on affiliation recommendations improved\
+   We have improved the affiliation performance by one order of magnitude
+   removing unnecessary queries to the database.
+
+### cereslib
+  
+  * Update Poetry's package dependencies
+
+### perceval
+  
+  * Update Poetry's package dependencies
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### perceval-weblate
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+  
+  * Update Poetry's package dependencies
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 0.18.0 - (2023-11-28)
 
 **New components:**
