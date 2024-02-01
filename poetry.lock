@@ -517,13 +517,13 @@ sftp = ["paramiko (>=1.15)"]
 
 [[package]]
 name = "django-treebeard"
-version = "4.7"
+version = "4.7.1"
 description = "Efficient tree implementations for Django"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "django-treebeard-4.7.tar.gz", hash = "sha256:c751a3f924158c288fea89afc25a7151979faf01bf11fdc7be3b858099dfa56d"},
-    {file = "django_treebeard-4.7-py3-none-any.whl", hash = "sha256:787117995ff985d98e6c2b241ef6b9d37fe8ff7051cd7535c283616a0b5b2645"},
+    {file = "django-treebeard-4.7.1.tar.gz", hash = "sha256:846e462904b437155f76e04907ba4e48480716855f88b898df4122bdcfbd6e98"},
+    {file = "django_treebeard-4.7.1-py3-none-any.whl", hash = "sha256:995c7120153ab999898fe3043bbdcd8a0fc77cc106eb94de7350e9d02c885135"},
 ]
 
 [package.dependencies]
@@ -738,13 +738,13 @@ timezone = ["pytz"]
 
 [[package]]
 name = "google-api-core"
-version = "2.16.0"
+version = "2.16.1"
 description = "Google API client core library"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "google-api-core-2.16.0.tar.gz", hash = "sha256:d1fc42e52aa4042ad812827b7aad858394e2bf73da8329af95ad8efa30bc886b"},
-    {file = "google_api_core-2.16.0-py3-none-any.whl", hash = "sha256:c424f9f271c7f55366254708e0d0383963a72376286018af0a04f322be843400"},
+    {file = "google-api-core-2.16.1.tar.gz", hash = "sha256:7f668ffa3d5b9f3c6930407e5f5d691c05a376050a5a5fd772b9dc32e70a0c30"},
+    {file = "google_api_core-2.16.1-py3-none-any.whl", hash = "sha256:257e9e152cd18da0c6701113c122ade04dca04731e179fc5c7dca48e1396ec4c"},
 ]
 
 [package.dependencies]
@@ -938,13 +938,13 @@ grpc = ["grpcio (>=1.44.0,<2.0.0.dev0)"]
 
 [[package]]
 name = "graal"
-version = "0.4.20"
+version = "0.4.21rc1"
 description = "A generic source code analyzer"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "graal-0.4.20-py3-none-any.whl", hash = "sha256:25e6de7642f11ece461b3f3814dd27a181c8b68543f2abeed4ed065394b3528f"},
-    {file = "graal-0.4.20.tar.gz", hash = "sha256:74833a353dd9c7c387ddf92e4604ee05236c7da16312e101a90fd674b83fdf19"},
+    {file = "graal-0.4.21rc1-py3-none-any.whl", hash = "sha256:632ddf7dc8fd40599bca4e9523fb3b4c06a0ae779cb5a6eda73c5b8ff3a0a6b2"},
+    {file = "graal-0.4.21rc1.tar.gz", hash = "sha256:1bcfe7c2a34221bee7bf64462c84148cda86c9eaf4969a30d40401c7ceb669bd"},
 ]
 
 [package.dependencies]
@@ -1044,13 +1044,13 @@ six = ">=1.12"
 
 [[package]]
 name = "grimoire-elk"
-version = "0.109.5"
+version = "0.109.6rc1"
 description = "GrimoireELK processes and stores software development data to ElasticSearch"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "grimoire_elk-0.109.5-py3-none-any.whl", hash = "sha256:f22ec15a8326494fe2533d216c0e5ff886e91b3278667917e3e3249899035533"},
-    {file = "grimoire_elk-0.109.5.tar.gz", hash = "sha256:80bc57c57dafec8f13c42436fcc13e8d16b66d3be7518c22b47a1c83a5cde3c9"},
+    {file = "grimoire_elk-0.109.6rc1-py3-none-any.whl", hash = "sha256:e478f04b95738e306cc8a7db908ab7dc744e6fbb371f3029068f9a2fe0dbc604"},
+    {file = "grimoire_elk-0.109.6rc1.tar.gz", hash = "sha256:393e6d70bd49354369b4f11e1fcab06a63175f9d04a7c92b381d6aa0606f4d33"},
 ]
 
 [package.dependencies]
@@ -1585,18 +1585,18 @@ requests = ">=2.7.0,<3.0.0"
 
 [[package]]
 name = "platformdirs"
-version = "4.1.0"
+version = "4.2.0"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "platformdirs-4.1.0-py3-none-any.whl", hash = "sha256:11c8f37bcca40db96d8144522d925583bdb7a31f7b0e37e3ed4318400a8e2380"},
-    {file = "platformdirs-4.1.0.tar.gz", hash = "sha256:906d548203468492d432bcb294d4bc2fff751bf84971fbb2c10918cc206ee420"},
+    {file = "platformdirs-4.2.0-py3-none-any.whl", hash = "sha256:0614df2a2f37e1a662acbd8e2b25b92ccf8632929bc6d43467e17fe89c75e068"},
+    {file = "platformdirs-4.2.0.tar.gz", hash = "sha256:ef0cc731df711022c174543cb70a9b5bd22e5a9337c8624ef2c2ceb8ddad8768"},
 ]
 
 [package.extras]
-docs = ["furo (>=2023.7.26)", "proselint (>=0.13)", "sphinx (>=7.1.1)", "sphinx-autodoc-typehints (>=1.24)"]
-test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=7.4)", "pytest-cov (>=4.1)", "pytest-mock (>=3.11.1)"]
+docs = ["furo (>=2023.9.10)", "proselint (>=0.13)", "sphinx (>=7.2.6)", "sphinx-autodoc-typehints (>=1.25.2)"]
+test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=7.4.3)", "pytest-cov (>=4.1)", "pytest-mock (>=3.12)"]
 
 [[package]]
 name = "promise"
@@ -2069,13 +2069,13 @@ testing = ["pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)",
 
 [[package]]
 name = "sirmordred"
-version = "0.10.5"
+version = "0.10.6rc1"
 description = "Drive GrimoireLab tools to produce a dashboard"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "sirmordred-0.10.5-py3-none-any.whl", hash = "sha256:281ded06bb30090842e5857e22ad3ac6b9949cb81034a203364e43bfdfe990a3"},
-    {file = "sirmordred-0.10.5.tar.gz", hash = "sha256:6a0d7e50876f4fb25c7ba74ed51315569750407c0f8f4aa94f5e440fe0773a9c"},
+    {file = "sirmordred-0.10.6rc1-py3-none-any.whl", hash = "sha256:c8926d9b7f1a294a0f9435a10e88a1c0a8224acde263f36bfd02c5218a08072e"},
+    {file = "sirmordred-0.10.6rc1.tar.gz", hash = "sha256:749b59cf18aab0ae57c05ec37008b1f4b868f6e216771b7ed9555b357bfd632c"},
 ]
 
 [package.dependencies]
@@ -2109,13 +2109,13 @@ files = [
 
 [[package]]
 name = "sortinghat"
-version = "0.19.0"
+version = "0.19.1rc1"
 description = "A tool to manage identities."
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "sortinghat-0.19.0-py3-none-any.whl", hash = "sha256:3c8b77d4cfdf9070f39a4d2883468c40c1f804a1d1e4a45a31e7d41c447b1451"},
-    {file = "sortinghat-0.19.0.tar.gz", hash = "sha256:27d3db6a19ff92c2f7d1c7377582ce12f8bfa402e3486db24d0669bab7ffc3f9"},
+    {file = "sortinghat-0.19.1rc1-py3-none-any.whl", hash = "sha256:5bda024f8596699effd628b6f51e5188e3e3a5a37874885bda8c41eeab8de949"},
+    {file = "sortinghat-0.19.1rc1.tar.gz", hash = "sha256:42cc877927b474d44baa50c1babe5f6aa44af0cf4e834935ef1604e54d9ce4b0"},
 ]
 
 [package.dependencies]
@@ -2366,4 +2366,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "b31eb5b8434dc817efad31e593b2f10fa8b2bb1a799dc7f7900434e577337d41"
+content-hash = "7b9e6e8a9fd25a357590b2816fdb77bb0f49d53ee4dfcf22c2a6fd897c7083a0"
