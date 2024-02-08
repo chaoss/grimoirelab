@@ -1,5 +1,72 @@
 # Releases
 
+## GrimoireLab 0.20.2 - (2024-02-08)
+
+**New components:**
+
+* kidash 0.6.6
+* sortinghat 0.19.2
+* cereslib 0.5.3
+* perceval 0.23.6
+* perceval-mozilla 0.3.22
+* perceval-opnfv 0.2.22
+* perceval-puppet 0.2.22
+* perceval-weblate 0.2.22
+* graal 0.4.22
+* grimoire-elk 0.109.7
+* sirmordred 0.10.7
+
+The following list describes the changes by component:
+
+### kidash
+  
+  * Update Poetry's package dependencies
+
+### sortinghat
+  
+  * Update Poetry's package dependencies
+
+### cereslib
+  
+  * Update Poetry's package dependencies
+
+### perceval
+  
+  * Update Poetry's package dependencies
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### perceval-weblate
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+
+**Bug fixes:**
+
+ * Bug on some backends enrichment\
+   Mediawiki, Meetup are Jira were failing to retrieve the enrollment for
+   an identity.
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 0.20.1 - (2024-02-01)
 
 **New components:**
