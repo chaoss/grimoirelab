@@ -87,3 +87,25 @@ Based on these challenges, we have defined a set of goals:
 - **Be the CHAOSS reference tool for data retrieval**: Our tool
   will produce data that will be consumed by other tools for their
   analysis in the CHAOSS environment (i.e. [augur](https://github.com/chaoss/augur)).
+
+## Themes
+
+Tasks will be classified under the following themes. Themes are defined to
+accomplish the objectives and solve the problems described above.
+
+- **Configuration**: To make easier how to set up and run the platform.
+- **Data processing**: To scale the platform for analyzing thousands of
+  repositories. We have defined these sub-themes:
+  - **Events**: To make an event-driven platform that will improve how
+    data is processed.
+  - **Scheduling**: To define how tasks can run without timeouts and
+    penalties.
+- **Data access**: To solve the integration problems and how
+  data is consumed. The sub-themes are:
+  - **Data model**: For a better representation and description of
+    the data we store and produce.
+  - **API**: To define different levels of access to data and to support
+    the integration with other systems.
+
+Check the [Roadmap section](./GOVERNANCE.md#roadmap)
+in our [GOVERNANCE](./GOVERNANCE.md) document for more info about *themes*.
