@@ -1044,13 +1044,13 @@ six = ">=1.12"
 
 [[package]]
 name = "grimoire-elk"
-version = "0.109.8rc1"
+version = "0.109.8"
 description = "GrimoireELK processes and stores software development data to ElasticSearch"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "grimoire_elk-0.109.8rc1-py3-none-any.whl", hash = "sha256:3ba1cb4e76cf0649c28213566d50d48e70ec9034e9b877b62168c1737ccaed78"},
-    {file = "grimoire_elk-0.109.8rc1.tar.gz", hash = "sha256:8818816ff2c3bc3f0273764f5cf1a2fac72a86abd5e799ea61eb8eeed0cc65da"},
+    {file = "grimoire_elk-0.109.8-py3-none-any.whl", hash = "sha256:fd60feb3f4efc927a73980f3ab35220a22caa791e344a1d2354a32f91d4fd650"},
+    {file = "grimoire_elk-0.109.8.tar.gz", hash = "sha256:ce262c95143eab1c2f24a41055385afc899f4d5abf41cb2d51c4fd3dc881cf55"},
 ]
 
 [package.dependencies]
@@ -1521,13 +1521,13 @@ docs = ["furo (>=2023.03.27,<2024.0.0)", "myst-parser (>=1.0.0,<2.0.0)"]
 
 [[package]]
 name = "perceval-mozilla"
-version = "0.4.0rc1"
+version = "0.4.0"
 description = "Bundle of Perceval backends for Mozilla ecosystem."
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "perceval_mozilla-0.4.0rc1-py3-none-any.whl", hash = "sha256:8b0eb8defb4fc15e984591ce93ca6a9a175e53bd4a7d04ba1923f0f5c02a5971"},
-    {file = "perceval_mozilla-0.4.0rc1.tar.gz", hash = "sha256:73651fc75796212570a7ad3aa73284ff000c8c37fd45cb799a10cbe56a037812"},
+    {file = "perceval_mozilla-0.4.0-py3-none-any.whl", hash = "sha256:1e1333a46916d3ce5ebeeef864c2d3fd16d874fe3f38c562a273041d463dab03"},
+    {file = "perceval_mozilla-0.4.0.tar.gz", hash = "sha256:8c947b0b55e28b746a49029778fd410d66c9e5eeff8bbd07743e8f860de36c29"},
 ]
 
 [package.dependencies]
@@ -2069,13 +2069,13 @@ testing = ["pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)",
 
 [[package]]
 name = "sirmordred"
-version = "0.10.8rc1"
+version = "0.10.8"
 description = "Drive GrimoireLab tools to produce a dashboard"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "sirmordred-0.10.8rc1-py3-none-any.whl", hash = "sha256:7f37892512de2e9e04a0b43bb678f0c342ce92a9efa11bb49130e2b1baa4ab42"},
-    {file = "sirmordred-0.10.8rc1.tar.gz", hash = "sha256:d220f76bb82155a29d09cb6f2c97d6d380f59e9865df55d1b3488bb2d8d9c288"},
+    {file = "sirmordred-0.10.8-py3-none-any.whl", hash = "sha256:553524dead3eba719995f30b715f18dbb1399c7b812538859454afdf50e38d59"},
+    {file = "sirmordred-0.10.8.tar.gz", hash = "sha256:637b92ef9c95a301a6915830cbda43a8b0f84bc12e86d99dc88d51d64b8a809d"},
 ]
 
 [package.dependencies]
@@ -2109,13 +2109,13 @@ files = [
 
 [[package]]
 name = "sortinghat"
-version = "0.20.0rc1"
+version = "0.20.0"
 description = "A tool to manage identities."
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "sortinghat-0.20.0rc1-py3-none-any.whl", hash = "sha256:159e8cf7702b4ee75b10626a243196424d42ad6ccf60a5a2487c360b2345caf7"},
-    {file = "sortinghat-0.20.0rc1.tar.gz", hash = "sha256:dca4392433260941d51e117ac6776a1e894fca98290527a112b27a1d401a500d"},
+    {file = "sortinghat-0.20.0-py3-none-any.whl", hash = "sha256:73b0e5f29e0d363f3e5f4d898b5de6f454d56493c8a14d30883725b216fe633f"},
+    {file = "sortinghat-0.20.0.tar.gz", hash = "sha256:144cfc6e11592d51272f2836ddd297287b69c7a4a492ac7f9fc2671336a81a60"},
 ]
 
 [package.dependencies]
@@ -2366,4 +2366,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "ed9135cb63984ac1f3922a937d46b63fee87804044fb5c2041f46cec23c2486a"
+content-hash = "74427c9a25b2fbc4e4cee254f3ba609e60d89e988a917ae664c88c77baee5592"
