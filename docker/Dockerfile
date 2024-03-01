@@ -35,7 +35,7 @@ RUN apt-get update && \
 RUN echo "${DEPLOY_USER} ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 RUN mkdir -p ${DEPLOY_USER_DIR}/logs ; chown -R ${DEPLOY_USER}:${DEPLOY_USER} ${DEPLOY_USER_DIR}/logs
-VOLUME ["/home/bitergia/logs"]
+VOLUME ["${DEPLOY_USER_DIR}/logs"]
 
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     echo 'LANG="en_US.UTF-8"'>/etc/default/locale && \
