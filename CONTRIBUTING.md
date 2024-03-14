@@ -86,3 +86,8 @@ We use the channel for pinging people, sharing updates, quick and informal
 discussions, questions and answers, etc. Please, remember that developers
 in the channel won't always be available. However, anyone interested in the
 project is welcome to join the channel and start a discussion.
+
+### Adopters List
+
+You can publicly share how you or your organization are using GrimoireLab
+by adding an entry to the [ADOPTERS](./ADOPTERS.md) file.
