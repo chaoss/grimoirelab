@@ -1,5 +1,93 @@
 # Releases
 
+## GrimoireLab 0.24.0 - (2024-03-27)
+
+**New components:**
+
+* grimoirelab-toolkit 0.4.5
+* kidash 0.6.9
+* sortinghat 0.21.2
+* cereslib 0.5.6
+* perceval 0.25.0
+* perceval-mozilla 0.4.3
+* perceval-opnfv 0.2.25
+* perceval-puppet 0.2.25
+* perceval-weblate 0.2.25
+* graal 0.4.25
+* grimoire-elk 0.111.1
+* sirmordred 0.10.11
+
+The following list describes the changes by component:
+
+### grimoirelab-toolkit
+  
+  * Update Poetry's package dependencies
+
+### kidash
+  
+  * Update Poetry's package dependencies
+
+### sortinghat
+
+**Bug fixes:**
+
+ * Refetch general settings after they are changed\
+   The "unify" and "affiliate" switches on the general settings page
+   sometimes reflected outdated information. The page now reloads the
+   data everytime it is visited to keep it updated.
+
+**Dependencies updateds:**
+
+ * Migration to Vue 3\
+   Vue 2 reached end of life on December 2023 and is no longer mantained.
+
+### cereslib
+  
+  * Update Poetry's package dependencies
+
+### perceval
+
+**New features:**
+
+ * Include recovery mode for Git backend\
+   Include a new option in Git that allows continuing to fetch commits
+   from the previous execution using the last commit. The option is
+   `--recovery <commit>`. The last commit can be obtained from the offset
+   in the summary object of the last execution or the last item.
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### perceval-weblate
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+
+**Bug fixes:**
+
+ * Kitsune inmerse terms error\
+   Update raw mapping of Kitsune indexes to handle immense terms found in
+   `data.answers_data.content`, and `data.content`.
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 0.23.0 - (2024-03-12)
 
 **New components:**
