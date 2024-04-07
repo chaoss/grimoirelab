@@ -73,6 +73,9 @@ RUN mkdir -p ${CONF_DIR} && \
     echo "Installing and checking GrimoireLab Release"
 RUN sudo pip install -r ${CONF_DIR}/requirements.txt
 
+COPY ./setup-opensearch.cfg /home/grimoire/conf/setup.cfg
+COPY ./projects.json /home/grimoire/conf/projects.json
+
 HEALTHCHECK --interval=60s --timeout=6s --retries=1 CMD healthcheck.py -c ${CONF_DIR}/setup.cfg -s 'Exception in Task Manager' || exit 1
 
 CMD ${DEPLOY_USER_DIR}/stage

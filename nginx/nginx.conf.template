@@ -1,0 +1,38 @@
+
+upstream sortinghat {
+  server sortinghat:9314;
+}
+server {
+  include    mime.types;
+  sendfile on;
+  listen 8000;
+
+  server_name localhost nginx;
+
+  location / {
+      proxy_pass ${KIBANA_HOST};
+      proxy_redirect ${KIBANA_HOST} /;
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection 'upgrade';
+      proxy_set_header Host $host;
+      proxy_cache_bypass $http_upgrade;
+  }
+
+  location /identities {
+      rewrite ^/identities/(.*) /$1 break;
+
+      include /etc/nginx/uwsgi_params;
+      uwsgi_pass sortinghat;
+      uwsgi_param Host $host;
+      uwsgi_param X-Real-IP $remote_addr;
+      uwsgi_param X-Forwarded-For $proxy_add_x_forwarded_for;
+      uwsgi_param X-Forwarded-Proto $http_x_forwarded_proto;
+  }
+
+  location ~ ^/identities/(css|js|fonts)/ {
+    rewrite ^/identities/(.*) /$1 break;
+
+    root /sortinghat;
+  }
+}
