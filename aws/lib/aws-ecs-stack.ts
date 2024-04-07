@@ -16,6 +16,7 @@ export class AwsEcsStack extends cdk.Stack {
   private readonly ecsService2: ecs.FargateService;
   private readonly ecsService3: ecs.FargateService;
   private readonly ecsService4: ecs.FargateService;
+  private readonly ecsService5: ecs.FargateService;
 
   constructor(
     scope: Construct,
@@ -123,8 +124,6 @@ export class AwsEcsStack extends cdk.Stack {
 
     //
     // Task Definition for ECS fargate service running the redis application
-    //
-    // Task Definition for ECS fargate service running the maria db application
     const taskDefinition2 = new ecs.TaskDefinition(
       this,
       "grimoire-app-redis-task-definition",
@@ -477,6 +476,47 @@ export class AwsEcsStack extends cdk.Stack {
     this.ecsService3.connections.allowFrom(
       ec2.Peer.ipv4(props.vpc.vpcCidrBlock),
       ec2.Port.tcp(8000)
+    );
+
+    //
+    // Task Definition for ECS fargate service running the mordred application
+    const taskDefinition5 = new ecs.TaskDefinition(
+      this,
+      "grimoire-app-mordred-task-definition",
+      {
+        cpu: "256",
+        memoryMiB: "512",
+        compatibility: ecs.Compatibility.FARGATE,
+      }
+    );
+
+    taskDefinition5.addContainer("grimoire-app-mordred-container", {
+      containerName: this.resourceName("mordred"),
+      image: ecs.ContainerImage.fromEcrRepository(
+        ecr.Repository.fromRepositoryName(this, "grimoire-morded", "grimoirelab"),
+        "latest"
+      ),
+      essential: true,
+      logging: ecs.LogDrivers.awsLogs({
+        logGroup: props.appLogGroup,
+        streamPrefix: "grimoire-mordred",
+      }),
+    });
+
+    this.ecsService5 = new ecs.FargateService(
+      this,
+      "grimoire-app-mordred-mordred-service",
+      {
+        cluster: props.cluster,
+        propagateTags: ecs.PropagatedTagSource.SERVICE,
+        serviceName: this.resourceName("mordred"),
+        taskDefinition: taskDefinition5,
+        vpcSubnets: this.privateSubnetSelection(props.vpc),
+        assignPublicIp: false,
+        enableExecuteCommand: true,
+        securityGroups: securityGroup.connections.securityGroups,
+        circuitBreaker: { enable: true, rollback: false },
+      }
     );
   }
 
