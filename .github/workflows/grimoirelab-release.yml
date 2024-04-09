@@ -8,6 +8,11 @@ on:
         required: true
         type: boolean
         default: false
+      bump_major:
+        description: "Create a major version release"
+        required: true
+        type: boolean
+        default: false
       git_email:
         description: "Git email for commits messages"
         required: true
@@ -25,6 +30,7 @@ jobs:
       git_email: ${{ steps.variables.outputs.git_email }}
       git_name: ${{ steps.variables.outputs.git_name }}
       release_candidate: ${{ steps.variables.outputs.release_candidate }}
+      bump_major: ${{ steps.variables.outputs.bump_major }}
     steps:
       - id: variables
         name: variables
@@ -32,6 +38,7 @@ jobs:
           echo "git_email=${{ inputs.git_email }}" >> $GITHUB_OUTPUT
           echo "git_name=${{ inputs.git_name}}" >> $GITHUB_OUTPUT
           echo "release_candidate=${{ inputs.release_candidate}}" >> $GITHUB_OUTPUT
+          echo "bump_major=${{ inputs.bump_major}}" >> $GITHUB_OUTPUT
 
   grimoirelab-toolkit:
     name: grimoirelab-toolkit
@@ -42,6 +49,7 @@ jobs:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       release_candidate: ${{ needs.variables-job.outputs.release_candidate }}
+      bump_major: ${{ needs.variables-job.outputs.bump_major }}
       module_name: 'grimoirelab-toolkit'
       module_repository: 'chaoss/grimoirelab-toolkit'
       module_directory: 'src/grimoirelab-toolkit'
@@ -58,6 +66,7 @@ jobs:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       release_candidate: ${{ needs.variables-job.outputs.release_candidate }}
+      bump_major: ${{ needs.variables-job.outputs.bump_major }}
       module_name: 'kidash'
       module_repository: 'chaoss/grimoirelab-kidash'
       module_directory: 'src/grimoirelab-kidash'
@@ -75,6 +84,7 @@ jobs:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       release_candidate: ${{ needs.variables-job.outputs.release_candidate }}
+      bump_major: ${{ needs.variables-job.outputs.bump_major }}
       module_name: 'sortinghat'
       module_repository: 'chaoss/grimoirelab-sortinghat'
       module_directory: 'src/grimoirelab-sortinghat'
@@ -92,6 +102,7 @@ jobs:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       release_candidate: ${{ needs.variables-job.outputs.release_candidate }}
+      bump_major: ${{ needs.variables-job.outputs.bump_major }}
       module_name: 'cereslib'
       module_repository: 'chaoss/grimoirelab-cereslib'
       module_directory: 'src/grimoirelab-cereslib'
@@ -108,6 +119,7 @@ jobs:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       release_candidate: ${{ needs.variables-job.outputs.release_candidate }}
+      bump_major: ${{ needs.variables-job.outputs.bump_major }}
       module_name: 'grimoirelab-panels'
       module_repository: 'chaoss/grimoirelab-sigils'
       module_directory: 'src/grimoirelab-sigils'
@@ -125,6 +137,7 @@ jobs:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       release_candidate: ${{ needs.variables-job.outputs.release_candidate }}
+      bump_major: ${{ needs.variables-job.outputs.bump_major }}
       module_name: 'perceval'
       module_repository: 'chaoss/grimoirelab-perceval'
       module_directory: 'src/grimoirelab-perceval'
@@ -143,6 +156,7 @@ jobs:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       release_candidate: ${{ needs.variables-job.outputs.release_candidate }}
+      bump_major: ${{ needs.variables-job.outputs.bump_major }}
       module_name: 'perceval-mozilla'
       module_repository: 'chaoss/grimoirelab-perceval-mozilla'
       module_directory: 'src/grimoirelab-perceval-mozilla'
@@ -162,6 +176,7 @@ jobs:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       release_candidate: ${{ needs.variables-job.outputs.release_candidate }}
+      bump_major: ${{ needs.variables-job.outputs.bump_major }}
       module_name: 'perceval-opnfv'
       module_repository: 'chaoss/grimoirelab-perceval-opnfv'
       module_directory: 'src/grimoirelab-perceval-opnfv'
@@ -181,6 +196,7 @@ jobs:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       release_candidate: ${{ needs.variables-job.outputs.release_candidate }}
+      bump_major: ${{ needs.variables-job.outputs.bump_major }}
       module_name: 'perceval-puppet'
       module_repository: 'chaoss/grimoirelab-perceval-puppet'
       module_directory: 'src/grimoirelab-perceval-puppet'
@@ -200,6 +216,7 @@ jobs:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       release_candidate: ${{ needs.variables-job.outputs.release_candidate }}
+      bump_major: ${{ needs.variables-job.outputs.bump_major }}
       module_name: 'perceval-weblate'
       module_repository: 'chaoss/grimoirelab-perceval-weblate'
       module_directory: 'src/grimoirelab-perceval-weblate'
@@ -219,6 +236,7 @@ jobs:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       release_candidate: ${{ needs.variables-job.outputs.release_candidate }}
+      bump_major: ${{ needs.variables-job.outputs.bump_major }}
       module_name: 'graal'
       module_repository: 'chaoss/grimoirelab-graal'
       module_directory: 'src/grimoirelab-graal'
@@ -245,6 +263,7 @@ jobs:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       release_candidate: ${{ needs.variables-job.outputs.release_candidate }}
+      bump_major: ${{ needs.variables-job.outputs.bump_major }}
       module_name: 'grimoire-elk'
       module_repository: 'chaoss/grimoirelab-elk'
       module_directory: 'src/grimoirelab-elk'
@@ -281,6 +300,7 @@ jobs:
       git_email: ${{ needs.variables-job.outputs.git_email }}
       git_name: ${{ needs.variables-job.outputs.git_name }}
       release_candidate: ${{ needs.variables-job.outputs.release_candidate }}
+      bump_major: ${{ needs.variables-job.outputs.bump_major }}
       module_name: 'sirmordred'
       module_repository: 'chaoss/grimoirelab-sirmordred'
       module_directory: 'src/grimoirelab-sirmordred'

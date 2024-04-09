@@ -15,6 +15,10 @@ on:
         description: 'Create a release candidate version'
         type: string
         required: true
+      bump_major:
+        description: 'Create a new major version release'
+        type: string
+        required: true
       module_name:
         description: 'Name of the module'
         type: string
@@ -148,7 +152,13 @@ jobs:
           old_version=${{ steps.old-version.outputs.version }}
           dep_updated=${{ steps.update-dependencies.outputs.dep_updated }}
 
-          version=$(semverup $rcArg)
+          if [ ${{ inputs.bump_major }} == 'true' ]
+          then
+            version=$(semverup --bump-version major $rcArg)
+          else
+            version=$(semverup $rcArg)
+          fi
+
           if [ -z $version ] && [ $dep_updated -gt 0 ]
           then
             echo "Dependencies updated, force new version"
