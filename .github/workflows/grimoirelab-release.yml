@@ -508,7 +508,42 @@ jobs:
           git add poetry.lock
           git add requirements.txt
 
+      - name: Use custom release notes if exists
+        id: custom_notes
+        run: |
+          version=${{ steps.semverup.outputs.version }}
+          custom_file=releases/custom_releases_notes.md
+          release_file=releases/$version.md
+          news_file="NEWS"
+          old_news="NEWS_old"
+          
+          if [ -e $custom_file ]
+          then
+            echo "Using custom release file"
+            
+            # News file
+            if [ ${{ inputs.release_candidate }} == 'false' ]
+            then
+              mv $news_file $old_news
+              touch $news_file
+              echo "# Releases" >> $news_file
+              echo "" >> $news_file
+              cat $custom_file >> $news_file
+              echo "" >> $news_file
+              cat $old_news | tail -n +2 >> $news_file
+            fi
+            
+            # Release file
+            git mv $custom_file $release_file
+          
+            echo "custom_notes=true" >> $GITHUB_OUTPUT
+          else
+            echo "Using packages release notes"
+            echo "custom_notes=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Generate release notes from packages
+        if: steps.custom_notes.outputs.custom_notes == 'false'
         env:
           grimoirelab_toolkit_notes: "${{ needs.grimoirelab-toolkit.outputs.notes}}"
           grimoirelab_kidash_notes: "${{ needs.grimoirelab-kidash.outputs.notes}}"
@@ -550,7 +585,7 @@ jobs:
           cat $release_file
 
       - name: Generate NEWS from packages
-        if: inputs.release_candidate == false
+        if: inputs.release_candidate == 'false' && steps.custom_notes.outputs.custom_notes == 'false'
         env:
           notes_grimoirelab_toolkit: "${{ needs.grimoirelab-toolkit.outputs.notes}}"
           notes_kidash: "${{ needs.grimoirelab-kidash.outputs.notes}}"
