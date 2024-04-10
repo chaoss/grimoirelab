@@ -512,7 +512,7 @@ jobs:
         id: custom_notes
         run: |
           version=${{ steps.semverup.outputs.version }}
-          custom_file=releases/custom_releases_notes.md
+          custom_file=releases/custom_release_notes.md
           release_file=releases/$version.md
           news_file="NEWS"
           old_news="NEWS_old"
