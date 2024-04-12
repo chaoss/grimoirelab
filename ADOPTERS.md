@@ -15,5 +15,14 @@ The list of organizations that have publicly shared the usage of GrimoireLab:
 | [name](URL) | brief description of how you are using GrimoireLab |
 -->
 
+📜 **Add your research papers by creating a PR**
+
+The list of papers that have used GrimoireLab or data produced by it:
+
+* Guizani, M., Feng, Z., Arteaga, E. J., Cañas-Díaz, L., Serebrenik, A., & Sarma, A. (2023).
+  Unveiling Diversity: Empowering OSS Project Leaders with Community Diversity and Turnover Dashboards.
+  [doi:10.48550/arXiv.2312.08543](https://doi.org/10.48550/arXiv.2312.08543)
+<!-- Please use APA Citation style and include a link to the paper. -->
+
 **Note**: we took the idea and format of this file from the
 [Kyverno project](https://github.com/kyverno/kyverno/). Kudos to them!
