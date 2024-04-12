@@ -54,6 +54,34 @@ files = [
 ]
 
 [[package]]
+name = "backports-zoneinfo"
+version = "0.2.1"
+description = "Backport of the standard library zoneinfo module"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "backports.zoneinfo-0.2.1-cp36-cp36m-macosx_10_14_x86_64.whl", hash = "sha256:da6013fd84a690242c310d77ddb8441a559e9cb3d3d59ebac9aca1a57b2e18bc"},
+    {file = "backports.zoneinfo-0.2.1-cp36-cp36m-manylinux1_i686.whl", hash = "sha256:89a48c0d158a3cc3f654da4c2de1ceba85263fafb861b98b59040a5086259722"},
+    {file = "backports.zoneinfo-0.2.1-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:1c5742112073a563c81f786e77514969acb58649bcdf6cdf0b4ed31a348d4546"},
+    {file = "backports.zoneinfo-0.2.1-cp36-cp36m-win32.whl", hash = "sha256:e8236383a20872c0cdf5a62b554b27538db7fa1bbec52429d8d106effbaeca08"},
+    {file = "backports.zoneinfo-0.2.1-cp36-cp36m-win_amd64.whl", hash = "sha256:8439c030a11780786a2002261569bdf362264f605dfa4d65090b64b05c9f79a7"},
+    {file = "backports.zoneinfo-0.2.1-cp37-cp37m-macosx_10_14_x86_64.whl", hash = "sha256:f04e857b59d9d1ccc39ce2da1021d196e47234873820cbeaad210724b1ee28ac"},
+    {file = "backports.zoneinfo-0.2.1-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:17746bd546106fa389c51dbea67c8b7c8f0d14b5526a579ca6ccf5ed72c526cf"},
+    {file = "backports.zoneinfo-0.2.1-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:5c144945a7752ca544b4b78c8c41544cdfaf9786f25fe5ffb10e838e19a27570"},
+    {file = "backports.zoneinfo-0.2.1-cp37-cp37m-win32.whl", hash = "sha256:e55b384612d93be96506932a786bbcde5a2db7a9e6a4bb4bffe8b733f5b9036b"},
+    {file = "backports.zoneinfo-0.2.1-cp37-cp37m-win_amd64.whl", hash = "sha256:a76b38c52400b762e48131494ba26be363491ac4f9a04c1b7e92483d169f6582"},
+    {file = "backports.zoneinfo-0.2.1-cp38-cp38-macosx_10_14_x86_64.whl", hash = "sha256:8961c0f32cd0336fb8e8ead11a1f8cd99ec07145ec2931122faaac1c8f7fd987"},
+    {file = "backports.zoneinfo-0.2.1-cp38-cp38-manylinux1_i686.whl", hash = "sha256:e81b76cace8eda1fca50e345242ba977f9be6ae3945af8d46326d776b4cf78d1"},
+    {file = "backports.zoneinfo-0.2.1-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:7b0a64cda4145548fed9efc10322770f929b944ce5cee6c0dfe0c87bf4c0c8c9"},
+    {file = "backports.zoneinfo-0.2.1-cp38-cp38-win32.whl", hash = "sha256:1b13e654a55cd45672cb54ed12148cd33628f672548f373963b0bff67b217328"},
+    {file = "backports.zoneinfo-0.2.1-cp38-cp38-win_amd64.whl", hash = "sha256:4a0f800587060bf8880f954dbef70de6c11bbe59c673c3d818921f042f9954a6"},
+    {file = "backports.zoneinfo-0.2.1.tar.gz", hash = "sha256:fadbfe37f74051d024037f223b8e001611eac868b5c5b06144ef4d8b799862f2"},
+]
+
+[package.extras]
+tzdata = ["tzdata"]
+
+[[package]]
 name = "bandit"
 version = "1.7.8"
 description = "Security oriented static analyser for python code."
@@ -423,19 +451,20 @@ profile = ["gprof2dot (>=2022.7.29)"]
 
 [[package]]
 name = "django"
-version = "3.2.25"
-description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
+version = "4.2.11"
+description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.8"
 files = [
-    {file = "Django-3.2.25-py3-none-any.whl", hash = "sha256:a52ea7fcf280b16f7b739cec38fa6d3f8953a5456986944c3ca97e79882b4e38"},
-    {file = "Django-3.2.25.tar.gz", hash = "sha256:7ca38a78654aee72378594d63e51636c04b8e28574f5505dff630895b5472777"},
+    {file = "Django-4.2.11-py3-none-any.whl", hash = "sha256:ddc24a0a8280a0430baa37aff11f28574720af05888c62b7cfe71d219f4599d3"},
+    {file = "Django-4.2.11.tar.gz", hash = "sha256:6e6ff3db2d8dd0c986b4eec8554c8e4f919b5c1ff62a5b4390c17aff2ed6e5c4"},
 ]
 
 [package.dependencies]
-asgiref = ">=3.3.2,<4"
-pytz = "*"
-sqlparse = ">=0.2.2"
+asgiref = ">=3.6.0,<4"
+"backports.zoneinfo" = {version = "*", markers = "python_version < \"3.9\""}
+sqlparse = ">=0.3.1"
+tzdata = {version = "*", markers = "sys_platform == \"win32\""}
 
 [package.extras]
 argon2 = ["argon2-cffi (>=19.1.0)"]
@@ -1046,13 +1075,13 @@ six = ">=1.12"
 
 [[package]]
 name = "grimoire-elk"
-version = "1.0.0rc2"
+version = "1.0.0rc3"
 description = "GrimoireELK processes and stores software development data to ElasticSearch"
 optional = false
 python-versions = "<4.0,>=3.8"
 files = [
-    {file = "grimoire_elk-1.0.0rc2-py3-none-any.whl", hash = "sha256:456fbe8f5b9dda2c080df4b43a2d0b7b29794a09537aea70919abdb3f62551f0"},
-    {file = "grimoire_elk-1.0.0rc2.tar.gz", hash = "sha256:f157b1db5ef1a7a285e8bcc8d7622882d35737905e370f1e4e5c6ec8fcbe8096"},
+    {file = "grimoire_elk-1.0.0rc3-py3-none-any.whl", hash = "sha256:05c4580ec2b9c6cca6c976f564e2b9f76cc17393f34212c9746b992c0b15a63f"},
+    {file = "grimoire_elk-1.0.0rc3.tar.gz", hash = "sha256:7d862e6c7ad5413dac5f553023e2693954b37a05b6e8282e44434133aeeaeb6e"},
 ]
 
 [package.dependencies]
@@ -2088,13 +2117,13 @@ testing = ["pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)",
 
 [[package]]
 name = "sirmordred"
-version = "1.0.0rc2"
+version = "1.0.0rc3"
 description = "Drive GrimoireLab tools to produce a dashboard"
 optional = false
 python-versions = "<4.0,>=3.8"
 files = [
-    {file = "sirmordred-1.0.0rc2-py3-none-any.whl", hash = "sha256:05fb72d8f6e97437a45c05630f7d88d407b53f5e0aa60c87f42c25cb5b5f6ab3"},
-    {file = "sirmordred-1.0.0rc2.tar.gz", hash = "sha256:c93f4a88fb8968b8b30490e44516108f22db02fc1011b61a40265e26e93197a6"},
+    {file = "sirmordred-1.0.0rc3-py3-none-any.whl", hash = "sha256:e9198b1bc4fdd931edbf932a032964b00093d528867480310dda4d9d8be8d8a1"},
+    {file = "sirmordred-1.0.0rc3.tar.gz", hash = "sha256:91905186fa343a5d621095a35b827c7e7442b19af9020fb8e4c719289e5adfa2"},
 ]
 
 [package.dependencies]
@@ -2128,18 +2157,18 @@ files = [
 
 [[package]]
 name = "sortinghat"
-version = "1.0.0rc2"
+version = "1.0.0rc3"
 description = "A tool to manage identities."
 optional = false
 python-versions = "<4.0,>=3.8"
 files = [
-    {file = "sortinghat-1.0.0rc2-py3-none-any.whl", hash = "sha256:fcc2490603184687629aeb1ffcdfdd7e8aad45198ce94f09c40917d7bf836128"},
-    {file = "sortinghat-1.0.0rc2.tar.gz", hash = "sha256:7223840e77432ea4aae93a8856784c371b8b6eef7a59bc84b6ee695086765d87"},
+    {file = "sortinghat-1.0.0rc3-py3-none-any.whl", hash = "sha256:e0aaf3c6001b8cb61f387f4861bf78fba7cbb0023078d02f72ac14ac7e5044f2"},
+    {file = "sortinghat-1.0.0rc3.tar.gz", hash = "sha256:f37484bfdbd30ee4bb742362fdf406a57cf734329b138d7e349930814252313b"},
 ]
 
 [package.dependencies]
 click = "7.1.1"
-Django = ">=3.2,<4.0"
+Django = ">=4.2,<5.0"
 django-cors-headers = ">=3.7.0,<4.0.0"
 django-graphql-jwt = ">=0.3.0,<0.4.0"
 django-rq = ">=2.3.2,<3.0.0"
@@ -2342,6 +2371,17 @@ files = [
 ]
 
 [[package]]
+name = "tzdata"
+version = "2024.1"
+description = "Provider of IANA time zone data"
+optional = false
+python-versions = ">=2"
+files = [
+    {file = "tzdata-2024.1-py2.py3-none-any.whl", hash = "sha256:9068bc196136463f5245e51efda838afa15aaeca9903f49050dfa2679db4d252"},
+    {file = "tzdata-2024.1.tar.gz", hash = "sha256:2674120f8d891909751c38abcdfd386ac0a5a1127954fbc332af6b5ceae07efd"},
+]
+
+[[package]]
 name = "urllib3"
 version = "1.26.18"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
@@ -2385,4 +2425,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "24313ae3f63e6f8d0a800ff1ad5b7ca1b8838ae08d5bb0f7090a207e5a7e93ab"
+content-hash = "4305496844f96645474f589f3b8bf2cf7e0c9d4b0f4e7c3c3db4837518b912b1"
