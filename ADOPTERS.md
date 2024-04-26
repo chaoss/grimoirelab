@@ -13,6 +13,7 @@ The list of organizations that have publicly shared the usage of GrimoireLab:
 | [Bitergia](https://bitergia.com/) | We offer a commercial ready-to-use platform, built with GrimoireLab, that gives managers software development analytics for the projects they care about. |
 | [The Document Foundation](https://www.documentfoundation.org/) | The Document Foundation is hosting [its own GrimoireLab dashboard](https://dashboard.documentfoundation.org/) to [provide data about the status and evolution of its projects](https://blog.documentfoundation.org/blog/2017/08/02/dashboard-announcement/). |
 | [Open Infrastructure Foundation](https://openinfra.dev) | Bitergia is the OpenInfra Foundation's official metrics partner. Through that collaboration, the OpenInfra Foundation uses GrimoireLab to follow and visualize the activity, diversity and growth of OpenInfra communities. |
+| [The Eclipse Foundation](https://eclipse.org) | The Eclipse Foundation is using GrimoireLab to provide [information and insights](https://metrics.eclipse.org) about the status and evolution of its [open source projects](https://projects.eclipse.org). |
 <!-- to append the table: insert a line above, using the format below
 | [name](URL) | brief description of how you are using GrimoireLab |
 -->
