@@ -121,6 +121,10 @@ asked to log in:
 * User: `admin`
 * Password: `admin`
 
+This version doesn't come with visualizations. You need to manually import the dashboards
+from [Sigils repository](https://github.com/chaoss/grimoirelab-sigils/tree/master/panels/json/opensearch_dashboards)
+or create your own.
+
 For more information related with OpenSearch: https://opensearch.org/docs/latest/
 
 
@@ -135,7 +139,14 @@ For more information related with OpenSearch: https://opensearch.org/docs/latest
 
 ## Common questions
 
-**How to stop and restart deployed software infrastructure?**
+### ElasticSearch container won't start up on Mac
+
+Running the default `docker-compose.yml` in Mac caused issues with the provided
+versions of Elasticsearch and Kibana. To resolve these problems, please use
+the [OpenSearch version](#opensearch).
+
+
+### How to stop and restart deployed software infrastructure?
 
 There might be 2 potential scenarios:
 
