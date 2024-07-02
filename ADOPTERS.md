@@ -23,11 +23,12 @@ The list of organizations that have publicly shared the usage of GrimoireLab:
 📜 **Add your research papers by creating a PR**
 
 The list of papers that have used GrimoireLab or data produced by it:
-
-* Dueñas, S., Cosentino, V., Gonzalez-Barahona, J. M., del Castillo, A., Izquierdo-Cortazar, D., Cañas-Díaz, L., Pérez García-Plaza, A. (2021). GrimoireLab: A toolset for software development analytics. [doi:10.7717/peerj-cs.601](https://doi.org/10.7717/peerj-cs.601)
+* Sophia Vargas, Georg Link, and JaYoung Lee. (2024). Estimating Usage of Open Source Projects. In _Proceedings of the 21st International Conference on Mining Software Repositories (MSR '24)._ Association for Computing Machinery, New York, NY, USA, 652–653. [https://doi.org/10.1145/3643991.3645066](https://doi.org/10.1145/3643991.3645066)
 * Guizani, M., Feng, Z., Arteaga, E. J., Cañas-Díaz, L., Serebrenik, A., & Sarma, A. (2023).
   Unveiling Diversity: Empowering OSS Project Leaders with Community Diversity and Turnover Dashboards.
   [doi:10.48550/arXiv.2312.08543](https://doi.org/10.48550/arXiv.2312.08543)
+* Dueñas, S., Cosentino, V., Gonzalez-Barahona, J. M., del Castillo, A., Izquierdo-Cortazar, D., Cañas-Díaz, L., Pérez García-Plaza, A. (2021). GrimoireLab: A toolset for software development analytics. [doi:10.7717/peerj-cs.601](https://doi.org/10.7717/peerj-cs.601)
+
 <!-- Please use APA Citation style and include a link to the paper. -->
 
 **Note**: we took the idea and format of this file from the
