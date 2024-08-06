@@ -77,6 +77,15 @@ Your dashboard will be ready after a while at `http://localhost:8000`. The waiti
 
 More details in the [docker folder](./docker/README.md).
 
+# Breaking changes
+
+## GrimoireLab `1.3.0`. SortingHat permission groups.
+
+Starting from GrimoireLab 1.3.0, creating new users in SortingHat requires
+assigning them to a permission group. By default, they will have read-only
+permissions. Please refer to the following documentation for instructions
+on how to update permissions: [assign users to permission groups](https://github.com/chaoss/grimoirelab-sortinghat?tab=readme-ov-file#assign-users-to-permission-groups)
+
 # GrimoireLab components
 
 Currently, GrimoireLab toolkit is organized in the following repositories:
