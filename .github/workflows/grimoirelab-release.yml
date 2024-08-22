@@ -585,7 +585,7 @@ jobs:
           cat $release_file
 
       - name: Generate NEWS from packages
-        if: inputs.release_candidate == 'false' && steps.custom_notes.outputs.custom_notes == 'false'
+        if: inputs.release_candidate == false && steps.custom_notes.outputs.custom_notes == 'false'
         env:
           notes_grimoirelab_toolkit: "${{ needs.grimoirelab-toolkit.outputs.notes}}"
           notes_kidash: "${{ needs.grimoirelab-kidash.outputs.notes}}"
