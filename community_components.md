@@ -58,6 +58,10 @@ for retrieving data from its data sources.
 
 * [json2hat](https://github.com/lukaszgryglicki/bitergia_deployment/blob/master/cmd/json2hat/json2hat.go) by [Łukasz Gryglicki](https://github.com/lukaszgryglicki). Go script that imports the file github_users.json from the [cncf/gitdm](https://github.com/cncf/gitdm) GitHub repo into a SortingHat database.
 
+## Deployments
+
+* [Running GrimoireLab with AWS Fargate](https://github.com/andrew-mclachlan/grimoirelab-aws-cdk) by [Andrew McLachlan](https://github.com/andrew-mclachlan). Setup for deploying GrimoireLab using [AWS Fargate](https://aws.amazon.com/fargate) with a Network Load Balancer.
+
 ## Research & Development Projects
 
 * [CROSSMINER](https://github.com/crossminer) .
