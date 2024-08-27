@@ -20,11 +20,6 @@ RUN apt-get update && \
         bash locales \
         gcc \
         git git-core \
-        python3 \
-        python3-pip \
-        python3-venv \
-        python3-dev \
-        python3-gdbm \
         mariadb-client \
         libmariadbclient-dev-compat \
         unzip curl wget sudo ssh \
