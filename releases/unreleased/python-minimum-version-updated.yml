@@ -1,0 +1,10 @@
+---
+title: Python minimum version updated
+category: dependency
+author: Jose Javier Merchante <jjmerchante@bitergia.com>
+issue: null
+notes: >
+  Python 3.8 will reach its end of life in October 2024.
+  Python 3.9 is the minimum version required by the project.
+
+  Update Docker images to use Python 3.9
