@@ -36,7 +36,7 @@ classifiers = [
 'grimoirelab' = 'grimoirelab.grimoirelab:main'
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 
 grimoirelab-toolkit = {version = ">=1.0.4", allow-prereleases = true}
 perceval-mozilla = {version = ">=1.0.6", allow-prereleases = true}
