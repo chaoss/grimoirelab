@@ -1,0 +1,5 @@
+apiVersion: v2
+name: opensearch-node
+description: Opensearch for Grimoirelab
+appVersion: 1.0
+version: 1.0

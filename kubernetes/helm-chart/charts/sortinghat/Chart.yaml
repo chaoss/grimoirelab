@@ -1,0 +1,5 @@
+apiVersion: v2
+name: sortinghat
+description: Sortinghat service for GrimoireLab
+appVersion: 1.0
+version: 1.0

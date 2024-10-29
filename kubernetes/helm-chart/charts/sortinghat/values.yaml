@@ -1,0 +1,42 @@
+global:
+  topologyConfig: {}
+  imagePullSecrets: []
+  imageRegistry: ""
+  appName: ""
+
+enabled: true
+
+appConfig:
+  name: "sortinghat"
+  replicas: 1
+  image: docker.io/grimoirelab/sortinghat:latest
+  pullPolicy: IfNotPresent
+  metadata: {}
+  labels: {}
+  annotations: {}
+  resources:
+    cpu:
+      limits: ""
+      requests: ""
+    memory:
+      limits: ""
+      requests: ""
+
+dependencies:
+  storage:
+    enabled: true
+    volumes:
+      - name: "sortinghat-static"
+        mountPath: "/opt/venv/lib/python3.9/site-packages/sortinghat/static"
+        type: pvc
+        storageClass: efs-sc
+        size: 1Gi
+
+service:
+  labels: {}
+  annotations: {}
+  targetPort: 9314
+  scheme: "http"
+  type: ""  # Default to "ClusterIP"
+
+extraEnvs: []

@@ -1,0 +1,81 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Values.appConfig.name }}"
+  labels:
+    app: "{{ .Values.appConfig.name }}"
+    {{- include "opensearch-dashboard-pod-labels" . | nindent 4 }}
+  annotations:
+    {{- include "opensearch-dashboard-pod-annotations" . | nindent 4 }}
+
+spec:
+  replicas: {{ .Values.appConfig.replicas }}
+  selector:
+    matchLabels:
+      app: "{{ .Values.appConfig.name }}"
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.appConfig.name }}"
+        {{- include "opensearch-dashboard-pod-labels" . | nindent 8 }}
+      annotations:
+        {{- include "opensearch-dashboard-pod-annotations" . | nindent 8 }}
+    spec:
+      {{- with .Values.global.topologyConfig }}
+      {{- toYaml . | nindent 6 }}
+      {{- end }}
+      terminationGracePeriodSeconds: 10
+      {{- with .Values.global.imagePullSecrets}}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8}}
+      {{- end}}
+      containers:
+        - name: opensearch-dashboard
+          image: {{ .Values.appConfig.image }}
+          ports:
+            - containerPort: {{ .Values.service.targetPort }}
+          {{- if .Values.dependencies.storage.enabled }}
+          volumeMounts:
+          {{- range .Values.dependencies.storage.volumes }}
+            - name: {{ .name }}
+              mountPath: {{ .mountPath }}
+              {{- if and (eq .type "configmap") (hasKey . "subPath") .subPath }}
+              subPath: {{ .subPath }}
+              {{- end }}
+          {{- end }}
+          {{- end }}
+          resources:
+            limits:
+              cpu: {{ .Values.appConfig.resources.cpu.limits | quote }}
+              memory: {{ .Values.appConfig.resources.memory.limits | quote }}
+            requests:
+              cpu: {{ .Values.appConfig.resources.cpu.requests | quote }}
+              memory: {{ .Values.appConfig.resources.memory.requests | quote}}
+          env:
+          {{- with .Values.extraEnvs }}
+          {{- toYaml . | nindent 12 }}
+          {{- end }}
+      {{- if .Values.dependencies.storage.enabled }}
+      volumes:
+      {{- range .Values.dependencies.storage.volumes }}
+        - name: {{ .name }}
+          {{- if eq .type "pvc" }}
+          persistentVolumeClaim:
+            claimName: {{ .name }}-pvc
+          {{- else if eq .type "configmap" }}
+          configMap:
+            name: {{ $.Release.Name }}-configmap
+            {{- if and (hasKey . "configmapKey") (hasKey . "asFile" ) .confimapKey .asFile }}
+            items:
+              - key: {{ .configmapKey }}
+                path: {{ .asFile }}
+            {{- end }}
+          {{- else if eq .type "secret" }}
+          secret:
+            secretName: {{ .name }}-secret
+          {{- else }}
+          emptyDir:
+            sizeLimit: 100Mi
+          {{- end }}
+        {{- end }}
+      {{- end }}

@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ .Values.appConfig.name }}"
+  labels:
+    app: "{{ .Values.appConfig.name }}"
+    {{- include "sortinghat-worker-service-labels" . | nindent 4 }}
+  annotations:
+    {{- include "sortinghat-worker-service-annotations" . | nindent 4 }}
+spec:
+  ports:
+    - protocol: TCP
+      name: "{{ .Values.appConfig.name }}-service"
+    {{- if eq .Values.service.scheme "http" }}
+      port: 80
+      targetPort: {{ .Values.service.targetPort }}
+    {{- end }}
+    {{- if eq .Values.service.scheme "https" }}
+      port: 443
+      targetPort: {{ .Values.service.targetPort }}
+    {{- end }}
+    {{- if eq .Values.service.scheme "passthrough" }}
+      port: {{ .Values.service.targetPort }}
+      targetPort: {{ .Values.service.targetPort }}
+    {{- end }}
+  type: {{ .Values.service.type | default "ClusterIP" | quote }}
+  sessionAffinity: None
+  selector:
+    app: "{{ .Values.appConfig.name }}"

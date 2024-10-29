@@ -1,0 +1,37 @@
+global:
+  topologyConfig: {}
+  imagePullSecrets: []
+  imageRegistry: ""
+  appName: ""
+
+enabled: true
+
+appConfig:
+  name: sortinghat-worker
+  replicas: 1
+  image: docker.io/grimoirelab/sortinghat-worker:latest
+  pullPolicy: IfNotPresent
+  metadata: {}
+  labels: {}
+  annotations: {}
+  resources:
+    cpu:
+      limits: ""
+      requests: ""
+    memory:
+      limits: ""
+      requests: ""
+
+dependencies:
+  storage:
+    enabled: false
+    volumes: []
+
+service:
+  labels: {}
+  annotations: {}
+  targetPort: 9314
+  scheme: "http"
+  type: ""  # Default to "ClusterIP"
+
+extraEnvs: []
