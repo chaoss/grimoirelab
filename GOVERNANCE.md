@@ -16,6 +16,12 @@ GrimoireLab code is distributed under the GNU Public License v.3.
 Contributions will be accepted under this license, except in very special
 circumstances that should be defined.
 
+## Security
+
+The GrimoireLab maintainers take all security issues in the project seriously.
+You can find all our security policies in the [Security Policy](./SECURITY.md)
+document.
+
 ## Roadmap
 
 We use a roadmap to outline the direction of GrimoireLab. In the

@@ -55,6 +55,11 @@ If you're interested in contributing with code, please also have a look
 at the specifics in our [CONTRIBUTING WITH CODE](./CONTRIBUTING_WITH_CODE.md)
 document.
 
+## Notifying about vulnerabilities
+
+If you discover a vulnerability, please follow the instructions described
+in the [Security Policy](./SECURITY.md) document to report your findings.
+
 ## How Can I Communicate with the GrimoireLab Community?
 
 In GrimoireLab we use the communication channels listed below, each one of them
