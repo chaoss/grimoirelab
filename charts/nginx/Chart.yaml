@@ -1,0 +1,10 @@
+apiVersion: v2
+name: nginx
+description: Official Nginx build.
+home: https://github.com/nginxinc/docker-nginx
+icon: https://hub.docker.com/api/media/repos_logo/v1/library%2Fnginx
+maintainers:
+- name: Arie
+  url: https://github.com/Eroyi
+appVersion: 1.27.2
+version: 1.0

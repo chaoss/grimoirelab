@@ -1,0 +1,37 @@
+global:
+  topologyConfig: {}
+  imagePullSecrets: []
+  imageRegistry: ""
+  appName: ""
+
+install: true
+
+appConfig:
+  name: "opensearch-dashboard"
+  replicas: 1
+  image: docker.io/opensearchproject/opensearch-dashboards:2.11.1
+  pullPolicy: IfNotPresent
+
+  labels: {}
+  annotations: {}
+  resources:
+    cpu:
+      limits: ""
+      requests: ""
+    memory:
+      limits: ""
+      requests: ""
+
+dependencies:
+  storage:
+    enabled: false
+    volumes: []
+
+service:
+  labels: {}
+  annotations: {}
+  targetPort: 5601
+  scheme: "http"
+  type: ""  # Default to "ClusterIP"
+
+extraEnvs: []
