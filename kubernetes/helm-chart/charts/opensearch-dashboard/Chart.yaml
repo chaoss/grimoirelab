@@ -1,5 +1,10 @@
 apiVersion: v2
 name: opensearch-dashboard
-description: Dashboard for Opensearch
-appVersion: 1.0
+description: OpenSearch is a scalable, flexible, and extensible open-source software suite for search, analytics, and observability applications derived from Elasticsearch 7.10.2 and Kibana 7.10.2 and licensed under Apache 2.0.
+home: https://opensearch.org/
+icon: https://www.gravatar.com/avatar/28cb77e720377dcf01e9fee30967c128
+maintainers:
+- name: Arie
+  url: https://github.com/Eroyi
+appVersion: 2.11.1
 version: 1.0

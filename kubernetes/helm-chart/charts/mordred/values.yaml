@@ -4,14 +4,13 @@ global:
   imageRegistry: ""
   appName: ""
 
-enabled: true
+install: true
 
 appConfig:
   name: "mordred"
   replicas: 1
   image: docker.io/grimoirelab/grimoirelab:latest
   pullPolicy: "IfNotPresent"
-  metadata: {}
   labels: {}
   annotations: {}
   resources:

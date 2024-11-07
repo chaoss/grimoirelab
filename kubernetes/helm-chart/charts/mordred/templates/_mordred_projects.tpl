@@ -1,14 +1,14 @@
 {{/*
   Mordred project config
 */}}
-{{- define "mordred-project-config" -}}
+{{- define "config.mordredProject" -}}
 {
-    "grimoirelab": {
+    "grimoireLab": {
       "meta": {
         "title": "GrimoireLab"
       },
       "git": [
-          "https://github.com/chaoss/grimoirelab.git"
+	      "https://github.com/chaoss/grimoirelab.git"
         ]
     }
   }

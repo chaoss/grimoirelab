@@ -3,10 +3,17 @@ global:
   imagePullSecrets: []
   imageRegistry: ""
   appName: grimoirelab
+  credentials:
+    database:
+      username: "root"
+      password: "mar1adb4Gr1m0ir3Lab"
+    opensearchNode:
+      password: "admin"
+    redis:
+      password: "grimoirelab"
 
 opensearch-node:
-  enabled: true
-
+  install: true
   appConfig:
     replicas: 1
     image: docker.io/opensearchproject/opensearch:2.11.1
@@ -19,7 +26,6 @@ opensearch-node:
       memory:
         limits: "3000Mi"
         requests: "2000Mi"
-
   dependencies:
     storage:
       enabled: true
@@ -29,11 +35,10 @@ opensearch-node:
           type: pvc
           storageClass: efs-sc
           size: 10Gi
-
   service:
+    targetPort: 9200
     scheme: passthrough
     type: ""
-
   extraEnvs:
     - name: cluster.name
       value: "opensearch-cluster"
@@ -43,12 +48,11 @@ opensearch-node:
       value: "single-node"
     - name: bootstrap.memory_lock
       value: "true"
-    - name: "OPENSEARCH_JAVA_OPTS"
+    - name: OPENSEARCH_JAVA_OPTS
       value: "-Xms2g -Xmx2g"
 
 opensearch-dashboard:
-  enabled: true
-
+  install: true
   appConfig:
     replicas: 1
     image: docker.io/opensearchproject/opensearch-dashboards:2.11.1
@@ -61,34 +65,29 @@ opensearch-dashboard:
       memory:
         limits: "512Mi"
         requests: "256Mi"
-
   dependencies:
     storage:
       enabled: false
-
   service:
+    targetPort: 5601
     scheme: passthrough
     type: ""
-
-  extraEnvs:
-    - name: OPENSEARCH_HOSTS
-      value: '"[\"https://opensearch-node:9200\"]"'
+  extraEnvs: []
 
 mordred:
-  enabled: true
+  install: true
   appConfig:
     replicas: 1
-    image: docker.io/grimoirelab/grimoirelab:latest
+    image: docker.io/grimoirelab/grimoirelab:1.7.0
     labels: {}
     annotations: {}
     resources:
       cpu:
-        limits: "500m"
-        requests: "200m"
+        limits: "200m"
+        requests: "100m"
       memory:
-        limits: "1024Mi"
-        requests: "512Mi"
-
+        limits: "512Mi"
+        requests: "256Mi"
   dependencies:
     storage:
       enabled: true
@@ -104,29 +103,26 @@ mordred:
         - name: "mordred-log"
           mountPath: "/home/grimoire/logs"
           type: emptyDir
-
   service:
+    targetPort: 8000
     scheme: passthrough
     type: ""
-
   extraEnvs: []
 
 nginx:
-  enabled: true
-
+  install: true
   appConfig:
     replicas: 1
-    image: docker.io/nginx:latest
+    image: docker.io/nginx:1.27.2
     labels: {}
     annotations: {}
     resources:
       cpu:
-        limits: "100m"
-        requests: "50m"
+        limits: "50m"
+        requests: "20m"
       memory:
-        limits: "256Mi"
-        requests: "128Mi"
-
+        limits: "128Mi"
+        requests: "64Mi"
   dependencies:
     storage:
       enabled: true
@@ -142,31 +138,26 @@ nginx:
         - name: "sortinghat-static"
           mountPath: "/sortinghat"
           type: pvc
-
   service:
+    targetPort: 8000
     scheme: passthrough
     type: ""
-
-  extraEnvs:
-    - name: KIBANA_HOST
-      value: http://opensearch-dashboard:5601/
+  extraEnvs: []
 
 sortinghat:
-  enabled: true
-
+  install: true
   appConfig:
     replicas: 1
-    image: docker.io/grimoirelab/sortinghat:latest
+    image: docker.io/grimoirelab/sortinghat:1.7.0
     labels: {}
     annotations: {}
     resources:
       cpu:
-        limits: "200m"
-        requests: "100m"
+        limits: "50m"
+        requests: "20m"
       memory:
         limits: "512Mi"
         requests: "256Mi"
-
   dependencies:
     storage:
       enabled: true
@@ -176,11 +167,10 @@ sortinghat:
           type: pvc
           storageClass: efs-sc
           size: 1Gi
-
   service:
+    targetPort: 9314
     scheme: passthrough
     type: ""
-
   extraEnvs:
     - name: SORTINGHAT_SECRET_KEY
       value: "secret"
@@ -190,47 +180,35 @@ sortinghat:
       value: "3306"
     - name: SORTINGHAT_DB_DATABASE
       value: "sortinghat_db"
-    - name: SORTINGHAT_DB_USER
-      value: "root"
-    - name: SORTINGHAT_DB_PASSWORD
-      value: "mar1adb4Gr1m0ir3Lab"
     - name: SORTINGHAT_REDIS_HOST
       value: "redis-master"
-    - name: SORTINGHAT_REDIS_PASSWORD
-      value: "grimoirelab"
     - name: SORTINGHAT_SUPERUSER_USERNAME
       value: "root"
     - name: SORTINGHAT_SUPERUSER_PASSWORD
       value: "root"
     - name: SORTINGHAT_ALLOWED_HOST
-      value: "sortinghat,nginx,localhost,127.0.0.1,0.0.0.0,nginx.grimoirelab.svc.cluster.local,[::1]"
-    - name: SORTINGHAT_CORS_ALLOWED_ORIGINS
-      value: "http://localhost:8000,http://127.0.0.1:8000,http://0.0.0.0:8000"
+      value: "sortinghat,nginx,localhost,127.0.0.1,0.0.0.0,[::1]"
 
 sortinghat-worker:
-  enabled: true
-
+  install: true
   appConfig:
     replicas: 1
-    image: docker.io/grimoirelab/sortinghat-worker:latest
+    image: docker.io/grimoirelab/sortinghat-worker:1.7.0
     labels: {}
     annotations: {}
     resources:
       cpu:
-        limits: "200m"
-        requests: "100m"
+        limits: "1000m"
+        requests: "50m"
       memory:
-        limits: "512Mi"
-        requests: "256Mi"
-
+        limits: "256Mi"
+        requests: "128Mi"
   dependencies:
     storage:
       enabled: false
-
   service:
     scheme: passthrough
     type: ""
-
   extraEnvs:
     - name: SORTINGHAT_SECRET_KEY
       value: "secret"
@@ -240,11 +218,11 @@ sortinghat-worker:
       value: "3306"
     - name: SORTINGHAT_DB_DATABASE
       value: "sortinghat_db"
-    - name: SORTINGHAT_DB_USER
-      value: "root"
-    - name: SORTINGHAT_DB_PASSWORD
-      value: "mar1adb4Gr1m0ir3Lab"
     - name: SORTINGHAT_REDIS_HOST
       value: "redis-master"
-    - name: SORTINGHAT_REDIS_PASSWORD
-      value: "grimoirelab"
+
+mariadb:
+  install: false
+
+redis:
+  install: false

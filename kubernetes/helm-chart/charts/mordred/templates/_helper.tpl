@@ -1,8 +1,8 @@
 {{/*
 Mordred labels
 */}}
-{{- define "mordred-pod-labels" -}}
-{{- range $name, $value := .Values.appConfiglabels }}
+{{- define "metadata.mordred.pod.labels" -}}
+{{- range $name, $value := .Values.appConfig.labels }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}
 {{- end -}}
@@ -10,7 +10,7 @@ Mordred labels
 {{/*
 Mordred annotations
 */}}
-{{- define "mordred-pod-annotations" -}}
+{{- define "metadata.mordred.pod.annotations" -}}
 {{- range $name, $value := .Values.appConfig.annotations }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}
@@ -20,7 +20,7 @@ Mordred annotations
 {{/*
 Mordred Service labels
 */}}
-{{- define "mordred-service-labels" -}}
+{{- define "metadata.mordred.service.labels" -}}
 {{- range $name, $value := .Values.service.labels }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}
@@ -29,7 +29,7 @@ Mordred Service labels
 {{/*
 Mordred Service annotations
 */}}
-{{- define "mordred-service-annotations" -}}
+{{- define "metadata.mordred.service.annotations" -}}
 {{- range $name, $value := .Values.service.annotations }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}

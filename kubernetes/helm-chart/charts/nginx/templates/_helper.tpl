@@ -1,8 +1,8 @@
 {/*
 Mordred labels
 */}}
-{{- define "nginx-pod-labels" -}}
-{{- range $name, $value := .Values.appConfiglabels }}
+{{- define "metadata.nginx.pod.labels" -}}
+{{- range $name, $value := .Values.appConfig.labels }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}
 {{- end -}}
@@ -10,7 +10,7 @@ Mordred labels
 {{/*
 Mordred annotations
 */}}
-{{- define "nginx-pod-annotations" -}}
+{{- define "metadata.nginx.pod.annotations" -}}
 {{- range $name, $value := .Values.appConfig.annotations }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}
@@ -20,7 +20,7 @@ Mordred annotations
 {{/*
 Mordred Service labels
 */}}
-{{- define "nginx-service-labels" -}}
+{{- define "metadata.nginx.service.labels" -}}
 {{- range $name, $value := .Values.service.labels }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}
@@ -29,7 +29,7 @@ Mordred Service labels
 {{/*
 Mordred Service annotations
 */}}
-{{- define "nginx-service-annotations" -}}
+{{- define "metadata.nginx.service.annotations" -}}
 {{- range $name, $value := .Values.service.annotations }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}

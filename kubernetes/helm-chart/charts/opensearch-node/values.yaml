@@ -4,14 +4,14 @@ global:
   imageRegistry: ""
   appName: ""
 
-enabled: true
+install: true
 
 appConfig:
   name: "opensearch-node"
   replicas: 1
   image: docker.io/opensearchproject/opensearch:2.11.1
   pullPolicy: IfNotPresent
-  metadata: {}
+
   labels: {}
   annotations: {}
   resources:
@@ -25,7 +25,6 @@ appConfig:
     userID: 1000
     groupID: 1000
 
-
 dependencies:
   storage:
     enabled: true
@@ -35,7 +34,6 @@ dependencies:
         type: pvc
         storageClass: efs-sc
         size: 1Gi
-
 
 service:
   labels: {}

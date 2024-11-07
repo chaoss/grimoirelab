@@ -7,10 +7,10 @@ metadata:
 
 data:
   mordred-setup: |-
-    {{- include "mordred-setup-config" . | nindent 4 }}
+    {{- include "config.mordredSetup" . | nindent 4 }}
   mordred-projects: |-
-    {{- include "mordred-project-config" . | nindent 4 }}
+    {{- include "config.mordredProject" . | nindent 4 }}
   uwsgi-params: |-
-    {{- include "uwsgi-params" . | nindent 4 }}
+    {{- include "config.uwsgiParams" . | nindent 4 }}
   nginx-conf-template: |-
-    {{- include "nginx-conf-template" . | nindent 4 }}
+    {{- include "config.nginxConf" . | nindent 4 }}

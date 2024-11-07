@@ -4,14 +4,14 @@ global:
   imageRegistry: ""
   appName: ""
 
-enabled: true
+install: true
 
 appConfig:
   name: "nginx"
   replicas: 1
-  image: docker.io/nginx:latest
+  image: docker.io/nginx:1.27.2
   pullPolicy: IfNotPresent
-  metadata: {}
+
   labels: {}
   annotations: {}
   resources:

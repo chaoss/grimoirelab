@@ -1,5 +1,10 @@
 apiVersion: v2
 name: sortinghat
-description: Sortinghat service for GrimoireLab
-appVersion: 1.0
+description: Sortinghat service for GrimoireLab, a tool to manage identities.
+home: https://github.com/chaoss/grimoirelab
+icon: https://www.gravatar.com/avatar/4154acefea56ed23bddaaa47a4850400
+maintainers:
+- name: Arie
+  url: https://github.com/Eroyi
+appVersion: 1.7.0   #Based on the "Github Release" version (which is the docker image tag referring from), not the actual application version.
 version: 1.0

@@ -1,8 +1,8 @@
 {{/*
 Sortinghat labels
 */}}
-{{- define "sortinghat-worker-pod-labels" -}}
-{{- range $name, $value := .Values.appConfiglabels }}
+{{- define "metadata.sortinghatWorker.pod.labels" -}}
+{{- range $name, $value := .Values.appConfig.labels }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}
 {{- end -}}
@@ -10,7 +10,7 @@ Sortinghat labels
 {{/*
 Sortinghat annotations
 */}}
-{{- define "sortinghat-worker-pod-annotations" -}}
+{{- define "metadata.sortinghatWorker.pod.annotations" -}}
 {{- range $name, $value := .Values.appConfig.annotations }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}
@@ -20,7 +20,7 @@ Sortinghat annotations
 {{/*
 Sortinghat Service labels
 */}}
-{{- define "sortinghat-worker-service-labels" -}}
+{{- define "metadata.sortinghatWorker.service.labels" -}}
 {{- range $name, $value := .Values.service.labels }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}
@@ -29,7 +29,7 @@ Sortinghat Service labels
 {{/*
 Sortinghat Service annotations
 */}}
-{{- define "sortinghat-worker-service-annotations" -}}
+{{- define "metadata.sortinghatWorker.service.annotations" -}}
 {{- range $name, $value := .Values.service.annotations }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}

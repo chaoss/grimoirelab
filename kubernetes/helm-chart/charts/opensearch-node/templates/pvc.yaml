@@ -1,17 +1,3 @@
 {{- range .Values.dependencies.storage.volumes }}
-  {{- if eq .type "pvc" }}
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: {{ .name }}-pvc
-  labels:
-    app: "{{ $.Release.Name }}"
-spec:
-  storageClassName: "{{ .storageClass }}"
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: {{ .size }}
-  {{- end }}
+{{- include "template.pvc" ( dict "item" . "root" $ ) }}
 {{- end }}

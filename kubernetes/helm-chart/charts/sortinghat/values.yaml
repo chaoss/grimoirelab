@@ -4,14 +4,13 @@ global:
   imageRegistry: ""
   appName: ""
 
-enabled: true
+install: true
 
 appConfig:
   name: "sortinghat"
   replicas: 1
   image: docker.io/grimoirelab/sortinghat:latest
   pullPolicy: IfNotPresent
-  metadata: {}
   labels: {}
   annotations: {}
   resources:

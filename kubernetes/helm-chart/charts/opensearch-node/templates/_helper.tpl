@@ -1,8 +1,8 @@
 {{/*
 Opensearch labels
 */}}
-{{- define "opensearch-node-pod-labels" -}}
-{{- range $name, $value := .Values.appConfiglabels }}
+{{- define "metadata.opensearchNode.pod.labels" -}}
+{{- range $name, $value := .Values.appConfig.labels }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}
 {{- end -}}
@@ -10,7 +10,7 @@ Opensearch labels
 {{/*
 Opensearch annotations
 */}}
-{{- define "opensearch-node-pod-annotations" -}}
+{{- define "metadata.opensearchNode.pod.annotations" -}}
 {{- range $name, $value := .Values.appConfig.annotations }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}
@@ -20,7 +20,7 @@ Opensearch annotations
 {{/*
 Opensearch Service labels
 */}}
-{{- define "opensearch-node-service-labels" -}}
+{{- define "metadata.opensearchNode.service.labels" -}}
 {{- range $name, $value := .Values.service.labels }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}
@@ -29,7 +29,7 @@ Opensearch Service labels
 {{/*
 Opensearch Service annotations
 */}}
-{{- define "opensearch-node-service-annotations" -}}
+{{- define "metadata.opensearchNode.service.annotations" -}}
 {{- range $name, $value := .Values.service.annotations }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}

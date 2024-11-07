@@ -1,8 +1,8 @@
 {{/*
 Opensearch Dashboard labels
 */}}
-{{- define "opensearch-dashboard-pod-labels" -}}
-{{- range $name, $value := .Values.appConfiglabels }}
+{{- define "metadata.opensearchDashboard.pod.labels" -}}
+{{- range $name, $value := .Values.appConfig.labels }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}
 {{- end -}}
@@ -10,7 +10,7 @@ Opensearch Dashboard labels
 {{/*
 Opensearch Dashboard annotations
 */}}
-{{- define "opensearch-dashboard-pod-annotations" -}}
+{{- define "metadata.opensearchDashboard.pod.annotations" -}}
 {{- range $name, $value := .Values.appConfig.annotations }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}
@@ -20,7 +20,7 @@ Opensearch Dashboard annotations
 {{/*
 Opensearch Dashboard Service labels
 */}}
-{{- define "opensearch-dashboard-service-labels" -}}
+{{- define "metadata.opensearchDashboard.service.labels" -}}
 {{- range $name, $value := .Values.service.labels }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}
@@ -29,7 +29,7 @@ Opensearch Dashboard Service labels
 {{/*
 Opensearch Dashboard Service annotations
 */}}
-{{- define "opensearch-dashboard-service-annotations" -}}
+{{- define "metadata.opensearchDashboard.service.annotations" -}}
 {{- range $name, $value := .Values.service.annotations }}
 {{ $name }}: {{ $value | quote }}
 {{- end -}}

@@ -1,7 +1,7 @@
 {{/*
   Mordred setup config
 */}}
-{{- define "mordred-setup-config" -}}
+{{- define "config.mordredSetup" -}}
 [general]
 short_name = GrimoireLab
 update = true
@@ -16,17 +16,17 @@ aliases_file = /home/grimoire/aliases.json
 projects_file = /home/grimoire/conf/projects.json
 
 [es_collection]
-url = https://admin:admin@opensearch-node:9200
+url = https://admin:{{ include "cred.opensearchNode.password" . }}@opensearch-node:{{ include "port.opensearchNode" . }}
 
 [es_enrichment]
-url = https://admin:admin@opensearch-node:9200
+url = https://admin:{{ include "cred.opensearchNode.password" . }}@opensearch-node:{{ include "port.opensearchNode" . }}
 autorefresh = true
 
 [sortinghat]
 host = nginx
 user = root
 password = root
-port = 8000
+port = {{ include "port.nginxListen" . }}
 path = /identities/api/
 ssl = false
 database = sortinghat_db

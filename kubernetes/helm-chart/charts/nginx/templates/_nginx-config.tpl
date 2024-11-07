@@ -1,7 +1,7 @@
 {{/*
 uwsgi params config for nginx
 */}}
-{{- define "uwsgi-params" -}}
+{{- define "config.uwsgiParams" -}}
 uwsgi_param QUERY_STRING $query_string;
 uwsgi_param REQUEST_METHOD $request_method;
 uwsgi_param CONTENT_TYPE $content_type;
@@ -20,14 +20,14 @@ uwsgi_param SERVER_NAME $server_name;
 {{/*
 nginx config
 */}}
-{{- define "nginx-conf-template" -}}
+{{- define "config.nginxConf" -}}
 upstream sortinghat {
-  server sortinghat:9314;
+  server sortinghat:{{ include "port.sortinghat" . }};
 }
 server {
   include    mime.types;
   sendfile on;
-  listen 8000;
+  listen {{ include "port.nginxListen" . }};
 
   server_name localhost nginx;
 
