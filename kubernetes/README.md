@@ -55,7 +55,7 @@ Global values are meant to override the specific values across all sub-charts.
 
 >  1. Components' names will be omitted.
 >  2. Resource value has been set to a minimum running quota.
->  3. You can disable these components: `opensearch-node`, `opensearch-dashboard`, `mariadb`, `redis`
+>  3. You can disable these components: `opensearch-node`, `opensearch-dashboard`, `mariadb`, `redis`.
 
 | Name | Description | Type | Default value |
 | ---- | ----------- | ---- | ------------- |
@@ -79,9 +79,9 @@ Global values are meant to override the specific values across all sub-charts.
 | `volumes.name` | Name of this volumes when referencing in yaml | string | --- |
 | `volumes.mountPath` | Path of this volumes to be mount into container | string | --- |
 | `volumes.type` | Type of this volumes. `pvc`, `configmap` or `emptyDir` | string | --- |
-| `volumes.storageClass` | The strorage class that will be used when creating PVC | string | gp3 |
+| `volumes.storageClass` | The storage class that will be used when creating PVC | string | gp3 |
 | `volumes.size` | Size of this volume | string | --- |
-| `volumes.subPath` | Declair the `subPath` while mounting in `configmap` type | string | --- |
+| `volumes.subPath` | Declare the `subPath` while mounting in `configmap` type | string | --- |
 
 
  `volumes` have 3 types of schemas, here are the example:
@@ -105,11 +105,11 @@ This will result:
 
 ```yaml
 - name: "volume-name"
-mountPath: "/path/to/mount/in/container"
-type: pvc
+  mountPath: "/path/to/mount/in/container"
+  type: pvc
 ```
 This will result:
-- Mounted as Volumes with the name "volume-name". (If these volumes are not created, the mounting attempt will fail.)
+- Mounted as Volumes with the name "volume-name". If these volumes are not created, the mounting attempt will fail.
   - in /path/to/mount/in/container
 > If you did NOT declare the size, PVC will not be created. If these volumes have not been created, the mounting attempt will fail.
 
@@ -125,7 +125,7 @@ This will result:
 
 This will result:
 - Mounting file from Configmap with name "config-name".
-- in /path/to/mount/in/container
+  - in /path/to/mount/in/container
 > If the configmap has NOT been created, or the key declared in "subPath" is not found in the configmap, the mounting attempt will fail.
 
 
@@ -139,7 +139,7 @@ This will result:
 
 This will result:
 - Mounted as an empty directory with the name "volume-name"
-- in /path/to/mount/in/container
+  - in /path/to/mount/in/container
 > Data in this volume type will be lost when the pod is restarted.
 
 
