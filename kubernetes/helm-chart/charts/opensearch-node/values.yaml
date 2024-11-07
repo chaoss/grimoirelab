@@ -32,7 +32,7 @@ dependencies:
       - name: "opensearch-data"
         mountPath: "/usr/share/opensearch/data"
         type: pvc
-        storageClass: efs-sc
+        storageClass: gp3
         size: 1Gi
 
 service:

@@ -33,7 +33,7 @@ opensearch-node:
         - name: "opensearch-data"
           mountPath: "/usr/share/opensearch/data"
           type: pvc
-          storageClass: efs-sc
+          storageClass: gp3
           size: 10Gi
   service:
     targetPort: 9200
@@ -165,7 +165,7 @@ sortinghat:
         - name: "sortinghat-static"
           mountPath: "/opt/venv/lib/python3.9/site-packages/sortinghat/static"
           type: pvc
-          storageClass: efs-sc
+          storageClass: gp3
           size: 1Gi
   service:
     targetPort: 9314
