@@ -34,3 +34,4 @@ Opensearch Service annotations
 {{ $name }}: {{ $value | quote }}
 {{- end -}}
 {{- end -}}
+

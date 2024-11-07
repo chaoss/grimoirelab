@@ -10,3 +10,4 @@ To visualise data, you need to import dashboards into opensearch-dashboard.
   6. [If its the first install] Click "Index patterns" on the left to create the index patterns.
   7. Click "Saved objects" on the left to import "ndjson" dashboard file you downloaded.
   8. Drag or browser the dashboard file, select, then click "Import" - "Done" to import the dashboard.
+

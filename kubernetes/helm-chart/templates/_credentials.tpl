@@ -20,3 +20,4 @@ Define various credentials recources
   {{- $password := default "red1s4Grim0ir3Lab" .Values.global.credentials.redis.password -}}
   {{- $password -}}
 {{- end }}
+

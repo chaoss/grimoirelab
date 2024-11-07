@@ -1,3 +1,4 @@
 {{- range .Values.dependencies.storage.volumes }}
 {{- include "template.pvc" ( dict "item" . "root" $ ) }}
 {{- end }}
+

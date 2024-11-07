@@ -14,3 +14,4 @@ data:
     {{- include "config.uwsgiParams" . | nindent 4 }}
   nginx-conf-template: |-
     {{- include "config.nginxConf" . | nindent 4 }}
+

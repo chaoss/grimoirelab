@@ -35,3 +35,4 @@ service:
   type: ""  # Default to "ClusterIP"
 
 extraEnvs: []
+

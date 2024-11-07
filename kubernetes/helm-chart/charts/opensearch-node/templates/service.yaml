@@ -9,3 +9,4 @@ metadata:
     {{- include "metadata.opensearchNode.service.annotations" . | nindent 4 }}
 spec:
   {{- include "template.service" . | nindent 2 }}
+

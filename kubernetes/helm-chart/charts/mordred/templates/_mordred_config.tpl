@@ -154,3 +154,4 @@ in_index = git
 out_index = git-onion_demo_enriched
 contribs_field = hash
 {{- end }}
+

@@ -87,3 +87,4 @@ sessionAffinity: None
 selector:
   app: "{{ .Values.appConfig.name }}"
 {{- end }}
+

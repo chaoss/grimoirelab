@@ -8,3 +8,4 @@ maintainers:
   url: https://github.com/Eroyi
 appVersion: 1.7.0   #Based on the "Github Release" version (which is the docker image tag referring from), not the actual application version.
 version: 1.0
+
