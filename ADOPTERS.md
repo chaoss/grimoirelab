@@ -17,6 +17,7 @@ The list of organizations that have publicly shared the usage of GrimoireLab:
 | [The Wikimedia Foundation](https://wikimediafoundation.org/) | The [GrimoireLab dashboards](https://wikimedia.biterg.io/) provided by Bitergia enable the Wikimedia Foundation to gather insights and trends about [Wikimedia's technical communities and contributors](https://developer.wikimedia.org/). |
 | [G-Research Open Source Software Program Office](https://www.gresearch.com/teams/open-source-software/) | GR-OSS uses GrimoireLab's Bitergia dashboards to track and analyze activity within our open source projects and community. |
 | [Google](https://www.google.com/) | Various open source project teams within Google have explored GrimoireLab to monitor community health and collect operational feedback. |
+| [FreeBSD](https://grimoire.freebsd.org/) | Dashboards customized by Bitergia for bug characterization to help with understanding and managing the backlog.|
 <!-- to append the table: insert a line above, using the format below
 | [name](URL) | brief description of how you are using GrimoireLab |
 -->
