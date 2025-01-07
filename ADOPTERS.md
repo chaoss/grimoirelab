@@ -18,6 +18,7 @@ The list of organizations that have publicly shared the usage of GrimoireLab:
 | [G-Research Open Source Software Program Office](https://www.gresearch.com/teams/open-source-software/) | GR-OSS uses GrimoireLab's Bitergia dashboards to track and analyze activity within our open source projects and community. |
 | [Google](https://www.google.com/) | Various open source project teams within Google have explored GrimoireLab to monitor community health and collect operational feedback. |
 | [FreeBSD](https://grimoire.freebsd.org/) | Dashboards customized by Bitergia for bug characterization to help with understanding and managing the backlog.|
+| [Thunderbird](https://www.thunderbird.net/) | The [Thunderbird dashboard](https://thunderbird.biterg.io/) is hosted by Bitergia and helps [visualize the Thunderbird community](https://blog.thunderbird.net/2024/12/visualizing-the-thunderbird-community-with-bitergia/). |
 <!-- to append the table: insert a line above, using the format below
 | [name](URL) | brief description of how you are using GrimoireLab |
 -->
