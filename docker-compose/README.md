@@ -122,7 +122,7 @@ asked to log in:
 * Password: `admin`
 
 This version doesn't come with visualizations. You need to manually import the dashboards
-from [Sigils repository](https://github.com/chaoss/grimoirelab-sigils/tree/master/panels/json/opensearch_dashboards)
+from [Sigils repository](https://github.com/chaoss/grimoirelab-sigils/tree/main/panels/json/opensearch_dashboards)
 or create your own.
 
 For more information related with OpenSearch: https://opensearch.org/docs/latest/

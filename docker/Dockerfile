@@ -47,9 +47,9 @@ ENV LC_ALL en_US.UTF-8
 ENV LANG C.UTF-8
 
 # Download basic configuration files
-ADD https://raw.githubusercontent.com/chaoss/grimoirelab-sirmordred/master/aliases.json ${DEPLOY_USER_DIR}/aliases.json
+ADD https://raw.githubusercontent.com/chaoss/grimoirelab-sirmordred/main/aliases.json ${DEPLOY_USER_DIR}/aliases.json
 RUN chmod 444 ${DEPLOY_USER_DIR}/aliases.json
-ADD https://raw.githubusercontent.com/chaoss/grimoirelab-sirmordred/master/menu.yaml ${DEPLOY_USER_DIR}/menu.yaml
+ADD https://raw.githubusercontent.com/chaoss/grimoirelab-sirmordred/main/menu.yaml ${DEPLOY_USER_DIR}/menu.yaml
 RUN chmod 444 ${DEPLOY_USER_DIR}/menu.yaml
 
 ADD stage ${DEPLOY_USER_DIR}/stage

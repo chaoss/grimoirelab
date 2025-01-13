@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build package using Poetry and store result
-        uses: chaoss/grimoirelab-github-actions/build@master
+        uses: chaoss/grimoirelab-github-actions/build@main
         with:
           artifact-name: grimoirelab-dist
           artifact-path: dist
@@ -50,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create a new release on the repository
-        uses: chaoss/grimoirelab-github-actions/release@master
+        uses: chaoss/grimoirelab-github-actions/release@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -59,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Publish the package on PyPI
-        uses: chaoss/grimoirelab-github-actions/publish@master
+        uses: chaoss/grimoirelab-github-actions/publish@main
         with:
           artifact-name: grimoirelab-dist
           artifact-path: dist
