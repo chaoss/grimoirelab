@@ -81,7 +81,7 @@ jobs:
         run: |
           git submodule update --init --remote ${{ inputs.module_directory }}
           cd ${{ inputs.module_directory }}
-          git checkout master
+          git checkout main
 
       - name: Install poetry
         run: |
@@ -243,9 +243,9 @@ jobs:
         run: |
           if [ ${{ inputs.release_candidate }} == 'true' ]
           then
-            publish ${{ steps.version.outputs.version }} "${{ inputs.git_name }} <${{ inputs.git_email }}>" --push origin --no-cleanup
+            publish ${{ steps.version.outputs.version }} "${{ inputs.git_name }} <${{ inputs.git_email }}>" --push origin --remote-branch main --no-cleanup
           else
-            publish ${{ steps.version.outputs.version }} "${{ inputs.git_name }} <${{ inputs.git_email }}>" --push origin
+            publish ${{ steps.version.outputs.version }} "${{ inputs.git_name }} <${{ inputs.git_email }}>" --push origin --remote-branch main 
           fi
         working-directory: ${{ inputs.module_directory }}
 
@@ -323,7 +323,7 @@ jobs:
           else
             git reset --hard HEAD~1
           fi
-          git push -f origin master
+          git push -f origin main
           git tag -d ${{ steps.version.outputs.version }}
           git push --delete origin ${{ steps.version.outputs.version }}
 

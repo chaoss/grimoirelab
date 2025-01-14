@@ -705,9 +705,9 @@ jobs:
         run: |
           if [ ${{ inputs.release_candidate }} == 'true' ]
           then
-            publish ${{ steps.semverup.outputs.version }} "${{ inputs.git_name }} <${{ inputs.git_email }}>" --push origin --no-cleanup
+            publish ${{ steps.semverup.outputs.version }} "${{ inputs.git_name }} <${{ inputs.git_email }}>" --push origin --remote-branch main --no-cleanup
           else
-            publish ${{ steps.semverup.outputs.version }} "${{ inputs.git_name }} <${{ inputs.git_email }}>" --push origin
+            publish ${{ steps.semverup.outputs.version }} "${{ inputs.git_name }} <${{ inputs.git_email }}>" --push origin --remote-branch main
           fi
 
       - id: wait-for-release
@@ -747,7 +747,7 @@ jobs:
         if: steps.wait-for-release.outcome == 'failure'
         run: |
           git reset --hard HEAD~1
-          git push -f origin master
+          git push -f origin main
           git tag -d ${{ steps.semverup.outputs.version }}
           git push --delete origin ${{ steps.semverup.outputs.version }}
 

@@ -19,6 +19,7 @@ The list of organizations that have publicly shared the usage of GrimoireLab:
 | [Google](https://www.google.com/) | Various open source project teams within Google have explored GrimoireLab to monitor community health and collect operational feedback. |
 | [FreeBSD](https://grimoire.freebsd.org/) | Dashboards customized by Bitergia for bug characterization to help with understanding and managing the backlog.|
 | [Thunderbird](https://www.thunderbird.net/) | The [Thunderbird dashboard](https://thunderbird.biterg.io/) is hosted by Bitergia and helps [visualize the Thunderbird community](https://blog.thunderbird.net/2024/12/visualizing-the-thunderbird-community-with-bitergia/). |
+| [The Alan Turing Institute](https://www.turing.ac.uk/) | The Alan Turing Institute is using GrimoireLab internally to analyse their public GitHub repos and understand usage and contribution patterns and questions around software maintenance and communities. |
 <!-- to append the table: insert a line above, using the format below
 | [name](URL) | brief description of how you are using GrimoireLab |
 -->
