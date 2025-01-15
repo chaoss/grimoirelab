@@ -1,5 +1,78 @@
 # Releases
 
+## GrimoireLab 1.9.1 - (2025-01-15)
+
+**New components:**
+
+* grimoirelab-toolkit 1.0.9
+* kidash 1.0.10
+* sortinghat 1.6.1
+* cereslib 1.0.9
+* sigils 1.1.2
+* perceval 1.1.1
+* perceval-mozilla 1.0.11
+* perceval-opnfv 1.0.11
+* perceval-puppet 1.0.11
+* perceval-weblate 1.0.11
+* graal 1.1.2
+* grimoire-elk 1.3.3
+* sirmordred 1.1.5
+
+The following list describes the changes by component:
+
+### grimoirelab-toolkit
+  
+  * Update Poetry's package dependencies
+
+### kidash
+  
+  * Update Poetry's package dependencies
+
+### sortinghat
+  
+  * Update Poetry's package dependencies
+
+### cereslib
+  
+  * Update Poetry's package dependencies
+
+### sigils
+  
+  * Update Poetry's package dependencies
+
+### perceval
+  
+  * Update Poetry's package dependencies
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### perceval-weblate
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+  
+  * Update Poetry's package dependencies
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 1.9.0 - (2024-12-11)
 
 **New components:**
