@@ -508,19 +508,20 @@ bcrypt = ["bcrypt"]
 
 [[package]]
 name = "django-cors-headers"
-version = "3.14.0"
+version = "4.6.0"
 description = "django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS)."
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.9"
 groups = ["main"]
 markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
 files = [
-    {file = "django_cors_headers-3.14.0-py3-none-any.whl", hash = "sha256:684180013cc7277bdd8702b80a3c5a4b3fcae4abb2bf134dceb9f5dfe300228e"},
-    {file = "django_cors_headers-3.14.0.tar.gz", hash = "sha256:5fbd58a6fb4119d975754b2bc090f35ec160a8373f276612c675b00e8a138739"},
+    {file = "django_cors_headers-4.6.0-py3-none-any.whl", hash = "sha256:8edbc0497e611c24d5150e0055d3b178c6534b8ed826fb6f53b21c63f5d48ba3"},
+    {file = "django_cors_headers-4.6.0.tar.gz", hash = "sha256:14d76b4b4c8d39375baeddd89e4f08899051eeaf177cb02a29bd6eae8cf63aa8"},
 ]
 
 [package.dependencies]
-Django = ">=3.2"
+asgiref = ">=3.6"
+django = ">=4.2"
 
 [[package]]
 name = "django-graphql-jwt"
@@ -1108,15 +1109,15 @@ six = ">=1.12"
 
 [[package]]
 name = "grimoire-elk"
-version = "1.3.3"
+version = "1.3.4rc1"
 description = "GrimoireELK processes and stores software development data to ElasticSearch"
 optional = false
 python-versions = "<4.0,>=3.9"
 groups = ["main"]
 markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
 files = [
-    {file = "grimoire_elk-1.3.3-py3-none-any.whl", hash = "sha256:8f4020095a2c81c9ac9c736a993ee2db48f248c42711997952153fecd5789a8f"},
-    {file = "grimoire_elk-1.3.3.tar.gz", hash = "sha256:96b97d339621bc2d7adb36d5d28c4fea06176277b3136a8d8bcdb25a1f82b7b9"},
+    {file = "grimoire_elk-1.3.4rc1-py3-none-any.whl", hash = "sha256:6380606941ad7585488cacf4287b1785d0f0d627d030e07f9fa056d968fcc3d4"},
+    {file = "grimoire_elk-1.3.4rc1.tar.gz", hash = "sha256:eaa2af6eb67fded0dae2719dbe09ad0a0c7f4bb8cd793b4bd0b156550ba8347c"},
 ]
 
 [package.dependencies]
@@ -2288,15 +2289,15 @@ testing = ["pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)",
 
 [[package]]
 name = "sirmordred"
-version = "1.1.5"
+version = "1.1.6rc1"
 description = "Drive GrimoireLab tools to produce a dashboard"
 optional = false
 python-versions = "<4.0,>=3.9"
 groups = ["main"]
 markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
 files = [
-    {file = "sirmordred-1.1.5-py3-none-any.whl", hash = "sha256:251aeb94cf7f6d702f8203f6340460544e43ae42779695f8f651a00e2ba32f0d"},
-    {file = "sirmordred-1.1.5.tar.gz", hash = "sha256:a5d8e3ae137219cf27f81cee7717c60bc7305b5df8cf0535c4edc3ac4bc69f55"},
+    {file = "sirmordred-1.1.6rc1-py3-none-any.whl", hash = "sha256:309d24900e089f6a1c34240db0140c9d456616e0bd4e6db8843c3ff972149641"},
+    {file = "sirmordred-1.1.6rc1.tar.gz", hash = "sha256:eed8bc4057bb6089e4a767504457a68e1364097df876ff34718c42279c798bd7"},
 ]
 
 [package.dependencies]
@@ -2332,21 +2333,21 @@ files = [
 
 [[package]]
 name = "sortinghat"
-version = "1.6.1"
+version = "1.6.2rc1"
 description = "A tool to manage identities."
 optional = false
 python-versions = "<4.0,>=3.9"
 groups = ["main"]
 markers = "python_version <= \"3.11\" or python_version >= \"3.12\""
 files = [
-    {file = "sortinghat-1.6.1-py3-none-any.whl", hash = "sha256:5342e61dd3db5ffb002a07da60e6f1d20a48cc7012ba495ca1967dd4a7765d2a"},
-    {file = "sortinghat-1.6.1.tar.gz", hash = "sha256:9041d07c66a1ad37cb7ffa8c1431dc7d4c997eb00ab2e50cc1dcc0643d3aec67"},
+    {file = "sortinghat-1.6.2rc1-py3-none-any.whl", hash = "sha256:8e57385afbec5ff2945f3840aa61956d8f185124287e2cb3b6b982b80fec8446"},
+    {file = "sortinghat-1.6.2rc1.tar.gz", hash = "sha256:6098cd6b4fee7805a6f1112ee67b15dee60851a96da1054d20521be24d2954bc"},
 ]
 
 [package.dependencies]
 click = ">=8.0.0,<9.0.0"
 Django = ">=4.2,<5.0"
-django-cors-headers = ">=3.7.0,<4.0.0"
+django-cors-headers = ">=4.6.0,<5.0.0"
 django-graphql-jwt = ">=0.3.0,<0.4.0"
 django-rq = ">=2.3.2,<3.0.0"
 django-storages = {version = ">=1.13.2,<2.0.0", extras = ["google"]}
@@ -2615,4 +2616,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.9"
-content-hash = "57483c83da8f3c9fa525a2eb91bdf82a14e8d7be2d7016440ec675ed7502dd06"
+content-hash = "69a0c1c5653c9e84b64c32f4a1afb65f45c9b66c6f261a2e1812d9b69dcca040"
