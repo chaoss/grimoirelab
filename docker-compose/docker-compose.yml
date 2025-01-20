@@ -2,7 +2,7 @@ version: '2.2'
 
 services:
     mariadb:
-      image: mariadb:10.6
+      image: mariadb:11.4
       expose:
         - "3306"
       environment:
@@ -13,45 +13,55 @@ services:
         retries: 5
 
     redis:
-      image: redis:latest
+      image: redis:7.4
       expose:
         - "6379"
       healthcheck:
         test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
         retries: 5
 
-    elasticsearch:
-      image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.6
-      command: elasticsearch -Enetwork.bind_host=0.0.0.0 -Ehttp.max_content_length=2000mb
-      ports:
-        - 9200:9200
+    grimoirelab_core:
+      restart: on-failure:3
+      image: grimoirelab/grimoirelab:dev
       environment:
-        - ES_JAVA_OPTS=-Xms2g -Xmx2g
-        - ANONYMOUS_USER=true
-
-    kibiter:
-      restart: on-failure:5
-      image: bitergia/kibiter:community-v6.8.6-3
-      environment:
-        - PROJECT_NAME=Demo
-        - NODE_OPTIONS=--max-old-space-size=1000
-        - ELASTICSEARCH_URL=http://elasticsearch:9200
-      links:
-        - elasticsearch
-      ports:
-        - 5601:5601
-
-    mordred:
-      restart: on-failure:5
-      image: grimoirelab/grimoirelab:latest
+        GRIMOIRELAB_DB_HOST: mariadb
+        GRIMOIRELAB_DB_PORT: 3306
+        GRIMOIRELAB_DB_DATABASE: core_db
+        GRIMOIRELAB_DB_USER: root
+        GRIMOIRELAB_DB_PASSWORD: ""
+        GRIMOIRELAB_REDIS_HOST: redis
+        GRIMOIRELAB_REDIS_PORT: 6379
+        GRIMOIRELAB_REDIS_PASSWORD: ""
+        GRIMOIRELAB_Q_EVENTIZER_JOBS: grimoirelab_jobs
+      expose:
+        - "9314"
       volumes:
-        - ../default-grimoirelab-settings/setup.cfg:/home/grimoire/conf/setup.cfg
-        - ../default-grimoirelab-settings/projects.json:/home/grimoire/conf/projects.json
-        - /tmp/:/home/grimoire/logs
+        - core-static:/core_static/
       depends_on:
-        nginx:
+        mariadb:
           condition: service_healthy
-      mem_limit: 4g
+        redis:
+          condition: service_healthy
+      command: grimoirelab run server
+
+    grimoirelab_core_workers:
+      image: grimoirelab/grimoirelab:dev
+      environment:
+        GRIMOIRELAB_DB_HOST: mariadb
+        GRIMOIRELAB_DB_PORT: 3306
+        GRIMOIRELAB_DB_DATABASE: core_db
+        GRIMOIRELAB_DB_USER: root
+        GRIMOIRELAB_DB_PASSWORD: ""
+        GRIMOIRELAB_REDIS_HOST: redis
+        GRIMOIRELAB_REDIS_PORT: 6379
+        GRIMOIRELAB_REDIS_PASSWORD: ""
+        GRIMOIRELAB_Q_EVENTIZER_JOBS: grimoirelab_jobs
+      depends_on:
+        mariadb:
+          condition: service_healthy
+        redis:
+          condition: service_healthy
+      command: grimoirelab run eventizers --workers 10
 
     sortinghat:
       restart: on-failure:3
@@ -65,8 +75,8 @@ services:
         - SORTINGHAT_DB_PASSWORD=
         - SORTINGHAT_REDIS_HOST=redis
         - SORTINGHAT_REDIS_PASSWORD=
-        - SORTINGHAT_SUPERUSER_USERNAME=root
-        - SORTINGHAT_SUPERUSER_PASSWORD=root
+        - SORTINGHAT_SUPERUSER_USERNAME=admin
+        - SORTINGHAT_SUPERUSER_PASSWORD=admin
         - SORTINGHAT_ALLOWED_HOST=sortinghat,nginx,localhost,127.0.0.1,[::1]
         - SORTINGHAT_CORS_ALLOWED_ORIGINS=http://localhost:8000,http://127.0.0.1:8000
       expose:
@@ -103,15 +113,16 @@ services:
         - ../default-grimoirelab-settings/nginx.conf.template:/etc/nginx/templates/default.conf.template
         - ../default-grimoirelab-settings/uwsgi_params:/etc/nginx/uwsgi_params
         - sortinghat-static:/sortinghat:ro
+        - core-static:/grimoirelab_core:ro
       ports:
         - 8000:8000
-      environment:
-        - KIBANA_HOST=http://kibiter:5601/
       depends_on:
         - sortinghat
+        - grimoirelab_core
       healthcheck:
         test: "curl -s --head http://localhost:8000/identities/api/ | grep Set-Cookie || exit 1"
         retries: 5
 
 volumes:
   sortinghat-static:
+  core-static:
