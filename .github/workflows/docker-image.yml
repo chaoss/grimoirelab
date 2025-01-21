@@ -1,9 +1,6 @@
 name: Publish Docker image
 
 on:
-  release:
-    types: [published]
-
   workflow_dispatch:
     inputs:
       version:
@@ -15,46 +12,8 @@ env:
   DOCKER_IMAGE_NAME: "grimoirelab/grimoirelab"
 
 jobs:
-  package-ready:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up Python 3.9
-        uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5.1.0
-        with:
-          python-version: 3.9
-
-      - name: Wait for GrimoireLab package ready in PyPI
-        run: |
-          package="grimoirelab"
-          ref_name="${{github.ref_name}}"
-          input_version="${{inputs.version}}"
-          version="${input_version:-$ref_name}"
-          # Format version 1.2.3-rc.1 to 1.2.3rc1
-          versionNum=${version%-*}
-          versionRC=${version#$versionNum}
-          versionRC=${versionRC//[-.]/}
-          currentVersion="${versionNum}${versionRC}"
-
-          pip install --upgrade pip
-          for i in $(seq 20)
-          do
-            pip index versions --pre $package > pip_versions.txt
-            pipVersion=$(cat pip_versions.txt | head -n 1 | cut -f2 -d '(' | cut -f1 -d ')')
-            echo "$currentVersion $pipVersion"
-            if [ "$pipVersion" = "$currentVersion" ]
-            then
-              echo "Same version"
-              exit 0
-            fi
-            echo "Wait for PyPI..."
-            sleep 10
-          done
-          echo "Latest version doesn't match after several retries"
-          exit 1
-
   build-image:
     runs-on: ubuntu-latest
-    needs: [package-ready]
     environment: docker-release
     steps:
       - name: Install Cosign
@@ -67,7 +26,8 @@ jobs:
           images: |
             ${{ env.DOCKER_IMAGE_NAME }}
           tags: |
-            type=semver,pattern={{version}},value=${{ inputs.version }}
+            # Generate a raw tag so latest is not used
+            type=raw,value=${{ inputs.version }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@68827325e0b33c7199eb31dd4e31fbe9023e06e3 # v3.0.0

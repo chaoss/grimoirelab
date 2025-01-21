@@ -1,8 +1,0 @@
-#!/bin/bash
-
-CONF_LIST="${MORDRED_CONF_FILES:-$CONF_DIR/setup.cfg}"
-
-rm -f /tmp/.mordred_healthcheck
-rm -f /tmp/perceval_*
-
-sirmordred -c ${CONF_LIST}

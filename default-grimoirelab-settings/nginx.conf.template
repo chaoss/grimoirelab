@@ -2,6 +2,9 @@
 upstream sortinghat {
   server sortinghat:9314;
 }
+upstream grimoirelab_core {
+  server grimoirelab_core:9314;
+}
 server {
   include    mime.types;
   sendfile on;
@@ -10,13 +13,12 @@ server {
   server_name localhost nginx;
 
   location / {
-      proxy_pass ${KIBANA_HOST};
-      proxy_redirect ${KIBANA_HOST} /;
-      proxy_http_version 1.1;
-      proxy_set_header Upgrade $http_upgrade;
-      proxy_set_header Connection 'upgrade';
-      proxy_set_header Host $host;
-      proxy_cache_bypass $http_upgrade;
+      include /etc/nginx/uwsgi_params;
+      uwsgi_pass grimoirelab_core;
+      uwsgi_param Host $host;
+      uwsgi_param X-Real-IP $remote_addr;
+      uwsgi_param X-Forwarded-For $proxy_add_x_forwarded_for;
+      uwsgi_param X-Forwarded-Proto $http_x_forwarded_proto;
   }
 
   location /identities {
@@ -34,5 +36,9 @@ server {
     rewrite ^/identities/(.*) /$1 break;
 
     root /sortinghat;
+  }
+
+  location /static/ {
+    alias /grimoirelab_core/;
   }
 }

@@ -1,20 +1,30 @@
 # Copyright (C) 2016-2022 Bitergia
 # GPLv3 License
 
-FROM python:3.9-slim-bullseye
+FROM node:18 AS build-core-static
+
+RUN git clone --depth 1 https://github.com/chaoss/grimoirelab-core.git
+
+WORKDIR /grimoirelab-core/ui
+
+RUN yarn install && yarn build
+
+
+FROM python:3.11-slim-bullseye
+
 LABEL maintainer="Santiago Dueñas <sduenas@bitergia.com>"
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV DEPLOY_USER grimoire
+ENV DEPLOY_USER grimoirelab
 ENV DEPLOY_USER_DIR /home/${DEPLOY_USER}
 ENV CONF_DIR ${DEPLOY_USER_DIR}/conf
 ENV SCRIPTS_DIR ${DEPLOY_USER_DIR}/scripts
-ENV GRIMOIRELAB_RELEASE "1.9.2"
+ENV GRIMOIRELAB_RELEASE "2.x"
 
-# Initial user
-RUN useradd ${DEPLOY_USER} --create-home --shell /bin/bash
+# Create a user and a group
+RUN groupadd -r $DEPLOY_USER && useradd -r -m -g $DEPLOY_USER $DEPLOY_USER
 
-# install dependencies
+# Install dependencies
 RUN apt-get update && \
     apt-get -y install --no-install-recommends \
         bash locales \
@@ -29,45 +39,56 @@ RUN apt-get update && \
 
 RUN echo "${DEPLOY_USER} ALL=NOPASSWD: ALL" >> /etc/sudoers
 
-RUN mkdir -p ${DEPLOY_USER_DIR}/logs ; chown -R ${DEPLOY_USER}:${DEPLOY_USER} ${DEPLOY_USER_DIR}/logs
-VOLUME ["${DEPLOY_USER_DIR}/logs"]
-
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     echo 'LANG="en_US.UTF-8"'>/etc/default/locale && \
     dpkg-reconfigure --frontend=noninteractive locales && \
     update-locale LANG=en_US.UTF-8
-
-#ADD cacert.pem ${DEPLOY_USER_DIR}/cacert.pem
-#RUN CERT_PATH=`python3 -m requests.certs` && \
-#    cat ${DEPLOY_USER_DIR}/cacert.pem >> ${CERT_PATH}
 
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 ENV LANG C.UTF-8
 
-# Download basic configuration files
-ADD https://raw.githubusercontent.com/chaoss/grimoirelab-sirmordred/main/aliases.json ${DEPLOY_USER_DIR}/aliases.json
-RUN chmod 444 ${DEPLOY_USER_DIR}/aliases.json
-ADD https://raw.githubusercontent.com/chaoss/grimoirelab-sirmordred/main/menu.yaml ${DEPLOY_USER_DIR}/menu.yaml
-RUN chmod 444 ${DEPLOY_USER_DIR}/menu.yaml
+USER ${DEPLOY_USER}
 
-ADD stage ${DEPLOY_USER_DIR}/stage
-RUN chmod 755 ${DEPLOY_USER_DIR}/stage
+# Install GrimoireLab and dependencies
+#
+# We use a virtual environment because it makes easier
+# to find the exact location of the packages installed
+# and where the static files are available.
+
+# Install Poetry
+RUN curl -sSL https://install.python-poetry.org | python3 -
+ENV PATH="$DEPLOY_USER_DIR/.local/bin:$PATH"
+
+ENV \
+    # Disable some unused uWSGI features, saving dependencies
+    # Thanks to https://stackoverflow.com/a/25260588/90297
+    UWSGI_PROFILE_OVERRIDE=ssl=false;xml=false;routing=false
+
+WORKDIR ${DEPLOY_USER_DIR}
+RUN git clone -b 2.x --depth 1 https://github.com/chaoss/grimoirelab.git
+
+WORKDIR ${DEPLOY_USER_DIR}/grimoirelab
+
+USER root
+
+RUN python -m venv /opt/venv/ && \
+    . /opt/venv/bin/activate && \
+    poetry install
+
+COPY --from=build-core-static /grimoirelab-core/src/grimoirelab/core/templates/ /opt/venv/lib/python3.11/site-packages/grimoirelab/core/templates/
+
+RUN chown -R $DEPLOY_USER:$DEPLOY_USER /opt/venv
+
+RUN mkdir /core_static/
+COPY --from=build-core-static /grimoirelab-core/src/grimoirelab/core/templates/static/ /core_static/
+RUN chown -R $DEPLOY_USER:$DEPLOY_USER /core_static/
+
+COPY ./entrypoint.sh /usr/local/bin/
+RUN chmod 755 /usr/local/bin/entrypoint.sh
 
 USER ${DEPLOY_USER}
 
-# Do the deployment for GRIMOIRELAB_RELEASE
-
-WORKDIR ${DEPLOY_USER_DIR}
-
-RUN mkdir -p ${CONF_DIR} && \
-    git clone -b ${GRIMOIRELAB_RELEASE} --depth 1 https://github.com/grimoirelab/grimoirelab.git && \
-    cp grimoirelab/requirements.txt ${CONF_DIR}/requirements.txt && \
-    echo ${GRIMOIRELAB_RELEASE} > ${DEPLOY_USER_DIR}/release && \
-    echo "Installing and checking GrimoireLab Release"
-RUN sudo pip install -r ${CONF_DIR}/requirements.txt
-
-HEALTHCHECK --interval=60s --timeout=6s --retries=1 CMD healthcheck.py -c ${CONF_DIR}/setup.cfg -s 'Exception in Task Manager' || exit 1
-
-CMD ${DEPLOY_USER_DIR}/stage
+ENTRYPOINT ["entrypoint.sh"]
+CMD ["grimoirelab"]
