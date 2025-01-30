@@ -32,7 +32,8 @@ services:
         GRIMOIRELAB_REDIS_HOST: redis
         GRIMOIRELAB_REDIS_PORT: 6379
         GRIMOIRELAB_REDIS_PASSWORD: ""
-        GRIMOIRELAB_Q_EVENTIZER_JOBS: grimoirelab_jobs
+        GRIMOIRELAB_ARCHIVIST_WORKERS: 20
+        GRIMOIRELAB_ARCHIVIST_STORAGE_URL: "https://admin:admin@opensearch-node1:9200"
       expose:
         - "9314"
       volumes:
@@ -42,9 +43,10 @@ services:
           condition: service_healthy
         redis:
           condition: service_healthy
-      command: grimoirelab run server
+      command: grimoirelab run server --clear-tasks
 
-    grimoirelab_core_workers:
+    grimoirelab_core_eventizers:
+      restart: on-failure:3
       image: grimoirelab/grimoirelab:dev
       environment:
         GRIMOIRELAB_DB_HOST: mariadb
@@ -55,13 +57,35 @@ services:
         GRIMOIRELAB_REDIS_HOST: redis
         GRIMOIRELAB_REDIS_PORT: 6379
         GRIMOIRELAB_REDIS_PASSWORD: ""
-        GRIMOIRELAB_Q_EVENTIZER_JOBS: grimoirelab_jobs
+        GRIMOIRELAB_ARCHIVIST_WORKERS: 20
       depends_on:
         mariadb:
           condition: service_healthy
         redis:
           condition: service_healthy
-      command: grimoirelab run eventizers --workers 10
+      command: grimoirelab run eventizers
+
+    grimoirelab_core_archivists:
+      restart: on-failure:3
+      image: grimoirelab/grimoirelab:dev
+      environment:
+        GRIMOIRELAB_DB_HOST: mariadb
+        GRIMOIRELAB_DB_PORT: 3306
+        GRIMOIRELAB_DB_DATABASE: core_db
+        GRIMOIRELAB_DB_USER: root
+        GRIMOIRELAB_DB_PASSWORD: ""
+        GRIMOIRELAB_REDIS_HOST: redis
+        GRIMOIRELAB_REDIS_PORT: 6379
+        GRIMOIRELAB_REDIS_PASSWORD: ""
+        GRIMOIRELAB_ARCHIVIST_WORKERS: 20
+      depends_on:
+        mariadb:
+          condition: service_healthy
+        redis:
+          condition: service_healthy
+        opensearch-node1:
+          condition: service_started
+      command: grimoirelab run archivists
 
     sortinghat:
       restart: on-failure:3
@@ -105,6 +129,34 @@ services:
           condition: service_healthy
         redis:
           condition: service_healthy
+
+    opensearch-node1:
+      image: opensearchproject/opensearch:2.11.1
+      environment:
+        - cluster.name=opensearch-cluster
+        - node.name=opensearch-node1
+        - discovery.type=single-node
+        - bootstrap.memory_lock=true
+        - "OPENSEARCH_JAVA_OPTS=-Xms2g -Xmx2g"
+      ulimits:
+        memlock:
+          soft: -1
+          hard: -1
+        nofile:
+          soft: 65536
+          hard: 65536
+      ports:
+        - 9200:9200
+        - 9600:9600
+
+    opensearch-dashboards:
+      image: opensearchproject/opensearch-dashboards:2.11.1
+      ports:
+        - 5601:5601
+      expose:
+        - "5601"
+      environment:
+        OPENSEARCH_HOSTS: '["https://opensearch-node1:9200"]'
 
     nginx:
       restart: on-failure:3
