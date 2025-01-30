@@ -75,6 +75,7 @@ USER root
 
 RUN python -m venv /opt/venv/ && \
     . /opt/venv/bin/activate && \
+    poetry update && \
     poetry install
 
 COPY --from=build-core-static /grimoirelab-core/src/grimoirelab/core/templates/ /opt/venv/lib/python3.11/site-packages/grimoirelab/core/templates/
