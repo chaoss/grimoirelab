@@ -1,172 +1,140 @@
 # GrimoireLab
 
-[![grimoirelab-showcase](https://user-images.githubusercontent.com/25265451/84442403-30dcce80-ac5b-11ea-9f5b-60266d875ebd.png "GrimoireLab | CHAOSS Bitergia Analytics")](https://chaoss.biterg.io/app/kibana#/dashboard/Overview)
+**This is the development branch of GrimoireLab 2.x. This software is unstable
+and lacks of most of the features available in
+[GrimoireLab 1.0](https://github.com/chaoss/grimoirelab). It's also subject
+to change frequently. Use it under your own risk.**
 
-GrimoireLab is a [CHAOSS](https://chaoss.community) toolset for software development analytics. It includes a coordinated set of tools
-to retrieve data from systems used to support software development (repositories), store it in databases,
-enrich it by computing relevant metrics, and make it easy to run analytics and visualizations on it.
+GrimoireLab is an open source data platform for analytics and insights about
+software development processes. The platform is extensible and modular, designed
+to add new datasources, metrics, and analytics easily.
+
+GrimoireLab is part of the [CHAOSS Project](http://chaoss.community), a Linux
+Foundation project _focused on creating metrics, and software to better
+understand open source community health_.
 
 You can learn more about GrimoireLab in the [GrimoireLab tutorial](https://chaoss.github.io/grimoirelab-tutorial/),
-or visit the [GrimoireLab website](https://chaoss.github.io/grimoirelab).
+or visiting the [GrimoireLab website](https://chaoss.github.io/grimoirelab).
 
-Metrics available in GrimoireLab are, in part, developed in the CHAOSS project. For more information regarding CHAOSS metrics, see the latest release at: https://chaoss.community/metrics/
+## Installation
 
-# Getting started
+### Prerequisites
 
-To ease the newcomer experience we are providing a [default setup](default-grimoirelab-settings)
-to analyze git activity for this repository. For this set up, there are several options to run GrimoireLab:
+- Linux/MacOS (Windows not supported yet)
+- Python >= 3.11
+- MySQL >= 8.0/ MariaDB >= 11.4
+- Redis database >= 7.4
+- OpenSearch >= 2.0
 
-## Using `docker-compose`
+Due to this is a development branch, you will have to install
+[poetry](https://python-poetry.org/) first, in order to get other dependencies
+and packages. You can install it following its
+[documentation](https://python-poetry.org/docs/#installation).
 
-Requirements:
-* **Software**: [git](https://git-scm.com/), [docker client](https://docs.docker.com/get-docker/) and [docker compose](https://docs.docker.com/compose/install/). An example of working configuration:
-```console
-root@test-68b8628f:~# git --version
-git version 2.17.1
-root@test-68b8628f:~# docker --version
-Docker version 19.03.1, build 74b1e89
-root@test-68b8628f:~# docker-compose --version
-docker-compose version 1.22.0, build f46880fe
-```
-* **Hardware**: 2 CPU cores, 8GB memory RAM and [enough virtual memory for Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html) 
+To build the frontend you will also need to install [yarn](https://yarnpkg.com/) and [node](https://nodejs.org/).
+You can check how to install them following [the nvm](https://github.com/nvm-sh/nvm) and [yarn](https://yarnpkg.com/getting-started/install/) documentation.
 
-Steps:
-1. Clone this project:
-```console
-git clone https://github.com/chaoss/grimoirelab
-```
-2. Go to `docker-compose` folder and run the following command:
-```console
-cd grimoirelab/docker-compose
-docker-compose up -d
-```
+- node >= 18.0
+- yarn >= 4.0
 
-Your dashboard will be ready after a while at `http://localhost:8000`. The waiting time depends on the amount of data to fetch from a repo, for small repositories you can expect your data to be visible in the dashboard after 10-15 minutes.
+### Steps
 
-More details or troubleshooting in the [docker-compose folder](./docker-compose/README.md).
+1. Clone the repository:
 
-## Using `docker run`
+   ```bash
+   git clone -b 2.x https://github.com/chaoss/grimoirelab.git
+   cd grimoirelab
+   ```
 
-Requirements: 
-* **Software**: [git](https://git-scm.com/) and [docker client](https://docs.docker.com/get-docker/). An example of working configuration:
-```console
-root@test-68b8628f:~# git --version
-git version 2.17.1
-root@test-68b8628f:~# docker --version
-Docker version 19.03.1, build 74b1e89
-```
-* **Hardware**: 2 CPU cores, 8GB memory RAM and set
-* ElasticSearch and Kibana up and running.
-* SortingHat up and running
+1. Install dependencies, core, and UI:
 
-Steps:
-1. Clone this project:
-```console
-git clone https://github.com/chaoss/grimoirelab
-```
-2. Go to the project folder and run the following command:
-```console
-cd grimoirelab
-docker run --net=host \ 
-    -v $(pwd)/default-grimoirelab-settings/projects.json:/home/grimoire/conf/projects.json \
-    -v $(pwd)/default-grimoirelab-settings/setup-docker.cfg:/home/grimoire/conf/setup.cfg \
-    -t grimoirelab/grimoirelab
-```
+   ```bash
+   poetry shell
+   poetry update
+   poetry install
+   ```
 
-Your dashboard will be ready after a while at `http://localhost:8000`. The waiting time depends on the amount of data to fetch from a repo, for small repositories you can expect your data to be visible in the dashboard after 10-15 minutes.
+### Usage
 
-More details in the [docker folder](./docker/README.md).
+These are some easy steps to run GrimoireLab - based on a standard configuration.
+Read the [configuration](#configuration) section below for understanding how
+to configure the platform for your needs.
 
-# Breaking changes
+1. Setup GrimoireLab
 
-## GrimoireLab `1.3.0`. SortingHat permission groups.
+   ```bash
+   grimoirelab admin setup
+   ```
 
-Starting from GrimoireLab 1.3.0, creating new users in SortingHat requires
-assigning them to a permission group. By default, they will have read-only
-permissions. Please refer to the following documentation for instructions
-on how to update permissions: [assign users to permission groups](https://github.com/chaoss/grimoirelab-sortinghat?tab=readme-ov-file#assign-users-to-permission-groups)
+2. Run GrimoireLab server
 
-# GrimoireLab components
+   ```bash
+   grimoirelab run server --dev
+   ```
 
-Currently, GrimoireLab toolkit is organized in the following repositories:
+3. Run GrimoireLab workers to fetch and eventize data
 
-* Data retrieval related components:
-  * [Perceval](https://github.com/chaoss/grimoirelab-perceval): retrieval of data from data sources
-    * [Perceval (bundle for OPNFV)](https://github.com/chaoss/grimoirelab-perceval-opnfv)
-    * [Perceval (bundle for Mozilla)](https://github.com/chaoss/grimoirelab-perceval-mozilla)
-    * [Perceval (bundle for Puppet)](https://github.com/chaoss/grimoirelab-perceval-puppet)
-    * [Perceval (bundle for Weblate)](https://github.com/chaoss/grimoirelab-perceval-weblate)
-  * [Graal](https://github.com/chaoss/grimoirelab-graal): source data analysis with external tools
-  * [KingArthur](https://github.com/chaoss/grimoirelab-kingarthur): batch processing for massive retrieval
-* Data enrichment related components:
-  * [GrimoireElk](https://github.com/chaoss/grimoirelab-elk): storage and enrichment of data
-  * [Cereslib](https://github.com/chaoss/grimoirelab-cereslib): generic data processor
-  * [SortingHat](https://github.com/chaoss/grimoirelab-sortinghat): identity management
-* Data consumption related components:
-  * [Kibiter](https://github.com/chaoss/grimoirelab-kibiter): dashboard, downstream version of Kibana
-  * [Sigils](https://github.com/chaoss/grimoirelab-sigils): visualizations and dashboards
-  * [Kidash](https://github.com/chaoss/grimoirelab-kidash): visualizations and dashboards manager
-  * [Manuscripts](https://github.com/chaoss/grimoirelab-manuscripts): reporting
-* Platform management, orchestration, and common utils:
-  * [Mordred](https://github.com/chaoss/grimoirelab-mordred): orchestration
-  * [GrimoireLab Toolkit](https://github.com/chaoss/grimoirelab-toolkit): common utilities
-  * [Bestiary](https://github.com/chaoss/grimoirelab-bestiary): web-based user interface to manage repositories and projects for Mordred
+   ```bash
+   grimoirelab run eventizers
+   ```
 
-There are also some [components built by the GrimoreLab community](community_components.md),
-which can be useful for you. Other related repositories are:
-* [GrimoireLab Tutorial](https://github.com/chaoss/grimoirelab-tutorial)
-* [GrimoireLab as a whole](https://github.com/chaoss/grimoirelab) (this repository)
+4. Run GrimoireLab workers to store data
 
-## Contents of this repository
+   ```bash
+   grimoirelab run archivists
+   ```
 
-This repository is for content relevant to GrimoireLab as a whole. For example:
+### Configuration
 
-* Issues for new features or bug reports that affect more than one GrimoireLab module. In this case, let's open an issue here, and when implementing the fix or the feature, let´s comment about the specific tickets in the specific modules that are used. For example, when supporting a new datasource, we will need patches (at least) in `Perceval`, `GrimoireELK` and panels. In this case, we would open a feature request (or the user story) for the whole case, an issue (and later a pull request) in `Perceval` for the data retriever, same for `GrimoireELK` for the enriching code, and same for `panels` for the Kibiter panels.
+There are several configuration parameters that you can set before running
+the platform. Most important ones are related to where your databases servers
+are running and the users to connect to them. We recommend to use environment
+variables to define new values.
 
-* Release notes for most GrimoireLab components (directory [releases](releases)).
-
-* Docker container for showcasing GrimoireLab (directory [docker](docker)).
-Includes a Dockerfile and configuration files for the GrimoireLab containers
-that can be used to demo the technology, and can be the basis for real
-deployments. See more information in the [docker README.md file](docker/README.md).
-
-* If you feel more comfortable with `docker-compose`, the [docker-compose](docker-compose)
-folder includes instructions and configuration files to deploy GrimoireLab using
-`docker-compose` command.
-
-* Source code of the GrimoireLab components is available in `src`. Each directory is a
-Git submodule, so its contents will not be available after cloning the repository. To
-fetch all the data, and get the latest version, you can run the following command:
-```console
-git submodule update --init --remote
+```bash
+export GRIMOIRELAB_SETTING=<NEW_VALUE>
 ```
 
-* How releases of GrimoireLab are built and tested: [Building](BUILDING.md)
+Some environment variables you might need to change are:
 
-## Citation
+- **GrimoireLab common settings**:
+  - `GRIMOIRELAB_DEBUG`: to activate the debug mode (`true` or `false` values)
+- **Redis configuration**
+  - `GRIMOIRELAB_REDIS_HOST`: ip address of the server
+  - `GRIMOIRELAB_REDIS_PORT`: port of the server
+  - `GRIMOIRELAB_REDIS_PASSWORD`: password for the server
+  - `GRIMOIRELAB_REDIS_DB`: database number used by GrimoireLab (`0` to `8` values)
+- **MySQL/MariaDB configuration**
+  - `GRIMOIRELAB_DB_HOST`: address of the server
+  - `GRIMOIRELAB_DB_PORT`: port of the server
+  - `GRIMOIRELAB_DB_USER`: user with admin permissions on the server
+  - `GRIMOIRELAB_DB_PASSWORD`: user password to access the server
+  - `GRIMOIRELAB_DB_DATABASE`: name of the database used by GrimoireLab
+- **OpenSearch configuration**:
+  - `GRIMOIRELAB_ARCHIVIST_STORAGE_URL`: URL address of the OpenSearch server (include user and password)
+  - `GRIMOIRELAB_ARCHIVIST_STORAGE_INDEX`: name of the index where events will be stored
 
-If you use GrimoireLab in your research papers, please refer to [GrimoireLab: A toolset for software development analytics](https://doi.org/10.7717/peerj-cs.601):
+By default, GrimoireLab uses the configuration defined on the package
+[grimoirelab.core.config.settings](https://github.com/chaoss/grimoirelab-core/blob/main/src/grimoirelab/core/config/settings.py).
+Please refer to this file for default values.
 
-APA style:
+You can use your own file passing it to commands either with the option `--config`
+or with the environment variable `GRIMOIRELAB_CONFIG`.
 
-```
-Dueñas S, Cosentino V, Gonzalez-Barahona JM, del Castillo San Felix A, Izquierdo-Cortazar D, Cañas-Díaz L, Pérez García-Plaza A. 2021. GrimoireLab: A toolset for software development analytics. PeerJ Computer Science 7:e601 https://doi.org/10.7717/peerj-cs.601
-```
+## Contributing
 
-BibTeX / BibLaTeX:
+The general norms for contributions are described in the
+[CONTRIBUTING](./CONTRIBUTING.md) and [CONTRIBUTING WITH CODE](./CONTRIBUTING_WITH_CODE.md)
+documents.
 
-```
-@Article{duenas2021:grimoirelab,
-  author = 	 {Dueñas, Santiago and Cosentino, Valerio and Gonzalez-Barahona, Jesus M. and del Castillo San Felix, Alvaro and Izquierdo-Cortazar,  Daniel and Cañas-Díaz, Luis and Pérez García-Plaza, Alberto},
-  title = 	 {GrimoireLab: A toolset for software development analytics},
-  journaltitle = {PeerJ Computer Science},
-  date = 	 {2021-07-09},
-  volume = 	 7,
-  number = 	 {e601},
-  doi = 	 {10.7717/peerj-cs.601},
-  url = 	 {https://doi.org/10.7717/peerj-cs.601}}
-```
+We use a roadmap to outline the direction of GrimoireLab. In the
+[ROADMAP](./ROADMAP.md) document, we describe the vision and goals of
+the project and what actions we'll take to achieve them.
 
-# Contributing
+You can also check the [governance rules](./GOVERNANCE.md) for our project and
+community.
 
-Contributions are welcome, please check the [Contributing Guidelines](CONTRIBUTING.md).
+## License
+
+This project is licensed under GNU General Public License (GPL), version 3 or
+later - see the [LICENSE](./LICENSE.md) file for details.
