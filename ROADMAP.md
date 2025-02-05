@@ -21,13 +21,14 @@ a lack of these tools in the data analysis ecosystem. Our goals are:
 This document enumerates the steps we will take to achieve these goals
 and how the platform should evolve in that regard. For more information
 about how we manage the ROADMAP, please check the **Roadmap** section in
-the [GOVERNANCE ](./GOVERNANCE.md#roadmap) file.
+the [GOVERNANCE](./GOVERNANCE.md#roadmap) file.
 
 ## Context
 
-Over the years, we've built a platform that analyzes data from more than
+Over the years, we have built a platform that analyzes data from more than
 30 data sources, producing more than 150 metrics about activity, performance,
-and community in software development.
+and community in software development. In April 2025, after 8 years of
+development, we launched its first major release: **GrimoireLab 1.0**.
 
 Our platform has been used by numerous companies and by some of the most
 important open source projects that needed to better understand their
@@ -38,10 +39,9 @@ on top of it, such as [Bitergia Analytics](https://github.com/bitergia-analytics
 [OSS Compass](https://compass.gitee.com/), [Cauldron](https://gitlab.com/cauldronio/),
 or [Mystic](https://opensource.ieee.org/rit/mystic-group),
 
-Despite this relative success, GrimoireLab hasn't reached a stable version
-(1.0) yet. We understand that our software has several issues that prevent
-our users and developers from getting the most out of it. We have identified
-the following challenges:
+Despite this relative success, we understand that our software has several issues
+that prevent our users and developers from getting the most out of it. We have
+identified the following challenges:
 
 - **Installation and configuration**: The software is complicated to install
   and require a significant amount of time and knowledge to set it running.
@@ -84,9 +84,8 @@ Based on these challenges, we have defined a set of goals:
   tend to zero.
 - **Increase the throughput**: The platform should be able to analyze
   3500 high-activity GitHub repositories in less than one day.
-- **Be the CHAOSS reference tool for data retrieval**: Our tool
-  will produce data that will be consumed by other tools for their
-  analysis in the CHAOSS environment (i.e. [augur](https://github.com/chaoss/augur)).
+- **Improve how data is consumed**: Our platform will generate a data model
+  that will be well-documented and accessible through APIs.
 
 ## Themes
 
@@ -109,3 +108,19 @@ accomplish the objectives and solve the problems described above.
 
 Check the [Roadmap section](./GOVERNANCE.md#roadmap)
 in our [GOVERNANCE](./GOVERNANCE.md) document for more info about *themes*.
+
+## Implementation
+
+After long evaluation, we have reached the conclusion that the current version of the platform,
+GrimoireLab 1.0, requires major changes to accomplish all the goals defined
+above. These will be disruptive changes that require deep modifications on the architecture.
+
+For this reason, we have decided to set the current version of the platform
+in maintenance mode to put all our effort into developing what will be
+GrimoireLab 2.0. Initially, GrimoireLab 1.x will only receive bug fixes from
+the maintainers. However, we will accept contributions from the community.
+
+The active development will happen mainly on
+[grimoirelab-core](https://github.com/chaoss/grimoirelab-core) repository.
+You can follow the progress of the development on the
+[GrimoireLab Roadmap board](https://github.com/orgs/chaoss/projects/20).
