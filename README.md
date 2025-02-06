@@ -26,6 +26,11 @@ or visiting the [GrimoireLab website](https://chaoss.github.io/grimoirelab).
 - Redis database >= 7.4
 - OpenSearch >= 2.0
 
+To simplify the setup of the development environment, you can use the provided
+[docker-compose-development.yml](./docker-compose/docker-compose-development.yml)
+file. This file deploys the required services for running GrimoireLab in development
+mode.
+
 Due to this is a development branch, you will have to install
 [poetry](https://python-poetry.org/) first, in order to get other dependencies
 and packages. You can install it following its
