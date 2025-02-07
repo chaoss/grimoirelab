@@ -73,6 +73,27 @@ go to `http://localhost:8000/identities/`. To get access:
 
 **Note**: you can change user and password in the `docker-compose.yml` file.
 
+
+## Using Docker Compose for Development
+
+To simplify the setup of the development environment, you can use the provided
+`docker-compose-development.yml` file. This file deploys the required services
+for running GrimoireLab in development mode.
+
+By default, it includes:
+
+- MariaDB running on port 3306
+- Redis running on port 6379
+- OpenSearch running on port 9200
+- OpenSearch Dashboards running on port 5601
+
+To start the development environment, run the following command:
+
+```  
+docker-compose -f docker-compose-development.yml up -d
+```
+
+
 ## Common questions
 
 ### How to stop and restart deployed software infrastructure?
