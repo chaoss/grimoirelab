@@ -32,6 +32,7 @@ The list of papers that have used GrimoireLab or data produced by it:
   Unveiling Diversity: Empowering OSS Project Leaders with Community Diversity and Turnover Dashboards.
   [doi:10.48550/arXiv.2312.08543](https://doi.org/10.48550/arXiv.2312.08543)
 * Dueñas, S., Cosentino, V., Gonzalez-Barahona, J. M., del Castillo, A., Izquierdo-Cortazar, D., Cañas-Díaz, L., Pérez García-Plaza, A. (2021). GrimoireLab: A toolset for software development analytics. [doi:10.7717/peerj-cs.601](https://doi.org/10.7717/peerj-cs.601)
+* Taraghi, M., Dorcelus, G., Foundjem, A., Tambon, F., & Khomh, F. (2024, March). Deep Learning Model Reuse in the HuggingFace Community: Challenges, Benefit and Trends. 2024 IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER), 512–523. doi:10.1109/SANER60148.2024.00059 (https://arxiv.org/abs/2401.13177)
 
 <!-- Please use APA Citation style and include a link to the paper. -->
 
