@@ -27,6 +27,8 @@ The list of organizations that have publicly shared the usage of GrimoireLab:
 📜 **Add your research papers by creating a PR**
 
 The list of papers that have used GrimoireLab or data produced by it:
+* Alami, A., Pardo, R., & Linåker, J. (2024). Free open source communities sustainability: Does it make a difference in software quality?. _Empirical Software Engineering_, 29(5), 114.
+https://arxiv.org/pdf/2402.06916
 * Sophia Vargas, Georg Link, and JaYoung Lee. (2024). Estimating Usage of Open Source Projects. In _Proceedings of the 21st International Conference on Mining Software Repositories (MSR '24)._ Association for Computing Machinery, New York, NY, USA, 652–653. [https://doi.org/10.1145/3643991.3645066](https://doi.org/10.1145/3643991.3645066)
 * Guizani, M., Feng, Z., Arteaga, E. J., Cañas-Díaz, L., Serebrenik, A., & Sarma, A. (2023).
   Unveiling Diversity: Empowering OSS Project Leaders with Community Diversity and Turnover Dashboards.
