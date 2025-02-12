@@ -27,6 +27,7 @@ The list of organizations that have publicly shared the usage of GrimoireLab:
 📜 **Add your research papers by creating a PR**
 
 The list of papers that have used GrimoireLab or data produced by it:
+* Gaughan, M., Champion, K., and Hwang, S. (2024). Engineering Formality and Software Risk in Debian Python Packages. In _2024 IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER '24)._ [https://doi.org/10.1109/SANER60148.2024.00108](https://doi.org/10.1109/SANER60148.2024.00108)
 * Sophia Vargas, Georg Link, and JaYoung Lee. (2024). Estimating Usage of Open Source Projects. In _Proceedings of the 21st International Conference on Mining Software Repositories (MSR '24)._ Association for Computing Machinery, New York, NY, USA, 652–653. [https://doi.org/10.1145/3643991.3645066](https://doi.org/10.1145/3643991.3645066)
 * Guizani, M., Feng, Z., Arteaga, E. J., Cañas-Díaz, L., Serebrenik, A., & Sarma, A. (2023).
   Unveiling Diversity: Empowering OSS Project Leaders with Community Diversity and Turnover Dashboards.
