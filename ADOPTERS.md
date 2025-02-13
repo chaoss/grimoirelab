@@ -28,11 +28,17 @@ The list of organizations that have publicly shared the usage of GrimoireLab:
 
 The list of papers that have used GrimoireLab or data produced by it:
 * Gaughan, M., Champion, K., and Hwang, S. (2024). Engineering Formality and Software Risk in Debian Python Packages. In _2024 IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER '24)._ [https://doi.org/10.1109/SANER60148.2024.00108](https://doi.org/10.1109/SANER60148.2024.00108)
+* Alami, A., Pardo, R., & Linåker, J. (2024). Free open source communities sustainability: Does it make a difference in software quality?. _Empirical Software Engineering_, 29(5), 114.
+https://arxiv.org/pdf/2402.06916
 * Sophia Vargas, Georg Link, and JaYoung Lee. (2024). Estimating Usage of Open Source Projects. In _Proceedings of the 21st International Conference on Mining Software Repositories (MSR '24)._ Association for Computing Machinery, New York, NY, USA, 652–653. [https://doi.org/10.1145/3643991.3645066](https://doi.org/10.1145/3643991.3645066)
 * Guizani, M., Feng, Z., Arteaga, E. J., Cañas-Díaz, L., Serebrenik, A., & Sarma, A. (2023).
   Unveiling Diversity: Empowering OSS Project Leaders with Community Diversity and Turnover Dashboards.
   [doi:10.48550/arXiv.2312.08543](https://doi.org/10.48550/arXiv.2312.08543)
+* Chidambaram, N., & Mazrae, P. R. (2022). Bot detection in GitHub repositories. In _Proceedings of the 19th International Conference on Mining Software Repositories in the Hackathon Track._ MSR ’22, ACM. [doi:10.1145/3524842.3528520](https://doi.org/10.1145/3524842.3528520). Won the [Best Hackathon Paper Award](https://natarajan-chidambaram.github.io/awards_certificates/msr22-awards-hackathon-signed.pdf).
 * Dueñas, S., Cosentino, V., Gonzalez-Barahona, J. M., del Castillo, A., Izquierdo-Cortazar, D., Cañas-Díaz, L., Pérez García-Plaza, A. (2021). GrimoireLab: A toolset for software development analytics. [doi:10.7717/peerj-cs.601](https://doi.org/10.7717/peerj-cs.601)
+* Tecimer, K. A., Tüzün, E., Moran, C., & Erdogmus, H. (2022). Cleaning ground truth data in software task assignment. _Information and Software Technology, 149,_ 106956. http://yoksis.bilkent.edu.tr/pdf/files/15973.pdf
+* Tecimer, K. A., Tüzün, E., Dibeklioglu, H., & Erdogmus, H. (2021, June). Detection and elimination of systematic labeling bias in code reviewer recommendation systems. In _Proceedings of the 25th International Conference on Evaluation and Assessment in Software Engineering_ (pp. 181-190). https://www.researchgate.net/profile/Kazim-Tecimer/publication/352106199_Detection_and_Elimination_of_Systematic_Labeling_Bias_in_Code_Reviewer_Recommendation_Systems/links/60b935c9a6fdcc22ead3bcfa/Detection-and-Elimination-of-Systematic-Labeling-Bias-in-Code-Reviewer-Recommendation-Systems.pdf
+* Biazotto, J. P., Feitosa, D., Avgeriou, P., & Nakagawa, E. Y. (2024). Technical debt management automation: State of the art and future perspectives. Information and Software Technology, 167(107375), 107375. [doi:10.1016/j.infsof.2023.107375](https://doi.org/10.1016/j.infsof.2023.107375)
 
 <!-- Please use APA Citation style and include a link to the paper. -->
 
