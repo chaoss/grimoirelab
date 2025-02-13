@@ -34,6 +34,8 @@ https://arxiv.org/pdf/2402.06916
   Unveiling Diversity: Empowering OSS Project Leaders with Community Diversity and Turnover Dashboards.
   [doi:10.48550/arXiv.2312.08543](https://doi.org/10.48550/arXiv.2312.08543)
 * Dueñas, S., Cosentino, V., Gonzalez-Barahona, J. M., del Castillo, A., Izquierdo-Cortazar, D., Cañas-Díaz, L., Pérez García-Plaza, A. (2021). GrimoireLab: A toolset for software development analytics. [doi:10.7717/peerj-cs.601](https://doi.org/10.7717/peerj-cs.601)
+* Tecimer, K. A., Tüzün, E., Moran, C., & Erdogmus, H. (2022). Cleaning ground truth data in software task assignment. _Information and Software Technology, 149,_ 106956. http://yoksis.bilkent.edu.tr/pdf/files/15973.pdf
+* Tecimer, K. A., Tüzün, E., Dibeklioglu, H., & Erdogmus, H. (2021, June). Detection and elimination of systematic labeling bias in code reviewer recommendation systems. In _Proceedings of the 25th International Conference on Evaluation and Assessment in Software Engineering_ (pp. 181-190). https://www.researchgate.net/profile/Kazim-Tecimer/publication/352106199_Detection_and_Elimination_of_Systematic_Labeling_Bias_in_Code_Reviewer_Recommendation_Systems/links/60b935c9a6fdcc22ead3bcfa/Detection-and-Elimination-of-Systematic-Labeling-Bias-in-Code-Reviewer-Recommendation-Systems.pdf
 
 <!-- Please use APA Citation style and include a link to the paper. -->
 
