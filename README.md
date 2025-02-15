@@ -28,7 +28,7 @@ Docker version 19.03.1, build 74b1e89
 root@test-68b8628f:~# docker-compose --version
 docker-compose version 1.22.0, build f46880fe
 ```
-* **Hardware**: 2 CPU cores, 8GB memory RAM and [enough virtual memory for Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html) 
+* **Hardware**: 2 CPU cores, 8GB memory RAM and [enough virtual memory for Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html)
 
 Steps:
 1. Clone this project:
@@ -47,7 +47,7 @@ More details or troubleshooting in the [docker-compose folder](./docker-compose/
 
 ## Using `docker run`
 
-Requirements: 
+Requirements:
 * **Software**: [git](https://git-scm.com/) and [docker client](https://docs.docker.com/get-docker/). An example of working configuration:
 ```console
 root@test-68b8628f:~# git --version
@@ -67,7 +67,7 @@ git clone https://github.com/chaoss/grimoirelab
 2. Go to the project folder and run the following command:
 ```console
 cd grimoirelab
-docker run --net=host \ 
+docker run --net=host \
     -v $(pwd)/default-grimoirelab-settings/projects.json:/home/grimoire/conf/projects.json \
     -v $(pwd)/default-grimoirelab-settings/setup-docker.cfg:/home/grimoire/conf/setup.cfg \
     -t grimoirelab/grimoirelab
@@ -76,6 +76,10 @@ docker run --net=host \
 Your dashboard will be ready after a while at `http://localhost:8000`. The waiting time depends on the amount of data to fetch from a repo, for small repositories you can expect your data to be visible in the dashboard after 10-15 minutes.
 
 More details in the [docker folder](./docker/README.md).
+
+## Using on FreeBSD
+
+Recently [FreeBSD](https://www.freebsd.org) has adopted Grimoirelab for their Bugzilla Analysis and have [deployed Grimoirelab](https://grimore.freebsd.org) in their cluster. [FreeBSD Foundation](https://www.freebsdfoundation.org) has been kind enough to share the process of running Grimoire on FreeBSD which is available [here](./FreeBSD.md). This guide will also help who are interested in running Grimoirelab from source instead of deploying them with Docker.
 
 # Breaking changes
 
