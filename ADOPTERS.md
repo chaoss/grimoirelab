@@ -27,6 +27,7 @@ The list of organizations that have publicly shared the usage of GrimoireLab:
 📜 **Add your research papers by creating a PR**
 
 The list of papers that have used GrimoireLab or data produced by it:
+* Taraghi, M., Dorcelus, G., Foundjem, A., Tambon, F., & Khomh, F. (2024, March). Deep Learning Model Reuse in the HuggingFace Community: Challenges, Benefit and Trends. 2024 IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER), 512–523. doi:10.1109/SANER60148.2024.00059 (https://arxiv.org/abs/2401.13177)
 * Gaughan, M., Champion, K., and Hwang, S. (2024). Engineering Formality and Software Risk in Debian Python Packages. In _2024 IEEE International Conference on Software Analysis, Evolution, and Reengineering (SANER '24)._ [https://doi.org/10.1109/SANER60148.2024.00108](https://doi.org/10.1109/SANER60148.2024.00108)
 * Alami, A., Pardo, R., & Linåker, J. (2024). Free open source communities sustainability: Does it make a difference in software quality?. _Empirical Software Engineering_, 29(5), 114.
 https://arxiv.org/pdf/2402.06916
