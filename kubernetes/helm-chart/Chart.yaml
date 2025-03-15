@@ -1,0 +1,43 @@
+apiVersion: v2
+name: grimoirelab
+type: application
+description: Nested Chart collection for all grimorelab services.
+home: https://github.com/chaoss/grimoirelab
+icon: https://www.gravatar.com/avatar/4154acefea56ed23bddaaa47a4850400
+maintainers:
+- name: Arie
+  url: https://github.com/Eroyi
+version: 1.7.0   #Based on the "Github Release" version (which is the docker image tag referring from), not the actual application version.
+appVersion: 1.0
+dependencies:
+- name: mordred
+  repository: file://charts/mordred
+  version: 1.7.0
+- name: nginx
+  repository: file://charts/nginx
+  versio: 1.27.2
+- name: sortinghat
+  repository: file://charts/sortinghat
+  version: 1.7.0
+- name: sortinghat-worker
+  repository: file://charts/sortinghat-worker
+  version: 1.7.0
+  alias: sortinghatWorker
+# External Dependencies
+- name: opensearch-dashboard
+  version: 2.11.1
+  repository: file://charts/opensearch-dashboard
+  alias: opensearchDashboard
+  condition: opensearchDashboard.install
+- name: opensearch-node
+  repository: file://charts/opensearch-node
+  version: 2.11.1
+  alias: opensearchNode
+  condition: opensearchNode.install
+# - name: mariadb
+#   version: 19.1.0
+#   condition: mariadb.install
+# - name: redis
+#   version: 20.2.1
+#   condition: redis.install
+
