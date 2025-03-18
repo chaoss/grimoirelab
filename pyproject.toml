@@ -50,6 +50,10 @@ optional = true
 
 [tool.poetry.group.tests.dependencies]
 pytest = "^8.3.5"
+testcontainers = {extras = ["generic", "mysql", "opensearch", "redis"], version = "^4.9.2"}
+flake8 = "^7.1.2"
+dulwich = "^0.22.8"
+opensearch-py = "^2.8.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
