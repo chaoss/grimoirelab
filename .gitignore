@@ -1,0 +1,50 @@
+# Python files
+*.pyc
+*.pyo
+build
+
+# Package files
+src/grimoirelab/core/static
+
+# Local env files
+.env.local
+.env.*.local
+
+# Log files
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*storybook.log
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.project
+.pydevproject
+.settings
+node_modules
+.DS_Store
+dist
+dist-ssr
+coverage
+*.local
+.yarn/*
+storybook-static
+*.tsbuildinfo
+
+/cypress/videos/
+/cypress/screenshots/
+
+# Documentation
+.eggs/
+docs/_build/
+docs/source
