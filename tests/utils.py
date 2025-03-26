@@ -112,7 +112,7 @@ class GrimoireLabClient:
             except requests.HTTPError as e:
                 if e.response.status_code == 403 and self._refresh_token:
                     self._refresh_auth_token()
-                return e.response
+                last_exception = e
             except (requests.ConnectionError, requests.Timeout) as e:
                 self._reconnect()
                 last_exception = e

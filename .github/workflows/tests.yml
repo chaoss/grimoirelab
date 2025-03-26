@@ -1,0 +1,41 @@
+name: End-to-end tests
+
+on:
+  pull_request:
+    paths:
+    - 'poetry.lock'
+    - 'tests/**'
+    - '.github/workflows/tests.yml'
+  push:
+    paths:
+    - 'poetry.lock'
+    - 'tests/**'
+    - '.github/workflows/tests.yml'
+  workflow_dispatch:
+
+jobs:
+
+  end-to-end:
+    strategy:
+      matrix:
+        python-version: [3.11, 3.12]
+
+    runs-on: ubuntu-latest
+    name: Python ${{ matrix.python-version }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5.1.0
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        echo "PATH=$HOME/.poetry/bin:$PATH" >> $GITHUB_ENV
+    - name: Install dependencies
+      run: |
+        poetry install --with tests -vvv
+    - name: Tests
+      run: |
+        cd tests && poetry run pytest
