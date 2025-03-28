@@ -2,6 +2,7 @@ version: '2.2'
 
 services:
     mariadb:
+      platform: linux/amd64
       image: mariadb:10.6
       expose:
         - "3306"
@@ -13,6 +14,7 @@ services:
         retries: 5
 
     redis:
+      platform: linux/amd64
       image: redis:latest
       expose:
         - "6379"
@@ -21,8 +23,9 @@ services:
         retries: 5
 
     elasticsearch:
+      platform: linux/amd64
       image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.6
-      command: elasticsearch -Enetwork.bind_host=0.0.0.0 -Ehttp.max_content_length=2000mb
+      command: elasticsearch -Enetwork.bind_host=0.0.0.0 -Ehttp.max_content_length=2000mb -Ebootstrap.system_call_filter=false
       ports:
         - 9200:9200
       environment:
@@ -30,6 +33,7 @@ services:
         - ANONYMOUS_USER=true
 
     kibiter:
+      platform: linux/amd64
       restart: on-failure:5
       image: bitergia/kibiter:community-v6.8.6-3
       environment:
@@ -42,6 +46,7 @@ services:
         - 5601:5601
 
     mordred:
+      platform: linux/amd64
       restart: on-failure:5
       image: grimoirelab/grimoirelab:latest
       volumes:
@@ -54,6 +59,7 @@ services:
       mem_limit: 4g
 
     sortinghat:
+      platform: linux/amd64
       restart: on-failure:3
       image: grimoirelab/sortinghat
       environment:
@@ -80,6 +86,7 @@ services:
           condition: service_healthy
 
     sortinghat_worker:
+      platform: linux/amd64
       image: grimoirelab/sortinghat-worker
       environment:
         - SORTINGHAT_SECRET_KEY=secret
@@ -97,6 +104,7 @@ services:
           condition: service_healthy
 
     nginx:
+      platform: linux/amd64
       restart: on-failure:3
       image: nginx:latest
       volumes:

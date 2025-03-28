@@ -4,7 +4,9 @@
         "title": "GrimoireLab"
       },
       "git": [
-          "https://github.com/chaoss/grimoirelab.git"
+          "https://github.com/rocky-linux/peridot.git",
+          "https://github.com/resf/distro-tools.git",
+          "https://github.com/rocky-linux/rocky-tools.git"
         ]
     }
   }
