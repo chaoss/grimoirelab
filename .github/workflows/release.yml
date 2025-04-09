@@ -17,6 +17,7 @@ jobs:
           artifact-name: grimoirelab-dist
           artifact-path: dist
           pin-dependencies: yes
+          python-version: 3.9
 
   tests:
     needs: [build]
