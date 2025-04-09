@@ -1,5 +1,103 @@
 # Releases
 
+## GrimoireLab 1.10.0 - (2025-04-09)
+
+**New components:**
+
+* grimoirelab-toolkit 1.0.10
+* kidash 1.0.11
+* sortinghat 1.7.0
+* cereslib 1.0.10
+* perceval 1.2.0
+* perceval-mozilla 1.0.12
+* perceval-opnfv 1.0.12
+* perceval-puppet 1.0.12
+* perceval-weblate 1.0.12
+* graal 1.1.3
+* grimoire-elk 1.3.5
+* sirmordred 1.1.7
+
+The following list describes the changes by component:
+
+### grimoirelab-toolkit
+  
+  * Update Poetry's package dependencies
+
+### kidash
+  
+  * Update Poetry's package dependencies
+
+### sortinghat
+
+**New features:**
+
+ * More detailed individual information  when reviewing recommendations (#936)\
+   The "Review recommendations" functionality now shows a list of the
+   individuals' usernames and email addresses to help compare them more
+   easily without needing to expand the information each time.
+ * Renamed recommendations view labels (#954)\
+   The text of the buttons on the recommendations view was changed to
+   make the actions to be performed clearer.
+ * Improved session cookie security\
+   Session cookies are now sent with the `Secure` attribute to protect
+   them from attacks. By default, the cookies expire after 30 minutes of
+   user inactivity. This configuration can be changed in the
+   `settings.py` file.
+ * More icons for sources\
+   The user interface now has icons for Confluence, Jenkins, Phabricator,
+   Meetup and Gerrit. This prevents from grouping them into "other
+   sources".
+
+**Bug fixes:**
+
+ * Wrong order of affiliations (#955)\
+   Multiple affiliations to the same company caused a wrong order in the
+   list of organizations at the individual's profile. All affiliations
+   are now sorted by date.
+
+### cereslib
+  
+  * Update Poetry's package dependencies
+
+### perceval
+
+**New deprecations:**
+
+ * NNTP backend removed for Python > 3.13\
+   nntplib is no longer part of the Python standard library. It was
+   removed in Python 3.13 after being deprecated in Python 3.11 (PEP
+   594). This version raises an exception when trying to use the NNTP
+   backend and nntplib package is not available.
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### perceval-weblate
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+  
+  * Update Poetry's package dependencies
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 1.9.2 - (2025-01-17)
 
 **New components:**
