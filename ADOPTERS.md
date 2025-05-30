@@ -26,6 +26,8 @@ The list of organizations that have publicly shared the usage of GrimoireLab:
 | [name](URL) | brief description of how you are using GrimoireLab |
 -->
 
+## Research referencing GrimoireLab
+
 📜 **Add your research papers by creating a PR**
 
 The list of papers that have used GrimoireLab or data produced by it:
