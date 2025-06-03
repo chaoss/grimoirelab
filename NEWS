@@ -1,5 +1,93 @@
 # Releases
 
+## GrimoireLab 1.13.0 - (2025-06-03)
+
+**New components:**
+
+* grimoirelab-toolkit 1.0.11
+* kidash 1.0.13
+* sortinghat 1.9.0
+* cereslib 1.0.13
+* perceval 1.2.3
+* perceval-mozilla 1.1.2
+* perceval-opnfv 1.0.15
+* perceval-puppet 1.0.15
+* perceval-weblate 1.0.15
+* graal 1.1.6
+* grimoire-elk 1.3.8
+* sirmordred 1.1.10
+
+The following list describes the changes by component:
+
+### grimoirelab-toolkit
+  
+  * Update Poetry's package dependencies
+
+### kidash
+  
+  * Update Poetry's package dependencies
+
+### sortinghat
+
+**New features:**
+
+ * History of profile changes (#972)\
+   Individuals' profiles now include a history of changes and whether the
+   actions were performed by a user or an automated process.
+
+**Bug fixes:**
+
+ * Fixed unresponsive affiliation calendar (#974)\
+   The calendar for affiliating didn't close after selecting a date and
+   updated the input box with a wrong date.
+
+### cereslib
+  
+  * Update Poetry's package dependencies
+
+### perceval
+
+**Bug fixes:**
+
+ * Git moved file detection issue in stats\
+   Refactored file path resolution logic in the Git parser to better
+   handle complex move and rename cases, including braces patterns and
+   file moves within nested directories.
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### perceval-weblate
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+
+**Bug fixes:**
+
+ * Incorrect `from-date` behavior for enrich tasks\
+   Enriching no longer uses the `from-date` parameter, which is only
+   intended for collection. This fixes an issue causing all GitHub items
+   to be enriched.
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 1.12.0 - (2025-05-20)
 
 **New components:**
