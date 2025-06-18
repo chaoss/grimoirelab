@@ -1,5 +1,82 @@
 # Releases
 
+## GrimoireLab 1.14.0 - (2025-06-18)
+
+**New components:**
+
+* grimoirelab-toolkit 1.0.12
+* kidash 1.0.14
+* sortinghat 1.9.1
+* cereslib 1.0.14
+* perceval 1.3.0
+* perceval-mozilla 1.1.3
+* perceval-opnfv 1.0.16
+* perceval-puppet 1.0.16
+* perceval-weblate 1.0.16
+* graal 1.1.7
+* grimoire-elk 1.3.9
+* sirmordred 1.1.11
+
+The following list describes the changes by component:
+
+### grimoirelab-toolkit
+  
+  * Update Poetry's package dependencies
+
+### kidash
+  
+  * Update Poetry's package dependencies
+
+### sortinghat
+
+**Bug fixes:**
+
+ * Press Enter key to log in (#980)\
+   Users can now press the `Enter` key after entering the username and
+   password to log in.
+
+### cereslib
+  
+  * Update Poetry's package dependencies
+
+### perceval
+
+**New features:**
+
+ * Blacklist option for builds in Jenkins\
+   Add blacklist functionality for builds in Jenkins integration. To
+   ignore a build, you must define the job name and the build id with the
+   following format: `--blacklist-builds job-id:1234`.
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### perceval-weblate
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+  
+  * Update Poetry's package dependencies
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 1.13.0 - (2025-06-03)
 
 **New components:**
