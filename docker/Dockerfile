@@ -1,7 +1,7 @@
 # Copyright (C) 2016-2022 Bitergia
 # GPLv3 License
 
-FROM python:3.9-slim-bullseye
+FROM python:3.12-slim-bookworm
 LABEL maintainer="Santiago Dueñas <sduenas@bitergia.com>"
 
 ENV DEBIAN_FRONTEND noninteractive
