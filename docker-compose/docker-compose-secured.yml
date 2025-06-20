@@ -74,7 +74,7 @@ services:
       expose:
         - "9314"
       volumes:
-        - sortinghat-static:/opt/venv/lib/python3.9/site-packages/sortinghat/static/
+        - sortinghat-static:/opt/venv/lib/python3.12/site-packages/sortinghat/static/
       depends_on:
         mariadb:
           condition: service_healthy
