@@ -21,6 +21,7 @@ The list of organizations that have publicly shared the usage of GrimoireLab:
 | [Thunderbird](https://www.thunderbird.net/) | The [Thunderbird dashboard](https://thunderbird.biterg.io/) is hosted by Bitergia and helps [visualize the Thunderbird community](https://blog.thunderbird.net/2024/12/visualizing-the-thunderbird-community-with-bitergia/). |
 | [The Alan Turing Institute](https://www.turing.ac.uk/) | The Alan Turing Institute is using GrimoireLab internally to analyse their public GitHub repos and understand usage and contribution patterns and questions around software maintenance and communities. |
 | [Intersect MBO](https://www.intersectmbo.org/) |  Intersect's Open Source Office provides guidance for open-source contributions and best practices, utilizing GrimoireLab to better understand the variances in contributions levels for Core Cardano and other projects built on and for Cardano. |
+| [Open edX](https://openedx.org/) | The Open edX project uses our [GrimoireLab dashboards](https://openedx.biterg.io/app/dashboards) to monitor contribution (ensuring a healthy, robust community - and identifying up and coming core contributors) as well as assisting maintainers in monitoring their repos. |
 <!-- to append the table: insert a line above, using the format below
 | [name](URL) | brief description of how you are using GrimoireLab |
 -->
