@@ -1,25 +1,16 @@
 # Copyright (C) 2016-2022 Bitergia
 # GPLv3 License
 
-FROM node:18 AS build-core-static
-
-RUN git clone --depth 1 https://github.com/chaoss/grimoirelab-core.git
-
-WORKDIR /grimoirelab-core/ui
-
-RUN yarn install && yarn build
-
-
-FROM python:3.11-slim-bullseye
+FROM python:3.12-slim-bullseye
 
 LABEL maintainer="Santiago Dueñas <sduenas@bitergia.com>"
 
-ENV DEBIAN_FRONTEND noninteractive
-ENV DEPLOY_USER grimoirelab
-ENV DEPLOY_USER_DIR /home/${DEPLOY_USER}
-ENV CONF_DIR ${DEPLOY_USER_DIR}/conf
-ENV SCRIPTS_DIR ${DEPLOY_USER_DIR}/scripts
-ENV GRIMOIRELAB_RELEASE "2.x"
+ENV DEBIAN_FRONTEND=noninteractive
+ENV DEPLOY_USER=grimoirelab
+ENV DEPLOY_USER_DIR=/home/${DEPLOY_USER}
+ENV CONF_DIR=${DEPLOY_USER_DIR}/conf
+ENV SCRIPTS_DIR=${DEPLOY_USER_DIR}/scripts
+ENV GRIMOIRELAB_RELEASE="2.x"
 
 # Create a user and a group
 RUN groupadd -r $DEPLOY_USER && useradd -r -m -g $DEPLOY_USER $DEPLOY_USER
@@ -32,9 +23,19 @@ RUN apt-get update && \
         git git-core \
         mariadb-client \
         libmariadbclient-dev-compat \
-        unzip curl wget sudo ssh \
-        && \
-    apt-get clean && \
+        unzip curl wget sudo ssh
+
+# Install nodejs
+RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs
+
+# Install yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends yarn
+
+RUN apt-get clean && \
     find /var/lib/apt/lists -type f -delete
 
 RUN echo "${DEPLOY_USER} ALL=NOPASSWD: ALL" >> /etc/sudoers
@@ -44,10 +45,10 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     dpkg-reconfigure --frontend=noninteractive locales && \
     update-locale LANG=en_US.UTF-8
 
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
-ENV LANG C.UTF-8
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+ENV LC_ALL=en_US.UTF-8
+ENV LANG=C.UTF-8
 
 USER ${DEPLOY_USER}
 
@@ -78,12 +79,11 @@ RUN python -m venv /opt/venv/ && \
     poetry update && \
     poetry install
 
-COPY --from=build-core-static /grimoirelab-core/src/grimoirelab/core/templates/ /opt/venv/lib/python3.11/site-packages/grimoirelab/core/templates/
-
 RUN chown -R $DEPLOY_USER:$DEPLOY_USER /opt/venv
 
+# Make static files available in a known location
 RUN mkdir /core_static/
-COPY --from=build-core-static /grimoirelab-core/src/grimoirelab/core/templates/static/ /core_static/
+RUN cp -r /opt/venv/lib/python3.12/site-packages/grimoirelab/core/templates/static/. /core_static/
 RUN chown -R $DEPLOY_USER:$DEPLOY_USER /core_static/
 
 COPY ./entrypoint.sh /usr/local/bin/
