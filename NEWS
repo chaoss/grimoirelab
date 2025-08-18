@@ -1,5 +1,97 @@
 # Releases
 
+## GrimoireLab 1.15.0 - (2025-08-18)
+
+**New components:**
+
+* grimoirelab-toolkit 1.0.14
+* kidash 1.0.16
+* sortinghat 1.10.0
+* cereslib 1.0.16
+* perceval 1.3.2
+* perceval-mozilla 1.1.5
+* perceval-opnfv 1.0.18
+* perceval-puppet 1.0.18
+* perceval-weblate 1.0.18
+* graal 1.1.9
+* grimoire-elk 1.3.11
+* sirmordred 1.1.13
+
+The following list describes the changes by component:
+
+### grimoirelab-toolkit
+  
+  * Update Poetry's package dependencies
+
+### kidash
+  
+  * Update Poetry's package dependencies
+
+### sortinghat
+
+**New features:**
+
+ * Post processing of imported individuals\
+   The new method `post_process_individual` allows to post-process
+   individuals after they are imported. For example, you might want to
+   merge the imported identities with others already existing using
+   custom criteria, or to set the profile of the new identities in using
+   specific values, or affiliate them to predefined organizations.
+
+**Bug fixes:**
+
+ * Merge organizations aliases\
+   The user interface now offers to merge two organizations when a user
+   tries to add an alias that already belongs to a different one.
+
+### cereslib
+  
+  * Update Poetry's package dependencies
+
+### perceval
+  
+  * Update Poetry's package dependencies
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### perceval-weblate
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+
+**Bug fixes:**
+
+ * GitHub assignee KeyError in enriched index\
+   Fix the `KeyError` when the issue was assigned to a deleted user. A
+   deleted user don't have `email`, `company`, and `location` fields.
+ * GitHub KeyError in enriched index\
+   Fix the `KeyError` when the issue and/or pull request was assigned to
+   `Copilot` user. The `Copilot` user don't have `email`, `company`, and
+   `location` fields.
+ * GitHub user KeyError in enriched index\
+   Fix the rest of the fields of an AI user to correct `KeyError`
+   (`email`, `company`, and `location`).
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 1.14.1 - (2025-06-20)
 
 **New components:**
