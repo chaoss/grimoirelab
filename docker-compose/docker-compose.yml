@@ -2,7 +2,7 @@ version: '2.2'
 
 services:
     mariadb:
-      image: mariadb:10.6
+      image: mariadb:11.8
       expose:
         - "3306"
       environment:
@@ -11,6 +11,8 @@ services:
       healthcheck:
         test: [ "CMD", "/usr/local/bin/healthcheck.sh", "--su=root", "--connect", "--innodb_initialized" ]
         retries: 5
+      volumes:
+        - mariadb_data:/var/lib/mysql
 
     redis:
       image: redis:latest
@@ -19,27 +21,36 @@ services:
       healthcheck:
         test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
         retries: 5
+      volumes:
+        - redis_data:/data
 
-    elasticsearch:
-      image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.6
-      command: elasticsearch -Enetwork.bind_host=0.0.0.0 -Ehttp.max_content_length=2000mb
+    opensearch-node1:
+      image: opensearchproject/opensearch:2.11.1
+      environment:
+        - cluster.name=opensearch-cluster
+        - node.name=opensearch-node1
+        - discovery.type=single-node
+        - bootstrap.memory_lock=true # along with the memlock settings below, disables swapping
+        - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
+      ulimits:
+        memlock:
+          soft: -1
+          hard: -1
+        nofile:
+          soft: 65536 # maximum number of open files for the OpenSearch user, set to at least 65536 on modern systems
+          hard: 65536
       ports:
         - 9200:9200
-      environment:
-        - ES_JAVA_OPTS=-Xms2g -Xmx2g
-        - ANONYMOUS_USER=true
+        - 9600:9600 # required for Performance Analyzer
+      volumes:
+        - opensearch-data:/usr/share/opensearch/data
 
-    kibiter:
-      restart: on-failure:5
-      image: bitergia/kibiter:community-v6.8.6-3
-      environment:
-        - PROJECT_NAME=Demo
-        - NODE_OPTIONS=--max-old-space-size=1000
-        - ELASTICSEARCH_URL=http://elasticsearch:9200
-      links:
-        - elasticsearch
+    opensearch-dashboards:
+      image: opensearchproject/opensearch-dashboards:2.11.1
       ports:
         - 5601:5601
+      environment:
+        OPENSEARCH_HOSTS: '["https://opensearch-node1:9200"]'
 
     mordred:
       restart: on-failure:5
@@ -65,8 +76,8 @@ services:
         - SORTINGHAT_DB_PASSWORD=
         - SORTINGHAT_REDIS_HOST=redis
         - SORTINGHAT_REDIS_PASSWORD=
-        - SORTINGHAT_SUPERUSER_USERNAME=root
-        - SORTINGHAT_SUPERUSER_PASSWORD=root
+        - SORTINGHAT_SUPERUSER_USERNAME=admin
+        - SORTINGHAT_SUPERUSER_PASSWORD=admin
         - SORTINGHAT_ALLOWED_HOST=sortinghat,nginx,localhost,127.0.0.1,[::1]
         - SORTINGHAT_CORS_ALLOWED_ORIGINS=http://localhost:8000,http://127.0.0.1:8000
       expose:
@@ -106,7 +117,7 @@ services:
       ports:
         - 8000:8000
       environment:
-        - KIBANA_HOST=http://kibiter:5601/
+        - KIBANA_HOST=http://opensearch-dashboards:5601/
       depends_on:
         - sortinghat
       healthcheck:
@@ -115,3 +126,6 @@ services:
 
 volumes:
   sortinghat-static:
+  opensearch-data:
+  mariadb_data:
+  redis_data:
