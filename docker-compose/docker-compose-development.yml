@@ -10,13 +10,14 @@ services:
         test: [ "CMD", "/usr/local/bin/healthcheck.sh", "--su=root", "--connect", "--innodb_initialized" ]
         retries: 5
 
-    redis:
-      image: redis:8
+    valkey:
+      image: valkey/valkey:8
       ports:
         - "6379:6379"
       healthcheck:
-        test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+        test: [ "CMD", "valkey-cli", "--raw", "incr", "ping" ]
         retries: 5
+
 
     opensearch-node1:
       image: opensearchproject/opensearch:2.19.3

@@ -10,12 +10,12 @@ services:
         test: [ "CMD", "/usr/local/bin/healthcheck.sh", "--su=root", "--connect", "--innodb_initialized" ]
         retries: 5
 
-    redis:
-      image: redis:8
+    valkey:
+      image: valkey/valkey:8
       expose:
         - "6379"
       healthcheck:
-        test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+        test: [ "CMD", "valkey-cli", "--raw", "incr", "ping" ]
         retries: 5
 
     grimoirelab_core:
@@ -27,7 +27,7 @@ services:
         GRIMOIRELAB_DB_DATABASE: core_db
         GRIMOIRELAB_DB_USER: root
         GRIMOIRELAB_DB_PASSWORD: ""
-        GRIMOIRELAB_REDIS_HOST: redis
+        GRIMOIRELAB_REDIS_HOST: valkey
         GRIMOIRELAB_REDIS_PORT: 6379
         GRIMOIRELAB_REDIS_PASSWORD: ""
       expose:
@@ -37,7 +37,7 @@ services:
       depends_on:
         mariadb:
           condition: service_healthy
-        redis:
+        valkey:
           condition: service_healthy
       command: grimoirelab run server
 
@@ -50,13 +50,13 @@ services:
         GRIMOIRELAB_DB_DATABASE: core_db
         GRIMOIRELAB_DB_USER: root
         GRIMOIRELAB_DB_PASSWORD: ""
-        GRIMOIRELAB_REDIS_HOST: redis
+        GRIMOIRELAB_REDIS_HOST: valkey
         GRIMOIRELAB_REDIS_PORT: 6379
         GRIMOIRELAB_REDIS_PASSWORD: ""
       depends_on:
         mariadb:
           condition: service_healthy
-        redis:
+        valkey:
           condition: service_healthy
       command: grimoirelab run eventizers
 
@@ -69,7 +69,7 @@ services:
         GRIMOIRELAB_DB_DATABASE: core_db
         GRIMOIRELAB_DB_USER: root
         GRIMOIRELAB_DB_PASSWORD: ""
-        GRIMOIRELAB_REDIS_HOST: redis
+        GRIMOIRELAB_REDIS_HOST: valkey
         GRIMOIRELAB_REDIS_PORT: 6379
         GRIMOIRELAB_REDIS_PASSWORD: ""
         GRIMOIRELAB_ARCHIVIST_STORAGE_URL: "https://opensearch-node1:9200"
@@ -78,7 +78,7 @@ services:
       depends_on:
         mariadb:
           condition: service_healthy
-        redis:
+        valkey:
           condition: service_healthy
         opensearch-node1:
           condition: service_started
@@ -94,7 +94,7 @@ services:
         - SORTINGHAT_DB_DATABASE=sortinghat_db
         - SORTINGHAT_DB_USER=root
         - SORTINGHAT_DB_PASSWORD=
-        - SORTINGHAT_REDIS_HOST=redis
+        - SORTINGHAT_REDIS_HOST=valkey
         - SORTINGHAT_REDIS_PASSWORD=
         - SORTINGHAT_SUPERUSER_USERNAME=admin
         - SORTINGHAT_SUPERUSER_PASSWORD=admin
@@ -107,7 +107,7 @@ services:
       depends_on:
         mariadb:
           condition: service_healthy
-        redis:
+        valkey:
           condition: service_healthy
 
     sortinghat_worker:
@@ -119,12 +119,12 @@ services:
         - SORTINGHAT_DB_DATABASE=sortinghat_db
         - SORTINGHAT_DB_USER=root
         - SORTINGHAT_DB_PASSWORD=
-        - SORTINGHAT_REDIS_HOST=redis
+        - SORTINGHAT_REDIS_HOST=valkey
         - SORTINGHAT_REDIS_PASSWORD=
       depends_on:
         mariadb:
           condition: service_healthy
-        redis:
+        valkey:
           condition: service_healthy
 
     opensearch-node1:
