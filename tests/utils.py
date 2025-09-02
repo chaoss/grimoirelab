@@ -112,7 +112,11 @@ class GrimoireLabClient:
             except requests.HTTPError as e:
                 if e.response.status_code == 403 and self._refresh_token:
                     self._refresh_auth_token()
-                last_exception = e
+                elif e.response.status_code == 405:
+                    # This case is when the repository already exists
+                    return e.response
+                else:
+                    last_exception = e
             except (requests.ConnectionError, requests.Timeout) as e:
                 self._reconnect()
                 last_exception = e

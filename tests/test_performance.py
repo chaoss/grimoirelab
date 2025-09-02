@@ -19,6 +19,7 @@
 from __future__ import annotations
 
 import os
+import random
 import time
 
 import pytest
@@ -48,6 +49,24 @@ def test_git_performance(setup_git_repositories, timeout):
 
     repositories = []
 
+    # Create a random ecosystem
+    random_id = random.randint(0, 10000)
+    ecosystem = f"test-ecosystem-{random_id}"
+    data = {
+        "name": ecosystem,
+        "description": "Ecosystem for performance tests",
+        "slug": ecosystem
+    }
+    res = grimoirelab_client.post("/api/v1/ecosystems/", json=data)
+    res.raise_for_status()
+
+    # Create a project
+    data = {
+        "name": "test-project"
+    }
+    res = grimoirelab_client.post(f"/api/v1/ecosystems/{ecosystem}/projects/", json=data)
+    res.raise_for_status()
+
     for entry in os.scandir(tmpdir):
         if entry.is_dir() and not entry.name.startswith('.'):
             repo_tmpdir = os.path.join(tmpdir, entry.name)
@@ -56,10 +75,11 @@ def test_git_performance(setup_git_repositories, timeout):
             data = {
                 "uri": f"file://{repo_tmpdir}",
                 "datasource_type": "git",
-                "datasource_category": "commit"
+                "category": "commit",
             }
 
-            res = grimoirelab_client.post("datasources/add_repository", json=data)
+            res = grimoirelab_client.post(uri=f"/api/v1/ecosystems/{ecosystem}/projects/test-project/repos/",
+                                          json=data)
             res.raise_for_status()
 
     # Analysis should have finished before the timeout
