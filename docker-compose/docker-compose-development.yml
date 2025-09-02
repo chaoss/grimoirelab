@@ -4,10 +4,10 @@ services:
       file: ./docker-compose.yml
       service: mariadb
 
-  redis:
+  valkey:
     extends:
       file: ./docker-compose.yml
-      service: redis
+      service: valkey
 
   opensearch-node1:
     extends:
