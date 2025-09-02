@@ -83,7 +83,7 @@ for running GrimoireLab in development mode.
 By default, it includes:
 
 - MariaDB running on port 3306
-- Redis running on port 6379
+- Valkey running on port 6379
 - OpenSearch running on port 9200
 - OpenSearch Dashboards running on port 5601
 

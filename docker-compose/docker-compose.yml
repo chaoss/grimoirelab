@@ -12,13 +12,15 @@ services:
       volumes:
         - mariadb_data:/var/lib/mysql
 
-    redis:
-      image: redis:7.4
+    valkey:
+      image: valkey/valkey:8
       expose:
         - "6379"
       healthcheck:
-        test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+        test: [ "CMD", "valkey-cli", "--raw", "incr", "ping" ]
         retries: 5
+      volumes:
+        - valkey_data:/data
 
     grimoirelab_core:
       restart: on-failure:3
@@ -29,7 +31,7 @@ services:
         GRIMOIRELAB_DB_DATABASE: core_db
         GRIMOIRELAB_DB_USER: root
         GRIMOIRELAB_DB_PASSWORD: ""
-        GRIMOIRELAB_REDIS_HOST: redis
+        GRIMOIRELAB_REDIS_HOST: valkey
         GRIMOIRELAB_REDIS_PORT: 6379
         GRIMOIRELAB_REDIS_PASSWORD: ""
         GRIMOIRELAB_SUPERUSER_USERNAME: admin
@@ -41,7 +43,7 @@ services:
       depends_on:
         mariadb:
           condition: service_healthy
-        redis:
+        valkey:
           condition: service_healthy
       command: grimoirelab run server
 
@@ -54,13 +56,13 @@ services:
         GRIMOIRELAB_DB_DATABASE: core_db
         GRIMOIRELAB_DB_USER: root
         GRIMOIRELAB_DB_PASSWORD: ""
-        GRIMOIRELAB_REDIS_HOST: redis
+        GRIMOIRELAB_REDIS_HOST: valkey
         GRIMOIRELAB_REDIS_PORT: 6379
         GRIMOIRELAB_REDIS_PASSWORD: ""
       depends_on:
         mariadb:
           condition: service_healthy
-        redis:
+        valkey:
           condition: service_healthy
       command: grimoirelab run eventizers
 
@@ -73,7 +75,7 @@ services:
         GRIMOIRELAB_DB_DATABASE: core_db
         GRIMOIRELAB_DB_USER: root
         GRIMOIRELAB_DB_PASSWORD: ""
-        GRIMOIRELAB_REDIS_HOST: redis
+        GRIMOIRELAB_REDIS_HOST: valkey
         GRIMOIRELAB_REDIS_PORT: 6379
         GRIMOIRELAB_REDIS_PASSWORD: ""
         GRIMOIRELAB_ARCHIVIST_STORAGE_URL: "https://opensearch-node1:9200"
@@ -82,7 +84,7 @@ services:
       depends_on:
         mariadb:
           condition: service_healthy
-        redis:
+        valkey:
           condition: service_healthy
         opensearch-node1:
           condition: service_started
@@ -97,13 +99,13 @@ services:
           GRIMOIRELAB_DB_DATABASE: core_db
           GRIMOIRELAB_DB_USER: root
           GRIMOIRELAB_DB_PASSWORD: ""
-          GRIMOIRELAB_REDIS_HOST: redis
+          GRIMOIRELAB_REDIS_HOST: valkey
           GRIMOIRELAB_REDIS_PORT: 6379
           GRIMOIRELAB_REDIS_PASSWORD: ""
         depends_on:
           mariadb:
             condition: service_healthy
-          redis:
+          valkey:
             condition: service_healthy
         command: grimoirelab run ushers
 
@@ -116,13 +118,13 @@ services:
         SORTINGHAT_DB_DATABASE: core_db
         SORTINGHAT_DB_USER: root
         SORTINGHAT_DB_PASSWORD: ""
-        SORTINGHAT_REDIS_HOST: redis
+        SORTINGHAT_REDIS_HOST: valkey
         GRIMOIRELAB_REDIS_PORT: 6379
         SORTINGHAT_REDIS_PASSWORD: ""
       depends_on:
         mariadb:
           condition: service_healthy
-        redis:
+        valkey:
           condition: service_healthy
 
     opensearch-node1:
@@ -176,4 +178,5 @@ services:
 volumes:
   mariadb_data:
   opensearch_data:
+  valkey_data:
   core-static:

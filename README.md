@@ -23,7 +23,7 @@ or visiting the [GrimoireLab website](https://chaoss.github.io/grimoirelab).
 - Linux/MacOS (Windows not supported yet)
 - Python >= 3.11
 - MySQL >= 8.0/ MariaDB >= 11.4
-- Redis database >= 7.4
+- Redis / Valkey database
 - OpenSearch >= 2.0
 
 To simplify the setup of the development environment, you can use the provided
@@ -104,7 +104,7 @@ Some environment variables you might need to change are:
 
 - **GrimoireLab common settings**:
   - `GRIMOIRELAB_DEBUG`: to activate the debug mode (`true` or `false` values)
-- **Redis configuration**
+- **Redis/Valkey configuration**
   - `GRIMOIRELAB_REDIS_HOST`: ip address of the server
   - `GRIMOIRELAB_REDIS_PORT`: port of the server
   - `GRIMOIRELAB_REDIS_PASSWORD`: password for the server
