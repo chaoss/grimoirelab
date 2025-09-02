@@ -14,15 +14,15 @@ services:
       volumes:
         - mariadb_data:/var/lib/mysql
 
-    redis:
-      image: redis:latest
+    valkey:
+      image: valkey/valkey:8
       expose:
         - "6379"
       healthcheck:
-        test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+        test: [ "CMD", "valkey-cli", "--raw", "incr", "ping" ]
         retries: 5
       volumes:
-        - redis_data:/data
+        - valkey_data:/data
 
     opensearch-node1:
       image: opensearchproject/opensearch:2.11.1
@@ -74,7 +74,7 @@ services:
         - SORTINGHAT_DB_DATABASE=sortinghat_db
         - SORTINGHAT_DB_USER=root
         - SORTINGHAT_DB_PASSWORD=
-        - SORTINGHAT_REDIS_HOST=redis
+        - SORTINGHAT_REDIS_HOST=valkey
         - SORTINGHAT_REDIS_PASSWORD=
         - SORTINGHAT_SUPERUSER_USERNAME=admin
         - SORTINGHAT_SUPERUSER_PASSWORD=admin
@@ -87,7 +87,7 @@ services:
       depends_on:
         mariadb:
           condition: service_healthy
-        redis:
+        valkey:
           condition: service_healthy
 
     sortinghat_worker:
@@ -99,12 +99,12 @@ services:
         - SORTINGHAT_DB_DATABASE=sortinghat_db
         - SORTINGHAT_DB_USER=root
         - SORTINGHAT_DB_PASSWORD=
-        - SORTINGHAT_REDIS_HOST=redis
+        - SORTINGHAT_REDIS_HOST=valkey
         - SORTINGHAT_REDIS_PASSWORD=
       depends_on:
         mariadb:
           condition: service_healthy
-        redis:
+        valkey:
           condition: service_healthy
 
     nginx:
@@ -128,4 +128,4 @@ volumes:
   sortinghat-static:
   opensearch-data:
   mariadb_data:
-  redis_data:
+  valkey_data:
