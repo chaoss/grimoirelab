@@ -41,7 +41,19 @@ cd grimoirelab/docker-compose
 docker-compose up -d
 ```
 
-Your dashboard will be ready after a while at `http://localhost:8000`. The waiting time depends on the amount of data to fetch from a repo, for small repositories you can expect your data to be visible in the dashboard after 10-15 minutes.
+Your data will be ready after a while. The waiting time depends on the amount
+of data to fetch from a repo, for small repositories you can expect your data
+to be available after 10-15 minutes.
+
+To view the data you can access OpenSearch Dashboards at http://localhost:8000
+or use the API directly at http://localhost:9200.
+
+To manage the identities you can access SortingHat at http://localhost:8000/identities/.
+
+By default, OpenSearch Dashboards doesn't contain any visualization, but we have
+a set of [default dashboards](https://github.com/chaoss/grimoirelab-sigils/tree/main/panels/json/opensearch_dashboards).
+To import them, open OpenSearch Dashboards, go to `Stack Management` > `Saved Objects`
+and import the files you want.
 
 More details or troubleshooting in the [docker-compose folder](./docker-compose/README.md).
 
@@ -107,14 +119,12 @@ Currently, GrimoireLab toolkit is organized in the following repositories:
   * [Cereslib](https://github.com/chaoss/grimoirelab-cereslib): generic data processor
   * [SortingHat](https://github.com/chaoss/grimoirelab-sortinghat): identity management
 * Data consumption related components:
-  * [Kibiter](https://github.com/chaoss/grimoirelab-kibiter): dashboard, downstream version of Kibana
   * [Sigils](https://github.com/chaoss/grimoirelab-sigils): visualizations and dashboards
   * [Kidash](https://github.com/chaoss/grimoirelab-kidash): visualizations and dashboards manager
   * [Manuscripts](https://github.com/chaoss/grimoirelab-manuscripts): reporting
 * Platform management, orchestration, and common utils:
   * [Mordred](https://github.com/chaoss/grimoirelab-mordred): orchestration
   * [GrimoireLab Toolkit](https://github.com/chaoss/grimoirelab-toolkit): common utilities
-  * [Bestiary](https://github.com/chaoss/grimoirelab-bestiary): web-based user interface to manage repositories and projects for Mordred
 
 There are also some [components built by the GrimoreLab community](community_components.md),
 which can be useful for you. Other related repositories are:
@@ -125,7 +135,14 @@ which can be useful for you. Other related repositories are:
 
 This repository is for content relevant to GrimoireLab as a whole. For example:
 
-* Issues for new features or bug reports that affect more than one GrimoireLab module. In this case, let's open an issue here, and when implementing the fix or the feature, let´s comment about the specific tickets in the specific modules that are used. For example, when supporting a new datasource, we will need patches (at least) in `Perceval`, `GrimoireELK` and panels. In this case, we would open a feature request (or the user story) for the whole case, an issue (and later a pull request) in `Perceval` for the data retriever, same for `GrimoireELK` for the enriching code, and same for `panels` for the Kibiter panels.
+* Issues for new features or bug reports that affect more than one GrimoireLab module. 
+In this case, let's open an issue here, and when implementing the fix or the feature,
+let´s comment about the specific tickets in the specific modules that are used.
+For example, when supporting a new datasource, we will need patches (at least)
+in `Perceval`, `GrimoireELK` and panels. In this case, we would open a feature
+request (or the user story) for the whole case, an issue (and later a pull request)
+in `Perceval` for the data retriever, same for `GrimoireELK` for the enriching code,
+and same for `panels`.
 
 * Release notes for most GrimoireLab components (directory [releases](releases)).
 

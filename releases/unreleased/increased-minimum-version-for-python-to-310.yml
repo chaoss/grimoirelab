@@ -1,0 +1,9 @@
+---
+title: Increased minimum version for Python to 3.10
+category: added
+author: Jose Javier Merchante <jjmerchante@bitergia.com>
+issue: null
+notes: >
+  Python 3.9 reaches the end of life in October 2025. This means it
+  won't receive new updates or patches to fix security issues.
+  GrimoireLab supports Python 3.10 and higher from now on.
