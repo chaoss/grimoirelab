@@ -1,0 +1,9 @@
+---
+title: Valkey image replacement
+category: added
+author: Jose Javier Merchante <jjmerchante@bitergia.com>
+issue: null
+notes: >
+  Switched from Redis image to Valkey for a fully
+  open-source, community-driven alternative with
+  API compatibility.
