@@ -25,13 +25,14 @@ services:
         - valkey_data:/data
 
     opensearch-node1:
-      image: opensearchproject/opensearch:2.11.1
+      image: opensearchproject/opensearch:3
       environment:
         - cluster.name=opensearch-cluster
         - node.name=opensearch-node1
         - discovery.type=single-node
         - bootstrap.memory_lock=true # along with the memlock settings below, disables swapping
         - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
+        - OPENSEARCH_INITIAL_ADMIN_PASSWORD=GrimoireLab.1
       ulimits:
         memlock:
           soft: -1
@@ -46,7 +47,7 @@ services:
         - opensearch-data:/usr/share/opensearch/data
 
     opensearch-dashboards:
-      image: opensearchproject/opensearch-dashboards:2.11.1
+      image: opensearchproject/opensearch-dashboards:3
       ports:
         - 5601:5601
       environment:
