@@ -24,6 +24,7 @@ RUN apt-get update && \
         git git-core \
         mariadb-client \
         libmariadbclient-dev-compat \
+        pkg-config \
         unzip curl wget sudo ssh \
         && \
     apt-get clean && \
