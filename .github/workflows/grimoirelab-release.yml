@@ -679,7 +679,7 @@ jobs:
           version=${{ steps.semverup.outputs.version }}
           dockerfile="docker/Dockerfile"
 
-          sed -i "s/ARG GRIMOIRELAB_RELEASE .*/ARG GRIMOIRELAB_RELEASE \"$version\"/" $dockerfile
+          sed -i "s/ARG GRIMOIRELAB_RELEASE=.*/ARG GRIMOIRELAB_RELEASE=\"$version\"/" $dockerfile
           git add $dockerfile
 
           cat $dockerfile
