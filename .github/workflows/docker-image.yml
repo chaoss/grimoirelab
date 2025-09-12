@@ -94,6 +94,8 @@ jobs:
           context: "{{defaultContext}}:docker"
           push: true
           tags: ${{ steps.meta.outputs.tags }}
+          build-args: |
+            GRIMOIRELAB_RELEASE=${{ inputs.version }}
 
       - name: Sign the images with GitHub OIDC Token
         env:

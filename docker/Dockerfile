@@ -4,12 +4,14 @@
 FROM python:3.12-slim-bookworm
 LABEL maintainer="Santiago Dueñas <sduenas@bitergia.com>"
 
+ARG GRIMOIRELAB_RELEASE "1.15.1"
+
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEPLOY_USER grimoire
 ENV DEPLOY_USER_DIR /home/${DEPLOY_USER}
 ENV CONF_DIR ${DEPLOY_USER_DIR}/conf
 ENV SCRIPTS_DIR ${DEPLOY_USER_DIR}/scripts
-ENV GRIMOIRELAB_RELEASE "1.15.1"
+ENV GRIMOIRELAB_RELEASE=${GRIMOIRELAB_RELEASE}
 
 # Initial user
 RUN useradd ${DEPLOY_USER} --create-home --shell /bin/bash
