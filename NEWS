@@ -1,5 +1,200 @@
 # Releases
 
+## GrimoireLab 1.16.0 - (2025-09-23)
+
+**New components:**
+
+* grimoirelab-toolkit 1.1.0
+* kidash 1.1.0
+* sortinghat 1.11.0
+* cereslib 1.1.0
+* sigils 1.2.0
+* perceval 1.3.4
+* perceval-mozilla 1.2.0
+* perceval-opnfv 1.1.0
+* perceval-puppet 1.1.0
+* perceval-weblate 1.1.0
+* graal 1.2.0
+* grimoire-elk 1.4.0
+* sirmordred 1.2.0
+
+The following list describes the changes by component:
+
+### grimoirelab-toolkit
+
+**New features:**
+
+ * Increased minimum version for Python to 3.10\
+   Python 3.9 reaches the end of life in October 2025. This means it
+   won't receive new updates or patches to fix security issues.
+   GrimoireLab supports Python 3.10 and higher from now on.
+
+### kidash
+
+**New features:**
+
+ * Increased minimum version for Python to 3.10\
+   Python 3.9 reaches the end of life in October 2025. This means it
+   won't receive new updates or patches to fix security issues.
+   GrimoireLab supports Python 3.10 and higher from now on.
+
+### sortinghat
+
+**New features:**
+
+ * Recommendations based on GitHub-generated email addresses (#867)\
+   Merge recommendations can now match GitHub profiles to GitHub-
+   generated emails (<username>@users.noreply.github.com). Individuals
+   can also be automatically unified with this criteria.
+ * Increased minimum version for Python to 3.10\
+   Python 3.9 reaches the end of life in October 2025. This means it
+   won't receive new updates or patches to fix security issues.
+   GrimoireLab supports Python 3.10 and higher from now on.
+
+**Bug fixes:**
+
+ * Enforce merge recommendation integrity (#993)\
+   Ensure merge recommendations are unique between individuals and
+   prevent creating recommmendations with the same individual.
+ * Automatic affiliation fixed and reduced results (#994)\
+   Fixes a bug that caused running the affiliate process to overwrite
+   existing affiliation dates. Now, the job result only includes
+   individuals who were newly affiliated.
+ * Unavailable Individuals in Recommendations\
+   Recommendations now handle cases where an individual has been removed
+   or merged, preventing errors when creating new recommendations.
+ * Django static files configuration\
+   Update the Django STORAGES setting for static files, ensuring
+   compatibility with Django 5.2.
+
+**Performance improvements:**
+
+ * SortingHat API slow due to changelog information\
+   Improve SortingHat API performance by adding an index to the
+   transactions table in the database.
+ * Oraganizations endpoint performance improvement\
+   Improve the performance of the organizations endpoint, reducing the
+   loading time of the organizations table
+
+### cereslib
+
+**New features:**
+
+ * Increased minimum version for Python to 3.10\
+   Python 3.9 reaches the end of life in October 2025. This means it
+   won't receive new updates or patches to fix security issues.
+   GrimoireLab supports Python 3.10 and higher from now on.
+
+### sigils
+
+**New features:**
+
+ * Increased minimum version for Python to 3.10\
+   Python 3.9 reaches the end of life in October 2025. This means it
+   won't receive new updates or patches to fix security issues.
+   GrimoireLab supports Python 3.10 and higher from now on.
+
+### perceval
+  
+  * Update Poetry's package dependencies
+
+### perceval-mozilla
+
+**New features:**
+
+ * Increased minimum version for Python to 3.10\
+   Python 3.9 reaches the end of life in October 2025. This means it
+   won't receive new updates or patches to fix security issues.
+   GrimoireLab supports Python 3.10 and higher from now on.
+
+### perceval-opnfv
+
+**New features:**
+
+ * Increased minimum version for Python to 3.10\
+   Python 3.9 reaches the end of life in October 2025. This means it
+   won't receive new updates or patches to fix security issues.
+   GrimoireLab supports Python 3.10 and higher from now on.
+
+### perceval-puppet
+
+**New features:**
+
+ * Increased minimum version for Python to 3.10\
+   Python 3.9 reaches the end of life in October 2025. This means it
+   won't receive new updates or patches to fix security issues.
+   GrimoireLab supports Python 3.10 and higher from now on.
+
+### perceval-weblate
+
+**New features:**
+
+ * Increased minimum version for Python to 3.10\
+   Python 3.9 reaches the end of life in October 2025. This means it
+   won't receive new updates or patches to fix security issues.
+   GrimoireLab supports Python 3.10 and higher from now on.
+
+### graal
+
+**New features:**
+
+ * Increased minimum version for Python to 3.10\
+   Python 3.9 reaches the end of life in October 2025. This means it
+   won't receive new updates or patches to fix security issues.
+   GrimoireLab supports Python 3.10 and higher from now on.
+
+### grimoire-elk
+
+**New features:**
+
+ * Increased minimum version for Python to 3.10\
+   Python 3.9 reaches the end of life in October 2025. This means it
+   won't receive new updates or patches to fix security issues.
+   GrimoireLab supports Python 3.10 and higher from now on.
+
+**Bug fixes:**
+
+ * Size parameter for Areas of code\
+   Include block_size parameter to the Areas of code study. It allows a
+   better control over data processing in chunks, and allow to define a
+   lower value when the items to process are big.
+ * GitHub types unified\
+   The item types for pull requests in the GitHub indices had different
+   values. While in `github_pull_requests` the type was `pull request`,
+   the type in `github2_pull_request` was `pull_request` (with
+   underscore). We have fixed this bug unifing the type to
+   `pull_request`. You will have to re-enrich indices in your instance to
+   update old items.
+ * Sync AOC and Git raw indexes error\
+   An error occurred in the Areas of Code study, where syncing the AOC
+   and the Git raw index caused an infinite loop due to using different
+   dates for filtering
+ * [github/raw] huge term in data.auto_merge.commit_message handled\
+   This fixes a potential huge term in the "data.auto
+   merge.commit_message" field during the `github2:pull` backend's
+   collection phase by converting the field to text.
+ * Missing creation_date field in Bugzilla\
+   For some Bugzilla bugs, the creation date was unavailable. In these
+   cases, the first activity date is now used to display the bug's
+   creation date.
+
+**New deprecations:**
+
+ * ElasticSearch 6 no longer supported\
+   Elasticsearch 6 is outdated and no longer receives updates. To
+   continue development with new features and support for later versions
+   of Elasticsearch and OpenSearch, we have had to drop support for ES 6.
+
+### sirmordred
+
+**New features:**
+
+ * Increased minimum version for Python to 3.10\
+   Python 3.9 reaches the end of life in October 2025. This means it
+   won't receive new updates or patches to fix security issues.
+   GrimoireLab supports Python 3.10 and higher from now on.
+
+
 ## GrimoireLab 1.15.1 - (2025-08-21)
 
 **New components:**
