@@ -1,16 +1,16 @@
-version: '2.2'
-
 services:
     mariadb:
       image: mariadb:11.4
       expose:
         - "3306"
       environment:
-        - MYSQL_ROOT_PASSWORD=
-        - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+        MYSQL_ROOT_PASSWORD: ""
+        MYSQL_ALLOW_EMPTY_PASSWORD: yes
       healthcheck:
         test: [ "CMD", "/usr/local/bin/healthcheck.sh", "--su=root", "--connect", "--innodb_initialized" ]
         retries: 5
+      volumes:
+        - mariadb_data:/var/lib/mysql
 
     redis:
       image: redis:7.4
@@ -22,7 +22,7 @@ services:
 
     grimoirelab_core:
       restart: on-failure:3
-      image: grimoirelab/grimoirelab:dev
+      image: grimoirelab/grimoirelab:2.x
       environment:
         GRIMOIRELAB_DB_HOST: mariadb
         GRIMOIRELAB_DB_PORT: 3306
@@ -32,8 +32,8 @@ services:
         GRIMOIRELAB_REDIS_HOST: redis
         GRIMOIRELAB_REDIS_PORT: 6379
         GRIMOIRELAB_REDIS_PASSWORD: ""
-        GRIMOIRELAB_ARCHIVIST_WORKERS: 20
-        GRIMOIRELAB_ARCHIVIST_STORAGE_URL: "https://admin:admin@opensearch-node1:9200"
+        GRIMOIRELAB_SUPERUSER_USERNAME: admin
+        GRIMOIRELAB_SUPERUSER_PASSWORD: admin
       expose:
         - "9314"
       volumes:
@@ -43,11 +43,11 @@ services:
           condition: service_healthy
         redis:
           condition: service_healthy
-      command: grimoirelab run server --clear-tasks
+      command: grimoirelab run server
 
     grimoirelab_core_eventizers:
       restart: on-failure:3
-      image: grimoirelab/grimoirelab:dev
+      image: grimoirelab/grimoirelab:2.x
       environment:
         GRIMOIRELAB_DB_HOST: mariadb
         GRIMOIRELAB_DB_PORT: 3306
@@ -57,7 +57,6 @@ services:
         GRIMOIRELAB_REDIS_HOST: redis
         GRIMOIRELAB_REDIS_PORT: 6379
         GRIMOIRELAB_REDIS_PASSWORD: ""
-        GRIMOIRELAB_ARCHIVIST_WORKERS: 20
       depends_on:
         mariadb:
           condition: service_healthy
@@ -67,7 +66,7 @@ services:
 
     grimoirelab_core_archivists:
       restart: on-failure:3
-      image: grimoirelab/grimoirelab:dev
+      image: grimoirelab/grimoirelab:2.x
       environment:
         GRIMOIRELAB_DB_HOST: mariadb
         GRIMOIRELAB_DB_PORT: 3306
@@ -77,7 +76,9 @@ services:
         GRIMOIRELAB_REDIS_HOST: redis
         GRIMOIRELAB_REDIS_PORT: 6379
         GRIMOIRELAB_REDIS_PASSWORD: ""
-        GRIMOIRELAB_ARCHIVIST_WORKERS: 20
+        GRIMOIRELAB_ARCHIVIST_STORAGE_URL: "https://opensearch-node1:9200"
+        GRIMOIRELAB_ARCHIVIST_STORAGE_USERNAME: "admin"
+        GRIMOIRELAB_ARCHIVIST_STORAGE_PASSWORD: "GrimoireLab.1"
       depends_on:
         mariadb:
           condition: service_healthy
@@ -87,43 +88,37 @@ services:
           condition: service_started
       command: grimoirelab run archivists
 
-    sortinghat:
-      restart: on-failure:3
-      image: grimoirelab/sortinghat
-      environment:
-        - SORTINGHAT_SECRET_KEY=secret
-        - SORTINGHAT_DB_HOST=mariadb
-        - SORTINGHAT_DB_PORT=3306
-        - SORTINGHAT_DB_DATABASE=sortinghat_db
-        - SORTINGHAT_DB_USER=root
-        - SORTINGHAT_DB_PASSWORD=
-        - SORTINGHAT_REDIS_HOST=redis
-        - SORTINGHAT_REDIS_PASSWORD=
-        - SORTINGHAT_SUPERUSER_USERNAME=admin
-        - SORTINGHAT_SUPERUSER_PASSWORD=admin
-        - SORTINGHAT_ALLOWED_HOST=sortinghat,nginx,localhost,127.0.0.1,[::1]
-        - SORTINGHAT_CORS_ALLOWED_ORIGINS=http://localhost:8000,http://127.0.0.1:8000
-      expose:
-        - "9314"
-      volumes:
-        - sortinghat-static:/opt/venv/lib/python3.9/site-packages/sortinghat/static/
-      depends_on:
-        mariadb:
-          condition: service_healthy
-        redis:
-          condition: service_healthy
+    grimoirelab_core_ushers:
+        restart: on-failure:3
+        image: grimoirelab/grimoirelab:2.x
+        environment:
+          GRIMOIRELAB_DB_HOST: mariadb
+          GRIMOIRELAB_DB_PORT: 3306
+          GRIMOIRELAB_DB_DATABASE: core_db
+          GRIMOIRELAB_DB_USER: root
+          GRIMOIRELAB_DB_PASSWORD: ""
+          GRIMOIRELAB_REDIS_HOST: redis
+          GRIMOIRELAB_REDIS_PORT: 6379
+          GRIMOIRELAB_REDIS_PASSWORD: ""
+        depends_on:
+          mariadb:
+            condition: service_healthy
+          redis:
+            condition: service_healthy
+        command: grimoirelab run ushers
 
     sortinghat_worker:
       image: grimoirelab/sortinghat-worker
       environment:
-        - SORTINGHAT_SECRET_KEY=secret
-        - SORTINGHAT_DB_HOST=mariadb
-        - SORTINGHAT_DB_PORT=3306
-        - SORTINGHAT_DB_DATABASE=sortinghat_db
-        - SORTINGHAT_DB_USER=root
-        - SORTINGHAT_DB_PASSWORD=
-        - SORTINGHAT_REDIS_HOST=redis
-        - SORTINGHAT_REDIS_PASSWORD=
+        SORTINGHAT_SECRET_KEY: secret
+        SORTINGHAT_DB_HOST: mariadb
+        SORTINGHAT_DB_PORT: 3306
+        SORTINGHAT_DB_DATABASE: core_db
+        SORTINGHAT_DB_USER: root
+        SORTINGHAT_DB_PASSWORD: ""
+        SORTINGHAT_REDIS_HOST: redis
+        GRIMOIRELAB_REDIS_PORT: 6379
+        SORTINGHAT_REDIS_PASSWORD: ""
       depends_on:
         mariadb:
           condition: service_healthy
@@ -131,13 +126,14 @@ services:
           condition: service_healthy
 
     opensearch-node1:
-      image: opensearchproject/opensearch:2.11.1
+      image: opensearchproject/opensearch:3
       environment:
-        - cluster.name=opensearch-cluster
-        - node.name=opensearch-node1
-        - discovery.type=single-node
-        - bootstrap.memory_lock=true
-        - "OPENSEARCH_JAVA_OPTS=-Xms2g -Xmx2g"
+        cluster.name: opensearch-cluster
+        node.name: opensearch-node1
+        discovery.type: single-node
+        bootstrap.memory_lock: true
+        OPENSEARCH_JAVA_OPTS: "-Xms2g -Xmx2g"
+        OPENSEARCH_INITIAL_ADMIN_PASSWORD: "GrimoireLab.1"
       ulimits:
         memlock:
           soft: -1
@@ -148,9 +144,11 @@ services:
       ports:
         - 9200:9200
         - 9600:9600
+      volumes:
+        - opensearch_data:/usr/share/opensearch/data
 
     opensearch-dashboards:
-      image: opensearchproject/opensearch-dashboards:2.11.1
+      image: opensearchproject/opensearch-dashboards:3
       ports:
         - 5601:5601
       expose:
@@ -164,17 +162,18 @@ services:
       volumes:
         - ../default-grimoirelab-settings/nginx.conf.template:/etc/nginx/templates/default.conf.template
         - ../default-grimoirelab-settings/uwsgi_params:/etc/nginx/uwsgi_params
-        - sortinghat-static:/sortinghat:ro
         - core-static:/grimoirelab_core:ro
       ports:
         - 8000:8000
       depends_on:
-        - sortinghat
         - grimoirelab_core
       healthcheck:
-        test: "curl -s --head http://localhost:8000/identities/api/ | grep Set-Cookie || exit 1"
+        test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+        interval: 30s
+        timeout: 10s
         retries: 5
 
 volumes:
-  sortinghat-static:
+  mariadb_data:
+  opensearch_data:
   core-static:

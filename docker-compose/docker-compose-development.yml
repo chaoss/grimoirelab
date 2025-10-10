@@ -1,49 +1,20 @@
-version: '2.2'
-
 services:
-    mariadb:
-      image: mariadb:11.4
-      ports:
-        - "3306:3306"
-      environment:
-        - MYSQL_ROOT_PASSWORD=
-        - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-      healthcheck:
-        test: [ "CMD", "/usr/local/bin/healthcheck.sh", "--su=root", "--connect", "--innodb_initialized" ]
-        retries: 5
+  mariadb:
+    extends:
+      file: ./docker-compose.yml
+      service: mariadb
 
-    redis:
-      image: redis:7.4
-      ports:
-        - "6379:6379"
-      healthcheck:
-        test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
-        retries: 5
+  redis:
+    extends:
+      file: ./docker-compose.yml
+      service: redis
 
-    opensearch-node1:
-      image: opensearchproject/opensearch:2.11.1
-      environment:
-        - cluster.name=opensearch-cluster
-        - node.name=opensearch-node1
-        - discovery.type=single-node
-        - bootstrap.memory_lock=true
-        - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g"
-      ulimits:
-        memlock:
-          soft: -1
-          hard: -1
-        nofile:
-          soft: 65536
-          hard: 65536
-      ports:
-        - 9200:9200
-        - 9600:9600
+  opensearch-node1:
+    extends:
+      file: ./docker-compose.yml
+      service: opensearch-node1
 
-    opensearch-dashboards:
-      image: opensearchproject/opensearch-dashboards:2.11.1
-      ports:
-        - 5601:5601
-      expose:
-        - "5601"
-      environment:
-        OPENSEARCH_HOSTS: '["https://opensearch-node1:9200"]'
+  opensearch-dashboards:
+    extends:
+      file: ./docker-compose.yml
+      service: opensearch-dashboards
