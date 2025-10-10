@@ -21,9 +21,19 @@ RUN apt-get update && \
         mariadb-client \
         pkg-config \
         libmariadbclient-dev-compat \
-        unzip curl wget sudo ssh \
-        && \
-    apt-get clean && \
+        unzip curl wget sudo ssh
+
+# Install nodejs
+RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs
+
+# Install yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends yarn
+
+RUN apt-get clean && \
     find /var/lib/apt/lists -type f -delete
 
 RUN echo "${DEPLOY_USER} ALL=NOPASSWD: ALL" >> /etc/sudoers
