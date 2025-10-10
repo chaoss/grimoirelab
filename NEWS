@@ -1,5 +1,137 @@
 # Releases
 
+## GrimoireLab 1.17.0 - (2025-10-10)
+
+**New components:**
+
+* grimoirelab-toolkit 1.2.0
+* kidash 1.1.1
+* sortinghat 1.12.0
+* cereslib 1.1.1
+* perceval 1.4.0
+* perceval-mozilla 1.2.1
+* perceval-opnfv 1.1.1
+* perceval-puppet 1.1.1
+* perceval-weblate 1.1.1
+* graal 1.2.1
+* grimoire-elk 1.5.0
+* sirmordred 1.2.1
+
+The following list describes the changes by component:
+
+### grimoirelab-toolkit
+
+**New features:**
+
+ * Identity management functions\
+   Introduce a new module for managing identities. It includes functions
+   to generate a UUID based on identity data and to convert Unicode
+   strings to their unaccented form.
+
+### kidash
+  
+  * Update Poetry's package dependencies
+
+### sortinghat
+
+**New features:**
+
+ * Merge identities when adding a LinkedIn profile (#987)\
+   When a user tries to add a LinkedIn identity that already exists to a
+   profile, the user interface now offers the option to merge the
+   identities.
+ * Redirect to the original URL after user inactivity (#995)\
+   After logging in, users are now redirected to the page they were
+   visiting when they were logged out due to inactivity.
+ * Improved UI for merge recommendations\
+   The user interface now shows more than one merge recommendation at a
+   time, and recommendations for an individual are now grouped so they
+   can be managed in batches.
+
+**Bug fixes:**
+
+ * Remove multiple LinkedIn identities (#1008)\
+   The user interface became stuck when multiple individuals  were
+   removed using the option 'Remove Linkedin profile' on the individuals
+   view.
+ * GraphQL task_id type changed and interval value conversion\
+   Updated task_id fields in DeleteScheduledTask and UpdateScheduledTask
+   to use graphene.ID() instead of graphene.Int(). In Graphene v3, this
+   caused type errors because a string value was being passed instead of
+   an integer. Also converted interval values to numbers in the
+   ImporterModal and SettingsGeneral components to prevent similar type
+   errors, since Graphene v3 expects numeric values instead of strings.
+ * Error of duplicated identities fixed during the import\
+   Duplicated identities found during the import process weren't property
+   handled which made the process to stop with an exception.
+ * Importer job rescheduled fixed\
+   Fixes a bug that caused the importer to always use the same start date
+   when importing identities after being rescheduled. It now uses the
+   start date of the current job as from_date for the next execution.
+ * Case-insensitive matching for criteria\
+   Convert the matching criteria to lowercase. This allows for case-
+   insensitive comparisons, improving the matching accuracy.
+ * Table showing jobs failing for offset-naive datetimes\
+   Showing jobs in the table combining scheduled jobs and one-time jobs
+   failed.
+
+### cereslib
+
+**Bug fixes:**
+
+ * Time zone for Git aoc study updated\
+   In Git areas of code study use the time zone (`tz` field) from the
+   author date instead of the committer date to be the same as Git index
+   dates. Also include `committer_tz` in the index so it is available if
+   needed.
+
+### perceval
+
+**New features:**
+
+ * New trailers for Git commits\
+   The list of recognized trailers in Git has been expanded using the
+   ones listed by the [Git documentation](https://git-
+   scm.com/docs/SubmittingPatches#sign-off).
+
+### perceval-mozilla
+
+**Bug fixes:**
+
+ * Handle Kitsune server errors\
+   This change adds retry logic for HTTP 500 errors when fetching
+   answers. Ignores the answers after several retries.
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### perceval-weblate
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+
+**Performance improvements:**
+
+ * [github] Raw mapping updated\
+   Update `commit_message`, `body`, and `diff_hunk` fields to non-indexed
+   objects in raw index to improve performance. This change requires
+   reindex of the GitHub index.
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 1.16.0 - (2025-09-23)
 
 **New components:**
