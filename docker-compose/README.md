@@ -71,12 +71,12 @@ docker-compose up -d
 If everything goes well, data will be gathered and processed. To get access to
 them, go to `http://localhost:8000/`. To get access:
 * User: `admin`
-* Password: `admin`
+* Password: `GrimoireLab.1`
 
 To manage contributors profile information with [SortingHat](https://github.com/chaoss/grimoirelab-sortinghat),
 go to `http://localhost:8000/identities/`. To get access:
-* User: `root`
-* Pass: `root`
+* User: `admin`
+* Pass: `admin`
 
 **Note**: you can change user and password in the `docker-compose.yml` file.
 
