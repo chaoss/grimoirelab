@@ -5,9 +5,11 @@ FROM python:3.12-slim-bullseye
 
 LABEL maintainer="Santiago Dueñas <sduenas@bitergia.com>"
 
+ARG GRIMOIRELAB_RELEASE="2.x"
+
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DEPLOY_USER=grimoirelab
-ENV GRIMOIRELAB_RELEASE="2.x"
+ENV GRIMOIRELAB_RELEASE=${GRIMOIRELAB_RELEASE}
 
 # Create a user and a group
 RUN groupadd -r $DEPLOY_USER && useradd -r -m -g $DEPLOY_USER $DEPLOY_USER

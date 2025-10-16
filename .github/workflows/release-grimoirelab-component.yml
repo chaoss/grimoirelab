@@ -11,14 +11,20 @@ on:
         description: 'Git config name'
         type: string
         required: true
-      release_candidate:
-        description: 'Create a release candidate version'
+      prerelease:
+        description: 'Create a prerelease version'
         type: string
         required: true
+      prerelease_label:
+        description: 'Label for the prerelease version'
+        type: string
+        required: false
+        default: 'rc'
       bump_major:
         description: 'Create a new major version release'
         type: string
-        required: true
+        required: false
+        default: 'false'
       module_name:
         description: 'Name of the module'
         type: string
@@ -63,10 +69,10 @@ jobs:
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
-      - name: Set up Python 3.11
+      - name: Set up Python
         uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5.1.0
         with:
-          python-version: 3.11
+          python-version: 3.12
 
       - name: Set up Git config
         run: |
@@ -83,10 +89,9 @@ jobs:
           cd ${{ inputs.module_directory }}
           git checkout main
 
-      - name: Install poetry
+      - name: Install Poetry
         run: |
-          curl -sSL https://install.python-poetry.org | python3 -
-          echo "PATH=$HOME/.poetry/bin:$PATH" >> $GITHUB_ENV
+          pipx install poetry
         shell: bash
 
       - name: Install release-tools
@@ -143,9 +148,9 @@ jobs:
         continue-on-error: true
         shell: bash {0}
         run: |
-          if [ ${{ inputs.release_candidate }} == 'true' ]
+          if [ ${{ inputs.prerelease }} == 'true' ]
           then
-            rcArg='--pre-release'
+            rcArg='--pre-release --pre-release-label ${{ inputs.prerelease_label }}'
           else
             rcArg=''
           fi
@@ -164,9 +169,9 @@ jobs:
             echo "Dependencies updated, force new version"
             version=$(semverup --bump-version patch $rcArg)
             echo "forced_version=true" >> $GITHUB_OUTPUT
-          elif [ -z $version ] && [ ${{ inputs.release_candidate }} != 'true' ] && [[ "$old_version" =~ .*rc.* ]]
+          elif [ -z $version ] && [ ${{ inputs.prerelease }} != 'true' ] && [[ "$old_version" =~ (alpha|beta|rc) ]]
           then
-            echo "Create final version from rc"
+            echo "Create final version from pre-release"
             version=$(semverup --bump-version patch)
             echo "forced_version=true" >> $GITHUB_OUTPUT
           else
@@ -193,7 +198,7 @@ jobs:
           version=${{ steps.version.outputs.version }}
           eof="EOF$(date +%s)"
           release_file="releases/$version.md"
-          if [ ${{ inputs.release_candidate }} == 'true' ]
+          if [ ${{ inputs.prerelease }} == 'true' ]
           then
             newsArg=''
             rcArg='--pre-release'
@@ -213,8 +218,8 @@ jobs:
             
             * Update Poetry's package dependencies
           EOF
-            # Update NEWS file if it is not a release candidate
-            if [ ${{ inputs.release_candidate }} != 'true' ]
+            # Update NEWS file if it is not a pre-release
+            if [ ${{ inputs.prerelease }} != 'true' ]
             then
               mv NEWS old_NEWS
               echo -e "# Releases\n" >> NEWS
@@ -241,7 +246,7 @@ jobs:
         name: Publish new version.
         if: steps.semverup.outcome == 'success'
         run: |
-          if [ ${{ inputs.release_candidate }} == 'true' ]
+          if [ ${{ inputs.prerelease }} == 'true' ]
           then
             publish ${{ steps.version.outputs.version }} "${{ inputs.git_name }} <${{ inputs.git_email }}>" --push origin --remote-branch main --no-cleanup
           else
