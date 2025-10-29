@@ -1,7 +1,4 @@
 
-upstream sortinghat {
-  server sortinghat:9314;
-}
 upstream grimoirelab_core {
   server grimoirelab_core:9314;
 }
@@ -19,23 +16,6 @@ server {
       uwsgi_param X-Real-IP $remote_addr;
       uwsgi_param X-Forwarded-For $proxy_add_x_forwarded_for;
       uwsgi_param X-Forwarded-Proto $http_x_forwarded_proto;
-  }
-
-  location /identities {
-      rewrite ^/identities/(.*) /$1 break;
-
-      include /etc/nginx/uwsgi_params;
-      uwsgi_pass sortinghat;
-      uwsgi_param Host $host;
-      uwsgi_param X-Real-IP $remote_addr;
-      uwsgi_param X-Forwarded-For $proxy_add_x_forwarded_for;
-      uwsgi_param X-Forwarded-Proto $http_x_forwarded_proto;
-  }
-
-  location ~ ^/identities/(css|js|fonts)/ {
-    rewrite ^/identities/(.*) /$1 break;
-
-    root /sortinghat;
   }
 
   location /static/ {
