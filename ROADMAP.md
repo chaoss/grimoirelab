@@ -86,13 +86,16 @@ Based on these challenges, we have defined a set of goals:
   3500 high-activity GitHub repositories in less than one day.
 - **Improve how data is consumed**: Our platform will generate a data model
   that will be well-documented and accessible through APIs.
+- **Lower the barrier for development and integrations**: The code and APIs
+  will have high quality and well-documented so that integrators can make their
+  own tools using GrimoireLab as a base or as a data provider.
 
 ## Themes
 
 Tasks will be classified under the following themes. Themes are defined to
 accomplish the objectives and solve the problems described above.
 
-- **Configuration**: To make easier how to set up and run the platform.
+- **Configuration**: To make it easier to set up and run the platform.
 - **Data processing**: To scale the platform for analyzing thousands of
   repositories. We have defined these sub-themes:
   - **Events**: To make an event-driven platform that will improve how
@@ -103,8 +106,9 @@ accomplish the objectives and solve the problems described above.
   data is consumed. The sub-themes are:
   - **Data model**: For a better representation and description of
     the data we store and produce.
-  - **API**: To define different levels of access to data and to support
-    the integration with other systems.
+  - **API**: To define different levels of access to data.
+- **Integration**: To help developers to build or connect other systems with
+  the platform.
 
 Check the [Roadmap section](./GOVERNANCE.md#roadmap)
 in our [GOVERNANCE](./GOVERNANCE.md) document for more info about *themes*.
@@ -116,11 +120,15 @@ GrimoireLab 1.0, requires major changes to accomplish all the goals defined
 above. These will be disruptive changes that require deep modifications on the architecture.
 
 For this reason, we have decided to set the current version of the platform
-in maintenance mode to put all our effort into developing what will be
+to maintenance mode so we can put all our effort into developing what will be
 GrimoireLab 2.0. Initially, GrimoireLab 1.x will only receive bug fixes from
 the maintainers. However, we will accept contributions from the community.
 
 The active development will happen mainly on
 [grimoirelab-core](https://github.com/chaoss/grimoirelab-core) repository.
-You can follow the progress of the development on the
-[GrimoireLab Roadmap board](https://github.com/orgs/chaoss/projects/20).
+
+We've created a [GrimoireLab Roadmap board](https://github.com/orgs/chaoss/projects/20),
+where you can follow the progress of the GrimoireLab 2.0 development.
+Each column of the board contains the features, bugs, or tasks we're going
+to include for a specific release. The name of the column is the version
+of the release. New columns will be added when new releases are planned.
