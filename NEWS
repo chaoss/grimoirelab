@@ -1,5 +1,89 @@
 # Releases
 
+## GrimoireLab 1.17.1 - (2025-10-31)
+
+**New components:**
+
+* grimoirelab-toolkit 1.2.1
+* kidash 1.1.2
+* sortinghat 1.12.1
+* cereslib 1.1.2
+* perceval 1.4.1
+* perceval-mozilla 1.2.2
+* perceval-opnfv 1.1.2
+* perceval-puppet 1.1.2
+* perceval-weblate 1.1.2
+* graal 1.2.2
+* grimoire-elk 1.5.1
+* sirmordred 1.2.2
+
+The following list describes the changes by component:
+
+### grimoirelab-toolkit
+  
+  * Update Poetry's package dependencies
+
+### kidash
+  
+  * Update Poetry's package dependencies
+
+### sortinghat
+
+**Bug fixes:**
+
+ * Task update issues due to type mismatch\
+   Fix a bug that caused updating and deleting tasks from the UI to fail.
+   The GraphQL Task type now uses an ID field that accepts both integers
+   and strings, but the UI had not been updated to handle this change.
+ * Importer failed to reschedule tasks\
+   Fix a bug that prevented the importer from rescheduling tasks because
+   `from_date` was not JSON serializable when inserting into the
+   database.
+ * Unify periodic task param issue\
+   Fixed an issue where creating a unify periodic task with "Guess GitHub
+   User” enabled failed.
+ * Importing identities with oversized fields failed\
+   Fix a bug where importing identities with a large field (e.g.,
+   username) caused the whole process to fail. Now, such identities are
+   skipped instead.
+
+### cereslib
+  
+  * Update Poetry's package dependencies
+
+### perceval
+  
+  * Update Poetry's package dependencies
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### perceval-weblate
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+  
+  * Update Poetry's package dependencies
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 1.17.0 - (2025-10-10)
 
 **New components:**
