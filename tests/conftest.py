@@ -36,7 +36,7 @@ from testcontainers.redis import RedisContainer
 
 
 mysql = MySqlContainer("mariadb:latest", root_password="root").with_exposed_ports(3306)
-redis = RedisContainer().with_exposed_ports(6379)
+redis = RedisContainer(image="valkey/valkey:latest").with_exposed_ports(6379)
 opensearch = OpenSearchContainer().with_exposed_ports(9200)
 
 
@@ -154,8 +154,8 @@ def setup_containers(setup_opensearch, setup_redis, setup_mysql):
 @pytest.fixture(scope="module", autouse=True)
 def setup_grimoirelab(request):
     os.environ["DJANGO_SETTINGS_MODULE"] = "grimoirelab.core.config.settings"
-    os.environ["GRIMOIRELAB_REDIS_PORT"] = redis.get_exposed_port(6379)
-    os.environ["GRIMOIRELAB_DB_PORT"] = mysql.get_exposed_port(3306)
+    os.environ["GRIMOIRELAB_REDIS_PORT"] = str(redis.get_exposed_port(6379))
+    os.environ["GRIMOIRELAB_DB_PORT"] = str(mysql.get_exposed_port(3306))
     os.environ["GRIMOIRELAB_DB_PASSWORD"] = mysql.root_password
     os.environ["GRIMOIRELAB_ARCHIVIST_STORAGE_URL"] = f"http://localhost:{opensearch.get_exposed_port(9200)}"
     os.environ["GRIMOIRELAB_USER_PASSWORD"] = "admin"
