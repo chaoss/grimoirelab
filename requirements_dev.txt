@@ -1,0 +1,5 @@
+-e git+https://github.com/chaoss/grimoirelab-toolkit.git/#egg=grimoirelab-toolkit
+-e git+https://github.com/chaoss/grimoirelab-perceval/#egg=perceval
+-e git+https://github.com/chaoss/grimoirelab-sortinghat/#egg=sortinghat
+-e git+https://github.com/chaoss/grimoirelab-chronicler.git/#egg=grimoirelab-chronicler
+-e git+https://github.com/chaoss/grimoirelab-core.git/#egg=grimoirelab-core

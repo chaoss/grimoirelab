@@ -35,6 +35,7 @@ jobs:
     - name: Install dependencies
       run: |
         poetry install --with tests -vvv
+        poetry run pip install -r requirements_dev.txt
     - name: Tests
       run: |
         cd tests && poetry run pytest
