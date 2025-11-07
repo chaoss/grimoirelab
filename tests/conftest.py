@@ -37,7 +37,7 @@ from testcontainers.redis import RedisContainer
 
 mysql = MySqlContainer("mariadb:latest", root_password="root").with_exposed_ports(3306)
 redis = RedisContainer(image="valkey/valkey:latest").with_exposed_ports(6379)
-opensearch = OpenSearchContainer().with_exposed_ports(9200)
+opensearch = OpenSearchContainer(image="opensearchproject/opensearch:3").with_exposed_ports(9200)
 
 
 def generate_repository(repo_tmpdir, max_commits):
@@ -160,9 +160,10 @@ def setup_grimoirelab(request):
     os.environ["GRIMOIRELAB_ARCHIVIST_STORAGE_URL"] = f"http://localhost:{opensearch.get_exposed_port(9200)}"
     os.environ["GRIMOIRELAB_USER_PASSWORD"] = "admin"
     os.environ["GRIMOIRELAB_ARCHIVIST_BLOCK_TIMEOUT"] = "1000"
+    os.environ["GRIMOIRELAB_SUPERUSER_USERNAME"] = "admin"
+    os.environ["GRIMOIRELAB_SUPERUSER_PASSWORD"] = "admin"
 
-    subprocess.run(["grimoirelab", "admin", "setup"])
-    subprocess.run(["grimoirelab", "admin", "create-user", "--username", "admin", "--no-interactive"])
+    subprocess.run(["grimoirelab", "admin", "setup", "--no-interactive"])
 
     grimoirelab = subprocess.Popen(
         ["grimoirelab", "run", "server", "--dev"],

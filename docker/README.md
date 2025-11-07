@@ -25,7 +25,7 @@ The easier way to start using the image is to use the provided
 [docker-compose file](../docker-compose/).
 
 It provides a simple way to run the GrimoireLab components, including the
-MariaDB database, a Redis server, and the GrimoireLab core.
+MariaDB database, a Valkey server, and the GrimoireLab core.
 
 Please, refer to that documentation for more information.
 

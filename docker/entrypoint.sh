@@ -23,21 +23,9 @@ set -e
 # Default configuration
 export GRIMOIRELAB_CONFIG="${GRIMOIRELAB_CONFIG:-grimoirelab.core.config.settings}"
 
-check_service() {
-    django-admin check --settings=$GRIMOIRELAB_CONFIG --database default > /dev/null 2>&1
-    return $?
-}
-
-# Only if the command is grimoirelab, setup the database
-if [ "$1" = 'grimoirelab' ]; then
-    if ! check_service ; then
-        grimoirelab admin setup
-
-        if [ "$?" -ne "0" ]; then
-            echo "GrimoireLab core setup failed."
-            return 1
-        fi
-    fi
+# If running `grimoirelab run server`, always ensure the database is up-to-date.
+if [ "$1" = 'grimoirelab' ] && [ "$2" = 'run' ] && [ "$3" = 'server' ]; then
+    grimoirelab admin setup --no-interactive
 fi
 
 exec "$@"
