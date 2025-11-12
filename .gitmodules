@@ -21,7 +21,7 @@
 	url = https://github.com/chaoss/grimoirelab-toolkit.git
 [submodule "src/grimoirelab-chronicler"]
 	path = src/grimoirelab-chronicler
-	url = https://github.com/grimoirelab/grimoirelab-chronicler.git
+	url = https://github.com/chaoss/grimoirelab-chronicler.git
 [submodule "src/grimoirelab-core"]
 	path = src/grimoirelab-core
-	url = https://github.com/grimoirelab/grimoirelab-core.git
+	url = https://github.com/chaoss/grimoirelab-core.git
