@@ -67,7 +67,7 @@ jobs:
       prerelease_label: ${{ needs.variables-job.outputs.prerelease_label }}
       bump_major: ${{ needs.variables-job.outputs.bump_major }}
       module_name: 'grimoirelab-chronicler'
-      module_repository: 'grimoirelab/grimoirelab-chronicler'
+      module_repository: 'chaoss/grimoirelab-chronicler'
       module_directory: 'src/grimoirelab-chronicler'
       dependencies: ''
     secrets:
@@ -86,7 +86,7 @@ jobs:
       prerelease_label: ${{ needs.variables-job.outputs.prerelease_label }}
       bump_major: ${{ needs.variables-job.outputs.bump_major }}
       module_name: 'grimoirelab-core'
-      module_repository: 'grimoirelab/grimoirelab-core'
+      module_repository: 'chaoss/grimoirelab-core'
       module_directory: 'src/grimoirelab-core'
       dependencies: "${{ needs.grimoirelab-chronicler.outputs.package_version }}"
     secrets:
