@@ -56,7 +56,7 @@ jobs:
           echo "bump_major=${{ inputs.bump_major }}" >> $GITHUB_OUTPUT
 
   grimoirelab-chronicler:
-    name: chronicler
+    name: GrimoireLab Chronicler
     needs:
       - variables-job
     uses: ./.github/workflows/release-grimoirelab-component.yml
@@ -131,7 +131,7 @@ jobs:
       - id: semverup
         name: Update version number
         env:
-          chronicler_version: "${{ needs.grimoirelab-chronicler.outputs.version}}"
+          grimoirelab_chronicler_version: "${{ needs.grimoirelab-chronicler.outputs.version}}"
           grimoirelab_core_version: "${{ needs.grimoirelab-core.outputs.version}}"
         run: |
           BUMP_MAJOR=4
@@ -143,9 +143,13 @@ jobs:
             old=$1
             old=${old%-*}
             old=${old%rc*}
+            old=${old%a*}
+            old=${old%b*}
             current=$2
             current=${current%-*}
             current=${current%rc*}
+            current=${current%a*}
+            current=${current%b*}
             
             currentArr=(${current//./ })
             oldArr=(${old//./ })
@@ -169,7 +173,7 @@ jobs:
             poetry show -l $pkg | grep version | head -1 | awk '{print $3}'
           }
           
-          pkgs=("chronicler"
+          pkgs=("grimoirelab-chronicler"
           "grimoirelab-core")
           
           if [ ${{ inputs.prerelease }} == 'true' ]
@@ -275,9 +279,9 @@ jobs:
       - name: Generate NEWS from packages
         if: steps.custom_notes.outputs.custom_notes == 'false'
         env:
-          notes_chronicler: "${{ needs.grimoirelab-chronicler.outputs.notes}}"
+          notes_grimoirelab_chronicler: "${{ needs.grimoirelab-chronicler.outputs.notes}}"
           notes_grimoirelab_core: "${{ needs.grimoirelab-core.outputs.notes}}"
-          version_chronicler: "${{ needs.grimoirelab-chronicler.outputs.version }}"
+          version_grimoirelab_chronicler: "${{ needs.grimoirelab-chronicler.outputs.version }}"
           version_grimoirelab_core: "${{ needs.grimoirelab-core.outputs.version }}"
         run: |
           version=${{ steps.semverup.outputs.version }}
@@ -287,7 +291,7 @@ jobs:
           today=$(date -u "+%Y-%m-%d")
           
           packages=(
-          chronicler
+          grimoirelab_chronicler
           grimoirelab_core
           )
           

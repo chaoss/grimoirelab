@@ -294,10 +294,14 @@ jobs:
         run: |
           package="${{ inputs.module_name }}"
           version="${{ steps.version.outputs.version }}"
-          # Format version 1.2.3-rc.1 to 1.2.3rc1
+          # Format rc version 1.2.3-rc.1 to 1.2.3rc1
+          # Format alpha version 1.2.3-alpha.1 to 1.2.3a1
+          # Format beta version 1.2.3-beta.1 to 1.2.3b1
           versionNum=${version%-*}
           versionRC=${version#$versionNum}
           versionRC=${versionRC//[-.]/}
+          versionRC=${versionRC//alpha/a}
+          versionRC=${versionRC//beta/b}
           currentVersion="${versionNum}${versionRC}"
 
           pip install --upgrade pip
