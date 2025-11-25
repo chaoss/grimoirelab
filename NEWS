@@ -1,5 +1,82 @@
 # Releases
 
+## GrimoireLab 1.17.3 - (2025-11-25)
+
+**New components:**
+
+* grimoirelab-toolkit 1.2.3
+* kidash 1.1.4
+* sortinghat 1.12.3
+* cereslib 1.1.4
+* perceval 1.4.3
+* perceval-mozilla 1.2.4
+* perceval-opnfv 1.1.4
+* perceval-puppet 1.1.4
+* perceval-weblate 1.1.4
+* graal 1.2.4
+* grimoire-elk 1.5.3
+* sirmordred 1.2.4
+
+The following list describes the changes by component:
+
+### grimoirelab-toolkit
+
+No changes list available.
+
+### kidash
+  
+  * Update Poetry's package dependencies
+
+### sortinghat
+
+**Bug fixes:**
+
+ * Redis connection updated in tests\
+   The package django-rq updated the references to get_redis_connection
+   and that caused tests to fail. Fix with the new reference.
+
+### cereslib
+  
+  * Update Poetry's package dependencies
+
+### perceval
+  
+  * Update Poetry's package dependencies
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### perceval-weblate
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+
+**Bug fixes:**
+
+ * Latest date for incremental collection\
+   Updated the logic for determining the last update date. Now it
+   considers both `from_date` from `setup.cfg` and the last update from
+   Elasticsearch, ensuring to use the most recent date.
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 1.17.2 - (2025-11-11)
 
 **New components:**
