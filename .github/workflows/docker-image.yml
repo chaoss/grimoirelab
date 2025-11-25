@@ -29,28 +29,19 @@ jobs:
           ref_name="${{github.ref_name}}"
           input_version="${{inputs.version}}"
           version="${input_version:-$ref_name}"
-          # Format version 1.2.3-rc.1 to 1.2.3rc1
-          versionNum=${version%-*}
-          versionRC=${version#$versionNum}
-          versionRC=${versionRC//[-.]/}
-          currentVersion="${versionNum}${versionRC}"
 
           pip install --upgrade pip
-          for i in $(seq 20)
+
+          retries=20
+          delay=30
+          for i in $(seq $retries);
           do
-            pip index versions --pre $package > pip_versions.txt
-            pipVersion=$(cat pip_versions.txt | head -n 1 | cut -f2 -d '(' | cut -f1 -d ')')
-            echo "$currentVersion $pipVersion"
-            if [ "$pipVersion" = "$currentVersion" ]
-            then
-              echo "Same version"
-              exit 0
-            fi
-            echo "Wait for PyPI..."
-            sleep 10
+            pip install --dry-run --no-deps $package==$version && exit 0
+            echo "Attempt $i: Package $package==$version not found in PyPI. Retrying in $delay seconds..."
+            sleep $delay
           done
-          echo "Latest version doesn't match after several retries"
-          exit 1
+          echo "Package $package==$version not found in PyPI after waiting. Exiting."
+          exit 1  # Fail the job
 
   build-image:
     runs-on: ubuntu-latest
