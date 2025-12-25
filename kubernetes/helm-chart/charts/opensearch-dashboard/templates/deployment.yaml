@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Values.appConfig.name }}"
+  labels:
+    app: "{{ .Values.appConfig.name }}"
+    {{- include "metadata.opensearchDashboard.pod.labels" . | nindent 4 }}
+  annotations:
+    {{- include "metadata.opensearchDashboard.pod.annotations" . | nindent 4 }}
+
+spec:
+  replicas: {{ .Values.appConfig.replicas }}
+  selector:
+    matchLabels:
+      app: "{{ .Values.appConfig.name }}"
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.appConfig.name }}"
+        {{- include "metadata.opensearchDashboard.pod.labels" . | nindent 8 }}
+      annotations:
+        {{- include "metadata.opensearchDashboard.pod.annotations" . | nindent 8 }}
+    spec:
+      {{- with .Values.global.topologyConfig }}
+      {{- toYaml . | nindent 6 }}
+      {{- end }}
+      terminationGracePeriodSeconds: 10
+      {{- with .Values.global.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end}}
+      containers:
+        - name: opensearch-dashboard
+          image: {{ .Values.appConfig.image }}
+          ports:
+            - containerPort: {{ .Values.service.targetPort }}
+  # v ---- Volume mount define ----
+          {{- if .Values.dependencies.storage.enabled }}
+          volumeMounts:
+            {{- include "template.volumeMount" . | nindent 12 }}
+          {{- end }}
+  # ^ ---- Volume mount define ----
+  # v ---- Resources define ----
+          resources:
+            {{- include "template.resQuota" . | nindent 12 }}
+  # ^ ---- Resources define ----
+          env:
+          {{- include "nativeEnv.opensearchDashboard" . | nindent 12 }}
+          {{- with .Values.extraEnvs }}
+          {{- toYaml . | nindent 12 }}
+          {{- end }}
+  # v ---- Volumes define ----
+      {{- if .Values.dependencies.storage.enabled }}
+      volumes:
+        {{- range .Values.dependencies.storage.volumes }}
+        {{- include "template.volumes" (dict "item" . "root" $ ) | nindent 8 }}
+        {{- end }}
+      {{- end }}
+  # ^ ---- Volumes define ----
+

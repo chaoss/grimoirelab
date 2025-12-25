@@ -1,0 +1,46 @@
+global:
+  topologyConfig: {}
+  imagePullSecrets: []
+  imageRegistry: ""
+  appName: ""
+
+install: true
+
+appConfig:
+  name: "opensearch-node"
+  replicas: 1
+  image: docker.io/opensearchproject/opensearch:2.11.1
+  pullPolicy: IfNotPresent
+
+  labels: {}
+  annotations: {}
+  resources:
+    cpu:
+      limits: ""
+      requests: ""
+    memory:
+      limits: ""
+      requests: ""
+  security:
+    userID: 1000
+    groupID: 1000
+
+dependencies:
+  storage:
+    enabled: true
+    volumes:
+      - name: "opensearch-data"
+        mountPath: "/usr/share/opensearch/data"
+        type: pvc
+        storageClass: gp3
+        size: 1Gi
+
+service:
+  labels: {}
+  annotations: {}
+  targetPort: 9200
+  scheme: "http"
+  type: ""  # Default to "ClusterIP"
+
+extraEnvs: []
+
