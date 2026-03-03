@@ -1,5 +1,33 @@
 # Releases
 
+## GrimoireLab 1.20.1 - (2026-03-03)
+
+**New components:**
+
+* sortinghat 1.14.1
+* grimoire-elk 1.7.2
+* sirmordred 1.2.8
+
+The following list describes the changes by component:
+
+### sortinghat
+
+**Bug fixes:**
+
+ * Default S3 location for static files\
+   A default S3 location is now configured for static file storage. This
+   prevents errors that could occur during static file cleanup
+   operations.
+
+### grimoire-elk
+  
+  * Update Poetry's package dependencies
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 1.20.0 - (2026-03-03)
 
 **New components:**

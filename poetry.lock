@@ -565,14 +565,14 @@ profile = ["gprof2dot (>=2022.7.29)"]
 
 [[package]]
 name = "django"
-version = "5.2.11"
+version = "5.2.12"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "django-5.2.11-py3-none-any.whl", hash = "sha256:e7130df33ada9ab5e5e929bc19346a20fe383f5454acb2cc004508f242ee92c0"},
-    {file = "django-5.2.11.tar.gz", hash = "sha256:7f2d292ad8b9ee35e405d965fbbad293758b858c34bbf7f3df551aeeac6f02d3"},
+    {file = "django-5.2.12-py3-none-any.whl", hash = "sha256:4853482f395c3a151937f6991272540fcbf531464f254a347bf7c89f53c8cff7"},
+    {file = "django-5.2.12.tar.gz", hash = "sha256:6b809af7165c73eff5ce1c87fdae75d4da6520d6667f86401ecf55b681eb1eeb"},
 ]
 
 [package.dependencies]
@@ -1141,14 +1141,14 @@ graphql-core = ">=3.2,<3.3"
 
 [[package]]
 name = "grimoire-elk"
-version = "1.7.1"
+version = "1.7.2"
 description = "GrimoireELK processes and stores software development data to ElasticSearch"
 optional = false
 python-versions = "<4.0,>=3.10"
 groups = ["main"]
 files = [
-    {file = "grimoire_elk-1.7.1-py3-none-any.whl", hash = "sha256:b1fe1edbb031bce31610b55f5d8a79837ed5b046905787d4a0574d3664e03c21"},
-    {file = "grimoire_elk-1.7.1.tar.gz", hash = "sha256:56582a4b4c10486cfe84794d1fa0a457258e0fa63b0a387175fe1f6da9e2a585"},
+    {file = "grimoire_elk-1.7.2-py3-none-any.whl", hash = "sha256:e4bb0fb55367fd695856e76a7f07d9157eafd67cba31693d2a602aa983f763db"},
+    {file = "grimoire_elk-1.7.2.tar.gz", hash = "sha256:0bde2e072cc4734acad541fc37201011c12bd5249c0098ae8ccd551a7d58bc58"},
 ]
 
 [package.dependencies]
@@ -2665,14 +2665,14 @@ websocket = ["websocket-client"]
 
 [[package]]
 name = "sirmordred"
-version = "1.2.7"
+version = "1.2.8"
 description = "Drive GrimoireLab tools to produce a dashboard"
 optional = false
 python-versions = "<4.0,>=3.10"
 groups = ["main"]
 files = [
-    {file = "sirmordred-1.2.7-py3-none-any.whl", hash = "sha256:83edf5898ab9d452e9cd10851d7599093d8fd2951db3a07349263cd5031fb9bb"},
-    {file = "sirmordred-1.2.7.tar.gz", hash = "sha256:fa8bd234795e00d29f7cca610795f1ff5be5af49d256a3d78246a7fb2ae9672e"},
+    {file = "sirmordred-1.2.8-py3-none-any.whl", hash = "sha256:83fddce0bc5d7a5aec802821f43a0484ea1290e2a876e7eb3cbb8a22b069ada0"},
+    {file = "sirmordred-1.2.8.tar.gz", hash = "sha256:a461f44d36b9c2b7e6ad5dc51ab223f406a0ea6d223009b976edfac1c85c0f48"},
 ]
 
 [package.dependencies]
@@ -2706,14 +2706,14 @@ files = [
 
 [[package]]
 name = "sortinghat"
-version = "1.14.0"
+version = "1.14.1"
 description = "A tool to manage identities."
 optional = false
 python-versions = "<4.0,>=3.10"
 groups = ["main"]
 files = [
-    {file = "sortinghat-1.14.0-py3-none-any.whl", hash = "sha256:e438331d84d63c9cd6b7214b25215d778e4406f4704804e1b519ea8eb8893280"},
-    {file = "sortinghat-1.14.0.tar.gz", hash = "sha256:c9b8a0d7d2cc4770362f6876b3a1936d7315f7fcf9c0ad5f4c2c40d946cf632a"},
+    {file = "sortinghat-1.14.1-py3-none-any.whl", hash = "sha256:e847855fa4b601a698d9df54fed853c96d4783efbe79497cf16b35098cc68606"},
+    {file = "sortinghat-1.14.1.tar.gz", hash = "sha256:c2b3400b8237b85861f92b8000bc5368c66ccfd90314d29df7645ce361cb4547"},
 ]
 
 [package.dependencies]
@@ -2973,4 +2973,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "2f92d83749f6f694d31a857d854a0b36905ed6197527767ff492c1b8fdc40fe7"
+content-hash = "eec70509d609a260c7cd15028bc3dd737fcd3583392afa7d4d32c0a7c44145fe"
