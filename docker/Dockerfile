@@ -4,7 +4,7 @@
 FROM python:3.12-slim-bookworm
 LABEL maintainer="Santiago Dueñas <sduenas@bitergia.com>"
 
-ARG GRIMOIRELAB_RELEASE="1.19.0"
+ARG GRIMOIRELAB_RELEASE="1.20.0"
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DEPLOY_USER=grimoire

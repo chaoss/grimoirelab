@@ -1,5 +1,80 @@
 # Releases
 
+## GrimoireLab 1.20.0 - (2026-03-03)
+
+**New components:**
+
+* kidash 1.1.7
+* sortinghat 1.14.0
+* cereslib 1.1.7
+* perceval 1.4.6
+* perceval-mozilla 1.2.7
+* perceval-opnfv 1.1.7
+* perceval-puppet 1.1.7
+* perceval-weblate 1.1.7
+* graal 1.2.7
+* grimoire-elk 1.7.1
+* sirmordred 1.2.7
+
+The following list describes the changes by component:
+
+### kidash
+  
+  * Update Poetry's package dependencies
+
+### sortinghat
+
+**New features:**
+
+ * Support for static files in AWS\
+   Static files can now be uploaded to Amazon Web Services's (AWS) Simple
+   Storage Service (S3). The storage requires the following environment
+   variables: `SORTINGHAT_STATICFILES_STORAGE=aws`
+   `SORTINGHAT_BUCKET_NAME=<bucket>` The AWS credentials can be specified
+   using `AWS_S3_ACCESS_KEY_ID`, `AWS_S3_SECRET_ACCESS_KEY` and
+   `AWS_SESSION_TOKEN`.
+
+### cereslib
+  
+  * Update Poetry's package dependencies
+
+### perceval
+  
+  * Update Poetry's package dependencies
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### perceval-weblate
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+
+**Bug fixes:**
+
+ * Autorefresh and identity issues in comments\
+   Bugzilla enriched index missed some user names, and identities were
+   not correctly linked to SortingHat.
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 1.19.0 - (2026-01-21)
 
 **New components:**
