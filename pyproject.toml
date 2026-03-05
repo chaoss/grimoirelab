@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "grimoirelab"
-version = "1.20.1"
+version = "1.20.2"
 description = "Tool set for software development analytics"
 authors = [
     "GrimoireLab Developers"
@@ -43,11 +43,11 @@ perceval-mozilla = {version = ">=1.2.7", allow-prereleases = true}
 perceval-opnfv = {version = ">=1.1.7", allow-prereleases = true}
 perceval-puppet = {version = ">=1.1.7", allow-prereleases = true}
 perceval-weblate = {version = ">=1.1.7", allow-prereleases = true}
-sortinghat = {version = ">=1.14.1", allow-prereleases = true}
+sortinghat = {version = ">=1.14.2", allow-prereleases = true}
 kidash = {version = ">=1.1.7", allow-prereleases = true}
 grimoirelab-panels = {version = ">=1.2.0", allow-prereleases = true}
-grimoire-elk = {version = ">=1.7.2", allow-prereleases = true}
-sirmordred = {version = ">=1.2.8", allow-prereleases = true}
+grimoire-elk = {version = ">=1.7.3", allow-prereleases = true}
+sirmordred = {version = ">=1.2.9", allow-prereleases = true}
 cereslib = {version = ">=1.1.7", allow-prereleases = true}
 graal = {version = ">=1.2.7", allow-prereleases = true}
 perceval = {version = ">=1.4.6", allow-prereleases = true}

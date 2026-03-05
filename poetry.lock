@@ -96,18 +96,18 @@ lxml = ["lxml"]
 
 [[package]]
 name = "boto3"
-version = "1.42.59"
+version = "1.42.61"
 description = "The AWS SDK for Python"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "boto3-1.42.59-py3-none-any.whl", hash = "sha256:7a66e3e8e2087ea4403e135e9de592e6d63fc9a91080d8dac415bb74df873a72"},
-    {file = "boto3-1.42.59.tar.gz", hash = "sha256:6c4a14a4eb37b58a9048901bdeefbe1c529638b73e8f55413319a25f010ca211"},
+    {file = "boto3-1.42.61-py3-none-any.whl", hash = "sha256:156efcc298a33206be6dfd220815c64aa8b09424017534cabe717636961fc306"},
+    {file = "boto3-1.42.61.tar.gz", hash = "sha256:117ebfc597c95bfb64c6d37ba77bd1c2a97a1885c1dcac2a8be1a14e2139a76d"},
 ]
 
 [package.dependencies]
-botocore = ">=1.42.59,<1.43.0"
+botocore = ">=1.42.61,<1.43.0"
 jmespath = ">=0.7.1,<2.0.0"
 s3transfer = ">=0.16.0,<0.17.0"
 
@@ -116,14 +116,14 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "botocore"
-version = "1.42.59"
+version = "1.42.61"
 description = "Low-level, data-driven core of boto 3."
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "botocore-1.42.59-py3-none-any.whl", hash = "sha256:d2f2ff7ecc31e86ef46b5daee112cfbca052c13801285fb23af909f7bff5b657"},
-    {file = "botocore-1.42.59.tar.gz", hash = "sha256:5314f19e1da8fc0ebc41bdb8bbe17c9a7397d87f4d887076ac8bdef972a34138"},
+    {file = "botocore-1.42.61-py3-none-any.whl", hash = "sha256:476059beb3f462042742950cf195d26bc313461a77189c16e37e205b0a924b26"},
+    {file = "botocore-1.42.61.tar.gz", hash = "sha256:702d6011ace2b5b652a0dbb45053d4d9f79da2c5b184463042434e1754bdd601"},
 ]
 
 [package.dependencies]
@@ -1141,14 +1141,14 @@ graphql-core = ">=3.2,<3.3"
 
 [[package]]
 name = "grimoire-elk"
-version = "1.7.2"
+version = "1.7.3"
 description = "GrimoireELK processes and stores software development data to ElasticSearch"
 optional = false
 python-versions = "<4.0,>=3.10"
 groups = ["main"]
 files = [
-    {file = "grimoire_elk-1.7.2-py3-none-any.whl", hash = "sha256:e4bb0fb55367fd695856e76a7f07d9157eafd67cba31693d2a602aa983f763db"},
-    {file = "grimoire_elk-1.7.2.tar.gz", hash = "sha256:0bde2e072cc4734acad541fc37201011c12bd5249c0098ae8ccd551a7d58bc58"},
+    {file = "grimoire_elk-1.7.3-py3-none-any.whl", hash = "sha256:4ace62d114ed9efad83b945715f0344341645915243b4658dfccddce5b38fcca"},
+    {file = "grimoire_elk-1.7.3.tar.gz", hash = "sha256:76d704b094d48984f190e41a8ee6bdb7f5411e3a04238651ae853e933fc73536"},
 ]
 
 [package.dependencies]
@@ -2665,14 +2665,14 @@ websocket = ["websocket-client"]
 
 [[package]]
 name = "sirmordred"
-version = "1.2.8"
+version = "1.2.9"
 description = "Drive GrimoireLab tools to produce a dashboard"
 optional = false
 python-versions = "<4.0,>=3.10"
 groups = ["main"]
 files = [
-    {file = "sirmordred-1.2.8-py3-none-any.whl", hash = "sha256:83fddce0bc5d7a5aec802821f43a0484ea1290e2a876e7eb3cbb8a22b069ada0"},
-    {file = "sirmordred-1.2.8.tar.gz", hash = "sha256:a461f44d36b9c2b7e6ad5dc51ab223f406a0ea6d223009b976edfac1c85c0f48"},
+    {file = "sirmordred-1.2.9-py3-none-any.whl", hash = "sha256:0d25bfa307d44f52306d5d76c804891e6105aa1540afb8e5323e155cd48d9d57"},
+    {file = "sirmordred-1.2.9.tar.gz", hash = "sha256:353b86cda62edd45657561250bb5419c21cd3ff8890d3894ec99eb31c7820ada"},
 ]
 
 [package.dependencies]
@@ -2706,14 +2706,14 @@ files = [
 
 [[package]]
 name = "sortinghat"
-version = "1.14.1"
+version = "1.14.2"
 description = "A tool to manage identities."
 optional = false
 python-versions = "<4.0,>=3.10"
 groups = ["main"]
 files = [
-    {file = "sortinghat-1.14.1-py3-none-any.whl", hash = "sha256:e847855fa4b601a698d9df54fed853c96d4783efbe79497cf16b35098cc68606"},
-    {file = "sortinghat-1.14.1.tar.gz", hash = "sha256:c2b3400b8237b85861f92b8000bc5368c66ccfd90314d29df7645ce361cb4547"},
+    {file = "sortinghat-1.14.2-py3-none-any.whl", hash = "sha256:b9807824723128a435b6253f516902a7d9f96df86a6a0e58fc9773b3bfb00389"},
+    {file = "sortinghat-1.14.2.tar.gz", hash = "sha256:ad8e5559464c73120808b60a581c56e18a319121fd786abd3022040e7a2bc779"},
 ]
 
 [package.dependencies]
@@ -2973,4 +2973,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "eec70509d609a260c7cd15028bc3dd737fcd3583392afa7d4d32c0a7c44145fe"
+content-hash = "8d31b5aa68dc0e5ab6965f6126674ea39c24dff7d8bca08f5613c3622b73a4e7"

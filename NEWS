@@ -1,5 +1,32 @@
 # Releases
 
+## GrimoireLab 1.20.2 - (2026-03-05)
+
+**New components:**
+
+* sortinghat 1.14.2
+* grimoire-elk 1.7.3
+* sirmordred 1.2.9
+
+The following list describes the changes by component:
+
+### sortinghat
+
+**Bug fixes:**
+
+ * Bug fix in job retrieval method\
+   Fixed an issue with job ID retrieval to ensure compatibility with the
+   latest RQ version.
+
+### grimoire-elk
+  
+  * Update Poetry's package dependencies
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 1.20.1 - (2026-03-03)
 
 **New components:**
