@@ -408,7 +408,7 @@ Released: 2018-08-23
 ** Use 'edits' instead of 'editions' for MediaWiki
 ** [mattermost] Add Kibana 6 panel and index pattern
 ** [reps activities] Add panel migrated to Kibana 6
-** [reps events] add panel fro Kibana 6
+** [reps events] add panel for Kibana 6
 ** [about] Add about.json from master
 ** [dockerhub] Fix legend title for Stars and Pulls
 ** [dockerhub] Update evolutionary charts to use Timelion and use Deltas
@@ -2127,7 +2127,7 @@ Released: 2017-11-30
 ** [enrich][functest] Implement get_field_author and return None
 ** [enrich][twitter] Check that twitter is in projects map before using it
 ** [enrich][bugzillarest] Change fields to use the same names than in bugzilla
-** [enrich][bugzilla] Remove project_name field to avoid confussions with dashboard projects
+** [enrich][bugzilla] Remove project_name field to avoid confusions with dashboard projects
 ** [ocean][phabricator] Fix to float the subpriority field
 ** [enrich] Check if an identity exists before trying to get her profile
 ** [index_mapping] Support sort-after scrolling. Use sync uploading of bulk data
@@ -2441,7 +2441,7 @@ Released: 2017-10-20
 ** [task_panels] Fix mapping problem with ElasticSearch/Kibana 5.6
 ** [task_identities] Set TaskInitSortingHat as a global task not related to a data source
 ** [task_panel][aliases] Add functest aliases
-** [tasks] Readd support to execute one time all tasks and exit.
+** [tasks] Re-add support to execute one time all tasks and exit.
 ** [task_panels] Add missing aliases: apache, google-hits, remo-events
 ** Adapt to produce a pipy package (remove VIzGrimoireUtils dependency)
 
