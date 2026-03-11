@@ -57,3 +57,10 @@ perceval = {version = ">=1.4.6", allow-prereleases = true}
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.codespell]
+# Ref: https://github.com/codespell-project/codespell#using-a-config-file
+skip = '.git,.gitignore,.gitattributes,*.pdf,*.svg,*.lock,*.css,*.min.*'
+check-hidden = true
+# ignore-regex = ''
+# ignore-words-list = ''
