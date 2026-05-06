@@ -1,5 +1,78 @@
 # Releases
 
+## GrimoireLab 1.20.3 - (2026-05-06)
+
+**New components:**
+
+* grimoirelab-toolkit 1.2.6
+* kidash 1.1.8
+* sortinghat 1.14.3
+* cereslib 1.1.8
+* perceval 1.4.7
+* perceval-mozilla 1.2.8
+* perceval-opnfv 1.1.8
+* perceval-puppet 1.1.8
+* perceval-weblate 1.1.8
+* graal 1.2.8
+* grimoire-elk 1.7.4
+* sirmordred 1.2.10
+
+The following list describes the changes by component:
+
+### grimoirelab-toolkit
+
+No changes list available.
+
+### kidash
+  
+  * Update Poetry's package dependencies
+
+### sortinghat
+  
+  * Update Poetry's package dependencies
+
+### cereslib
+  
+  * Update Poetry's package dependencies
+
+### perceval
+
+**Bug fixes:**
+
+ * GitHub App token for public repositories (#898)\
+   When no matching GitHub App installation is available for a
+   repository, Perceval now falls back to using another installation
+   token to retrieve public data.
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### perceval-weblate
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### grimoire-elk
+  
+  * Update Poetry's package dependencies
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 1.20.2 - (2026-03-05)
 
 **New components:**
