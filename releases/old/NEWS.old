@@ -22,11 +22,11 @@ Released: 2018-11-06
 ** [utils] Goodbye rest script
 ** [enrich-gitlab] Handle missing milestone attribute in raw items
 ** [elastic_items] Refactor `fetch` method
-** [enrich-google_hits] Redifine has_identities method
-** [enrich-functest] Redifine has_identities method
-** [enrich-dockerhub] Redifine has_identities method
-** [enrich-jenkins] Redifine has_identities method
-** [elk] Add condition to skip loading identites
+** [enrich-google_hits] Redefine has_identities method
+** [enrich-functest] Redefine has_identities method
+** [enrich-dockerhub] Redefine has_identities method
+** [enrich-jenkins] Redefine has_identities method
+** [elk] Add condition to skip loading identities
 ** [enrich] Add has_identities method
 ** [enrich-askbot] Replace list with yield
 ** [enrich-bugzillarest] Replace list with yield
@@ -408,7 +408,7 @@ Released: 2018-08-23
 ** Use 'edits' instead of 'editions' for MediaWiki
 ** [mattermost] Add Kibana 6 panel and index pattern
 ** [reps activities] Add panel migrated to Kibana 6
-** [reps events] add panel fro Kibana 6
+** [reps events] add panel for Kibana 6
 ** [about] Add about.json from master
 ** [dockerhub] Fix legend title for Stars and Pulls
 ** [dockerhub] Update evolutionary charts to use Timelion and use Deltas
@@ -487,7 +487,7 @@ Released: 2018-08-23
 ** [docker] Remove gunicorn and use stage from Docker image
 ** [docker] Modify apache config to serve static files and generate the static files during deployment
 ** [static] Reorganize static contents for the base template in the django-hatstall project
-** [urls] Remove gunicorn suport for static contents
+** [urls] Remove gunicorn support for static contents
 ** [docker] Add in stage the activation of ssl module in Apache
 ** [docker] Support https for accessing the Django Hatstall application
 ** [docker] Convert Django Hatstall deployment to Apache2 + mod_wsgi
@@ -981,7 +981,7 @@ Released: 2018-05-17
 * Mordred
 
 * grimoirelab-elk
-** [enrich][twitter] Use case insesitive tags for doing the projects mapping
+** [enrich][twitter] Use case insensitive tags for doing the projects mapping
 ** [studies][demography] Add tests for the study
 ** [studies][demography] Use author_id field to aggregate the authors instead of Author
 
@@ -1098,9 +1098,9 @@ Released: 2018-04-18
 * grimoirelab-elk
 ** [jenkins] Update raw mappings to deal with large comments
 ** [jira] Handle data.changelog.histories fields
-** [tests] Update test load identites
+** [tests] Update test load identities
 ** [elk] load identities by bulks to sortinghat
-** [sortinghat_gelk] Handle possible exeception when adding identities
+** [sortinghat_gelk] Handle possible exception when adding identities
 * Sigils (old panels)
 * Manuscripts (old reports)
 ** [report] Show the perdiod names always as YY-Q[1-4] (16-Q4)
@@ -1137,7 +1137,7 @@ Released: 2018-04-14
 ** [[tests] Update archives after sanitizing archived data
 
 * grimoirelab-elk
-** [enrich][jira] Check that main_description field is not None before trunctating it
+** [enrich][jira] Check that main_description field is not None before truncating it
 ** [doc] Add information about alias to studies doc
 ** [studies] Add alias management to onion study
 ** [studies] Add alias management for areas of code
@@ -1474,7 +1474,7 @@ Released: 2018-03-20
 
 * Hatstall
 ** Add custom pagination in order to retrieve the data paginated
-** Add search box that searchs directly to the sh database
+** Add search box that searches directly to the sh database
 ** Fix last_modified field show in unique identities
 ** Add 'show' custom in order to get length of the table paginated
 ** Change button show entries for 'onchange' event in the select
@@ -1644,7 +1644,7 @@ Released: 2018-03-13
 
 * Kidash
 ** [kidash] Update elastic import from grimoire_elk
-** [import] Don't modify the height of visualizatons in dashboards from Kibana >= 6
+** [import] Don't modify the height of visualizations in dashboards from Kibana >= 6
 
 * GrimoireLab Toolkit
 ** Add support to run tests using setup.py file
@@ -1703,7 +1703,7 @@ Released: 2018-02-01
 ** [enrich][git] Add a new field git_author_domain with the email domain for the Author of the commit
 
 * Kidash
-** [import] Don't modify the height of visualizatons in dashboards from Kibana >= 6
+** [import] Don't modify the height of visualizations in dashboards from Kibana >= 6
 
 ## elasticgirl.30
 
@@ -2127,7 +2127,7 @@ Released: 2017-11-30
 ** [enrich][functest] Implement get_field_author and return None
 ** [enrich][twitter] Check that twitter is in projects map before using it
 ** [enrich][bugzillarest] Change fields to use the same names than in bugzilla
-** [enrich][bugzilla] Remove project_name field to avoid confussions with dashboard projects
+** [enrich][bugzilla] Remove project_name field to avoid confusions with dashboard projects
 ** [ocean][phabricator] Fix to float the subpriority field
 ** [enrich] Check if an identity exists before trying to get her profile
 ** [index_mapping] Support sort-after scrolling. Use sync uploading of bulk data
@@ -2441,7 +2441,7 @@ Released: 2017-10-20
 ** [task_panels] Fix mapping problem with ElasticSearch/Kibana 5.6
 ** [task_identities] Set TaskInitSortingHat as a global task not related to a data source
 ** [task_panel][aliases] Add functest aliases
-** [tasks] Readd support to execute one time all tasks and exit.
+** [tasks] Re-add support to execute one time all tasks and exit.
 ** [task_panels] Add missing aliases: apache, google-hits, remo-events
 ** Adapt to produce a pipy package (remove VIzGrimoireUtils dependency)
 
@@ -2565,7 +2565,7 @@ Released: 2017-08-08
 ** [menu] Add Maniphest panels to menu
 ** [menu] Fix name of Bugzilla panels
 ** Change schedule to upload panels + menu in the initial phase
-** Fix wrong URL when trying to set up defaul time frame and index pattern
+** Fix wrong URL when trying to set up default time frame and index pattern
 ** Update menu according to latest 5.1.1 GrimoireLab panels
 
 * GrimoireELK
@@ -2723,7 +2723,7 @@ Released: 2017-07-06
 * GrimoireELK
 ** [enrich][functest] Add support for enriching FuncTest data source coming from OPNFV
 ** Change TZ so that it comes from author_date
-** [enrich][sortinghat] Suppport the autorefresh of identities using a list of ids or uuids in an enriched index
+** [enrich][sortinghat] Support the autorefresh of identities using a list of ids or uuids in an enriched index
 ** [enrich] Use always metadata__timestamp for detecting thew new items that must be enriched in incremental mode. Also do it for demography study.
 ** [panels] Add new method exists_dashboard to check if a dashboard already exists.
 ** [enrich][meetup] Use time_date as the grimoire_creation_date
@@ -2840,7 +2840,7 @@ Note: In this release we can not include perceval 0.8 because perceval-mozilla a
 * GrimoireLab Toolkit
 ** [uris] Add module for handling URIs
 ** [datetime] Add module for managing datatime objects
-** [introspect] Add module for handling instrospection
+** [introspect] Add module for handling introspection
 ** Release 0.1.0
 
 ## elasticgirl.7
@@ -2899,7 +2899,7 @@ Released: 2017-04-28
 ** [report] Get the active data sources in the mordred config file
 ** [report] Fix community section, GitHub metrics in overview, template string replacing in subdirs and quarter name.
 
-* VIzGrimoireUtils: added to the relase as mordred dependency
+* VIzGrimoireUtils: added to the release as mordred dependency
 ** [eclipse_projects] Break down eclipse_projects.py script in a library to be used for managing eclipse projects info and the script which uses it. The library is compatible with python2 and python3.
 
 ## elasticgirl.5.1
@@ -2927,7 +2927,7 @@ Released: 2017-04-21
 Released: 2017-04-10
 
 * SortingHat
-** [utils] Fix encoding error generting UUIDs in Python 3
+** [utils] Fix encoding error generating UUIDs in Python 3
 ** [mailmap2sh] Add tool to convert mailmap files to a Sorting Hat JSON
 
 * Perceval
@@ -2969,8 +2969,8 @@ Released: 2017-03-30
 ** Clean docker image and add support for reports (prettyplotlib and elasticsearch_dsl)
 ** Fixes in config params
 ** Check that there are tasks to execute in update mode before executing them to avoid infinite loop in update
-** Add new Task to track items upstream, including config and task implemetation.
-** Add new Task to generate reports including config and task implemetation.
+** Add new Task to track items upstream, including config and task implementation.
+** Add new Task to generate reports including config and task implementation.
 ** Add unaffiliated_group to configure the name of the unaffiliated org name
 
 * GrimoireELK

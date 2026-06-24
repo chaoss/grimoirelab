@@ -920,7 +920,7 @@ The following list describes the changes by component:
 
  * Enforce merge recommendation integrity (#993)\
    Ensure merge recommendations are unique between individuals and
-   prevent creating recommmendations with the same individual.
+   prevent creating recommendations with the same individual.
  * Automatic affiliation fixed and reduced results (#994)\
    Fixes a bug that caused running the affiliate process to overwrite
    existing affiliation dates. Now, the job result only includes
@@ -1027,7 +1027,7 @@ The following list describes the changes by component:
    The item types for pull requests in the GitHub indices had different
    values. While in `github_pull_requests` the type was `pull request`,
    the type in `github2_pull_request` was `pull_request` (with
-   underscore). We have fixed this bug unifing the type to
+   underscore). We have fixed this bug unifying the type to
    `pull_request`. You will have to re-enrich indices in your instance to
    update old items.
  * Sync AOC and Git raw indexes error\
@@ -1532,7 +1532,7 @@ The following list describes the changes by component:
 **Bug fixes:**
 
  * GitHub incremental collection date\
-   GitHub incremantal collection was not working correctly because of an
+   GitHub incremental collection was not working correctly because of an
    inconsistence between the default dates in Perceval and ELK.
 
 ### sirmordred
@@ -2079,7 +2079,7 @@ The following list describes the changes by component:
  * Keywords data on enriched items\
    Keywords field is included now on the enriched items of bugzilla and
    bugzillarest indices.
- * New reponse times on bugzilla items\
+ * New response times on bugzilla items\
    The Bugzilla enriched items include two new fields to track response
    times on these type of repositories. The field
    `time_to_first_attention` is the the time expressed in days between
@@ -2460,12 +2460,12 @@ The following list describes the changes by component:
  * Refetch general settings after they are changed\
    The "unify" and "affiliate" switches on the general settings page
    sometimes reflected outdated information. The page now reloads the
-   data everytime it is visited to keep it updated.
+   data every time it is visited to keep it updated.
 
 **Dependencies updateds:**
 
  * Migration to Vue 3\
-   Vue 2 reached end of life on December 2023 and is no longer mantained.
+   Vue 2 reached end of life on December 2023 and is no longer maintained.
 
 ### cereslib
   
@@ -2639,7 +2639,7 @@ The following list describes the changes by component:
 **Dependencies updateds:**
 
  * Drop support of Node.js <18\
-   Versions 14 to 16 of Node.js are no longer mantained. The current
+   Versions 14 to 16 of Node.js are no longer maintained. The current
    supported versions are 18 to 20.
 
 ### cereslib
@@ -2709,7 +2709,7 @@ The following list describes the changes by component:
    one of its aliases returns the organization. When an organization is
    merged into another, its name becomes an alias of the target
    organization. If a name exists as an alias, no organization can be
-   created with that name and viceversa. An organization's aliases can be
+   created with that name and vice-versa. An organization's aliases can be
    added and deleted both on the organizations table and the single
    organization view.
 
@@ -3172,7 +3172,7 @@ The following list describes the changes by component:
    dashboard.
  * Cache individuals table data (#821)\
    Using cached queries prevents the table from refetching all the data
-   from the server everytime any information is edited. This is
+   from the server every time any information is edited. This is
    particularly helpful if there is a huge number of identities, where
    reloading the table is very slow. However, there are some cases when
    the queries need to be refetched, eg. when identities are merged or
@@ -3271,7 +3271,7 @@ The following list describes the changes by component:
 **New features:**
 
  * Strict criteria for merge recommendations (#812)\
-   The merge recommendations filter out invalid email adresses and names
+   The merge recommendations filter out invalid email addresses and names
    that don't have at least a first and last name  when looking for
    matches. To disable this behavior, set the `strict` parameter on
    `recommendMatches` or `unify` to `false`.
@@ -3715,7 +3715,7 @@ The following list describes the changes by component:
 
  * Show hidden buttons when the mouse is over the table row (#787)\
    The buttons to lock an individual or mark it as a bot were only
-   visible when the mouse wass over the individual's name, which made it
+   visible when the mouse was over the individual's name, which made it
    hard to find them. Now they appear when the mouse is over the table
    row.
  * Email affiliation error (#793)\
@@ -4036,7 +4036,7 @@ The following list describes the changes by component:
  * Set top domain from UI (#729)\
    Add the option to set an organization's domain as top domain from the
    UI.
- * Order individuals by indentities (#732)\
+ * Order individuals by identities (#732)\
    Adds the option to order the individuals by the number of identities
    they have.
  * Import identities automatically (#746)\
@@ -4056,7 +4056,7 @@ The following list describes the changes by component:
  * Drag and drop to enroll in teams\
    Expanding an organization on the table now shows the full list of
    teams. Individuals can be dragged and dropped into a team and
-   viceversa to affiliate them. The buttons to add, edit and delete
+   vice-versa to affiliate them. The buttons to add, edit and delete
    organization and team information are reorganized into a dropdown menu
    to simplify the interface.
  * Multi-tenancy mode\
@@ -4542,7 +4542,7 @@ The following list describes the changes by component:
 
  * Fix error in update worktree\
    Graal wasn't working with the latest version of Git 2.35.1 because it
-   protects braches checked out in all worktrees. This change renames the
+   protects branches checked out in all worktrees. This change renames the
    branch created when creating a worktree to fix the issue.
    
 ### Sorting Hat
@@ -4634,6 +4634,6 @@ The following list describes the changes by component:
  * Add studies to the alias file\
    Add onion, areas of code, and demographics studies to the file
    aliases.json. This is needed to keep this file updated with the
-   aliases we use in the dashboards by adding them to the appropiate data
+   aliases we use in the dashboards by adding them to the appropriate data
    sources. The included aliases: - all_onion - git_areas_of_code -
    demographics
