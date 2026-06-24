@@ -1,0 +1,48 @@
+global:
+  topologyConfig: {}
+  imagePullSecrets: []
+  imageRegistry: ""
+  appName: ""
+
+install: true
+
+appConfig:
+  name: "nginx"
+  replicas: 1
+  image: docker.io/nginx:1.27.2
+  pullPolicy: IfNotPresent
+
+  labels: {}
+  annotations: {}
+  resources:
+    cpu:
+      limits: ""
+      requests: ""
+    memory:
+      limits: ""
+      requests: ""
+
+dependencies:
+  storage:
+    enabled: true
+    volumes:
+      - name: "nginx-conf-template"
+        mountPath: "/etc/nginx/templates/default.conf.template"
+        type: configmap
+        subPath: "nginx-conf-template"
+      - name: "uwsgi-params"
+        mountPath: "/etc/nginx/uwsgi_params"
+        type: configmap
+        subPath: "uwsgi-params"
+      - name: "sortinghat-static"
+        mountPath: "/sortinghat"
+        type: pvc
+service:
+  labels: {}
+  annotations: {}
+  targetPort: 8000
+  scheme: "http"
+  type: ""  # Default to "ClusterIP"
+
+extraEnvs: []
+
