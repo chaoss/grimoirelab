@@ -1,10 +1,34 @@
 {
-    "grimoirelab": {
-      "meta": {
-        "title": "GrimoireLab"
-      },
-      "git": [
-          "https://github.com/chaoss/grimoirelab.git"
-        ]
-    }
+  "ni-oss-ecosystem": {
+    "meta": {
+      "title": "NI OSS Ecosystem",
+      "tiers": [
+        1
+      ]
+    },
+    "git": [
+      "https://github.com/ni/nidaqmx-python.git",
+      "https://github.com/ni/python_labview_automation.git",
+      "https://github.com/ni/nimi-python.git",
+      "https://github.com/ni/grpc-labview.git",
+      "https://github.com/ni/nilrt.git",
+      "https://github.com/ni/linux.git",
+      "https://github.com/ni/grpc-device.git",
+      "https://github.com/ni/nifpga-python.git",
+      "https://github.com/ni/usb3vision.git",
+      "https://github.com/ni/csharp-styleguide.git"
+    ],
+    "github": [
+      "https://github.com/ni/nidaqmx-python",
+      "https://github.com/ni/python_labview_automation",
+      "https://github.com/ni/nimi-python",
+      "https://github.com/ni/grpc-labview",
+      "https://github.com/ni/nilrt",
+      "https://github.com/ni/linux",
+      "https://github.com/ni/grpc-device",
+      "https://github.com/ni/nifpga-python",
+      "https://github.com/ni/usb3vision",
+      "https://github.com/ni/csharp-styleguide"
+    ]
   }
+}

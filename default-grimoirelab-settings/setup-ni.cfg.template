@@ -1,0 +1,83 @@
+# NI OSS Health Dashboard - SirMordred config (Phase 0, Tier-1 subset).
+#
+# This is a TEMPLATE. Do not put a real token here and do not run from it directly.
+# Generate the runtime config (git-ignored) with:
+#
+#   GITHUB_TOKEN=$(gh auth token) python scripts/render_setup.py \
+#       default-grimoirelab-settings/setup-ni.cfg.template \
+#       default-grimoirelab-settings/setup-ni.cfg
+#
+# docker-compose mounts setup-ni.cfg into the mordred container.
+# Indices are namespaced *_ni_* to keep NI data separate from upstream demo data.
+
+[general]
+short_name = NI
+update = true
+min_update_delay = 60
+debug = false
+logs_dir = /home/grimoire/logs
+bulk_size = 100
+scroll_size = 100
+aliases_file = /home/grimoire/aliases.json
+
+[projects]
+projects_file = /home/grimoire/conf/projects.json
+
+[es_collection]
+url = https://admin:GrimoireLab.1@opensearch-node1:9200
+
+[es_enrichment]
+url = https://admin:GrimoireLab.1@opensearch-node1:9200
+autorefresh = true
+
+[sortinghat]
+host = nginx
+user = admin
+password = admin
+port = 8000
+path = /identities/api/
+ssl = false
+database = sortinghat_db
+autoprofile = [github, git]
+matching = [email,name,username]
+sleep_for = 100
+unaffiliated_group = Unknown
+affiliate = true
+
+[panels]
+kibiter_time_from =
+kibiter_default_index =
+kibiter_url =
+kibiter_version =
+
+[phases]
+collection = true
+identities = true
+enrichment = true
+panels = false
+
+[git]
+raw_index = git_ni_raw
+enriched_index = git_ni_enriched
+latest-items = true
+studies = [enrich_demography:git, enrich_areas_of_code:git, enrich_onion:git]
+
+[github]
+api-token = __GITHUB_TOKEN__
+raw_index = github_ni_raw
+enriched_index = github_ni_enriched
+sleep-for-rate = true
+sleep-time = "300"
+
+## studies based on enriched indexes
+
+[enrich_demography:git]
+
+[enrich_areas_of_code:git]
+in_index = git_ni_raw
+out_index = git-aoc_ni_enriched
+
+[enrich_onion:git]
+in_index = git_ni_enriched
+out_index = git-onion_ni_enriched
+contribs_field = hash

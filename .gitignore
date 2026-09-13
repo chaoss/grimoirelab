@@ -1,0 +1,3 @@
+
+# NI OSS Health Dashboard - runtime config holds a real GitHub token; never commit.
+default-grimoirelab-settings/setup-ni.cfg

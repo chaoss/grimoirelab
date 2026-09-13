@@ -57,7 +57,7 @@ services:
       restart: on-failure:5
       image: grimoirelab/grimoirelab:latest
       volumes:
-        - ../default-grimoirelab-settings/setup.cfg:/home/grimoire/conf/setup.cfg
+        - ../default-grimoirelab-settings/setup-ni.cfg:/home/grimoire/conf/setup.cfg
         - ../default-grimoirelab-settings/projects.json:/home/grimoire/conf/projects.json
         - /tmp/:/home/grimoire/logs
       depends_on:
