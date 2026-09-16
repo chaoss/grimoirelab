@@ -1,4 +1,4 @@
-grimoirelab==1.22.0-rc.1
+grimoirelab==1.22.0-rc.2
 grimoirelab-toolkit==1.2.8rc1
 perceval==1.6.0rc1
 perceval-mozilla==1.2.10rc1
