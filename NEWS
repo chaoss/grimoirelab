@@ -1,5 +1,38 @@
 # Releases
 
+## GrimoireLab 1.22.1 - (2026-09-22)
+
+**New components:**
+
+* perceval-mozilla 1.2.11
+* perceval-opnfv 1.1.11
+* perceval-puppet 1.1.11
+* graal 1.2.12
+* sirmordred 1.2.13
+
+The following list describes the changes by component:
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+### perceval-puppet
+  
+  * Update Poetry's package dependencies
+
+### graal
+  
+  * Update Poetry's package dependencies
+
+### sirmordred
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 1.22.0 - (2026-09-16)
 
 **New components:**
