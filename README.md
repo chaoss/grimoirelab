@@ -39,7 +39,12 @@ of data to fetch from a repo, for small repositories you can expect your data
 to be available after 10-15 minutes.
 
 To view the data you can access OpenSearch Dashboards at http://localhost:8000
-or use the API directly at http://localhost:9200.
+or use the OpenSearch API directly at https://localhost:9200. The API requires
+HTTPS and the `admin` user with the password set in `docker-compose.yml`
+(`GrimoireLab.1` by default), and it uses a self-signed certificate, e.g.:
+```console
+curl -k -u admin:GrimoireLab.1 https://localhost:9200
+```
 
 To manage the identities you can access SortingHat at http://localhost:8000/identities/.
 
