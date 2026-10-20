@@ -7,17 +7,14 @@ easiest way to get started with GrimoireLab.
 # Requirements
 
 * A [Git](https://git-scm.com/) client
-* [Docker Engine](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/)
+* [Docker Engine](https://docs.docker.com/install/) and [Docker Compose v2](https://docs.docker.com/compose/install/) (the `docker compose` command).
+  The compose file has no `version:` key, so the legacy standalone `docker-compose` (v1) needs to be 1.27.0 or later.
 * Recommended, at least, 2CPUs, 8GB memory RAM, and 2GB SWAP (MacOS users can manage it with [Docker client for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac))
 
 For example, in one of my latest demos, I was using:
 ```console
 root@qiskit-6fc71ea6:~# git --version
 git version 2.17.1
-root@qiskit-6fc71ea6:~# docker --version
-Docker version 19.03.1, build 74b1e89
-root@qiskit-6fc71ea6:~# docker-compose --version
-docker-compose version 1.22.0, build f46880fe
 root@qiskit-6fc71ea6:~# free
               total        used        free      shared  buff/cache   available
 Mem:        8167996     3463652      128844        1440     4575500     4413328
@@ -65,7 +62,7 @@ set of repositories and data sources, you need to modify [`projects.json`](../de
 3. Access to [`docker-compose`](./) folder and deploy GrimoireLab running this command:
 ```console
 cd grimoirelab/docker-compose
-docker-compose up -d
+docker compose up -d
 ```
 
 If everything goes well, data will be gathered and processed. To get access to
@@ -101,14 +98,14 @@ There might be 2 potential scenarios:
 
 1. If you want to do a simple configuration change and restart the platform:
 ```console
-docker-compose restart
+docker compose restart
 ```
 2. If you want to destroy current deployed configuration, and after some changes,
 start from fresh one:
 ```console
-docker-compose down
+docker compose down
 ```
 and once they are *down*:
 ```console
-docker-compose up -d
+docker compose up -d
 ```

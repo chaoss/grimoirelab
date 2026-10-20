@@ -16,18 +16,11 @@ Metrics available in GrimoireLab are, in part, developed in the CHAOSS project. 
 To ease the newcomer experience we are providing a [default setup](default-grimoirelab-settings)
 to analyze git activity for this repository. For this set up, there are several options to run GrimoireLab:
 
-## Using `docker-compose`
+## Using Docker Compose
 
 Requirements:
-* **Software**: [git](https://git-scm.com/), [docker client](https://docs.docker.com/get-docker/) and [docker compose](https://docs.docker.com/compose/install/). An example of working configuration:
-```console
-root@test-68b8628f:~# git --version
-git version 2.17.1
-root@test-68b8628f:~# docker --version
-Docker version 19.03.1, build 74b1e89
-root@test-68b8628f:~# docker-compose --version
-docker-compose version 1.22.0, build f46880fe
-```
+* **Software**: [git](https://git-scm.com/), [docker client](https://docs.docker.com/get-docker/) and [Docker Compose v2](https://docs.docker.com/compose/install/) (the `docker compose` command).
+  The compose file has no `version:` key, so the legacy standalone `docker-compose` (v1) needs to be 1.27.0 or later.
 * **Hardware**: 2 CPU cores, 8GB memory RAM and [enough virtual memory for Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html)
 
 Steps:
@@ -38,7 +31,7 @@ git clone https://github.com/chaoss/grimoirelab
 2. Go to `docker-compose` folder and run the following command:
 ```console
 cd grimoirelab/docker-compose
-docker-compose up -d
+docker compose up -d
 ```
 
 Your data will be ready after a while. The waiting time depends on the amount
