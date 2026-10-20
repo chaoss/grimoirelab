@@ -20,13 +20,17 @@ with [Docker client for Mac](https://hub.docker.com/editions/community/docker-ce
 
 ## Build the image
 
-To produce the image, run the following command:
+To produce the image, run the following command from this `docker` folder
+(the build context has to contain the `stage` script the Dockerfile adds):
 ```
 $ docker build -f Dockerfile -t grimoirelab/grimoirelab .
 ```
 
-You can build a specific version of grimoirelab updating `GRIMOIRELAB_RELEASE`
-environment variable inside the Dockerfile.
+You can build a specific version of GrimoireLab by passing the
+`GRIMOIRELAB_RELEASE` build argument, for example:
+```
+$ docker build -f Dockerfile --build-arg GRIMOIRELAB_RELEASE=<version> -t grimoirelab/grimoirelab:<version> .
+```
 
 ## Run the image
 
@@ -49,7 +53,7 @@ process will fail).
 Run the following command from the root of this repository to start using 
 SirMordred:
 ```
-docker run --net=host \ 
+docker run --net=host \
     -v $(pwd)/default-grimoirelab-settings/projects.json:/home/grimoire/conf/projects.json \
     -v $(pwd)/default-grimoirelab-settings/setup-docker.cfg:/home/grimoire/conf/setup.cfg \
     -t grimoirelab/grimoirelab
