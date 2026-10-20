@@ -1,6 +1,6 @@
 # GrimoireLab
 
-[![grimoirelab-showcase](https://user-images.githubusercontent.com/25265451/84442403-30dcce80-ac5b-11ea-9f5b-60266d875ebd.png "GrimoireLab | CHAOSS Bitergia Analytics")](https://chaoss.biterg.io/app/kibana#/dashboard/Overview)
+[![grimoirelab-showcase](https://user-images.githubusercontent.com/25265451/84442403-30dcce80-ac5b-11ea-9f5b-60266d875ebd.png "GrimoireLab | CHAOSS Bitergia Analytics")](https://chaoss.github.io/grimoirelab/)
 
 GrimoireLab is a [CHAOSS](https://chaoss.community) toolset for software development analytics. It includes a coordinated set of tools
 to retrieve data from systems used to support software development (repositories), store it in databases,
@@ -91,7 +91,7 @@ More details in the [docker folder](./docker/README.md).
 
 ## Using on FreeBSD
 
-Recently [FreeBSD](https://www.freebsd.org) has adopted Grimoirelab for their Bugzilla Analysis and have [deployed Grimoirelab](https://grimore.freebsd.org) in their cluster. [FreeBSD Foundation](https://www.freebsdfoundation.org) has been kind enough to share the process of running Grimoire on FreeBSD which is available [here](./FreeBSD.md). This guide will also help who are interested in running Grimoirelab from source instead of deploying them with Docker.
+Recently [FreeBSD](https://www.freebsd.org) has adopted Grimoirelab for their Bugzilla Analysis and have [deployed Grimoirelab](https://grimoire.freebsd.org) in their cluster. [FreeBSD Foundation](https://www.freebsdfoundation.org) has been kind enough to share the process of running Grimoire on FreeBSD which is available [here](./FreeBSD.md). This guide will also help who are interested in running Grimoirelab from source instead of deploying them with Docker.
 
 # Breaking changes
 
