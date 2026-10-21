@@ -126,7 +126,7 @@ Currently, GrimoireLab toolkit is organized in the following repositories:
   * [Mordred](https://github.com/chaoss/grimoirelab-mordred): orchestration
   * [GrimoireLab Toolkit](https://github.com/chaoss/grimoirelab-toolkit): common utilities
 
-There are also some [components built by the GrimoreLab community](community_components.md),
+There are also some [components built by the GrimoireLab community](community_components.md),
 which can be useful for you. Other related repositories are:
 * [GrimoireLab Tutorial](https://github.com/chaoss/grimoirelab-tutorial)
 * [GrimoireLab as a whole](https://github.com/chaoss/grimoirelab) (this repository)
