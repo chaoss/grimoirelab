@@ -29,7 +29,7 @@ du: cannot access '/proc/2234/fdinfo/3': No such file or directory
 **Note**: `free` and `du` are Linux utilities to display amount of free and used 
 memory in the system, and to estimate file space usage, respectively.
 
-You should ensure [enough virtual memory for Elasticsearch](https://www.elastic.co/docs/deploy-manage/deploy/self-managed/vm-max-map-count) 
+You should ensure [enough virtual memory for OpenSearch](https://docs.opensearch.org/latest/install-and-configure/install-opensearch/index/#important-settings) 
 (one of GrimoireLab components). You can do it running the following command as `root` in Linux or as administrator user in MacOS:
 
 ## Linux
