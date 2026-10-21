@@ -65,8 +65,10 @@ git version 2.17.1
 root@test-68b8628f:~# docker --version
 Docker version 19.03.1, build 74b1e89
 ```
-* **Hardware**: 2 CPU cores, 8GB memory RAM and set
-* ElasticSearch and Kibana up and running.
+* **Hardware**: 2 CPU cores, 8GB memory RAM and [enough virtual memory for OpenSearch](https://docs.opensearch.org/latest/install-and-configure/install-opensearch/index/#important-settings) (`vm.max_map_count`)
+* OpenSearch (or Elasticsearch) up and running at `http://localhost:9200` without authentication,
+  as set in [`setup-docker.cfg`](default-grimoirelab-settings/setup-docker.cfg). OpenSearch
+  Dashboards (or Kibana) is optional, for viewing the data.
 * SortingHat up and running
 
 Steps:
