@@ -16,4 +16,4 @@
   url: https://opensource.ieee.org/rit/mystic/
 - name: Tell us about your use case!
   image: emptydashboard.png
-  url: https://lists.linuxfoundation.org/mailman/listinfo/grimoirelab-discussions
+  url: https://github.com/chaoss/grimoirelab/blob/main/ADOPTERS.md
