@@ -53,7 +53,7 @@ services:
 
     mordred:
       restart: on-failure:5
-      image: grimoirelab/grimoirelab:latest
+      image: grimoirelab/grimoirelab:${GRIMOIRELAB_VERSION:-latest}
       volumes:
         - ../default-grimoirelab-settings/setup.cfg:/home/grimoire/conf/setup.cfg
         - ../default-grimoirelab-settings/projects.json:/home/grimoire/conf/projects.json
@@ -65,7 +65,7 @@ services:
 
     sortinghat:
       restart: on-failure:3
-      image: grimoirelab/sortinghat
+      image: grimoirelab/sortinghat:${GRIMOIRELAB_VERSION:-latest}
       environment:
         - SORTINGHAT_SECRET_KEY=secret
         - SORTINGHAT_DB_HOST=mariadb
@@ -90,7 +90,7 @@ services:
           condition: service_healthy
 
     sortinghat_worker:
-      image: grimoirelab/sortinghat-worker
+      image: grimoirelab/sortinghat-worker:${GRIMOIRELAB_VERSION:-latest}
       environment:
         - SORTINGHAT_SECRET_KEY=secret
         - SORTINGHAT_DB_HOST=mariadb
@@ -108,7 +108,7 @@ services:
 
     nginx:
       restart: on-failure:3
-      image: nginx:latest
+      image: nginx:1.30
       volumes:
         - ../default-grimoirelab-settings/nginx.conf.template:/etc/nginx/templates/default.conf.template
         - ../default-grimoirelab-settings/uwsgi_params:/etc/nginx/uwsgi_params

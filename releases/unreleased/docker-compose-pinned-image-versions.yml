@@ -1,0 +1,12 @@
+---
+title: Selectable GrimoireLab version and pinned nginx in docker-compose
+category: changed
+author: Tanmay Baranwal <baranwaltanmay16@gmail.com>
+issue: 670
+notes: >
+  The GrimoireLab and SortingHat images in docker-compose
+  still default to `latest`, but a specific release can now
+  be selected with the GRIMOIRELAB_VERSION environment
+  variable, e.g. `GRIMOIRELAB_VERSION=1.21.0`. The nginx
+  image is pinned to the 1.30 stable line instead of
+  `latest`, like the other dependencies.

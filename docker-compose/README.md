@@ -77,6 +77,14 @@ go to `http://localhost:8000/identities/`. To get access:
 
 **Note**: you can change user and password in the `docker-compose.yml` file.
 
+The GrimoireLab and SortingHat images use `latest` by default, while the other
+services (MariaDB, Valkey, OpenSearch, nginx) are pinned. To run a specific
+GrimoireLab release instead, set `GRIMOIRELAB_VERSION` (see the
+[available tags](https://hub.docker.com/r/grimoirelab/grimoirelab/tags)):
+```console
+GRIMOIRELAB_VERSION=1.21.0 docker compose up -d
+```
+
 This version doesn't come with visualizations. You need to manually import the dashboards
 from [Sigils repository](https://github.com/chaoss/grimoirelab-sigils/tree/main/panels/json/opensearch_dashboards)
 or create your own.
