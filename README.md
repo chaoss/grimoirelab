@@ -21,7 +21,7 @@ to analyze git activity for this repository. For this set up, there are several 
 Requirements:
 * **Software**: [git](https://git-scm.com/), [docker client](https://docs.docker.com/get-docker/) and [Docker Compose v2](https://docs.docker.com/compose/install/) (the `docker compose` command).
   The compose file has no `version:` key, so the legacy standalone `docker-compose` (v1) needs to be 1.27.0 or later.
-* **Hardware**: 2 CPU cores, 8GB memory RAM and [enough virtual memory for Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html)
+* **Hardware**: 2 CPU cores, 8GB memory RAM and [enough virtual memory for OpenSearch](https://docs.opensearch.org/latest/install-and-configure/install-opensearch/index/#important-settings) (`vm.max_map_count`)
 
 Steps:
 1. Clone this project:
