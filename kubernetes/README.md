@@ -1,3 +1,5 @@
+> **Note:** The Kubernetes manifests in this directory are outdated and are no longer maintained. They use older GrimoireLab components and may not work with the current setup. For new deployments, we recommend using the [Docker Compose setup](../docker-compose/README.md) instead.
+
 # Running GrimoireLab with Kubernetes
 
 In this folder are configuration manifests for deploying GrimoireLab using [Kubernetes](https://kubernetes.io). You will need a functional Kubernetes cluster, and you should be able to deploy both versions on k8s, kind, or minikube. There are certainly other options out there as well.
