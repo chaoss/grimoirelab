@@ -59,6 +59,19 @@ docker run --net=host \
     -t grimoirelab/grimoirelab
 ```
 
+On hosts with SELinux enforcing (e.g. Fedora, RHEL, CentOS), with Docker or Podman,
+the container is denied access to these files unless they are relabeled. Add the
+`:z` option to the mounts:
+```
+docker run --net=host \
+    -v $(pwd)/default-grimoirelab-settings/projects.json:/home/grimoire/conf/projects.json:z \
+    -v $(pwd)/default-grimoirelab-settings/setup-docker.cfg:/home/grimoire/conf/setup.cfg:z \
+    -t grimoirelab/grimoirelab
+```
+`:z` changes the SELinux label of those files on the host. Only use it on files
+and directories of your own, never on system directories (see "Configure the
+SELinux label" in [Docker's bind mounts documentation](https://docs.docker.com/engine/storage/bind-mounts/)).
+
 Remember you can run GrimoireLab and this image using docker-compose. It's the 
 simplest method to get started with. More details in the [docker-compose 
 folder](../docker-compose/).

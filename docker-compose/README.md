@@ -37,6 +37,36 @@ You should ensure [enough virtual memory for OpenSearch](https://docs.opensearch
 sysctl -w vm.max_map_count=262144
 ```
 
+## Linux with SELinux (Fedora, RHEL, CentOS...)
+
+With SELinux enforcing, the containers are denied access to the configuration
+files mounted from this repository. Add the `:z` option to those mounts in
+`docker-compose.yml`, so Docker or Podman relabels them for container access:
+
+```yaml
+    mordred:
+      volumes:
+        - ../default-grimoirelab-settings/setup.cfg:/home/grimoire/conf/setup.cfg:z
+        - ../default-grimoirelab-settings/projects.json:/home/grimoire/conf/projects.json:z
+        - ./logs:/home/grimoire/logs:z
+    ...
+    nginx:
+      volumes:
+        - ../default-grimoirelab-settings/nginx.conf.template:/etc/nginx/templates/default.conf.template:z
+        - ../default-grimoirelab-settings/uwsgi_params:/etc/nginx/uwsgi_params:z
+        - sortinghat-static:/sortinghat:ro
+```
+
+Don't add `:z` to the default `/tmp/` logs mount: relabeling a system directory
+can break other software on the host (see "Configure the SELinux label" in
+[Docker's bind mounts documentation](https://docs.docker.com/engine/storage/bind-mounts/)). Use a dedicated directory instead, like
+`./logs` above, created before starting the containers and writable by the user
+the container runs as (UID 1000):
+
+```console
+mkdir logs
+```
+
 ## Mac
 ```
 $ screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty
