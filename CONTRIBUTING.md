@@ -84,7 +84,7 @@ proposals for upgrades, bug fixing and feature requests.
 
 ### Slack
 
-You can fin us on [`#grimoirelab`](https://chaoss-workspace.slack.com/archives/C022NPTPC8Z)
+You can find us on [`#grimoirelab`](https://chaoss-workspace.slack.com/archives/C022NPTPC8Z)
 channel at [CHAOSS Slack](https://join.slack.com/t/chaoss-workspace/shared_invite/zt-r65szij9-QajX59hkZUct82b0uACA6g).
 
 We use the channel for pinging people, sharing updates, quick and informal
