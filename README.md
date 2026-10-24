@@ -50,7 +50,7 @@ To manage the identities you can access SortingHat at http://localhost:8000/iden
 
 By default, OpenSearch Dashboards doesn't contain any visualization, but we have
 a set of [default dashboards](https://github.com/chaoss/grimoirelab-sigils/tree/main/panels/json/opensearch_dashboards).
-To import them, open OpenSearch Dashboards, go to `Stack Management` > `Saved Objects`
+To import them, open OpenSearch Dashboards, go to `Management` > `Dashboards Management` > `Saved Objects`
 and import the files you want.
 
 More details or troubleshooting in the [docker-compose folder](./docker-compose/README.md).
