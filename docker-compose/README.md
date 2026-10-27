@@ -85,9 +85,23 @@ GrimoireLab release instead, set `GRIMOIRELAB_VERSION` (see the
 GRIMOIRELAB_VERSION=1.21.0 docker compose up -d
 ```
 
-This version doesn't come with visualizations. You need to manually import the dashboards
-from [Sigils repository](https://github.com/chaoss/grimoirelab-sigils/tree/main/panels/json/opensearch_dashboards)
-or create your own.
+This version doesn't come with visualizations. To get dashboards, download the
+`.ndjson` file of each one you want from the [Sigils repository](https://github.com/chaoss/grimoirelab-sigils/tree/main/panels/json/opensearch_dashboards)
+(e.g. `git.ndjson`, `overview.ndjson`) and import it, either:
+
+* from the UI: go to `http://localhost:8000/`, switch to the **Global** tenant
+  (user menu, *Switch tenants*), then open *Dashboards Management* → *Saved objects*
+  → *Import* and select the file; or
+* from the command line:
+  ```console
+  curl -u admin:GrimoireLab.1 -H "osd-xsrf: true" -H "securitytenant: global" \
+       -X POST "http://localhost:5601/api/saved_objects/_import?overwrite=true" \
+       --form file=@git.ndjson
+  ```
+
+Import them into the Global tenant so every user sees them: without
+`securitytenant: global`, the command line import saves them in the `admin`
+user's private tenant instead. You can also create your own dashboards.
 
 # More information
 
@@ -99,6 +113,31 @@ or create your own.
   * [Slack](https://get.slack.help/hc/en-us/articles/215770388-Create-and-regenerate-API-tokens)
 
 ## Common questions
+
+### Why do the dashboards show no data?
+
+1. **Collection is still running.** Mordred needs some time to collect and enrich
+   the data: 10-15 minutes for small repositories, much longer for big ones. Follow
+   its progress with `docker compose logs -f mordred` (with the default
+   `docker-compose.yml`, the log is also written to `/tmp/all.log` on the host).
+2. **Check that the indices have data.** The default configuration collects git
+   data into `git_demo_raw` and `git_demo_enriched`, and the dashboards read it
+   through aliases such as `git`:
+   ```console
+   curl -k -u admin:GrimoireLab.1 "https://localhost:9200/_cat/indices?v"
+   curl -k -u admin:GrimoireLab.1 "https://localhost:9200/_cat/aliases?v"
+   ```
+3. **If collection fails** (e.g. `Could not resolve host` or timeouts in the
+   logs), check that the mordred container can reach the repositories:
+   ```console
+   docker compose exec mordred git ls-remote https://github.com/chaoss/grimoirelab
+   ```
+   If it can't, the problem is the container's network (a firewall, DNS or a proxy),
+   not GrimoireLab.
+4. **If the indices have data but the dashboards are empty**, widen the time range
+   in the time picker. The dashboards open with the default range, *Last 15
+   minutes*, which leaves out older activity. Also check that you are in the tenant
+   where you imported the dashboards (see above).
 
 ### How to stop and restart deployed software infrastructure?
 
