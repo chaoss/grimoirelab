@@ -1,5 +1,33 @@
 # Releases
 
+## GrimoireLab 1.23.0 - (2026-10-28)
+
+**New components:**
+
+* kidash 1.1.12
+* cereslib 1.1.12
+* perceval-mozilla 1.2.12
+* perceval-opnfv 1.1.12
+
+The following list describes the changes by component:
+
+### kidash
+  
+  * Update Poetry's package dependencies
+
+### cereslib
+  
+  * Update Poetry's package dependencies
+
+### perceval-mozilla
+  
+  * Update Poetry's package dependencies
+
+### perceval-opnfv
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 1.22.1 - (2026-09-22)
 
 **New components:**
