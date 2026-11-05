@@ -406,7 +406,7 @@ jobs:
 
       - id: rollback
         name: Rollback last commits and remove tag
-        if: steps.wait-for-release.outcome == 'failure'
+        if: failure() && steps.wait-for-release.outcome == 'failure'
         run: |
           git reset --hard HEAD~1
           git push -f origin ${GITHUB_REF#refs/heads/}
