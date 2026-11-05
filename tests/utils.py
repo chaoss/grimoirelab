@@ -56,7 +56,7 @@ class GrimoireLabClient:
             return
 
         credentials = {"username": self.user, "password": self.password}
-        res = self.post("token/", json=credentials)
+        res = self.post("/token/", json=credentials)
         res.raise_for_status()
         data = res.json()
 
@@ -101,7 +101,7 @@ class GrimoireLabClient:
         if not self.session:
             raise ValueError("Session not connected. Call connect() first.")
 
-        url = f"{self.url}/{uri}"
+        url = f"{self.url}/{uri.lstrip('/')}"
         last_exception = None
 
         for attempt in range(MAX_RETRIES):

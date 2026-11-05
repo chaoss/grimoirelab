@@ -42,8 +42,8 @@ perceval-puppet = {version = ">=1.1.1", allow-prereleases = true}
 perceval-weblate = {version = ">=1.1.1", allow-prereleases = true}
 sortinghat = {version = ">=1.12.0", allow-prereleases = true}
 perceval = {version = ">=1.4.0", allow-prereleases = true}
-grimoirelab-chronicler = {version = ">=1.0.0-alpha.3", allow-prereleases = true}
-grimoirelab-core = {version = ">=1.0.0-alpha.1", allow-prereleases = true}
+grimoirelab-chronicler = {version = ">=1.0.0a4", allow-prereleases = true}
+grimoirelab-core = {version = ">=1.0.0a2", allow-prereleases = true}
 
 [tool.poetry.group.tests]
 optional = true

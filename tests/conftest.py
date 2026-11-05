@@ -166,7 +166,7 @@ def setup_grimoirelab(request):
     subprocess.run(["grimoirelab", "admin", "setup", "--no-interactive"])
 
     grimoirelab = subprocess.Popen(
-        ["grimoirelab", "run", "server", "--dev"],
+        ["grimoirelab", "run", "server"],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
         start_new_session=True,
@@ -185,10 +185,8 @@ def setup_grimoirelab(request):
     )
 
     def stop_grimoirelab():
-        # GrimoireLab uses uWSGI. It won't stop with SIGTERM,
-        # so we need to use SIGKILL
-        grimoirelab.kill()
-
+        # Send SIGTERM to terminate the processes
+        grimoirelab.terminate()
         archivists.terminate()
         eventizers.terminate()
 
