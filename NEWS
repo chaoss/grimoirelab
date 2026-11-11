@@ -1,29 +1,5 @@
 # Releases
 
-## GrimoireLab 2.0.0-alpha.2 - (2026-11-11)
-
-**New components:**
-
-* grimoirelab-chronicler 1.0.0a5
-* grimoirelab-core 1.0.0a3
-
-The following list describes the changes by component:
-
-### grimoirelab-chronicler
-  
-  * Update Poetry's package dependencies
-
-### grimoirelab-core
-
-**Bug fixes:**
-
- * Identities tab API URL in production builds\
-   The identities tab failed in packaged releases because the SortingHat
-   API URL was built as `//api/v1/identities/`, which browsers resolve to
-   `http://api/v1/identities/`. The trailing slash of the base URL is now
-   removed before building it.
-
-
 ## GrimoireLab 2.0.0-alpha.1 - (2025-11-17)
 
 **New components:**
