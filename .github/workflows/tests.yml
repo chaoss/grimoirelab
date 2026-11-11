@@ -37,5 +37,13 @@ jobs:
         poetry install --with tests -vvv
         poetry run pip install -r requirements_dev.txt
     - name: Tests
+      env:
+        GRIMOIRELAB_TESTS_LOGS_DIR: ${{ runner.temp }}/grimoirelab-logs
       run: |
         poetry run pytest tests
+    - name: Upload GrimoireLab logs
+      if: failure()
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      with:
+        name: grimoirelab-logs-py${{ matrix.python-version }}
+        path: ${{ runner.temp }}/grimoirelab-logs
