@@ -43,7 +43,7 @@ def test_git_performance(setup_git_repositories, timeout):
     tmpdir = setup_git_repositories
 
     grimoirelab_client = GrimoireLabClient(
-        "http://127.0.0.1:8000", "admin", "admin"
+        "http://localhost:8000", "admin", "admin"
     )
     grimoirelab_client.connect()
 

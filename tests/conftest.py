@@ -151,9 +151,58 @@ def setup_containers(setup_opensearch, setup_redis, setup_mysql):
     yield
 
 
+# Directory where the output of GrimoireLab processes is stored
+LOGS_DIR = tempfile.mkdtemp(prefix="grimoirelab_logs_")
+LOG_NAMES = ("server", "eventizers", "archivists")
+MAX_LOG_LINES = 200
+
+
+def start_grimoirelab_process(name, args):
+    """Run a GrimoireLab process, storing its output in LOGS_DIR."""
+
+    with open(os.path.join(LOGS_DIR, f"{name}.log"), "w") as logfile:
+        return subprocess.Popen(
+            args,
+            stdout=logfile,
+            stderr=subprocess.STDOUT,
+            start_new_session=True,
+        )
+
+
+def read_log_errors(name):
+    """Return the error, warning and traceback lines of a process log."""
+
+    filepath = os.path.join(LOGS_DIR, f"{name}.log")
+    if not os.path.exists(filepath):
+        return f"{filepath} not found"
+
+    keywords = ("error", "warning", "traceback")
+    with open(filepath, "r", errors="replace") as fd:
+        lines = [line for line in fd if any(k in line.lower() for k in keywords)]
+
+    header = f"Full log: {filepath}\n"
+    if len(lines) > MAX_LOG_LINES:
+        header += f"Showing last {MAX_LOG_LINES} of {len(lines)} lines\n"
+
+    return header + "".join(lines[-MAX_LOG_LINES:])
+
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    """Add the errors found in GrimoireLab logs to failed test reports."""
+
+    outcome = yield
+    report = outcome.get_result()
+
+    if report.when == "call" and report.failed:
+        for name in LOG_NAMES:
+            report.sections.append((f"GrimoireLab {name} log errors", read_log_errors(name)))
+
+
 @pytest.fixture(scope="module", autouse=True)
 def setup_grimoirelab(request):
     os.environ["DJANGO_SETTINGS_MODULE"] = "grimoirelab.core.config.settings"
+    os.environ["GRIMOIRELAB_LOGS_JSON"] = "true"
     os.environ["GRIMOIRELAB_REDIS_PORT"] = str(redis.get_exposed_port(6379))
     os.environ["GRIMOIRELAB_DB_PORT"] = str(mysql.get_exposed_port(3306))
     os.environ["GRIMOIRELAB_DB_PASSWORD"] = mysql.root_password
@@ -165,30 +214,19 @@ def setup_grimoirelab(request):
 
     subprocess.run(["grimoirelab", "admin", "setup", "--no-interactive"])
 
-    grimoirelab = subprocess.Popen(
-        ["grimoirelab", "run", "server", "--dev"],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-        start_new_session=True,
+    grimoirelab = start_grimoirelab_process(
+        "server", ["grimoirelab", "run", "server"]
     )
-    eventizers = subprocess.Popen(
-        ["grimoirelab", "run", "eventizers", "--workers", "10"],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-        start_new_session=True,
+    eventizers = start_grimoirelab_process(
+        "eventizers", ["grimoirelab", "run", "eventizers", "--workers", "10"]
     )
-    archivists = subprocess.Popen(
-        ["grimoirelab", "run", "archivists", "--workers", "10"],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-        start_new_session=True,
+    archivists = start_grimoirelab_process(
+        "archivists", ["grimoirelab", "run", "archivists", "--workers", "10"]
     )
 
     def stop_grimoirelab():
-        # GrimoireLab uses uWSGI. It won't stop with SIGTERM,
-        # so we need to use SIGKILL
-        grimoirelab.kill()
-
+        # Send SIGTERM to terminate the processes
+        grimoirelab.terminate()
         archivists.terminate()
         eventizers.terminate()
 
