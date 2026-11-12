@@ -151,8 +151,10 @@ def setup_containers(setup_opensearch, setup_redis, setup_mysql):
     yield
 
 
-# Directory where the output of GrimoireLab processes is stored
-LOGS_DIR = tempfile.mkdtemp(prefix="grimoirelab_logs_")
+# Directory where the output of GrimoireLab processes is stored.
+# Set GRIMOIRELAB_TESTS_LOGS_DIR to use a specific directory.
+LOGS_DIR = os.environ.get("GRIMOIRELAB_TESTS_LOGS_DIR") or tempfile.mkdtemp(prefix="grimoirelab_logs_")
+os.makedirs(LOGS_DIR, exist_ok=True)
 LOG_NAMES = ("server", "eventizers", "archivists")
 MAX_LOG_LINES = 200
 
