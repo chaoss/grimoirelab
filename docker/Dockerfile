@@ -5,7 +5,7 @@ FROM python:3.12-slim-bullseye
 
 LABEL maintainer="Santiago Dueñas <sduenas@bitergia.com>"
 
-ARG GRIMOIRELAB_RELEASE="2.0.0-alpha.1"
+ARG GRIMOIRELAB_RELEASE="2.0.0-alpha.2"
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DEPLOY_USER=grimoirelab

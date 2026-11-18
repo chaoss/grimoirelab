@@ -1,5 +1,30 @@
 # Releases
 
+## GrimoireLab 2.0.0-alpha.2 - (2026-11-18)
+
+**New components:**
+
+* grimoirelab-chronicler 1.0.0a7
+* grimoirelab-core 1.0.0a5
+
+The following list describes the changes by component:
+
+### grimoirelab-chronicler
+
+**Bug fixes:**
+
+ * Compliance with CodeEvents\
+   The field `linked_event` was not valid because CloudEvents requires
+   that attribute names use only lowercase letters. It has been renamed
+   to `linkedevent`. At the same time the field `source` (in the identity
+   events) clashed with the source of the event. It has been renamed to
+   `datasource`.
+
+### grimoirelab-core
+  
+  * Update Poetry's package dependencies
+
+
 ## GrimoireLab 2.0.0-alpha.1 - (2025-11-17)
 
 **New components:**
