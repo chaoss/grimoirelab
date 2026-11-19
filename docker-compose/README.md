@@ -117,3 +117,29 @@ and once they are *down*:
 ```console
 docker compose up -d
 ```
+
+### How to run GrimoireLab behind an HTTP(S) proxy?
+
+Mordred fetches data with `git` and with Python HTTP clients, and both read the
+standard proxy environment variables. Add them to the `mordred` service in
+`docker-compose.yml`, and list the services of this setup in `NO_PROXY` so
+mordred's requests to OpenSearch and to SortingHat (through `nginx`) don't go
+through the proxy:
+
+```yaml
+    mordred:
+      ...
+      environment:
+        - HTTP_PROXY=http://proxy.example.com:3128
+        - HTTPS_PROXY=http://proxy.example.com:3128
+        - NO_PROXY=localhost,127.0.0.1,opensearch-node1,nginx,sortinghat,mariadb,valkey
+```
+
+Include the scheme (`http://`) in the proxy URL. `git` reads only the lowercase
+`http_proxy` for plain `http://` repositories, so add it as well if you analyze
+any. After `docker compose up -d`, you can check that the variables reached the
+container with:
+
+```console
+docker compose exec mordred env | grep -i proxy
+```
