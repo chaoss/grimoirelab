@@ -39,7 +39,7 @@ for retrieving data from some of its data sources.
 * [Q-DashMan](https://github.com/zhquan/TFM/)
 by [Quan Zhou](https://github.com/zhquan).
 Master thesis which consists of a completely automated system that provides
-a web interface for configuring GrimoireLab, so that it analyizes any set of
+a web interface for configuring GrimoireLab, so that it analyzes any set of
 repositories.
 
 * [Prosoul](https://github.com/Bitergia/prosoul)

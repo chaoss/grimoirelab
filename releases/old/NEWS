@@ -53,7 +53,7 @@ Released: 2022-03-18
 * SirMordred
     * [gha] Use poetry for tests in GitHub Actions workflow
     * [poetry] Add poetry support
-    * [deps] Fix dependecies in requirements
+    * [deps] Fix dependencies in requirements
     * [utils] Change sirmordred scripts as entrypoints
     * Refactoring link to new tutorial page. Currently it links to a page not found and I'm pretty sure this is a better place for the reader to be sent.
     * Clarify README
@@ -538,7 +538,7 @@ Released: 2020-07-27
 
 * GrimoireLab
     * Remove 'manuscripts' from the release due there is
-      a broken depencency with matplotlib and numpy.
+      a broken dependency with matplotlib and numpy.
 
 
 # 0.2.44
@@ -707,7 +707,7 @@ Released: 2020-04-24
     * [mattermost] Add sanitize for archive
     * [github] Add sanitize for archive
     * [discourse] Add sanitize for archive
-    * [backend] Add predefined paramaters to clients
+    * [backend] Add predefined parameters to clients
     * [pagure] Fix failing tests
     * [backend] Add Gitter backend
     * [gerrit] Extend `--start` param to gerrit 3.x
@@ -729,8 +729,8 @@ Released: 2020-04-24
 * Mordred
     * [mordred] Add support for github events
     * [doc-git] Add parameter `run_month_days` in `enrich_git_branches`
-    * This commit adds config, alias, menu entry and documentaion for gitter backend.
-    * Fixed the typoes of docker/README.md
+    * This commit adds config, alias, menu entry and documentation for gitter backend.
+    * Fixed the typos of docker/README.md
     * [doc] Add Pagure datasource
     * [tests] Remove user/password from es_enrichment section
     * Remove user and password parameter from elastic section
@@ -772,7 +772,7 @@ Released: 2020-04-24
     * [ELK] Store and process github events
     * [enrich-git] Add the param `run_month_days` to enrich_git_branches
     * [enriched-git] Handle connection problems during enrich_git_branches
-    * This commit addds support for gitter backend. Raw and Enriched indexes have been added along with their tests and schemas.
+    * This commit adds support for gitter backend. Raw and Enriched indexes have been added along with their tests and schemas.
     * [pagure] Add support for Pagure
     * updated the docstring for pair_programming
     * [enriched-bugzillarest] Add new field `is_open`
@@ -828,7 +828,7 @@ Released: 2020-03-20
     * fixed username and pass for kibiter login
     * Update README.md troubleshooting section - processes conflict with SearchGuard
     * Update README.md troubleshooting section - processes conflict with SearchGuard
-    * Update 'Source code and docker' section of README.md to include unsecure docker-compose
+    * Update 'Source code and docker' section of README.md to include insecure docker-compose
     * correcting spelling mistakes in Readme
     * Added Empty Index Problem with Solution in troubleshooting section of Readme
     * [utils] Add script to upload menu and dashboards
@@ -1156,7 +1156,7 @@ Released: 2019-12-19
     * [engagement panel] Fix dashboard name
     * [colic] Fix dashboard name
     * [cocom] Fix dashboard name
-    * Fix file name to use hypens instead of underscores
+    * Fix file name to use hyphens instead of underscores
     * [github_issues] Retitle issues open to issues
     * [gitlab_issues] Retitle issues open to issues
     * [about] Add mention to CHAOSS project
@@ -1412,7 +1412,7 @@ Released: 2019-10-28
 
 * SirMordred
     * [task_identities] Call sh affiliate after loading identities file
-    * [task_identities] Call sh unify after loading identites file
+    * [task_identities] Call sh unify after loading identities file
     * [travis] Support tests for python 3.5 and 3.6
     * [tests]  Add tests for enrich_extra_data study
     * [doc] Improve desc projects_url
@@ -1420,7 +1420,7 @@ Released: 2019-10-28
     * [studies] Improve log messages
     * [task_enrich] Remove support for filter-raw-prefix
     * [task] Remove support for filter-raw-prefix
-    * [task_manager] Conver INFO messages to DEBUG
+    * [task_manager] Convert INFO messages to DEBUG
     * [task_enrich] Standardize refresh identities log messages
     * [sirmordred] Improve log messages related to task projects
     * [mordred] Ignore INFO messages from elasticsearch
@@ -1527,7 +1527,7 @@ Released: 2019-09-02
     * [schema] Remove ocean-unique-id
     * [raw-askbot] Remove fix_item
     * [tests] Add main to test_load_identities
-    * [jenkins] Remove ocean-unique-id frmo schema
+    * [jenkins] Remove ocean-unique-id from schema
     * [Jenkins] Update CSV schema for Jenkins
 * Perceval
     * [groupsio] Replace HTTP basic auth with cookies based auth (hace 52 minutos)
@@ -1566,9 +1566,9 @@ Released: 2019-08-29
     * [colic] Filter dir paths from analysis
     * [analyzer] Add `diff_timeout` param to cloc analyzer
     * [analyzers] Suppress deprecation warning lizard.analyze_file
-    * [docs] Update CoLic definition under documentation adn docstrings
+    * [docs] Update CoLic definition under documentation and docstrings
     * [colic] Add copyright flag for extraction of copyright information
-    * [cloc] Fix cloc error due to mulitple word language-name
+    * [cloc] Fix cloc error due to multiple word language-name
     * [graal] Update license info
     * [setup] Fix format type for long description of package
     * [tests] Fix test_init in test_graal
@@ -1629,7 +1629,7 @@ Released: 2019-07-23
     * [tests] Fix server tests with non-real repositories
     * [server] Publish task information
     * [tasks] Use datetime_utcnow() when creating tasks
-    * [jobs] Add funtion to convert job results to dicts
+    * [jobs] Add function to convert job results to dicts
     * [scheduler] Set infinite time-to-live for jobs and results
     * [scheduler] Update task jobs list when a job is enqueued
     * [tasks] Add attribute to Task to store its list of jobs
@@ -1921,7 +1921,7 @@ Released: 2019-04-22
     * [enriched] Add metadata filter raw to enriched items
     * [elk] Use filter raw info to assess last enrich date
     * [enriched-enrich] Add `metadata_filter_raw` method
-    * [enriched-utils] Add filter raw text to retrive last enrich date
+    * [enriched-utils] Add filter raw text to retrieve last enrich date
     * [enriched-utils] Fix last enrich date calculation
 * Perceval
     * [doc] Update help messages for "from-date" and "to-date" params
@@ -2050,7 +2050,7 @@ Released: 2019-03-26
 * SirMordred
     * [utils] Update setup.cfg and projects.json of micro-mordred
     * [task_panels] Order dashboards by name
-    * [doc] Update documention for panels section
+    * [doc] Update documentation for panels section
     * [menu.yml] Add export panel to Jenkins
     * [task_panels] Upload github repos panels
     * [tests] Update aliases.json in tests folder
